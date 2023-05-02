@@ -1,5 +1,5 @@
-import React from 'react';
-import './Order.scss';
+import React from "react";
+import "./Order.scss";
 
 function Order() {
   return <div className="order">Order Page</div>;
