@@ -1,0 +1,18 @@
+@import "../../styles/variables";
+
+.bigButton {
+  width: 400px;
+  height: 45px;
+  font-size: 16px;
+}
+
+.dark {
+  background-color: $main-black;
+  color: $main-white;
+}
+
+.bright {
+  border: 1px solid $main-black;
+  background-color: $main-white;
+  color: $main-black;
+}

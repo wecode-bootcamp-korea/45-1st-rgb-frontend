@@ -1,0 +1,9 @@
+@import "../../styles/variables";
+
+.mediumButton {
+  width: 300px;
+  height: 65px;
+  background-color: $main-black;
+  color: $main-white;
+  font-size: 16px;
+}

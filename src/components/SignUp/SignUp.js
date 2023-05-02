@@ -1,5 +1,5 @@
-import React from 'react';
-import './SignUp.scss';
+import React from "react";
+import "./SignUp.scss";
 
 function SignUp() {
   return <div className="signUp">SignUp Page</div>;

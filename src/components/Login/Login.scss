@@ -10,13 +10,22 @@ $point-red: #ff0000;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
   background-color: $main-white;
 }
-.loginContent {
+.loginBox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
+  width: 400px;
+  height: 500px;
 
+  .loginTitle {
+    margin-bottom: 50px;
+  }
   .loginForm {
     display: flex;
     flex-direction: column;
@@ -26,6 +35,31 @@ $point-red: #ff0000;
       width: 400px;
       height: 80px;
       border-bottom: 1px solid $main-grey;
+      font-size: 21px;
+    }
+  }
+
+  & > p {
+    margin: 10px 0 30px;
+    color: $point-red;
+    font-size: 14px;
+  }
+
+  .loginText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+
+    & > p {
+      font-size: 14px;
+    }
+
+    & > p:first-child {
+      margin-left: 190px;
     }
   }
 }
