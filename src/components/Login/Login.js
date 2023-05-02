@@ -1,6 +1,5 @@
 import React from "react";
 import BigButton from "../Button/Button";
-import MediumButton from "../Button/MediumButton";
 
 import "./Login.scss";
 
