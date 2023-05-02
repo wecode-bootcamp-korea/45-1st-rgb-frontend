@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.scss";
-import BigButton from "../Button/BigButton";
+import Button from "../Button/Button";
 
 function Login() {
   return (
@@ -23,12 +23,20 @@ function Login() {
             ></input>
           </form>
           <p>회원정보가 일치하지 않습니다.</p>
-          <BigButton name={"로그인"} buttonColor={"dark"} />
+          <Button
+            name={"로그인"}
+            buttonSize={"bigButton"}
+            buttonColor={"dark"}
+          />
           <div className="loginText">
             <p>이메일 찾기 및 비밀번호 재설정</p>
             <p>아직 회원이 아니십니까?</p>
           </div>
-          <BigButton name={"가입하기"} buttonColor={"bright"} />
+          <Button
+            name={"가입하기"}
+            buttonSize={"bigButton"}
+            buttonColor={"bright"}
+          />
         </div>
       </div>
     </>
