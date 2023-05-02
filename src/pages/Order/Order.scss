@@ -1,3 +1,54 @@
+// variables.scss
+$main-black: #252525;
+$main-grey: #333333;
+$main-white: #fffef2;
+$main-ivory: #f5f5e6;
+$point-red: #ff0000;
+
+// reset.scss
+input {
+  border: none;
+  outline: none;
+
+  // 수정님 커밋에서 추가 필요
+  background: none;
+}
+
 .order {
-  background-color: bisque;
+  background-color: $main-ivory;
+
+  &Nav {
+    display: flex;
+    align-items: center;
+
+    padding: 15px 10px;
+
+    &Active {
+      font-weight: 700;
+    }
+
+    &Inactive {
+      color: $main-grey;
+    }
+
+    &Arrow {
+      transform: rotate(270deg);
+    }
+  }
+}
+
+.orderBox {
+  &Left {
+    &Title {
+    }
+    &Form {
+      .inputNameWrap {
+        display: flex;
+        align-items: center;
+      }
+      input {
+        border-bottom: 1px solid $main-grey;
+      }
+    }
+  }
 }
