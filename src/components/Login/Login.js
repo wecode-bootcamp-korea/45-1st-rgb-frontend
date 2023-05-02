@@ -1,5 +1,5 @@
 import React from "react";
-import BigButton from "../Button/BigButton";
+import BigButton from "../Button/Button";
 import MediumButton from "../Button/MediumButton";
 
 import "./Login.scss";
@@ -24,8 +24,16 @@ function Login() {
               placeholder=" 비밀번호"
             ></input>
           </form>
-          <BigButton name={"로그인"} buttonColor={"dark"} />
-          <BigButton name={"가입하기"} buttonColor={"bright"} />
+          <Button
+            name={"로그인"}
+            buttonSize={"bigButton"}
+            buttonColor={"dark"}
+          />
+          <Button
+            name={"가입하기"}
+            buttonSize={"bigButton"}
+            buttonColor={"bright"}
+          />
         </div>
       </div>
     </>

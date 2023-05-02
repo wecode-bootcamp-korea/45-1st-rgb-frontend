@@ -9,7 +9,6 @@ function User() {
       <h1>User Page</h1>
       <Login />
       <SignUp />
-      {/* <Login /> */}
     </div>
   );
 }
