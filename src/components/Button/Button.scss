@@ -1,30 +1,43 @@
 @import "../../styles/variables";
 
+@mixin buttonSize($width, $height, $font) {
+  width: $width;
+  height: $height;
+  font-size: $font;
+}
+
+@mixin buttonColor($background, $color) {
+  background-color: $background;
+  color: $color;
+}
+
 .bigButton {
-  width: 400px;
-  height: 45px;
-  font-size: 16px;
+  @include buttonSize(400px, 45px, 16px);
 }
 
 .mediumButton {
-  width: 300px;
-  height: 65px;
-  font-size: 16px;
+  @include buttonSize(300px, 65px, 16px);
 }
 
 .smallButton {
-  width: 100px;
-  height: 40px;
-  font-size: 14px;
+  @include buttonSize(100px, 40px, 14px);
 }
 
 .dark {
-  background-color: $main-black;
-  color: $main-white;
+  @include buttonColor($main-grey, $main-white);
+  opacity: 85%;
+
+  &:hover {
+    opacity: 100%;
+    background-color: $main-black;
+  }
 }
 
 .bright {
-  border: 1px solid $main-black;
-  background-color: $main-white;
-  color: $main-black;
+  @include buttonColor($main-white, $main-grey);
+  border: 1px solid $main-grey;
+
+  &:hover {
+    @include buttonColor($main-grey, $main-white);
+  }
 }
