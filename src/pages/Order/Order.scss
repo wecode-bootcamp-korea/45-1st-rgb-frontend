@@ -18,56 +18,12 @@ input {
   .leftArrow {
     position: absolute;
     top: 20px;
-    left: 20px;
+    left: 70px;
     cursor: pointer;
   }
 
   &Left {
     width: 70%;
     padding: 50px 100px;
-
-    &Title {
-      margin-bottom: 30px;
-
-      font-size: 37px;
-      font-weight: 700;
-    }
-
-    .orderInfoForm,
-    .addressForm {
-      h3 {
-        padding: 10px;
-        padding-left: 0;
-        font-size: 17px;
-      }
-
-      .inputNameWrap {
-        display: flex;
-        align-items: center;
-        gap: 70px;
-      }
-
-      input {
-        padding-bottom: 15px;
-        border-bottom: 1px solid $main-grey;
-      }
-    }
-
-    .addressForm {
-      .addressInput {
-        width: 630px;
-        // display: inline-block;
-        input {
-          width: 100%;
-        }
-      }
-      .addressDetailInput {
-        // display: inline-block;
-        width: 630px;
-        input {
-          width: 100%;
-        }
-      }
-    }
   }
 }

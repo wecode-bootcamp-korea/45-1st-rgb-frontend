@@ -1,0 +1,123 @@
+@import "../../../../styles/variables";
+
+.delivery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  padding: 50px 100px;
+
+  &Title {
+    margin-bottom: 30px;
+    font-size: 37px;
+    font-weight: 700;
+  }
+
+  &Form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .userInfoForm {
+      h3 {
+        padding: 10px;
+        padding-left: 0;
+        font-size: 17px;
+      }
+
+      input {
+        padding-bottom: 15px;
+        border-bottom: 1px solid $main-grey;
+      }
+    }
+  }
+
+  .inputNameWrap {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+
+    width: 630px;
+
+    .familyName {
+      width: 30%;
+    }
+
+    .firstName {
+      width: 70%;
+    }
+  }
+
+  .phoneNumber {
+    width: 630px;
+  }
+
+  .orderInfoForm,
+  .deliveryInfoForm {
+    /*     h3 {
+      padding: 10px;
+      padding-left: 0;
+      font-size: 17px;
+    }
+
+    .inputNameWrap {
+      display: flex;
+      align-items: center;
+      gap: 70px;
+    }
+ */
+    input {
+      padding-bottom: 15px;
+      border-bottom: 1px solid $main-grey;
+    }
+  }
+
+  .addressForm {
+    .addressInput {
+      width: 630px;
+
+      input {
+        width: 100%;
+      }
+    }
+    .addressDetailInput {
+      width: 630px;
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.deliveryInfoForm {
+  .addressInput {
+    width: 630px;
+
+    input {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+  .addressDetailInput {
+    width: 630px;
+
+    input {
+      width: 100%;
+      padding: 10px;
+    }
+  }
+}
+
+.requestInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .requestInput {
+    width: 630px;
+    height: 80px;
+    border: 1px solid $main-grey;
+  }
+}

@@ -34,7 +34,7 @@
 
   .checkoutProduct {
     display: flex;
-    gap: 20px;
+    gap: 17px;
     padding: 15px 0px;
     border-top: 1px solid $main-grey;
     border-bottom: 1px solid $main-grey;
@@ -60,6 +60,8 @@
 }
 
 .checkoutProductRight {
+  padding: 5px 0px;
+
   .topRow {
     display: flex;
     justify-content: space-between;
