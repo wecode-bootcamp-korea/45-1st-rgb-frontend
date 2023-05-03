@@ -1,8 +1,15 @@
-import React from 'react';
-import './ProductList.scss';
+import React from "react";
+import ListBottom from "./Component/ListBottom";
+import ListTop from "./Component/ListTop";
+import "./ProductList.scss";
 
 function ProductList() {
-  return <div className="productList">ProductList Page</div>;
+  return (
+    <div className="productList">
+      <ListTop />
+      <ListBottom />
+    </div>
+  );
 }
 
 export default ProductList;
