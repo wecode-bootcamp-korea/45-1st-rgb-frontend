@@ -14,21 +14,32 @@ div.listBottom {
 
   .bottomBottom {
     display: flex;
+    background-color: aqua;
 
     .bottomLeft {
-      width: 20%;
-      padding-top: 100px;
+      width: 17%;
+      margin-top: 7%;
+      margin-bottom: 10%;
+      padding-top: 3%;
+      border-right: 2px solid black;
       background-color: cadetblue;
     }
 
     .bottomRight {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
+      // gap: 50px 50px;
 
-      width: 80%;
-      padding: 100px 20px 0 20px;
+      width: 83%;
+      padding: 10% 10%;
       background-color: brown;
+    }
+
+    .artworkBox {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+      background-color: coral;
     }
   }
 }

@@ -8,18 +8,26 @@ function LeftFilter({ Show }) {
         <label for="checkbox">Show only available artwork</label>
         <input type="checkbox" id="checkbox" />
       </div>
-      <p>
-        Price
-        <button className="arrow">arrow</button>
-      </p>
-      <p>
-        Size
-        <button className="arrow">arrow</button>
-      </p>
-      <p>
-        Material
-        <button className="arrow">arrow</button>
-      </p>
+      <div className="filters">
+        <div className="filterContent">
+          <span>Price</span>
+          <button>arrow</button>
+          <p>0원 - 2만원</p>
+          <p>2만원 - 5만원</p>
+        </div>
+        <div className="filterContent">
+          <span>Size</span>
+          <button>arrow</button>
+          <p>0원 - 2만원</p>
+          <p>2만원 - 5만원</p>
+        </div>
+        <div className="filterContent">
+          <span>Material</span>
+          <button>arrow</button>
+          <p>0원 - 2만원</p>
+          <p>2만원 - 5만원</p>
+        </div>
+      </div>
     </div>
   );
 }

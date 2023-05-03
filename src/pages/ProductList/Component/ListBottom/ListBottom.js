@@ -15,9 +15,11 @@ function ListBottom() {
           <LeftFilter />
         </div>
         <div className="bottomRight">
-          {ArtList.map(art => {
-            return <ArtWorks art={art} key={art.id} />;
-          })}
+          <div className="artworkBox">
+            {ArtList.map(art => {
+              return <ArtWorks art={art} key={art.id} />;
+            })}
+          </div>
         </div>
       </div>
     </div>

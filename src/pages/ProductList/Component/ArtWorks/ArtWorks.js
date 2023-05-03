@@ -10,7 +10,7 @@ function ArtWorks({ art }) {
         <p>{art.price}</p>
       </div>
       <p>{art.material}</p>
-      <p>{`${art.productsSizeLeft} x ${art.productsSizeRight}`}</p>
+      <p>{`${art.productsSizeLeft} x ${art.productsSizeRight} cm`}</p>
     </div>
   );
 }
