@@ -1,7 +1,9 @@
 import react from "react";
 import "./Button.scss";
 
-const Button = ({ buttonSize, buttonColor, name }) => {
-  return <button className={`${buttonSize} ${buttonColor}`}>{name}</button>;
+const Button = ({ buttonSize, buttonColor, buttonName }) => {
+  return (
+    <button className={`${buttonSize} ${buttonColor}`}>{buttonName}</button>
+  );
 };
 export default Button;

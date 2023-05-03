@@ -24,12 +24,12 @@ function Login() {
             ></input>
           </form>
           <Button
-            name={"로그인"}
+            buttonName={"로그인"}
             buttonSize={"bigButton"}
             buttonColor={"dark"}
           />
           <Button
-            name={"가입하기"}
+            buttonName={"가입하기"}
             buttonSize={"bigButton"}
             buttonColor={"bright"}
           />
