@@ -1,9 +1,4 @@
-// variables.scss
-$main-black: #252525;
-$main-grey: #333333;
-$main-white: #fffef2;
-$main-ivory: #f5f5e6;
-$point-red: #ff0000;
+@import "../../../../styles/variables";
 
 .orderHeader {
   background-color: $main-white;

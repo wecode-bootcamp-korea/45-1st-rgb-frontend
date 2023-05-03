@@ -1,5 +1,6 @@
 import React from "react";
 import "./Payment.scss";
+import Button from "../../../../components/Button/Button";
 
 function Payment() {
   return (
@@ -11,13 +12,13 @@ function Payment() {
           <span className="pointText">포인트</span>
         </div>
         <div>
-          <label for="totalPoint">
+          <label className="pointLabel" for="totalPoint">
             보유 <input type="text" id="totalPoint" />
             <span className="pointUnit">원</span>
           </label>
         </div>
         <div>
-          <label for="pricePoint">
+          <label className="pointLabel" for="pricePoint">
             사용 <input type="text" id="pricePoint" />
             <span className="pointUnit">원</span>
           </label>
@@ -29,31 +30,56 @@ function Payment() {
               전체 동의
             </label>
           </div>
-          <div>
+          <div className="agreementDetail">
             <label for="ageCheck">
               <input type="checkbox" id="ageCheck" />
               본인은 만 14세 이상입니다 (필수)
             </label>
+            <img
+              className="arrowBottom"
+              alt="toggle arrow"
+              src="/images/order/Expand Arrow.png"
+            />
           </div>
-          <div>
+          <div className="agreementDetail">
             <label for="useTerms">
               <input type="checkbox" id="useTerms" />
               이용 약관에 동의합니다 (필수)
             </label>
+            <img
+              className="arrowBottom"
+              alt="toggle arrow"
+              src="/images/order/Expand Arrow.png"
+            />
           </div>
-          <div>
+          <div className="agreementDetail">
             <label for="privacy">
               <input type="checkbox" id="privacy" />
               개인정보 수집 및 이용조건에 동의합니다 (필수)
             </label>
+            <img
+              className="arrowBottom"
+              alt="toggle arrow"
+              src="/images/order/Expand Arrow.png"
+            />
           </div>
-          <div>
+          <div className="agreementDetail">
             <label for="orderCheck">
               <input type="checkbox" id="orderCheck" />
               주문내역을 확인했으며, 이에 동의합니다 (필수)
             </label>
+            <img
+              className="arrowBottom"
+              alt="toggle arrow"
+              src="/images/order/Expand Arrow.png"
+            />
           </div>
         </div>
+        <Button
+          buttonSize="bigButton"
+          buttonColor="dark"
+          buttonName="결제하기"
+        />
       </form>
     </div>
   );

@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import "./Button.scss";
 
 const Button = ({ buttonSize, buttonColor, buttonName }) => {

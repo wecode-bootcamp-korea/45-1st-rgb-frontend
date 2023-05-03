@@ -1,27 +1,11 @@
-// variables.scss
-$main-black: #252525;
-$main-grey: #333333;
-$main-white: #fffef2;
-$main-ivory: #f5f5e6;
-$point-red: #ff0000;
-
-// reset.scss
-button {
-  margin: 0;
-  padding: 0;
-  border: none;
-  background: none;
-
-  // 수정님거에서 추가
-  cursor: pointer;
-}
+@import "../../../../styles/variables";
 
 .orderList {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30%;
-  max-width: 520px;
+  width: 35%;
+  // max-width: 520px;
   background-color: #f5f5e6;
 
   .orderRight {
@@ -38,7 +22,7 @@ button {
       justify-content: space-between;
       width: 100%;
 
-      gap: 130px;
+      gap: 210px;
     }
   }
 }

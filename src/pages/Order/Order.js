@@ -3,6 +3,7 @@ import "./Order.scss";
 import OrderList from "./components/OrderList/OrderList";
 import OrderHeader from "./components/OrderHeader/OrderHeader";
 import Payment from "./components/Payment/Payment";
+import Delivery from "./components/Delivery/Delivery";
 
 function Order() {
   return (
@@ -14,6 +15,7 @@ function Order() {
           alt="left arrow"
           src="/images/Order/arrow2.png"
         />
+        <Delivery />
         <Payment />
         {/* left section 컴포넌트 분리하기 */}
         {/*  <div className="orderBoxLeft">

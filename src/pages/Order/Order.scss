@@ -1,17 +1,9 @@
-// variables.scss
-$main-black: #252525;
-$main-grey: #333333;
-$main-white: #fffef2;
-$main-ivory: #f5f5e6;
-$point-red: #ff0000;
+@import "../../styles/variables";
 
 // reset.scss
 input {
-  border: none;
-  outline: none;
-
   // 수정님 커밋에서 추가 필요
-  background: none;
+  outline: none;
 }
 
 .order {
