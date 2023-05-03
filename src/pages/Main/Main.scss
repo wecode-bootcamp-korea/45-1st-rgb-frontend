@@ -1,3 +1,237 @@
 .main {
   border: 1px solid #000;
+
+  .box1 {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    background-color: #fffef2;
+
+    .boxButton {
+      position: absolute;
+      top: 367px;
+      left: 243px;
+    }
+
+    .goToArtist {
+      width: 304px;
+      height: 66px;
+      background-color: #252525;
+    }
+
+    .boxText {
+      position: absolute;
+      top: 280px;
+      left: 252px;
+      color: #252525;
+      font-size: 52px;
+      font-weight: 400;
+    }
+
+    .buttonText {
+      color: #fffef2;
+      font-size: 14px;
+    }
+  }
+
+  .box2 {
+    position: relative;
+    width: 100%;
+    height: 770px;
+    background-color: #fffef2;
+
+    .boxContent {
+      position: absolute;
+      margin-top: 300px;
+      margin-left: 60px;
+
+      .boxText2 {
+        width: 380px;
+        margin-bottom: 40px;
+        font-size: 37px;
+        // 언더라인
+      }
+
+      .boxText3 {
+        font-size: 16px;
+      }
+    }
+
+    .boxImg1 {
+      position: absolute;
+      top: 200px;
+      left: 666px;
+      width: 273px;
+      height: 334px;
+      background-color: #252525;
+    }
+
+    .boxImg2 {
+      position: absolute;
+      top: 200px;
+      left: 1025px;
+      width: 273px;
+      height: 334px;
+      background-color: #252525;
+    }
+
+    .buttonNext {
+      position: absolute;
+      top: 340px;
+      right: 60px;
+      width: 63px;
+      height: 63px;
+      background-color: #252525;
+    }
+
+    .boxTextName {
+      position: absolute;
+      top: 560px;
+      left: 750px;
+    }
+
+    .boxTextName2 {
+      position: absolute;
+      top: 560px;
+      left: 1110px;
+    }
+  }
+
+  .box3 {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    background-color: #fffef2;
+
+    .bocContainer {
+      display: flex;
+      position: relative;
+      height: 100vh;
+
+      .boxImg3 {
+        position: absolute;
+        width: 714px;
+        height: 400px;
+        margin-top: 130px;
+        background-color: #252525;
+      }
+
+      .boxText4 {
+        position: absolute;
+        right: 60px;
+        margin-top: 260px;
+      }
+      .text1 {
+        margin-bottom: 40px;
+        font-size: 16px;
+      }
+      .text2 {
+        margin-bottom: 20px;
+        font-size: 37px;
+      }
+
+      .text3 {
+        margin-top: 40px;
+        font-size: 16px;
+        //언더라인
+      }
+    }
+  }
+
+  .box4 {
+    position: relative;
+    width: 100%;
+    height: 770px;
+    background-color: #fffef2;
+
+    .buttonBox2 {
+      position: flex;
+    }
+
+    .buttonPre2 {
+      position: absolute;
+      top: 120px;
+      left: 60px;
+      width: 63px;
+      height: 63px;
+
+      background-color: #252525;
+    }
+
+    .buttonNext2 {
+      position: absolute;
+      top: 120px;
+      right: 60px;
+      width: 63px;
+      height: 63px;
+      background-color: black;
+    }
+  }
+  .goodsBox {
+    display: flex;
+    position: relative;
+    top: 200px;
+    justify-content: center;
+    height: 100vh;
+
+    .goodsImg {
+      width: 300px;
+      height: 300px;
+      background-color: #252525;
+    }
+
+    .goodsImg2 {
+      width: 300px;
+      height: 300px;
+      margin-left: 60px;
+      background-color: #252525;
+    }
+
+    .goodsImg3 {
+      width: 300px;
+      height: 300px;
+      margin-left: 60px;
+      background-color: #252525;
+    }
+  }
+}
+.box5 {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  background-color: #fffef2;
+}
+
+.bocContainer5 {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+
+  .boxImg5 {
+    position: absolute;
+    width: 714px;
+    height: 400px;
+    margin-top: 130px;
+    background-color: #252525;
+  }
+
+  .boxFiveText {
+    position: absolute;
+    left: 60px;
+    width: 480px;
+    margin-top: 240px;
+  }
+  .text1 {
+    margin-bottom: 40px;
+    font-size: 16px;
+  }
+  .text2 {
+    margin-bottom: 20px;
+    font-size: 37px;
+  }
+
+  .text3 {
+    margin-top: 10px;
+    font-size: 16px;
+  }
 }
