@@ -1,7 +1,7 @@
 import React from "react";
 import "./LeftFilter.scss";
 
-function LeftFilter({ Show }) {
+function LeftFilter() {
   return (
     <div className="leftFilter">
       <div className="show">
