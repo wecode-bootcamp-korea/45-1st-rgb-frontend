@@ -1,13 +1,14 @@
 import React from "react";
 import "./Login.scss";
-import Button from "../Button/Button";
+// import Button from "../Button/Button";
 
-function Login() {
+function Login({ info }, setIsLogin) {
+  const { title, link } = info;
   return (
     <>
       <div className="login">
         <div className="loginBox">
-          <h2 className="loginTitle">로그인</h2>
+          <h2 className="loginTitle">{title}</h2>
           <form className="loginForm">
             <input
               type="text"
@@ -23,20 +24,31 @@ function Login() {
             ></input>
           </form>
           <p>회원정보가 일치하지 않습니다.</p>
-          <Button
-            name={"로그인"}
+          {/* <Button
+            buttonName={"로그인"}
             buttonSize={"bigButton"}
             buttonColor={"dark"}
-          />
+          /> */}
+          {/* <Button
+            buttonSize={"bigButton"}
+            buttonColor={"dark"}
+          >로그인</> */}
+          {/* {children}으로 넘겨주기 */}
           <div className="loginText">
-            <p>이메일 찾기 및 비밀번호 재설정</p>
-            <p>아직 회원이 아니십니까?</p>
+            <p></p>
+            <p
+              onClick={() => {
+                setIsLogin(prev => !prev);
+              }}
+            >
+              {link}
+            </p>
           </div>
-          <Button
-            name={"가입하기"}
+          {/* <Button
+            buttonName={"가입하기"}
             buttonSize={"bigButton"}
             buttonColor={"bright"}
-          />
+          /> */}
         </div>
       </div>
     </>
