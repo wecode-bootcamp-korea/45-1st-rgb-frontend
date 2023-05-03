@@ -1,6 +1,6 @@
 import React from "react";
-import ListBottom from "./Component/ListBottom";
-import ListTop from "./Component/ListTop";
+import ListBottom from "./Component/ListBottom/ListBottom";
+import ListTop from "./Component/ListTop/ListTop";
 import "./ProductList.scss";
 
 function ProductList() {

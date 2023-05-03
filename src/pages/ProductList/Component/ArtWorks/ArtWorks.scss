@@ -1,0 +1,19 @@
+div.artWorks {
+  margin-bottom: 20px;
+  border: 1px solid black;
+
+  p {
+    padding: 15px 0 0 0;
+    font-size: 17px;
+    text-align: end;
+  }
+  img {
+    width: 320px;
+    height: 300px;
+  }
+
+  .titleAndPrice {
+    padding-bottom: 35px;
+    border-bottom: 1px solid black;
+  }
+}
