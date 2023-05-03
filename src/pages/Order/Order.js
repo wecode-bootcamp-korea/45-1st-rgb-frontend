@@ -1,48 +1,60 @@
 import React from "react";
 import "./Order.scss";
+import OrderList from "./components/OrderList/OrderList";
+import OrderHeader from "./components/OrderHeader/OrderHeader";
+import Payment from "./components/Payment/Payment";
 
 function Order() {
   return (
     <div className="order">
-      <header>
-        <ul className="orderNav">
-          <li className="orderNavActive">
-            <a>배송 정보</a>
-          </li>
-          <img
-            className="orderNavArrow"
-            src="/images/order/arrow-small.png"
-            alt="arrow"
-          />
-          <span />
-          <li className="orderNavInactive">
-            <a>결제 방법</a>
-          </li>
-          <img
-            className="orderNavArrow"
-            src="/images/order/arrow-small.png"
-            alt="arrow"
-          />
-          <li className="orderNavInactive">
-            <a>주문 확인</a>
-          </li>
-        </ul>
-      </header>
+      <OrderHeader />
       <div className="orderBox">
-        <div className="orderBoxLeft">
+        <img
+          className="leftArrow"
+          alt="left arrow"
+          src="/images/Order/arrow2.png"
+        />
+        <Payment />
+        {/* left section 컴포넌트 분리하기 */}
+        {/*  <div className="orderBoxLeft">
           <h2 className="orderBoxLeftTitle">주문을 어디로 보내시겠습니까?</h2>
-          <form className="orderBoxLeftForm">
+          <form className="orderInfoForm">
             <h3>주문자 정보</h3>
             <div className="inputNameWrap">
-              <input placeholder="성" />
-              <input placeholder="이름" />
+              <input type="text" placeholder="성" />
+              <input type="text" placeholder="이름" />
             </div>
-            <h3>배송지 정보</h3>
+            <input type="text" placeholder="전화번호" />
           </form>
-        </div>
-        <div className="loginBoxRight">
-          <div>주문내역 박스(예정)</div>
-        </div>
+
+          <form className="addressForm">
+            <h3>배송지 정보</h3>
+            <div className="addressInput">
+              <input type="text" placeholder="주소" />
+            </div>
+            <div className="addressDetailInput">
+              <input type="text" placeholder="상세주소" />
+            </div>
+            <label>
+              <input type="checkbox" size="10" maxLength="10" />이 주소를 기본
+              배송지로 저장합니다
+            </label>
+            <label>
+              <input type="checkbox" />
+              주문자 정보와 배송지 정보가 동일합니다
+            </label>
+          </form>
+
+          <form>
+            <label>
+              <input type="checkbox" />
+              배송 기사님께 요청 사항이 있습니다
+              <textarea />
+            </label>
+          </form>
+        </div> */}
+
+        <OrderList />
       </div>
     </div>
   );

@@ -1,0 +1,29 @@
+// variables.scss
+$main-black: #252525;
+$main-grey: #333333;
+$main-white: #fffef2;
+$main-ivory: #f5f5e6;
+$point-red: #ff0000;
+
+.orderHeader {
+  background-color: $main-white;
+
+  .orderNav {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    border-bottom: 1px solid $main-grey;
+
+    &Active {
+      font-weight: 700;
+    }
+
+    &Inactive {
+      color: $main-grey;
+    }
+
+    &Arrow {
+      transform: rotate(270deg);
+    }
+  }
+}

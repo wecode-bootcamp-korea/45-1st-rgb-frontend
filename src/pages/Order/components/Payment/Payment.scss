@@ -1,0 +1,58 @@
+// variables.scss
+$main-black: #252525;
+$main-grey: #333333;
+$main-white: #fffef2;
+$main-ivory: #f5f5e6;
+$point-red: #ff0000;
+
+.payment {
+  width: 70%;
+  padding: 50px 100px;
+  // width: 70%;
+  // padding: 50px 100px;
+
+  .paymentTitle {
+    padding-bottom: 20px;
+    font-size: 37px;
+    font-weight: 700;
+  }
+
+  .pointTitle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    .pointText {
+      font-size: 17px;
+    }
+  }
+}
+
+.pointForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  label {
+    position: relative;
+
+    #totalPoint,
+    #pricePoint {
+      width: 260px;
+      border-bottom: 1px solid $main-grey;
+    }
+
+    .pointUnit {
+      position: absolute;
+      right: 0;
+
+      font-size: 14px;
+    }
+  }
+}
+
+.contractWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

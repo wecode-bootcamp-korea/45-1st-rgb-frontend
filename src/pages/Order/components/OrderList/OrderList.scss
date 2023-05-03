@@ -1,0 +1,93 @@
+// variables.scss
+$main-black: #252525;
+$main-grey: #333333;
+$main-white: #fffef2;
+$main-ivory: #f5f5e6;
+$point-red: #ff0000;
+
+// reset.scss
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+
+  // 수정님거에서 추가
+  cursor: pointer;
+}
+
+.orderList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  max-width: 520px;
+  background-color: #f5f5e6;
+
+  .orderRight {
+    margin: 0 auto;
+  }
+
+  .orderItemWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .orderItem {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      gap: 130px;
+    }
+  }
+}
+
+.orderListBox {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .checkoutProduct {
+    display: flex;
+    gap: 20px;
+    padding: 15px 0px;
+    border-top: 1px solid $main-grey;
+    border-bottom: 1px solid $main-grey;
+
+    img {
+      width: 75px;
+      height: 75px;
+    }
+
+    &Right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: 70%;
+
+      .counter {
+        display: flex;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+.checkoutProductRight {
+  .topRow {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .bottomRow {
+    display: flex;
+    justify-content: space-between;
+    color: $main-grey;
+
+    button {
+      color: $main-grey;
+    }
+  }
+}
