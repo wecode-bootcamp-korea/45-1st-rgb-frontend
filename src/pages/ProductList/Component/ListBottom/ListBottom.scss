@@ -1,37 +1,38 @@
-div.listBottom {
-  background-color: purple;
+@import "../../../../styles/variables";
 
+div.listBottom {
   .bottomTop {
     padding: 60px 0 20px 35px;
     border-bottom: 2px solid black;
-    background-color: chartreuse;
     font-size: 21px;
 
     span {
       padding-right: 50px;
+
+      &:hover {
+        opacity: 70%;
+        color: $main-grey;
+      }
     }
   }
 
   .bottomBottom {
     display: flex;
-    background-color: aqua;
 
     .bottomLeft {
-      width: 17%;
-      margin-top: 7%;
-      margin-bottom: 10%;
+      width: 20%;
+      margin-top: 2%;
+      margin-bottom: 20%;
       padding-top: 3%;
       border-right: 2px solid black;
-      background-color: cadetblue;
     }
 
     .bottomRight {
       display: flex;
       // gap: 50px 50px;
 
-      width: 83%;
-      padding: 10% 10%;
-      background-color: brown;
+      width: 80%;
+      padding: 5% 10%;
     }
 
     .artworkBox {
@@ -39,7 +40,6 @@ div.listBottom {
       flex-wrap: wrap;
       justify-content: space-between;
       width: 100%;
-      background-color: coral;
     }
   }
 }
