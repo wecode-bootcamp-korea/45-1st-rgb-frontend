@@ -7,8 +7,8 @@ function User() {
   return (
     <div className="user">
       <h1>User Page</h1>
+      <Login />
       <SignUp />
-      {/* <Login /> */}
     </div>
   );
 }
