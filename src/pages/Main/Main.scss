@@ -90,11 +90,49 @@
       left: 750px;
     }
 
+    .boxTextNameUnder {
+      position: absolute;
+      top: 590px;
+      left: 770px;
+    }
+
     .boxTextName2 {
       position: absolute;
       top: 560px;
       left: 1110px;
     }
+
+    .boxTextNameUnder2 {
+      position: absolute;
+      top: 590px;
+      left: 1130px;
+    }
+  }
+
+  .imgBarContainor {
+    display: flex;
+    position: relative;
+    top: 650px;
+    height: 0px;
+    margin: 0 100px 100px;
+    padding: 0;
+  }
+
+  .imgBar {
+    position: absolute;
+    width: 1200px;
+    height: 0px;
+    border: 1px solid #dfdfdf;
+  }
+
+  .imgBar2 {
+    position: absolute;
+    width: 240px;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    transition: left 1s;
+    border: 1px solid #000000;
   }
 
   .box3 {

@@ -30,20 +30,20 @@ function Main() {
             <div className="box123">
               <div className="boxImg1" />
               <p className="boxTextName">Tommy Dollar</p>
+              <p className="boxTextNameUnder">사이즈</p>
             </div>
             <div className="box456">
               <div className="boxImg2" />
               <p className="boxTextName2">Tommy Dollar</p>
+              <p className="boxTextNameUnder2">사이즈</p>
             </div>
           </div>
           <div className="buttonBox">
             <button className="buttonNext">/</button>
           </div>
           <div className="imgBarContainor">
-            <div className="imgBar">
-              <div className="imgBar2">/</div>
-              <div className="imgBar3">/</div>
-            </div>
+            <div className="imgBar" />
+            <div className="imgBar2" />
           </div>
         </div>
         <div className="box3">
@@ -58,6 +58,7 @@ function Main() {
             </div>
           </div>
         </div>
+
         <div className="box4">
           <div className="goodsBox">
             <div className="goodsImg">1</div>
