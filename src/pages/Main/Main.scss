@@ -11,6 +11,9 @@
       position: absolute;
       top: 367px;
       left: 243px;
+    }
+
+    .goToArtist {
       width: 304px;
       height: 66px;
       background-color: #252525;
@@ -25,11 +28,9 @@
       font-weight: 400;
     }
 
-    .goToArtist {
-      margin-top: 28px;
+    .buttonText {
       color: #fffef2;
       font-size: 14px;
-      text-align: center;
     }
   }
 
@@ -40,14 +41,15 @@
     background-color: #fffef2;
 
     .boxContent {
-      display: block;
+      position: absolute;
       margin-top: 300px;
-      margin-left: 140px;
+      margin-left: 60px;
 
       .boxText2 {
         width: 380px;
         margin-bottom: 40px;
         font-size: 37px;
+        // 언더라인
       }
 
       .boxText3 {
@@ -76,23 +78,61 @@
     .buttonNext {
       position: absolute;
       top: 340px;
-      left: 1320px;
+      right: 60px;
       width: 63px;
       height: 63px;
       background-color: #252525;
     }
 
-    .boxText4 {
+    .boxTextName {
       position: absolute;
       top: 560px;
       left: 750px;
     }
 
-    .boxText5 {
+    .boxTextNameUnder {
+      position: absolute;
+      top: 590px;
+      left: 770px;
+    }
+
+    .boxTextName2 {
       position: absolute;
       top: 560px;
       left: 1110px;
     }
+
+    .boxTextNameUnder2 {
+      position: absolute;
+      top: 590px;
+      left: 1130px;
+    }
+  }
+
+  .imgBarContainor {
+    display: flex;
+    position: relative;
+    top: 650px;
+    height: 0px;
+    margin: 0 100px 100px;
+    padding: 0;
+  }
+
+  .imgBar {
+    position: absolute;
+    width: 1200px;
+    height: 0px;
+    border: 1px solid #dfdfdf;
+  }
+
+  .imgBar2 {
+    position: absolute;
+    width: 240px;
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    transition: left 1s;
+    border: 1px solid #000000;
   }
 
   .box3 {
@@ -103,6 +143,8 @@
 
     .bocContainer {
       display: flex;
+      position: relative;
+      height: 100vh;
 
       .boxImg3 {
         position: absolute;
@@ -113,10 +155,9 @@
       }
 
       .boxText4 {
-        display: block;
         position: absolute;
+        right: 60px;
         margin-top: 260px;
-        margin-left: 870px;
       }
       .text1 {
         margin-bottom: 40px;
@@ -128,8 +169,9 @@
       }
 
       .text3 {
-        margin-top: 10px;
+        margin-top: 40px;
         font-size: 16px;
+        //언더라인
       }
     }
   }
@@ -139,11 +181,36 @@
     width: 100%;
     height: 770px;
     background-color: #fffef2;
+
+    .buttonBox2 {
+      position: flex;
+    }
+
+    .buttonPre2 {
+      position: absolute;
+      top: 120px;
+      left: 60px;
+      width: 63px;
+      height: 63px;
+
+      background-color: #252525;
+    }
+
+    .buttonNext2 {
+      position: absolute;
+      top: 120px;
+      right: 60px;
+      width: 63px;
+      height: 63px;
+      background-color: black;
+    }
   }
   .goodsBox {
     display: flex;
+    position: relative;
+    top: 200px;
     justify-content: center;
-    margin-top: 220px;
+    height: 100vh;
 
     .goodsImg {
       width: 300px;
@@ -173,27 +240,10 @@
   background-color: #fffef2;
 }
 
-.buttonPre {
-  position: absolute;
-  top: 340px;
-  left: 1320px;
-  width: 63px;
-  height: 63px;
-  background-color: #252525;
-}
-
-.buttonNext {
-  position: absolute;
-  top: 340px;
-  right: 1320px;
-  width: 63px;
-  height: 63px;
-  background-color: black;
-}
-
 .bocContainer5 {
   display: flex;
-  flex-direction: row-reverse;
+  position: relative;
+  justify-content: flex-end;
 
   .boxImg5 {
     position: absolute;
@@ -203,11 +253,11 @@
     background-color: #252525;
   }
 
-  .comingUp {
-    display: block;
-    width: 500px;
-    margin-top: 260px;
-    margin-right: 810px;
+  .boxFiveText {
+    position: absolute;
+    left: 60px;
+    width: 480px;
+    margin-top: 240px;
   }
   .text1 {
     margin-bottom: 40px;
