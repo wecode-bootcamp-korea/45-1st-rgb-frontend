@@ -1,8 +1,8 @@
 import React from "react";
+import Button from "../Button/Button";
 import "./Login.scss";
-// import Button from "../Button/Button";
 
-function Login({ info }, setIsLogin) {
+const Login = ({ info }, setIsLogin) => {
   const { title, link } = info;
   return (
     <>
@@ -24,11 +24,11 @@ function Login({ info }, setIsLogin) {
             ></input>
           </form>
           <p>회원정보가 일치하지 않습니다.</p>
-          {/* <Button
+          <Button
             buttonName={"로그인"}
             buttonSize={"bigButton"}
             buttonColor={"dark"}
-          /> */}
+          />
           {/* <Button
             buttonSize={"bigButton"}
             buttonColor={"dark"}
@@ -44,15 +44,15 @@ function Login({ info }, setIsLogin) {
               {link}
             </p>
           </div>
-          {/* <Button
+          <Button
             buttonName={"가입하기"}
             buttonSize={"bigButton"}
             buttonColor={"bright"}
-          /> */}
+          />
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Login;

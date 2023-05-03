@@ -6,10 +6,16 @@ function User() {
   const [isLogin, setIsLogin] = useState(true);
   return (
     <div className="user">
+<<<<<<< HEAD
       <Login
         info={isLogin ? LOGIN_INFO : SIGNUP_INFO}
         setIsLogin={setIsLogin}
       />
+=======
+      <h1>User Page</h1>
+      <Login />
+      <SignUp />
+>>>>>>> master
     </div>
   );
 }
