@@ -1,11 +1,5 @@
 @import "../../styles/variables";
 
-// reset.scss
-input {
-  // 수정님 커밋에서 추가 필요
-  outline: none;
-}
-
 .order {
   background-color: $main-white;
 }
@@ -14,6 +8,7 @@ input {
   display: flex;
   position: relative;
   justify-content: space-between;
+  min-height: 100vh;
 
   .leftArrow {
     position: absolute;

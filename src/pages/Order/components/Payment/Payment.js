@@ -5,7 +5,7 @@ import Button from "../../../../components/Button/Button";
 function Payment() {
   return (
     <div className="payment">
-      <h2 className="paymentTitle">어떻게 주문하시겠습니까?</h2>
+      <h2 className="paymentTitle">이대로 주문하시겠습니까?</h2>
       <form className="pointForm">
         <div className="pointTitle">
           <img alt="point logo" src="/images/Order/point_logo.png" />
@@ -35,23 +35,8 @@ function Payment() {
               <input type="checkbox" id="ageCheck" />
               본인은 만 14세 이상입니다 (필수)
             </label>
-            <img
-              className="arrowBottom"
-              alt="toggle arrow"
-              src="/images/order/Expand Arrow.png"
-            />
           </div>
-          <div className="agreementDetail">
-            <label for="useTerms">
-              <input type="checkbox" id="useTerms" />
-              이용 약관에 동의합니다 (필수)
-            </label>
-            <img
-              className="arrowBottom"
-              alt="toggle arrow"
-              src="/images/order/Expand Arrow.png"
-            />
-          </div>
+
           <div className="agreementDetail">
             <label for="privacy">
               <input type="checkbox" id="privacy" />
@@ -68,11 +53,6 @@ function Payment() {
               <input type="checkbox" id="orderCheck" />
               주문내역을 확인했으며, 이에 동의합니다 (필수)
             </label>
-            <img
-              className="arrowBottom"
-              alt="toggle arrow"
-              src="/images/order/Expand Arrow.png"
-            />
           </div>
         </div>
         <Button
