@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../../../components/Button/Button";
 import "./DetailRight.scss";
 
 function DetailRight({ detailInfo }) {
@@ -27,7 +28,26 @@ function DetailRight({ detailInfo }) {
         </div>
         <div className="quntity">
           <span>수량</span>
+          <span>
+            <button>-</button>
+            {detailInfo.count}/{detailInfo.quantity}
+            <button>+</button>
+          </span>
         </div>
+      </div>
+      <div className="buyingButtons">
+        <Button
+          buttonColor="dark"
+          buttonSize="smallButton"
+          buttonName="카트 추가"
+          buttonRadius="radius"
+        />
+        <Button
+          buttonColor="dark"
+          buttonSize="smallButton"
+          buttonName="바로 구매"
+          buttonRadius="radius"
+        />
       </div>
     </div>
   );

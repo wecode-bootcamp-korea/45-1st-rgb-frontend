@@ -41,3 +41,7 @@
     @include buttonColor($main-grey, $main-white);
   }
 }
+
+.radius {
+  border-radius: 3px;
+}

@@ -26,6 +26,6 @@ const detailInfo = {
   description:
     "해찬 작가의 초작. 고난 뒤의 영광을 맞이한 작가의 심리가 여지없이 드러나 있다.",
   price: "$2500",
-  quantity: 1,
-  maxQuantity: 5,
+  count: 1,
+  quantity: 5,
 };
