@@ -1,6 +1,6 @@
 import React from "react";
 import "./Cart.scss";
-import CartRight from "./CartRight";
+//import CartRight from "./CartRight";
 import CartList from "./CartList";
 
 function Cart() {
@@ -18,7 +18,7 @@ function Cart() {
           <CartList />
         </div>
         {/* 오른쪽 카트 입력칸 */}
-        <CartRight />
+        {/* <CartRight /> */}
       </div>
     </div>
   );
