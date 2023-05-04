@@ -1,8 +1,14 @@
+@import "../../../../styles/variables";
+
 .location {
+  padding: 50px 50px 50px 70px;
   background-color: blueviolet;
 
   p {
+    padding-bottom: 20px;
     background-color: chartreuse;
+    color: $main-grey;
+    text-align: end;
   }
 
   button {
