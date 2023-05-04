@@ -19,20 +19,21 @@ function Delivery() {
           <div className="deliveryInfoForm">
             <h3 className="formTitle">배송지 정보</h3>
             <div className="addressInput">
-              <input type="text" placeholder="주소" />
-            </div>
-            <div className="addressDetailInput">
               <input
                 type="text"
-                placeholder="상세주소(아파트 동, 호수, 일반 주택 등)"
+                placeholder="상세주소 (아파트 동, 호수, 일반 주택 등)"
               />
             </div>
+            <div className="postInput">
+              <input type="text" placeholder="우편번호" />
+            </div>
           </div>
-          <label>
-            <input type="checkbox" size="10" maxLength="10" />이 주소를 기본
-            배송지로 저장합니다
-          </label>
-          <div>
+
+          <div className="labelWrapper">
+            <label>
+              <input type="checkbox" size="10" maxLength="10" />이 주소를 기본
+              배송지로 저장합니다
+            </label>
             <label>
               <input type="checkbox" />
               주문자 정보와 배송지 정보가 동일합니다

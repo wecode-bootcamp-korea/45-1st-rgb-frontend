@@ -51,9 +51,16 @@
   .phoneNumber {
     width: 630px;
   }
+
+  .labelWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
 }
 
 .deliveryInfoForm {
+  margin-bottom: 5px;
   input {
     width: 630px;
   }

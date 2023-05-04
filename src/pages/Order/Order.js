@@ -15,8 +15,8 @@ function Order() {
           alt="left arrow"
           src="/images/Order/arrow2.png"
         />
-        <Delivery />
-        {/* <Payment /> */}
+        {/* <Delivery /> */}
+        <Payment />
         <OrderList />
       </div>
     </div>
