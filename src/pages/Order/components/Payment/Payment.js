@@ -25,21 +25,24 @@ function Payment() {
         </div>
         <div className="contractWrapper">
           <div>
-            <label for="agreeAll">
+            <label className="agreeAll" for="agreeAll">
               <input type="checkbox" id="agreeAll" />
+              <label for="agreeAll" />
               전체 동의
             </label>
           </div>
           <div className="agreementDetail">
-            <label for="ageCheck">
+            <label className="ageCheck" for="ageCheck">
               <input type="checkbox" id="ageCheck" />
+              <label for="ageCheck" />
               본인은 만 14세 이상입니다 (필수)
             </label>
           </div>
 
           <div className="agreementDetail">
-            <label for="privacy">
+            <label className="privacy" for="privacy">
               <input type="checkbox" id="privacy" />
+              <label for="privacy" />
               개인정보 수집 및 이용조건에 동의합니다 (필수)
             </label>
             <img
@@ -49,8 +52,9 @@ function Payment() {
             />
           </div>
           <div className="agreementDetail">
-            <label for="orderCheck">
+            <label className="orderCheck" for="orderCheck">
               <input type="checkbox" id="orderCheck" />
+              <label for="orderCheck" />
               주문내역을 확인했으며, 이에 동의합니다 (필수)
             </label>
           </div>
