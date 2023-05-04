@@ -30,19 +30,21 @@ function Delivery() {
           </div>
 
           <div className="labelWrapper">
-            <label>
-              <input type="checkbox" size="10" maxLength="10" />이 주소를 기본
-              배송지로 저장합니다
+            <label className="default">
+              <input type="checkbox" id="default" />
+              <label for="default" />이 주소를 기본 배송지로 저장합니다
             </label>
-            <label>
-              <input type="checkbox" />
+            <label className="identical">
+              <input id="identical" type="checkbox" />
+              <label for="identical" />
               주문자 정보와 배송지 정보가 동일합니다
             </label>
           </div>
           <br />
           <div className="requestInputWrapper">
-            <label>
-              <input type="checkbox" />
+            <label className="request">
+              <input id="request" type="checkbox" />
+              <label for="request" />
               배송 기사님께 요청 사항이 있습니다
             </label>
             <input type="text" className="requestInput" />
