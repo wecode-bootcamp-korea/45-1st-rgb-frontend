@@ -20,31 +20,20 @@ export default function CartRight() {
               buttonColor="dark"
             />
           </div>
-
-          {/* <div className="buttonHidden">
-          <div className="inputBox">
-            <input className="inputEmail" placeholder="이메일" />{" "}
-          </div>
-          <div className="inputBox2">
-            <input
-              className="inputContent"
-              placeholder="작가에게 무엇이든 물어보세요."
-            />
-          </div>
-        </div> */}
-
           <div className="line" />
           <div className="cartForm2">
             <div className="formContent">
               <p className="rgb">rgb . 만의 보증 서비스</p>
-              <span className="span1">
-                감정서(Certificate of Authenticity) 포함된 원작
-              </span>
-              <span className="span2">계좌이체로 안전결제</span>
-              <span className="span3">Safe shipping globally</span>
-              <span className="span4">
-                수령일로부터 14일 이내에 무료로 반품 가능합니다
-              </span>
+              <div className="formText">
+                <p className="formText1">
+                  감정서(Certificate of Authenticity) 포함된 원작
+                </p>
+                <p className="formText2">계좌이체로 안전결제</p>
+                <p className="formText3">Safe shipping globally</p>
+                <p className="formText4">
+                  수령일로부터 14일 이내에 무료로 반품 가능합니다
+                </p>
+              </div>
             </div>
           </div>
         </div>
