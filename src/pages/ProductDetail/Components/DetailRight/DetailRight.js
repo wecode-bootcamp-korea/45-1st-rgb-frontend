@@ -20,6 +20,15 @@ function DetailRight({ detailInfo }) {
           </button>
         </span>
       </div>
+      <div className="rightBottom">
+        <div className="price">
+          <span>Price</span>
+          <span>{detailInfo.price}</span>
+        </div>
+        <div className="quntity">
+          <span>수량</span>
+        </div>
+      </div>
     </div>
   );
 }
