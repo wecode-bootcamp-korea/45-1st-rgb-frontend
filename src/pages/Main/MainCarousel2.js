@@ -1,4 +1,5 @@
 import React from "react";
+import "./MainCarousel2.scss";
 
 export default function MainCarasol2() {
   return (

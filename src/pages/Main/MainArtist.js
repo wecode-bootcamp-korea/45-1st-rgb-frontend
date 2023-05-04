@@ -1,4 +1,5 @@
 import React from "react";
+import "./MainArtist.scss";
 
 export default function MainArtist() {
   return (

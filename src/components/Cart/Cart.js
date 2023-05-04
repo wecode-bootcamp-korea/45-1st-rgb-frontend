@@ -13,6 +13,7 @@ function Cart() {
             <div className="cartSize">사이즈</div>
             <div className="cartQuantity">수량</div>
             <div className="cartPrice">가격</div>
+            <div className="cartEmpty" />
           </div>
           <CartList />
         </div>
