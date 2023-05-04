@@ -1,13 +1,16 @@
 .cart {
-  height: 100vh;
+  //box-sizing: 0px;
 }
 .cartBox {
   display: flex;
   justify-content: center;
-  //height: 100vh;
+  height: 100vh;
+  padding: 40px 40px;
+  background-color: #252525;
 }
 
 .cartLeft {
+  position: relative;
   width: 100%;
 }
 
@@ -15,22 +18,29 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 70px;
-  padding-bottom: 40px;
-  background-color: #f2f2f2;
+  padding: 50px;
+  padding-bottom: 20px;
 
   .cartTitle {
-    //padding: 40px;
+    color: #f2f2f2;
     font-size: 16px;
     font-weight: 400;
   }
 
   .cartSize {
+    color: #f2f2f2;
     font-size: 16px;
     font-weight: 400;
   }
 
   .cartQuantity {
+    color: #f2f2f2;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .cartPrice {
+    color: #f2f2f2;
     font-size: 16px;
     font-weight: 400;
   }
@@ -40,115 +50,145 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 70px;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 50px;
+  //overflow-y: hidden;
+  border-bottom: 0.3px solid #fffef2;
 
   .itemName {
+    color: #fffef2;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 400;
   }
 
   .itemSize {
+    color: #fffef2;
     font-size: 16px;
   }
 
   .itemQuantity {
+    color: #fffef2;
+    font-size: 14px;
+  }
+
+  .itemPrice {
+    color: #fffef2;
     font-size: 14px;
   }
 }
 
+.cartSumBox {
+  position: relative;
+  padding: 30px;
+}
+
 .cartSummary {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding: 10px;
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #252525;
+  right: 30px;
+  bottom: 30px;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 14px;
+  //z-index: 10;
+
+  .cartFree {
+    color: #fffef2;
+    font-weight: 400;
+  }
 
   .totalPrice {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
-    margin-top: 10px;
+    height: 100px;
+    padding-top: 20px;
 
     .vat {
-      color: #f2f2f2;
+      color: #fffef2;
       font-size: 18px;
       font-weight: 400;
     }
 
     .sum {
-      color: #f2f2f2;
-      font-size: 30px;
+      color: #fffef2;
+      font-size: 25px;
       font-weight: 400;
     }
   }
 
   .payBtn {
-    width: 100%;
-    height: 40px;
+    display: flex;
+    justify-content: end;
     margin-top: 10px;
-    border: none;
-    background-color: #202020;
-    color: #ffffff;
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
-
-    &:hover {
-      background-color: #444444;
-    }
   }
 }
 
 .cartRight {
+  display: flex;
+  justify-content: center;
   width: 40%;
-  height: 100vh;
-  padding: 10px;
-  border: 1px solid #e0e0e0;
-  background-color: #ffffff;
+  padding-top: 80px;
+  background-color: #252525;
 
   .cartForm {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100%;
+    width: 380px;
+    height: 500px;
+    background-color: #fffef2;
 
     .profileBox {
       display: flex;
+      position: relative;
       align-items: center;
-      margin-bottom: 10px;
+      margin-top: -180px;
+      margin-bottom: 60px;
+      margin-left: 36px;
 
       .profileImg {
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        margin-top: -80px;
         border-radius: 50%;
         background-color: #e0e0e0;
       }
 
       .profileText {
+        position: absolute;
+        margin-top: -80px;
+        margin-left: 68px;
         font-size: 16px;
-        font-weight: bold;
+        font-weight: 400;
       }
     }
 
     .submitButton {
-      margin-top: auto;
-      margin-bottom: 10px;
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      margin-top: -120px;
+      margin-left: 40px;
     }
 
-    .cartButton {
-      width: 100%;
-      height: 40px;
-      border: none;
-      background-color: #202020;
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
+    .line {
+      position: absolute;
+      width: 300px;
+      margin-left: 40px;
+      border-bottom: 0.5px solid #252525;
+    }
+  }
+
+  .cartForm2 {
+    display: flex;
+    justify-content: center;
+
+    .formContent {
+      display: inline;
+      position: absolute;
+      width: 300px;
+      margin-top: 100px;
     }
   }
 }
