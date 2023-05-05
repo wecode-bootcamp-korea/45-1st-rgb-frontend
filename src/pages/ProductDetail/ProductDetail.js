@@ -4,11 +4,9 @@ import ProductDescription from "./ProductDescription";
 
 const ProductDetail = () => {
   return (
-    <>
-      <div className="productDetail">
-        <ProductDescription />
-      </div>
-    </>
+    <div className="productDetail">
+      <ProductDescription />
+    </div>
   );
 };
 
