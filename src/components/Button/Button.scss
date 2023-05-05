@@ -41,3 +41,9 @@
     @include buttonColor($main-grey, $main-white);
   }
 }
+
+.buttonOff {
+  @include buttonColor($main-grey, $main-white);
+  opacity: 40%;
+  cursor: default;
+}

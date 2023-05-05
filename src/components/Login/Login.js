@@ -8,18 +8,18 @@ const Login = ({ goToSignUp }) => {
     email: "",
     password: "",
   });
+  const { email, password } = inputValues;
 
   const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
-  const loginValid =
-    inputValues.email.includes("@") && inputValues.password.length >= 5;
 
+  const loginValid = email.includes("@") && password.length >= 5;
+  console.log("loginValid", loginValid);
   const token = localStorage.getItem("TOKEN");
 
   const loginOn = () => {
-    console.log(token);
     fetch("http://10.58.52.141:9000/users/logIn", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
@@ -31,6 +31,7 @@ const Login = ({ goToSignUp }) => {
       .then(res => res.json())
       .then(data => localStorage.setItem("TOKEN", data.accessToken));
   };
+
   return (
     <div className="login">
       <h2 className="loginTitle">로그인</h2>
@@ -56,7 +57,7 @@ const Login = ({ goToSignUp }) => {
           btnOn={!loginValid}
           action={loginOn}
           buttonSize="bigButton"
-          buttonColor="dark"
+          buttonColor={loginValid ? "dark" : "buttonOff"}
         >
           로그인
         </Button>
