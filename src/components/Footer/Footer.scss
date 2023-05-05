@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  background-color: $main-grey;
+  background-color: $main-ivory;
 }
 .footerFooter {
   width: 1440px;
@@ -13,21 +13,35 @@
   border: 1px none;
 }
 .footerGroup {
-  position: relative;
+  height: 669px;
+}
+.footerGroup2 {
   width: 1440px;
   height: 669px;
 }
 
-.footerinGroup {
+.footerOverlap {
+  position: relative;
+  width: 1440px;
+  height: 669px;
+  background-color: $main-grey;
+}
+
+.footerLOGINDefault {
   position: absolute;
   top: 12px;
   left: 0;
   width: 1440px;
   height: 657px;
   overflow: hidden;
-  background-color: $main-grey;
+  background-color: $main-ivory;
   box-shadow: 0px 4px 4px #00000040;
 }
+.footerOverlapGroup {
+  position: relative;
+  height: 1024px;
+}
+
 .footerinnerGroup {
   position: absolute;
   top: 0;
@@ -40,30 +54,39 @@
   top: 130px;
   left: 0;
   width: 481px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: normal;
 }
+
 .footerNotice2 {
+  position: absolute;
+  top: 163px;
+  left: 0;
+  width: 481px;
+  height: 65px;
+}
+
+.footerP {
   position: absolute;
   top: 0;
   left: 0;
   width: 481px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: normal;
 }
+
 .footerNotice3 {
   position: absolute;
   top: 38px;
   left: 0;
   width: 481px;
-  color: $main-white;
-
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -74,7 +97,7 @@
   top: 234px;
   left: 0;
   width: 481px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -85,7 +108,7 @@
   top: 267px;
   left: 0;
   width: 481px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -105,7 +128,7 @@
 .footerTermsofuse {
   position: relative;
   width: 636px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -113,7 +136,7 @@
   white-space: nowrap;
 }
 .termsofuseHead {
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -121,7 +144,7 @@
 .termsofuseContext {
   position: relative;
   width: 636px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -130,11 +153,19 @@
 .termsofuseEmail {
   text-decoration: underline;
 }
+.footerSpan {
+  position: relative;
+  width: 636px;
+  color: $main-ivory;
+  font-size: 12px;
+  font-weight: 400;
+}
+
 .footerLeft {
   position: absolute;
   top: 480px;
   left: 2px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -144,7 +175,7 @@
   position: absolute;
   top: 530px;
   left: 2px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -162,7 +193,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -172,7 +203,7 @@
   position: absolute;
   top: 74px;
   left: 0;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -204,7 +235,7 @@
   position: absolute;
   top: 0;
   left: 3px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0;
@@ -214,7 +245,7 @@
   position: absolute;
   top: 177px;
   left: 4px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0;
@@ -224,7 +255,7 @@
   position: absolute;
   top: 231px;
   left: 4px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -234,7 +265,7 @@
   position: absolute;
   top: 87px;
   left: 4px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
@@ -244,7 +275,7 @@
   position: absolute;
   top: 118px;
   left: 3px;
-  color: $main-black;
+  color: $main-ivory;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -255,7 +286,7 @@
   position: absolute;
   top: 23px;
   left: 0;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 45px;
   font-weight: 400;
   letter-spacing: 0;
@@ -273,7 +304,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -283,7 +314,7 @@
   position: absolute;
   top: 0;
   left: 181px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -293,7 +324,7 @@
   position: absolute;
   top: 0;
   left: 375px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -303,7 +334,7 @@
   position: absolute;
   top: 0;
   left: 535px;
-  color: $main-white;
+  color: $main-ivory;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0;
@@ -331,14 +362,14 @@
   width: 73px;
   height: 32px;
   border-radius: 5px;
-  background-color: #ebeade;
+  background-color: $main-ivory;
 }
 
 .newsletterButtonit {
   position: absolute;
   top: 7px;
   left: 20px;
-  color: #292929;
+  color: $main-grey;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;

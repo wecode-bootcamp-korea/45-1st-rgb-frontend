@@ -1,35 +1,46 @@
 @import "../../styles/variables";
-
-$main-black: #252525;
-$main-grey: #333333;
-$main-white: #fffef2;
-$main-ivory: #f5f5e6;
-$point-red: #ff0000;
+@import "../../styles/mixin";
 
 .login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: $main-white;
-}
-.loginContent {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  @include flex(flex, column, flex-start, space-between);
+  @include inputSize;
+
+  .loginTitle {
+    @include modalTitle(60px, 37px);
+  }
 
   .loginForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex(flex, column, center, center);
 
     & > input {
-      width: 400px;
-      height: 80px;
-      border-bottom: 1px solid $main-grey;
+      @include modalInputStyle(400px, 60px, 17px);
     }
   }
-}
 
-.loginTitle {
-  font-size: 37px;
+  .inputWarning {
+    margin: 15px 0;
+    @include inputWarning;
+  }
+
+  .buttonBox {
+    @include flex(flex, column, center, space-between);
+    height: 250px;
+    padding: 20px 0;
+  }
+
+  .loginTextBox {
+    @include flex(flex, column, center, space-between);
+    width: 100%;
+    height: 100px;
+
+    .loginText {
+      margin-top: 5px;
+      font-size: 14px;
+
+      &:first-child:hover {
+        padding-bottom: 5px;
+        border-bottom: 1px solid $main-grey;
+      }
+    }
+  }
 }
