@@ -16,14 +16,6 @@ export default function CartList() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   fetch("http://10.58.52.141:3000/ping", {
-  //     method: "GET"
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => localStorage.setItem("TOKEN", data.accessToken));
-  // }, []);
-
   useEffect(() => {
     let total = 0;
     items.forEach((item) => {
@@ -37,30 +29,18 @@ export default function CartList() {
     if (newItems[index].count > 1) {
       newItems[index].count--;
       setItems(newItems);
-      setTotalPrice(cartTotalPrice(newItems));
     }
   };
 
   const increment = (index) => {
     const newItems = [...items];
     newItems[index].count++;
-    setItems(newItems);
-    setTotalPrice(cartTotalPrice(newItems));
-  };
-
-  const cartTotalPrice = (items) => {
-    let total = 0;
-    items.forEach((item) => {
-      total += item.price * item.count;
-    });
-    return total;
+    setItems(newItems); // max 수량 막기
   };
 
   const deleteItem = (index) => {
-    const newItems = [...items];
-    newItems.splice(index, 1);
+    const newItems = items.filter((item, i) => i !== index);
     setItems(newItems);
-    setTotalPrice(cartTotalPrice(newItems));
   };
 
   return (
@@ -86,7 +66,6 @@ export default function CartList() {
           </div>
         </div>
       ))}
-
       <CartSum totalPrice={totalPrice} />
     </>
   );

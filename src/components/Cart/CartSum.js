@@ -12,11 +12,9 @@ export default function CartSum({ totalPrice }) {
             <span className="sum">{totalPrice}원</span>
           </div>
           <div className="payBtn">
-            <Button
-              buttonName="결제하기"
-              buttonSize="mediumButton"
-              buttonColor="bright"
-            />
+            <Button action="/" buttonSize="mediumButton" buttonColor="bright">
+              결제하기
+            </Button>
           </div>
         </div>
       </div>

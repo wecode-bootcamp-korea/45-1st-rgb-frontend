@@ -14,11 +14,9 @@ export default function CartRight() {
             </div>
           </div>
           <div className="submitButton">
-            <Button
-              buttonName="문의하기"
-              buttonSize="mediumButton"
-              buttonColor="dark"
-            />
+            <Button action="/" buttonSize="mediumButton" buttonColor="dark">
+              문의하기
+            </Button>
           </div>
           <div className="line" />
           <div className="cartForm2">
