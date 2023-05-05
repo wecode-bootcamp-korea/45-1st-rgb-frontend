@@ -4,14 +4,22 @@ import SignUp from "../../components/SignUp/SignUp";
 import "./User.scss";
 
 const User = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
+
+  const goToSignUp = () => {
+    setIsLogin(false);
+    console.log("go!");
+  };
+
   return (
     <div className="user">
       <div className="userTop">
-        <button className="arrow2"></button>
-        <button className="close"></button>
+        <button className="prevArrowIcon"></button>
+        <button className="closeIcon"></button>
       </div>
-      <div className="user">{isLogin ? <Login /> : <SignUp />}</div>
+      <div className="user">
+        {isLogin ? <Login goToSignUp={goToSignUp} /> : <SignUp />}
+      </div>
     </div>
   );
 };

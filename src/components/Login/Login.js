@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import "./Login.scss";
 
-const Login = () => {
+const Login = ({ goToSignUp }) => {
   return (
     <div className="login">
       <h2 className="loginTitle">로그인</h2>
@@ -32,7 +32,11 @@ const Login = () => {
           </Link>
           <p className="loginText">아직 회원이 아니십니까?</p>
         </div>
-        <Button buttonSize="bigButton" buttonColor="bright">
+        <Button
+          goToSignUp={goToSignUp}
+          buttonSize="bigButton"
+          buttonColor="bright"
+        >
           가입하기
         </Button>
       </div>

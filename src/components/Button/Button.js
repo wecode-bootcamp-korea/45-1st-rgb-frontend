@@ -1,9 +1,12 @@
 import react, { Children } from "react";
 import "./Button.scss";
 
-const Button = ({ buttonSize, buttonColor, change, children }) => {
+const Button = ({ buttonSize, buttonColor, children, goToSignUp }) => {
   return (
-    <button onClick={change} className={`${buttonSize} ${buttonColor}`}>
+    <button
+      onClick={() => goToSignUp()}
+      className={`${buttonSize} ${buttonColor}`}
+    >
       {children}
     </button>
   );
