@@ -4,6 +4,34 @@ import "./SignUp.scss";
 
 const SignUp = () => {
   const [isPassword, setIsPassword] = useState(true);
+  const [inputValues, setInputValues] = useState({
+    lastName: "",
+    firstName: "",
+    email: "",
+    password: "",
+    passwordCheck: "",
+  });
+  const { lastName, firstName, email, password, passwordCheck } = inputValues;
+
+  const loginValid = email.includes("@") && password.length >= 5;
+
+  const handleInput = event => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
+  };
+
+  const signUp = () => {
+    fetch("http://10.58.52.141:3000/users/signUp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json;charset=utf-8" },
+      body: JSON.stringify({
+        lastName: inputValues.lastName,
+        firstName: inputValues.firstName,
+        email: inputValues.email,
+        password: inputValues.password,
+      }),
+    }).then(res => res.json());
+  };
 
   return (
     <div className="signUp">
@@ -11,12 +39,14 @@ const SignUp = () => {
       <form className="signUpForm">
         <div className="signUpFormTop">
           <input
+            onChange={handleInput}
             type="text"
             name="lastName"
             className="lastName"
             placeholder=" 성"
           />
           <input
+            onChange={handleInput}
             type="text"
             name="firstName"
             className="firstName"
@@ -24,12 +54,15 @@ const SignUp = () => {
           />
         </div>
         <input
+          onChange={handleInput}
           type="text"
           name="email"
           className="signUpEmail"
           placeholder=" 이메일 주소"
         />
+        <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
         <input
+          onChange={handleInput}
           type="password"
           name="password"
           className="signUpPw"
@@ -40,8 +73,9 @@ const SignUp = () => {
         </p>
         <div className="checkSignUpPwBox">
           <input
+            onChange={handleInput}
             type={isPassword ? "password" : "text"}
-            name="password"
+            name="passwordCheck"
             className="checkSignUpPw"
             placeholder=" 비밀번호 확인"
           />
@@ -51,7 +85,9 @@ const SignUp = () => {
             onMouseLeave={() => setIsPassword(true)}
           />
         </div>
-        <p className="inputWarning">비밀번호가 일치하지 않습니다.</p>
+        {passwordCheck != password && (
+          <p className="inputWarning">비밀번호가 일치하지 않습니다.</p>
+        )}
       </form>
       <fieldset>
         <div>
@@ -70,7 +106,12 @@ const SignUp = () => {
         </div>
       </fieldset>
 
-      <Button buttonSize="bigButton" buttonColor="bright">
+      <Button
+        btnOn={!loginValid}
+        action={signUp}
+        buttonSize="bigButton"
+        buttonColor={loginValid ? "dark" : "buttonOff"}
+      >
         가입하기
       </Button>
     </div>
