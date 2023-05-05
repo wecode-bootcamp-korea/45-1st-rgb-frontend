@@ -1,6 +1,7 @@
 import React from "react";
 import "./Payment.scss";
 import Button from "../../../../components/Button/Button";
+import CheckBox from "../CheckBox/CheckBox";
 
 function Payment() {
   return (
@@ -58,6 +59,7 @@ function Payment() {
               주문내역을 확인했으며, 이에 동의합니다 (필수)
             </label>
           </div>
+          <CheckBox />
         </div>
         <Button
           buttonSize="bigButton"

@@ -16,7 +16,7 @@ function Order() {
           src="/images/Order/arrow2.png"
         />
         <Delivery />
-        {/* <Payment /> */}
+        <Payment />/
         <OrderList />
       </div>
     </div>
