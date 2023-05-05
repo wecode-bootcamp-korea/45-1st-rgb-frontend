@@ -5,7 +5,13 @@ import LeftFilter from "../LeftFilter/LeftFilter";
 
 function ListBottom() {
   const [category, setCategory] = useState("Artlist");
-  const [content, setContent] = useState(ArtList);
+  const [artContent, setArtContent] = useState([]);
+  const [goodsContent, setGoodsContent] = useState([]);
+  const [onOff, setOnOff] = useState(artContent);
+
+  // const handleCategory = e => {
+  //   setCategory(e);
+  // };
 
   const artlist = () => {
     setCategory("Artlist");
@@ -16,12 +22,28 @@ function ListBottom() {
   };
 
   useEffect(() => {
+    fetch("/data/artlist.json")
+      .then(res => res.json())
+      .then(artdata => {
+        setArtContent(artdata);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("/data/goodslist.json")
+      .then(res => res.json())
+      .then(goodsdata => {
+        setGoodsContent(goodsdata);
+      });
+  }, []);
+
+  useEffect(() => {
     if (category === "Artlist") {
-      setContent(ArtList);
+      setOnOff(artContent);
     } else if (category === "Goodslist") {
-      setContent(GoodsList);
+      setOnOff(goodsContent);
     }
-  }, [category]);
+  }, [artContent, goodsContent, category]);
 
   return (
     <div className="listBottom">
@@ -35,7 +57,7 @@ function ListBottom() {
         </div>
         <div className="bottomRight">
           <div className="artworkBox">
-            {content.map(art => {
+            {onOff.map(art => {
               return <ArtWorks art={art} key={art.id} />;
             })}
           </div>
@@ -47,81 +69,81 @@ function ListBottom() {
 
 export default ListBottom;
 
-const ArtList = [
-  {
-    id: 1,
-    img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
-    title: "endorphine 2023",
-    price: "$2500",
-    material: "Acrylic on Wood",
-    productsSizeLeft: "100",
-    productsSizeRight: "150",
-  },
-  {
-    id: 2,
-    img: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
-    title: "What a Delight! 2021",
-    price: "$1000",
-    material: "Acrylic on Wood",
-    productsSizeLeft: "65",
-    productsSizeRight: "100",
-  },
-  {
-    id: 3,
-    img: "https://images.unsplash.com/photo-1580136608079-72029d0de130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80",
-    title: "garden",
-    price: "$1300",
-    material: "Acrylic on Wood",
-    productsSizeLeft: "100",
-    productsSizeRight: "150",
-  },
-  {
-    categoryId: 4,
-    img: "https://images.unsplash.com/photo-1602407069119-e0c6f1602e31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    title: "unicorn",
-    price: "$1100",
-    material: "Acrylic on Wood",
-    productsSizeLeft: "120",
-    productsSizeRight: "100",
-  },
-];
+// const ArtList = [
+//   {
+//     id: 1,
+//     img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
+//     title: "endorphine 2023",
+//     price: "$2500",
+//     material: "Acrylic on Wood",
+//     productsSizeLeft: "100",
+//     productsSizeRight: "150",
+//   },
+//   {
+//     id: 2,
+//     img: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+//     title: "What a Delight! 2021",
+//     price: "$1000",
+//     material: "Acrylic on Wood",
+//     productsSizeLeft: "65",
+//     productsSizeRight: "100",
+//   },
+//   {
+//     id: 3,
+//     img: "https://images.unsplash.com/photo-1580136608079-72029d0de130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80",
+//     title: "garden",
+//     price: "$1300",
+//     material: "Acrylic on Wood",
+//     productsSizeLeft: "100",
+//     productsSizeRight: "150",
+//   },
+//   {
+//     id: 4,
+//     img: "https://images.unsplash.com/photo-1602407069119-e0c6f1602e31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+//     title: "unicorn",
+//     price: "$1100",
+//     material: "Acrylic on Wood",
+//     productsSizeLeft: "120",
+//     productsSizeRight: "100",
+//   },
+// ];
 
-const GoodsList = [
-  {
-    id: 1,
-    img: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
-    title: "What a Delight! 2021",
-    price: "$1000",
-    material: "Acrylic on Wood",
-    productsSizeLeft: "65",
-    productsSizeRight: "100",
-  },
-  {
-    id: 2,
-    img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
-    title: "endorphine 2023",
-    price: "$2500",
-    material: "Acrylic on Wood",
-    productsSizeLeft: "100",
-    productsSizeRight: "150",
-  },
+// const GoodsList = [
+//   {
+//     id: 1,
+//     img: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+//     title: "What a Delight! 2021",
+//     price: "$1000",
+//     material: "Acrylic on Wood",
+//     productsSizeLeft: "65",
+//     productsSizeRight: "100",
+//   },
+//   {
+//     id: 2,
+//     img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
+//     title: "endorphine 2023",
+//     price: "$2500",
+//     material: "Acrylic on Wood",
+//     productsSizeLeft: "100",
+//     productsSizeRight: "150",
+//   },
 
-  {
-    id: 3,
-    img: "https://images.unsplash.com/photo-1580136608079-72029d0de130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80",
-    title: "garden",
-    price: "$1300",
-    material: "Acrylic on Wood",
-    productsSizeLeft: "100",
-    productsSizeRight: "150",
-  },
-  {
-    categoryId: 4,
-    img: "https://images.unsplash.com/photo-1602407069119-e0c6f1602e31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    title: "unicorn",
-    price: "$1100",
-    material: "Acrylic on Wood",
-    productsSizeLeft: "120",
-    productsSizeRight: "100",
-  },
-];
+//   {
+//     id: 3,
+//     img: "https://images.unsplash.com/photo-1580136608079-72029d0de130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80",
+//     title: "garden",
+//     price: "$1300",
+//     material: "Acrylic on Wood",
+//     productsSizeLeft: "100",
+//     productsSizeRight: "150",
+//   },
+//   {
+//     categoryId: 4,
+//     img: "https://images.unsplash.com/photo-1602407069119-e0c6f1602e31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+//     title: "unicorn",
+//     price: "$1100",
+//     material: "Acrylic on Wood",
+//     productsSizeLeft: "120",
+//     productsSizeRight: "100",
+//   },
+// ];
