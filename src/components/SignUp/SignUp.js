@@ -26,8 +26,6 @@ const SignUp = () => {
   };
 
   const signUp = () => {
-    console.log("loginValid", loginValid);
-    console.log(firstName);
     fetch("http://10.58.52.141:3000/users/signUp", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
@@ -108,12 +106,12 @@ const SignUp = () => {
         </div>
         <div>
           <input type="checkbox" id="privacy" name="privacy" />
-          <label for="privacy">개인 정보 동의</label>
+          <label for="privacy">개인 정보 동의 (필수)</label>
           <button className="viewMore" />
         </div>
         <div>
           <input type="checkbox" id="subscription" name="subscription" />
-          <label for="subscription">뉴스레터 구독</label>
+          <label for="subscription">뉴스레터 구독 (선택)</label>
           <button className="viewMore" />
         </div>
       </fieldset>
