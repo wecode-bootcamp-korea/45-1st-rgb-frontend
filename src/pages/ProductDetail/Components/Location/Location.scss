@@ -1,17 +1,19 @@
 @import "../../../../styles/variables";
 
 .location {
-  padding: 50px 50px 50px 70px;
-  background-color: blueviolet;
+  height: 30%;
+  padding: 30px 50px 30px 70px;
 
   p {
-    padding-bottom: 20px;
-    background-color: chartreuse;
+    padding-bottom: 24px;
     color: $main-grey;
     text-align: end;
   }
 
   button {
-    background-color: chocolate;
+    img {
+      width: 15px;
+      height: 15px;
+    }
   }
 }

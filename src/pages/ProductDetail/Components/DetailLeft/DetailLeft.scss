@@ -1,0 +1,13 @@
+div.detailLeft {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  background-color: brown;
+
+  button {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}

@@ -1,4 +1,21 @@
 .productDetail {
   width: 100%;
-  background-color: antiquewhite;
+
+  .detailBox {
+    display: flex;
+    width: 100%;
+    padding: 5% 0 7% 0;
+
+    .leftLeft {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 60%;
+      background-color: antiquewhite;
+    }
+
+    .leftRight {
+      width: 40%;
+    }
+  }
 }

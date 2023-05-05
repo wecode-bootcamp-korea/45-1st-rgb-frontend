@@ -11,11 +11,11 @@ function DetailRight({ detailInfo }) {
         <p>
           {`${detailInfo.productsSizeLeft} x ${detailInfo.productsSizeRight} cm`}
         </p>
-        <p>{`${detailInfo.material}`}</p>
+        <p className="material">{`${detailInfo.material}`}</p>
       </div>
       <div className="rightMiddle">
+        <span className="description">{`${detailInfo.description}`}</span>
         <span>
-          {`${detailInfo.description}`}
           <button>
             <img alt="plusButton" src="/images/productDetail/plusButton.png" />
           </button>
@@ -26,18 +26,18 @@ function DetailRight({ detailInfo }) {
           <span>Price</span>
           <span>{detailInfo.price}</span>
         </div>
-        <div className="quntity">
+        <div className="quantity">
           <span>수량</span>
-          <span>
-            <button>-</button>
+          <div className="countButton">
+            <button className="minusButton">-</button>
             {detailInfo.count}/{detailInfo.quantity}
-            <button>+</button>
-          </span>
+            <button className="plusButton">+</button>
+          </div>
         </div>
       </div>
       <div className="buyingButtons">
         <Button
-          buttonColor="dark"
+          buttonColor="bright"
           buttonSize="smallButton"
           buttonName="카트 추가"
           buttonRadius="radius"
