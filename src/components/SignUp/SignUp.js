@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import "./SignUp.scss";
 
 const SignUp = () => {
+  const [message, setMessage] = useState([]);
   const [isPassword, setIsPassword] = useState(true);
   const [inputValues, setInputValues] = useState({
     lastName: "",
@@ -11,9 +12,13 @@ const SignUp = () => {
     password: "",
     passwordCheck: "",
   });
+
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
-  const loginValid = email.includes("@") && password.length >= 5;
+  const loginValid =
+    email.includes("@") && password.length >= 5 && firstName && lastName != "";
+
+  const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
 
   const handleInput = event => {
     const { name, value } = event.target;
@@ -21,6 +26,8 @@ const SignUp = () => {
   };
 
   const signUp = () => {
+    console.log("loginValid", loginValid);
+    console.log(firstName);
     fetch("http://10.58.52.141:3000/users/signUp", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
@@ -30,7 +37,9 @@ const SignUp = () => {
         email: inputValues.email,
         password: inputValues.password,
       }),
-    }).then(res => res.json());
+    })
+      .then(res => res.json())
+      .then(message => setMessage(message));
   };
 
   return (
@@ -68,9 +77,12 @@ const SignUp = () => {
           className="signUpPw"
           placeholder=" 비밀번호"
         />
-        <p className="inputWarning">
-          영문 대문자, 숫자, 특수문자 포함 10글자 이상이여야 합니다.
-        </p>
+        {!regex.test(password) && (
+          <p className="inputWarning">
+            영문 대문자, 숫자, 특수문자 포함 10글자 이상이여야 합니다.
+          </p>
+        )}
+
         <div className="checkSignUpPwBox">
           <input
             onChange={handleInput}
