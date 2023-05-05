@@ -8,7 +8,6 @@ const User = () => {
 
   const goToSignUp = () => {
     setIsLogin(false);
-    console.log("go!");
   };
 
   return (
