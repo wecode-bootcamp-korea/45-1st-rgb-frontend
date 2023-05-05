@@ -2,44 +2,59 @@
 
 div.listBottom {
   .bottomTop {
+    display: flex;
+    justify-content: space-between;
     padding: 60px 0 20px 35px;
     border-bottom: 2px solid black;
-    font-size: 21px;
 
     span {
       padding-right: 50px;
+      font-size: 21px;
 
       &:hover {
+        opacity: 70%;
+        color: $main-grey;
+        cursor: pointer;
+      }
+    }
+
+    .goodsCategory {
+      display: flex;
+      justify-content: space-between;
+      width: 250px;
+      padding-right: 20px;
+
+      button:hover {
         opacity: 70%;
         color: $main-grey;
       }
     }
   }
+}
 
-  .bottomBottom {
+.bottomBottom {
+  display: flex;
+
+  .bottomLeft {
+    width: 20%;
+    margin-top: 2%;
+    margin-bottom: 20%;
+    padding-top: 3%;
+    border-right: 1px solid black;
+  }
+
+  .bottomRight {
     display: flex;
+    // gap: 50px 50px;
 
-    .bottomLeft {
-      width: 20%;
-      margin-top: 2%;
-      margin-bottom: 20%;
-      padding-top: 3%;
-      border-right: 1px solid black;
-    }
+    width: 80%;
+    padding: 5% 10%;
+  }
 
-    .bottomRight {
-      display: flex;
-      // gap: 50px 50px;
-
-      width: 80%;
-      padding: 5% 10%;
-    }
-
-    .artworkBox {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      width: 100%;
-    }
+  .artworkBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
   }
 }
