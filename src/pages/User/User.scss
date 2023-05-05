@@ -13,12 +13,12 @@
     height: 100px;
     padding: 70px 70px 0;
 
-    .arrow2 {
+    .prevArrowIcon {
       @include icon(20px, 20px, 0);
       background-image: url(../../assets/arrow2.png);
     }
 
-    .close {
+    .closeIcon {
       @include icon(20px, 20px, 0);
       background-image: url(../../assets/close.png);
     }
