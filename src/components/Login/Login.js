@@ -16,9 +16,11 @@ const Login = ({ goToSignUp }) => {
   const loginValid =
     inputValues.email.includes("@") && inputValues.password.length >= 5;
 
-  const loginOn = e => {
-    e.preventDefault();
-    fetch("", {
+  const token = localStorage.getItem("TOKEN");
+
+  const loginOn = () => {
+    console.log(token);
+    fetch("http://10.58.52.141:9000/users/logIn", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
