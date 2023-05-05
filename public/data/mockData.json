@@ -1,17 +1,21 @@
 [
   {
     "id": 28,
-    "title": "dreamy landscape",
-    "price": "980,000",
+    "title": "Dreamy landscape",
+    "price": "980000",
     "size": "400 x 800",
-    "material": "acrylic"
+    "material": "acrylic",
+    "number": "2",
+    "count": "1"
   },
 
   {
     "id": 29,
     "title": "Minimalist City",
-    "price": "880,000",
+    "price": "880000",
     "size": "700 x 900",
-    "material": "oil on canvas"
+    "material": "oil on canvas",
+    "number": "1",
+    "count": "1"
   }
 ]
