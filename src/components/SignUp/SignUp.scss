@@ -52,20 +52,22 @@
   width: 400px;
 
   .lastName {
-    @include modalInputStyle(120px, 60px, 21px);
+    @include modalInputStyle(120px, 60px, 17px);
   }
 
   .firstName {
-    @include modalInputStyle(230px, 60px, 21px);
+    @include modalInputStyle(230px, 60px, 17px);
   }
 }
+
 .checkSignUpPwBox {
   @include flex(flex, row, center, space-between);
 
   .checkSignUpPw {
-    @include modalInputStyle(400px, 60px, 21px);
+    @include modalInputStyle(400px, 60px, 17px);
     margin-bottom: 10px;
   }
+
   .viewPw {
     @include icon(30px, 20px, -40px);
     background-image: url(../../assets/viewPw.png);

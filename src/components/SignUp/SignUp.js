@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import "./SignUp.scss";
 
 const SignUp = () => {
+  const [isPassword, setIsPassword] = useState(true);
+
   return (
     <div className="signUp">
       <h2 className="signUpTitle">회원가입</h2>
@@ -38,12 +40,16 @@ const SignUp = () => {
         </p>
         <div className="checkSignUpPwBox">
           <input
-            type="password"
+            type={isPassword ? "password" : "text"}
             name="password"
             className="checkSignUpPw"
             placeholder=" 비밀번호 확인"
           />
-          <button className="viewPw" />
+          <button
+            onMouseOver={() => setIsPassword(false)}
+            className="viewPw"
+            onMouseLeave={() => setIsPassword(true)}
+          />
         </div>
         <p className="inputWarning">비밀번호가 일치하지 않습니다.</p>
       </form>
