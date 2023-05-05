@@ -1,3 +1,73 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
 .signUp {
-  background-color: blue;
+  @include flex(flex, column, flex-start, space-between);
+  @include inputSize;
+
+  .signUpTitle {
+    @include modalTitle(40px, 37px);
+  }
+
+  .signUpForm {
+    @include flex(flex, column, flex-start, center);
+
+    & > input {
+      @include modalInputStyle(400px, 60px, 17px);
+      margin-bottom: 10px;
+    }
+
+    .inputWarning {
+      @include inputWarning;
+    }
+  }
+
+  fieldset {
+    @include flex(flex, column, flex-start, space-around);
+    margin: 20px 0;
+
+    & > div {
+      @include flex(flex, row, center, flex-start);
+      width: 400px;
+      padding: 5px 0;
+
+      &:first-child {
+        margin-bottom: 10px;
+        border-bottom: 1px solid $main-grey;
+      }
+      & > input {
+        margin-right: 10px;
+      }
+    }
+
+    .viewMore {
+      @include icon(30px, 20px, 10px);
+      background-image: url(../../assets/Expand-Arrow.png);
+    }
+  }
+}
+
+.signUpFormTop {
+  @include flex(flex, row, center, space-between);
+  width: 400px;
+
+  .lastName {
+    @include modalInputStyle(120px, 60px, 21px);
+  }
+
+  .firstName {
+    @include modalInputStyle(230px, 60px, 21px);
+  }
+}
+.checkSignUpPwBox {
+  @include flex(flex, row, center, space-between);
+
+  .checkSignUpPw {
+    @include modalInputStyle(400px, 60px, 21px);
+    margin-bottom: 10px;
+  }
+  .viewPw {
+    @include icon(30px, 20px, -40px);
+    background-image: url(../../assets/viewPw.png);
+  }
 }

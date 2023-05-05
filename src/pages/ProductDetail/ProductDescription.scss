@@ -1,0 +1,47 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.productDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 50%;
+  height: 100vh;
+  padding: 70px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: $main-white;
+
+  button {
+    background-image: url(../../assets/close.png);
+    @include icon(20px, 30px, _);
+  }
+}
+
+.descriptionBox {
+  padding: 70px 40px;
+
+  & > h2 {
+    margin-bottom: 20px;
+    font-size: $title-font;
+  }
+
+  .artistName {
+    margin-bottom: 70px;
+    font-size: $subtitle-font;
+  }
+
+  & > p {
+    margin-bottom: 10px;
+  }
+
+  .material {
+    margin-bottom: 20px;
+  }
+
+  .description {
+    width: 90%;
+    margin-top: 30px;
+    text-align: start;
+    word-break: break-all;
+  }
+}
