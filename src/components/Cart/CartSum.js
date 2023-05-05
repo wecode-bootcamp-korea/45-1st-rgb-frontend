@@ -12,7 +12,6 @@ export default function CartSum() {
             <span className="sum">1,580,000 원</span>
           </div>
           <div className="payBtn">
-            {" "}
             <Button
               buttonName="결제하기"
               buttonSize="mediumButton"

@@ -9,7 +9,8 @@ export default function CartList() {
         <div className="itemName">Product 1</div>
         <div className="itemSize">220 x 480 / 아크릴</div>
         <div className="itemQuantity">
-          <button className="minus" />1<button className="plus" />
+          <button className="minus">-</button>1
+          <button className="plus">+</button>
         </div>
         <div className="itemPrice">790,0000 원</div>
         <div className="cartDelete">
@@ -20,7 +21,8 @@ export default function CartList() {
         <div className="itemName">Product 2</div>
         <div className="itemSize">220 x 480 / 아크릴</div>
         <div className="itemQuantity">
-          <button className="minus" />1<button className="plus" />
+          <button className="minus">-</button>1
+          <button className="plus">+</button>
         </div>
         <div className="itemPrice">790,0000 원</div>
         <div className="cartDelete">
