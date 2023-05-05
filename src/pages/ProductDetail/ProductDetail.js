@@ -7,11 +7,15 @@ import "./ProductDetail.scss";
 function ProductDetail() {
   return (
     <div className="productDetail">
+      {/* 상단 */}
       <Location />
+      {/* 하단 */}
       <div className="detailBox">
+        {/* 하단 왼쪽 */}
         <div className="leftLeft">
-          <DetailLeft />
+          <DetailLeft detailInfo={detailInfo} />
         </div>
+        {/* 하단 오른쪽 */}
         <div className="leftRight">
           <DetailRight detailInfo={detailInfo} />
         </div>
@@ -32,6 +36,6 @@ const detailInfo = {
   description:
     "해찬 작가의 초작. 고난 뒤의 영광을 맞이한 작가의 심리가 여지없이 드러나 있다.호로로록호로롥. 집에 가고싶다. 내일부터 기능 구현 어떠케하디 따흐흑 dkfkfkdkfkslkdjfliwajeofijawo;flkㅁㄴㅇ래ㅔㅁ쟈ㅓ래ㅑㅓㅣㅏasifjopawijefophaeporugopaiewjoflkmal;sdㄹ매 ㅑ적레ㅐㅁ저데ㅐ랴ㅓ메ㅐㄷ곃매ㅔ쟈ㅓ내어",
   price: "$2500",
-  count: 1,
   quantity: 5,
+  img: "https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
 };
