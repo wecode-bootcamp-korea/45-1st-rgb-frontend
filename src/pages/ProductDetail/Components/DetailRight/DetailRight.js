@@ -43,14 +43,12 @@ function DetailRight({ detailInfo }) {
         <Button
           buttonColor="bright"
           buttonSize="smallButton"
-          buttonName="카트 추가"
-          buttonRadius="radius"
+          children="카트 추가"
         />
         <Button
           buttonColor="dark"
           buttonSize="smallButton"
-          buttonName="바로 구매"
-          buttonRadius="radius"
+          children="바로 구매"
         />
       </div>
     </div>

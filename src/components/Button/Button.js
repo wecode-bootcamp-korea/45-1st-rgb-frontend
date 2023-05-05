@@ -1,10 +1,14 @@
-import React from "react";
+import react, { Children } from "react";
 import "./Button.scss";
 
-const Button = ({ buttonSize, buttonColor, buttonName, buttonRadius }) => {
+const Button = ({ btnOn, buttonSize, buttonColor, children, action }) => {
   return (
-    <button className={`${buttonSize} ${buttonColor} ${buttonRadius}`}>
-      {buttonName}
+    <button
+      onClick={() => action()}
+      disabled={btnOn}
+      className={`${buttonSize} ${buttonColor}`}
+    >
+      {children}
     </button>
   );
 };

@@ -3,6 +3,7 @@ import Location from "./Components/Location/Location";
 import DetailLeft from "./Components/DetailLeft/DetailLeft";
 import DetailRight from "./Components/DetailRight/DetailRight";
 import "./ProductDetail.scss";
+import ProductDescription from "./ProductDescription";
 
 function ProductDetail() {
   return (
@@ -11,6 +12,9 @@ function ProductDetail() {
       <Location />
       {/* 하단 */}
       <div className="detailBox">
+        {/* 숨겨진 상세 설명 */}
+        {/* <ProductDescription /> */}
+
         {/* 하단 왼쪽 */}
         <div className="leftLeft">
           <DetailLeft detailInfo={detailInfo} />
