@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import "./Delivery.scss";
 import Button from "../../../../components/Button/Button";
 
-function Delivery() {
-  // 전체 동의 기능
-
-  const [checkedButtons, setCheckedButtons] = useState([]);
-
-  const handleInputChange = () => {};
+function Delivery({ userList }) {
+  console.log("delivery props! ", userList);
 
   return (
     <div className="delivery">
@@ -17,8 +13,26 @@ function Delivery() {
           <div className="userInfoForm">
             <h3 className="formTitle">주문자 정보</h3>
             <div className="inputNameWrap">
-              <input className="familyName" type="text" placeholder="성" />
-              <input className="firstName" type="text" placeholder="이름" />
+              <div className="familyNameWrap">
+                <input
+                  className="familyName"
+                  type="text"
+                  placeholder="성"
+                  readOnly
+                />
+                <span className="userFamilyName">
+                  {userList[0]?.first_name}
+                </span>
+              </div>
+              <div className="firstNameWrap">
+                <input
+                  className="firstName"
+                  type="text"
+                  placeholder="이름"
+                  readOnly
+                />
+                <span className="userFirstName">{userList[0]?.last_name}</span>
+              </div>
             </div>
             <input className="phoneNumber" type="text" placeholder="전화번호" />
           </div>

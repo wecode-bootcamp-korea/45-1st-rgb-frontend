@@ -39,12 +39,36 @@
     align-items: center;
     gap: 70px;
 
-    .familyName {
+    .familyNameWrap {
+      position: relative;
       width: 30%;
+
+      .familyName {
+        width: 100%;
+      }
+
+      .userFamilyName {
+        position: absolute;
+        top: 22px;
+        left: 50px;
+        font-size: 17px;
+      }
     }
 
-    .firstName {
+    .firstNameWrap {
+      position: relative;
       width: 70%;
+
+      .firstName {
+        width: 100%;
+      }
+
+      .userFirstName {
+        position: absolute;
+        top: 22px;
+        left: 50px;
+        font-size: 17px;
+      }
     }
   }
 
