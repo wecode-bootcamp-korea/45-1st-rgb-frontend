@@ -64,11 +64,9 @@ const SignUp = () => {
         </div>
       </fieldset>
 
-      <Button
-        buttonName="가입하기"
-        buttonSize="bigButton"
-        buttonColor="bright"
-      />
+      <Button buttonSize="bigButton" buttonColor="bright">
+        가입하기
+      </Button>
     </div>
   );
 };
