@@ -133,4 +133,8 @@ button {
 input {
   border: none;
   background: none;
+
+  &:focus {
+    outline: none;
+  }
 }

@@ -1,5 +1,36 @@
-@mixin flexCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@mixin flex($display, $direction, $align, $justify) {
+  display: $display;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin inputSize {
+  width: 400px;
+  margin-top: 50px;
+  padding-bottom: 20px;
+}
+
+@mixin modalTitle($margin, $font) {
+  margin-bottom: $margin;
+  font-size: $font;
+}
+
+@mixin inputWarning {
+  color: $point-red;
+  font-size: 14px;
+}
+
+@mixin modalInputStyle($width, $height, $font) {
+  width: $width;
+  height: $height;
+  border-bottom: 1px solid $main-grey;
+  font-size: $font;
+}
+
+@mixin icon($width, $height, $margin-left) {
+  width: $width;
+  height: $height;
+  margin-left: $margin-left;
+  background-repeat: no-repeat;
 }

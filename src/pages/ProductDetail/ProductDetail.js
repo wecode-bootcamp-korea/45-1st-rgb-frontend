@@ -1,8 +1,15 @@
 import React from "react";
 import "./ProductDetail.scss";
+import ProductDescription from "./ProductDescription";
 
-function ProductDetail() {
-  return <div className="productDetail">ProductDetail Page</div>;
-}
+const ProductDetail = () => {
+  return (
+    <>
+      <div className="productDetail">
+        <ProductDescription />
+      </div>
+    </>
+  );
+};
 
 export default ProductDetail;
