@@ -17,9 +17,11 @@ const Login = ({ goToSignUp }) => {
 
   const loginValid = email.includes("@") && password.length >= 5;
   console.log("loginValid", loginValid);
+
   const token = localStorage.getItem("TOKEN");
 
   const loginOn = () => {
+    console.log("token", token);
     fetch("http://10.58.52.141:9000/users/logIn", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
@@ -51,7 +53,9 @@ const Login = ({ goToSignUp }) => {
           placeholder=" 비밀번호"
         />
       </form>
-      <p className="inputWarning">회원정보가 일치하지 않습니다.</p>
+      {token == null && (
+        <p className="inputWarning">회원정보가 일치하지 않습니다.</p>
+      )}
       <div className="buttonBox">
         <Button
           btnOn={!loginValid}
