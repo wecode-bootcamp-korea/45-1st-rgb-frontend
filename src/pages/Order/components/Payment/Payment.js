@@ -59,7 +59,17 @@ function Payment() {
               주문내역을 확인했으며, 이에 동의합니다 (필수)
             </label>
           </div>
-          <CheckBox />
+          {/* <CheckBox
+            className="testBox"
+            inputText="주문내역을 확인했으며, 이에 동의합니다 (필수)"
+          />
+          <CheckBox inputText="체크박스 컴포넌트 생성!" /> */}
+          {/*  {PAYMENT_TERMS.map(term => {
+            return <CheckBox key={term.id} term={term} />;
+          })} */}
+          {/*  {PAYMENT_TERMS.map(term => {
+            return <input type="checkbox" key={term.id} term={term} />;
+          })} */}
         </div>
         <Button
           buttonSize="bigButton"
@@ -72,3 +82,15 @@ function Payment() {
 }
 
 export default Payment;
+
+/* const PAYMENT_TERMS = [
+  {
+    id: 1,
+    text: "본인은 만 14세 이상입니다 (필수)",
+  },
+  {
+    id: 2,
+    text: "개인정보 수집 및 이용 조건에 동의합니다 (필수)",
+  },
+];
+ */
