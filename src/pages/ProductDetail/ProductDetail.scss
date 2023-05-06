@@ -1,6 +1,12 @@
 @import "../../styles/variables";
 
 .productDetail {
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.productDetailBox {
   width: 100%;
   background-color: $main-ivory;
 

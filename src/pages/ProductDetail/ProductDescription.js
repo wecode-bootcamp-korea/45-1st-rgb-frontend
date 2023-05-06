@@ -14,13 +14,13 @@ const ProductDescription = () => {
 
   return (
     <div className="productDescription">
-      <button></button>
+      <button />
       {description.map(data => (
         <div className="descriptionBox" key={data.id}>
           <h2>{data.title}</h2>
           <p className="artistName">{data.artistName}</p>
           <p className="productsSize">
-            {data.productsSizeLeft} × {data.productsSizeRight}cm
+            {`${data.productsSizeLeft} x ${data.productsSizeRight}cm`}
           </p>
           <p className="material">{data.material}</p>
           <p className="description">{data.description}</p>

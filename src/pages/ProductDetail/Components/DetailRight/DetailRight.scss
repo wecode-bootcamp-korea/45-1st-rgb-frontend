@@ -78,8 +78,21 @@ div.detailRight {
   }
 
   .buyingButtons {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 50px 50px 0 50px;
+    // padding: 50px 50px 0 50px;
+
+    .totalPrice {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 20px 40px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+
+  .bold {
+    font-weight: bold;
   }
 }
