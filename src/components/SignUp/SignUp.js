@@ -13,7 +13,6 @@ const SignUp = () => {
     password: "",
     passwordCheck: "",
   });
-  console.log(message);
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
   const loginValid =
