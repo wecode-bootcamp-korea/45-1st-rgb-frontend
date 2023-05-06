@@ -16,7 +16,11 @@ const SignUp = () => {
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
   const loginValid =
-    email.includes("@") && password.length >= 5 && firstName && lastName != "";
+    email.includes("@") &&
+    password.length >= 5 &&
+    firstName &&
+    lastName != "" &&
+    passwordCheck === password;
 
   const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
 
