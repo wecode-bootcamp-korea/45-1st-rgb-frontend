@@ -26,11 +26,9 @@
     @include flex(flex, row, _, space-between);
 
     .navBox {
-      @include flex(flex, row, _, _);
-
-      & > li {
+      @include flex(flex, row, flex-start, _);
+      li {
         margin-right: 40px;
-        background-color: aqua;
         cursor: pointer;
       }
 
@@ -38,12 +36,11 @@
         padding-bottom: 10px;
         border-bottom: 2px solid $main-white;
       }
-
-      & > li:last-child {
-        margin-right: 0;
-      }
     }
 
+    li:last-child {
+      margin-right: 0;
+    }
     & span {
       padding: 0 6px;
       border-radius: 100%;
