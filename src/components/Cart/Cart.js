@@ -16,9 +16,9 @@ function Cart() {
             <div className="cartEmpty" />
           </div>
           <CartList />
-          {/* <div className="arrowUp">
-            <img src="../../assets/arrow.png" alt="닫기" />
-          </div> */}
+          <div className="arrowUp">
+            <img className="arrowImg" src="../../assets/arrow.png" alt="닫기" />
+          </div>
         </div>
         {/* 오른쪽 카트 입력칸 */}
         {/* <CartRight /> */}
