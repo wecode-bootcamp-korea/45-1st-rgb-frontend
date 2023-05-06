@@ -2,10 +2,55 @@ import React, { useState } from "react";
 import "./Delivery.scss";
 import Button from "../../../../components/Button/Button";
 
-function Delivery({ userList, setIsDelivery }) {
+function Delivery({ userData, setUserData, setIsDelivery }) {
+  console.log("userData", userData);
   const [isInputOpen, setIsInputOpen] = useState(false);
+
+  /*   // user data 상태 관리 -> 이 data를 서버에 post 요청을 통해 넘겨줘야 한다.
+  const [userInfo, setUserInfo] = useState({
+    address: "",
+    postalcode: "",
+    cellphone: "",
+    points: "",
+  });
+ */
+  const handleNextPageBtn = event => {
+    console.log("e! ", event);
+    event.preventDefault();
+    // postUserDeliveryData();
+    goToPayment();
+  };
+
+  const postUserDeliveryData = () => {
+    fetch("http://10.58.52.222:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        token: "", //요구하는 키값에 맞춰 헤더에 토큰을 담아 보낸다. authorization
+      },
+      body: JSON
+        .stringify
+        // userInfo
+        /* address: "상세주소 state로 업데이트하기", userInfo.address
+        postalcode: "12569",
+        cellphone:
+          "12345678 - string type으로 보내야 하나? 유저가 입력한 8자리 숫자만 받아오기+상태관리", */
+        (),
+    });
+  };
+
   const goToPayment = () => {
     setIsDelivery(false);
+  };
+
+  // 인풋창 값 받아오기
+  const handleCellphoneInput = e => {
+    setUserData({ ...userData, cellphone: e.target.value });
+  };
+
+  // 전화번호에 숫자 입력만 받기
+  const acceptOnlyNumbers = e => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
   };
 
   return (
@@ -28,9 +73,7 @@ function Delivery({ userList, setIsDelivery }) {
                   placeholder="성"
                   readOnly
                 />
-                <span className="userFamilyName">
-                  {userList[0]?.first_name}
-                </span>
+                <span className="userFamilyName">{userData?.first_name}</span>
               </div>
               <div className="firstNameWrap">
                 <input
@@ -39,10 +82,18 @@ function Delivery({ userList, setIsDelivery }) {
                   placeholder="이름"
                   readOnly
                 />
-                <span className="userFirstName">{userList[0]?.last_name}</span>
+                <span className="userFirstName">{userData?.last_name}</span>
               </div>
             </div>
-            <input className="phoneNumber" type="text" placeholder="전화번호" />
+            <input
+              className="phoneNumber"
+              name="cellphone"
+              type="text"
+              placeholder="전화번호(010-0000-0000)"
+              maxLength="13"
+              onInput={acceptOnlyNumbers}
+              onChange={handleCellphoneInput}
+            />
           </div>
           <div className="deliveryInfoForm">
             <h3 className="formTitle">배송지 정보</h3>
@@ -83,7 +134,11 @@ function Delivery({ userList, setIsDelivery }) {
             {isInputOpen && <input type="text" className="requestInput" />}
           </div>
         </div>
-        <Button buttonSize="bigButton" buttonColor="dark" action={goToPayment}>
+        <Button
+          buttonSize="bigButton"
+          buttonColor="dark"
+          action={handleNextPageBtn}
+        >
           다음 페이지
         </Button>
       </form>

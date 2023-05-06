@@ -6,20 +6,23 @@ import Payment from "./components/Payment/Payment";
 import Delivery from "./components/Delivery/Delivery";
 
 function Order() {
-  const [userList, setUserList] = useState([]);
+  // q : 초기값 전달하지 않아도 되는 것인가??
+  // 먼저, 상태관리를 부모에서 하는 것으로 생각하고, 자식에게 props를 통해 전달해주자!!
+
+  const [userData, setUserData] = useState({});
   const [productList, setProductList] = useState([]);
 
-  // 유저 정보 get
+  // 유저 정보 get [서버 통신]
   useEffect(() => {
-    fetch("/data/userList.json")
+    fetch("/data/userData.json")
       .then(response => response.json())
       .then(data => {
         console.log("json data !!", data);
-        setUserList(data);
+        setUserData(data);
       });
   }, []);
 
-  // product 정보 get
+  // product 정보 get [서버 통신]
   useEffect(() => {
     fetch("/data/productList.json")
       .then(response => response.json())
@@ -37,10 +40,14 @@ function Order() {
       <OrderHeader isDelivery={isDelivery} setIsDelivery={setIsDelivery} />
       <div className="orderBox">
         {isDelivery ? (
-          <Delivery userList={userList} setIsDelivery={setIsDelivery} />
+          <Delivery
+            userData={userData}
+            setIsDelivery={setIsDelivery}
+            setUserData={setUserData}
+          />
         ) : (
           <Payment
-            userList={userList}
+            userData={userData}
             productList={productList}
             setIsDelivery={setIsDelivery}
           />
