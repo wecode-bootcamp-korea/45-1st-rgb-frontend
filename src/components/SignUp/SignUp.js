@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import "./SignUp.scss";
+import SignUpModal from "./SignUpModal";
 
 const SignUp = () => {
-  const [message, setMessage] = useState([]);
+  const [message, setMessage] = useState([{ a: 1 }]);
   const [signUpWarning, setSignUpWarning] = useState("");
   const [isPassword, setIsPassword] = useState(true);
   const [inputValues, setInputValues] = useState({
@@ -13,6 +14,7 @@ const SignUp = () => {
     password: "",
     passwordCheck: "",
   });
+  console.log(message.length);
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
   const loginValid =
@@ -29,10 +31,13 @@ const SignUp = () => {
     setInputValues({ ...inputValues, [name]: value });
   };
   const messageModal = () => {
-    !message.length &&
-      setSignUpWarning(
+    setSignUpWarning(
+      !message.length ? (
         <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
-      );
+      ) : (
+        <SignUpModal firstName={firstName} />
+      )
+    );
   };
 
   const signUp = () => {
