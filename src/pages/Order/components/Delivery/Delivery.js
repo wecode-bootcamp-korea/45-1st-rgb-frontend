@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import "./Delivery.scss";
 import Button from "../../../../components/Button/Button";
 
-function Delivery({ userList }) {
+function Delivery({ userList, setIsDelivery }) {
   const [isInputOpen, setIsInputOpen] = useState(false);
+  const goToPayment = () => {
+    setIsDelivery(false);
+  };
 
   return (
     <div className="delivery">
+      <img
+        className="leftArrow"
+        alt="left arrow"
+        src="/images/Order/arrow2.png"
+      />
       <h2 className="deliveryTitle">주문을 어디로 보내시겠습니까?</h2>
       <form className="deliveryForm">
         <div className="inputFormWrapper">
@@ -75,7 +83,7 @@ function Delivery({ userList }) {
             {isInputOpen && <input type="text" className="requestInput" />}
           </div>
         </div>
-        <Button buttonSize="bigButton" buttonColor="dark">
+        <Button buttonSize="bigButton" buttonColor="dark" action={goToPayment}>
           다음 페이지
         </Button>
       </form>

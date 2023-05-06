@@ -3,7 +3,7 @@ import "./Payment.scss";
 import Button from "../../../../components/Button/Button";
 import CheckBox from "../CheckBox/CheckBox";
 
-function Payment({ userList, productList }) {
+function Payment({ userList, productList, setIsDelivery }) {
   // 합계, 사용 포인트
   const getSum = productList => {
     let sum = 0;
@@ -19,8 +19,18 @@ function Payment({ userList, productList }) {
   // 보유 포인트 콤마 사용하여 입력
   const totalPoints = parseInt(userList[0]?.points).toLocaleString();
 
+  const handlePrevComponent = () => {
+    setIsDelivery(true);
+  };
+
   return (
     <div className="payment">
+      <img
+        className="leftArrow"
+        alt="left arrow"
+        src="/images/Order/arrow2.png"
+        onClick={handlePrevComponent}
+      />
       <h2 className="paymentTitle">이대로 주문하시겠습니까?</h2>
       <form className="pointForm">
         <div className="pointTitle">

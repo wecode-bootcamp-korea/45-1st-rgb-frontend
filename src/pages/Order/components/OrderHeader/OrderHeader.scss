@@ -11,14 +11,21 @@
 
     &Active {
       font-weight: 700;
+      cursor: pointer;
     }
 
     &Inactive {
       color: $main-grey;
+      cursor: pointer;
     }
 
     &Arrow {
       transform: rotate(270deg);
+    }
+
+    .invoiceNav:active {
+      font-weight: 700;
+      cursor: pointer;
     }
   }
 }

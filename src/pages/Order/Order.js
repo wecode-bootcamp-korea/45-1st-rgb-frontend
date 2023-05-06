@@ -29,24 +29,21 @@ function Order() {
       });
   }, []);
 
-  const [renderComponent, setRenderComponent] = useState("delivery");
   const [isDelivery, setIsDelivery] = useState(true);
   // true이면 Delivery 컴포넌트, false이면 Payment 컴포넌트
-  // orderheader를 하나의 컴포넌트로 묶어야 한다........
 
   return (
     <div className="order">
       <OrderHeader isDelivery={isDelivery} setIsDelivery={setIsDelivery} />
       <div className="orderBox">
-        <img
-          className="leftArrow"
-          alt="left arrow"
-          src="/images/Order/arrow2.png"
-        />
-        {renderComponent === "delivery" ? (
-          <Delivery userList={userList} />
+        {isDelivery ? (
+          <Delivery userList={userList} setIsDelivery={setIsDelivery} />
         ) : (
-          <Payment userList={userList} productList={productList} />
+          <Payment
+            userList={userList}
+            productList={productList}
+            setIsDelivery={setIsDelivery}
+          />
         )}
 
         <OrderList productList={productList} />
