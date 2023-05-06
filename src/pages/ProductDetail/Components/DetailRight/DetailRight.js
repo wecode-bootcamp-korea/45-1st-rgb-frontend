@@ -2,11 +2,24 @@ import React, { useState } from "react";
 import Button from "../../../../components/Button/Button";
 import "./DetailRight.scss";
 
-function DetailRight({ details }) {
+function DetailRight({ details }, { inOut, setInOut, showMore }) {
   const [count, setCount] = useState(1);
   const price = details[0]?.price;
   const total = count * price;
 
+  const plusCount = () => {
+    setCount(count + 1);
+    if (count === details[0]?.quantity) {
+      setCount(count + 0);
+    }
+  };
+
+  const minusCount = () => {
+    setCount(count - 1);
+    if (count === 1) {
+      setCount(count - 0);
+    }
+  };
   return (
     <div className="detailRight">
       <h2>{details[0]?.title}</h2>
@@ -22,7 +35,7 @@ function DetailRight({ details }) {
       <div className="rightMiddle">
         <span className="description">{`${details[0]?.description}`}</span>
         <span>
-          <button>
+          <button onClick={showMore}>
             <img alt="plusButton" src="/images/productDetail/plusButton.png" />
           </button>
         </span>
@@ -31,14 +44,18 @@ function DetailRight({ details }) {
       <div className="rightBottom">
         <div className="price">
           <span className="bold">Price</span>
-          <span>{details[0]?.price}</span>
+          <span>{`${details[0]?.price} won`}</span>
         </div>
         <div className="quantity">
           <span className="bold">수량</span>
           <div className="countButton">
-            <button className="minusButton">-</button>
+            <button className="minusButton" onClick={minusCount}>
+              -
+            </button>
             {count}/{details[0]?.quantity}
-            <button className="plusButton">+</button>
+            <button className="plusButton" onClick={plusCount}>
+              +
+            </button>
           </div>
         </div>
       </div>
@@ -46,7 +63,7 @@ function DetailRight({ details }) {
       <div className="buyingButtons">
         <div className="totalPrice">
           <span className="bold">총 가격</span>
-          <span>{total}</span>
+          <span>{`${total} won`}</span>
         </div>
         <div className="buttons">
           <Button
