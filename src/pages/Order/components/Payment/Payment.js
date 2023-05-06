@@ -3,7 +3,9 @@ import "./Payment.scss";
 import Button from "../../../../components/Button/Button";
 import CheckBox from "../CheckBox/CheckBox";
 
-function Payment() {
+function Payment({ userList }) {
+  console.log("payment userlist props!", userList);
+
   return (
     <div className="payment">
       <h2 className="paymentTitle">이대로 주문하시겠습니까?</h2>
@@ -15,9 +17,14 @@ function Payment() {
         <div>
           <label className="pointLabel" for="totalPoint">
             보유 <input type="text" id="totalPoint" />
-            <span className="pointUnit">원</span>
+            <span className="pointUnit">
+              {userList[0]?.points}
+              &nbsp;원
+            </span>
           </label>
         </div>
+
+        {/* 사용 포인트 = products api에서 price 받아오기 */}
         <div>
           <label className="pointLabel" for="pricePoint">
             사용 <input type="text" id="pricePoint" />

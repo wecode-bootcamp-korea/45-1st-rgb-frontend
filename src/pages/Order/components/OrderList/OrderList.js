@@ -1,7 +1,10 @@
 import React from "react";
 import "./OrderList.scss";
+import CheckoutProduct from "./components/CheckoutProduct";
 
-function OrderList() {
+function OrderList({ productList }) {
+  console.log("productList??? ", productList);
+
   return (
     <div className="orderList">
       <div className="orderListBox">
@@ -23,8 +26,12 @@ function OrderList() {
             <li>$2500</li>
           </ul>
         </div>
-        <div className="checkoutProduct">
-          <div className="thumbnailWrap">
+        <div className="checkoutProductsBox">
+          <CheckoutProduct />
+          <CheckoutProduct />
+        </div>
+        {/* <div className="checkoutProduct"> */}
+        {/*        <div className="thumbnailWrap">
             <img
               alt="product thumbnail"
               src="https://images.pexels.com/photos/3792175/pexels-photo-3792175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -43,8 +50,8 @@ function OrderList() {
               <button>삭제</button>
               <span>$2600</span>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
     </div>
   );

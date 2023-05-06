@@ -3,8 +3,6 @@ import "./Delivery.scss";
 import Button from "../../../../components/Button/Button";
 
 function Delivery({ userList }) {
-  console.log("delivery props! ", userList);
-
   return (
     <div className="delivery">
       <h2 className="deliveryTitle">주문을 어디로 보내시겠습니까?</h2>
