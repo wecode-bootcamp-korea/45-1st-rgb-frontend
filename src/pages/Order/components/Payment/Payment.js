@@ -3,8 +3,21 @@ import "./Payment.scss";
 import Button from "../../../../components/Button/Button";
 import CheckBox from "../CheckBox/CheckBox";
 
-function Payment({ userList }) {
-  console.log("payment userlist props!", userList);
+function Payment({ userList, productList }) {
+  // 합계, 사용 포인트
+  const getSum = productList => {
+    let sum = 0;
+    productList.forEach(product => {
+      sum += parseInt(product?.price);
+    });
+    return sum;
+  };
+
+  let totalPrice = getSum(productList);
+  let totalPriceComma = Number(totalPrice).toLocaleString();
+
+  // 보유 포인트 콤마 사용하여 입력
+  const totalPoints = parseInt(userList[0]?.points).toLocaleString();
 
   return (
     <div className="payment">
@@ -16,19 +29,15 @@ function Payment({ userList }) {
         </div>
         <div>
           <label className="pointLabel" for="totalPoint">
-            보유 <input type="text" id="totalPoint" />
-            <span className="pointUnit">
-              {userList[0]?.points}
-              &nbsp;원
-            </span>
+            보유 <input type="text" id="totalPoint" readOnly />
+            <span className="pointUnit">{totalPoints}&nbsp;P</span>
           </label>
         </div>
 
-        {/* 사용 포인트 = products api에서 price 받아오기 */}
         <div>
           <label className="pointLabel" for="pricePoint">
-            사용 <input type="text" id="pricePoint" />
-            <span className="pointUnit">원</span>
+            사용 <input type="text" id="pricePoint" readOnly />
+            <span className="pointUnit">{totalPriceComma}&nbsp;P</span>
           </label>
         </div>
         <div className="contractWrapper">

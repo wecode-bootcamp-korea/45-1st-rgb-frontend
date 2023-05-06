@@ -1,18 +1,19 @@
 import React from "react";
 import "./CheckoutProduct.scss";
 
-function CheckoutProduct() {
+function CheckoutProduct({ product }) {
+  const { image_urls, price, title } = product;
+
+  const productPrice = parseInt(price).toLocaleString();
+
   return (
     <div className="checkoutProduct">
       <div className="thumbnailWrap">
-        <img
-          alt="product thumbnail"
-          src="https://images.pexels.com/photos/3792175/pexels-photo-3792175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        />
+        <img alt="product thumbnail" src={image_urls} />
       </div>
       <div className="checkoutProductRight">
         <div className="topRow">
-          <h5>Dots 2023</h5>
+          <h5>{title}</h5>
           <div className="counter">
             <button>-</button>
             <span>1</span>
@@ -21,7 +22,7 @@ function CheckoutProduct() {
         </div>
         <div className="bottomRow">
           <button>삭제</button>
-          <span>$2600</span>
+          <span>₩{productPrice}</span>
         </div>
       </div>
     </div>

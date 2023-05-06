@@ -28,7 +28,6 @@ function Order() {
         setProductList(data);
       });
   }, []);
-
   return (
     <div className="order">
       <OrderHeader />
