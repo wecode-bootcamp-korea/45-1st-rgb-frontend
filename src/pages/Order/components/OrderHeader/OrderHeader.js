@@ -1,12 +1,12 @@
 import React from "react";
 import "./OrderHeader.scss";
 
-function OrderHeader() {
+function OrderHeader({ isDelivery, setIsDelivery }) {
   return (
     <div className="orderHeader">
       <header>
         <ul className="orderNav">
-          <li className="orderNavActive">
+          <li className={isDelivery ? "orderNavActive" : "orderNavInactive"}>
             <a>배송 정보</a>
           </li>
           <img
@@ -15,7 +15,7 @@ function OrderHeader() {
             alt="arrow"
           />
           <span />
-          <li className="orderNavInactive">
+          <li className={!isDelivery ? "orderNavActive" : "orderNavInactive"}>
             <a>결제 방법</a>
           </li>
           <img
