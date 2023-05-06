@@ -17,6 +17,7 @@
 }
 
 @mixin inputWarning {
+  margin: 10px 0;
   color: $point-red;
   font-size: 14px;
 }
