@@ -37,8 +37,8 @@ function Order() {
           alt="left arrow"
           src="/images/Order/arrow2.png"
         />
-        {/* <Delivery userList={userList} /> */}
-        <Payment userList={userList} productList={productList} />
+        <Delivery userList={userList} />
+        {/* <Payment userList={userList} productList={productList} /> */}
         <OrderList productList={productList} />
       </div>
     </div>

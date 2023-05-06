@@ -87,11 +87,9 @@ function Payment({ userList, productList }) {
             return <input type="checkbox" key={term.id} term={term} />;
           })} */}
         </div>
-        <Button
-          buttonSize="bigButton"
-          buttonColor="dark"
-          buttonName="결제하기"
-        />
+        <Button buttonSize="bigButton" buttonColor="dark">
+          결제하기
+        </Button>
       </form>
     </div>
   );

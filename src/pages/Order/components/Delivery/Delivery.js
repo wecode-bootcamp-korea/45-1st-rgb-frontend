@@ -3,6 +3,8 @@ import "./Delivery.scss";
 import Button from "../../../../components/Button/Button";
 
 function Delivery({ userList }) {
+  const [isInputOpen, setIsInputOpen] = useState(false);
+
   return (
     <div className="delivery">
       <h2 className="deliveryTitle">주문을 어디로 보내시겠습니까?</h2>
@@ -59,20 +61,23 @@ function Delivery({ userList }) {
             </label>
           </div>
           <br />
+
+          {/* 글자 선택하면 하단의 인풋창 나오도록 다시 만들기 */}
           <div className="requestInputWrapper">
-            <label className="request">
+            <div className="request" htmlFor="request">
               <input id="request" type="checkbox" />
-              <label for="request" />
+              <label
+                htmlFor="request"
+                onClick={() => setIsInputOpen(!isInputOpen)}
+              />
               배송 기사님께 요청 사항이 있습니다
-            </label>
-            <input type="text" className="requestInput" />
+            </div>
+            {isInputOpen && <input type="text" className="requestInput" />}
           </div>
         </div>
-        <Button
-          buttonSize="bigButton"
-          buttonColor="dark"
-          buttonName="다음 페이지"
-        />
+        <Button buttonSize="bigButton" buttonColor="dark">
+          다음 페이지
+        </Button>
       </form>
     </div>
   );
