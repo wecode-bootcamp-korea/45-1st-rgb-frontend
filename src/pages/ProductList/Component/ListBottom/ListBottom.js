@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ArtWorks from "../ArtWorks/ArtWorks";
 import LeftFilter from "../LeftFilter/LeftFilter";
+import GoodsFilter from "../LeftFilter/GoodsFilter";
+import ArtFilter from "../LeftFilter/ArtFilter";
 import GoodsCategory from "../GoodsCategory/GoodsCategory";
 import "./ListBottom.scss";
 
@@ -10,6 +12,8 @@ function ListBottom() {
   const [artContent, setArtContent] = useState([]);
   const [goodsContent, setGoodsContent] = useState([]);
   const [onOff, setOnOff] = useState(artContent);
+  const [filter, setFilter] = useState(ArtFilter);
+
   // Goods 카테고리의 하위 카테고리 보이고 안보이기 위한 useState
   const [show, setShow] = useState(false);
 
@@ -44,9 +48,11 @@ function ListBottom() {
     if (category === "Artlist") {
       setOnOff(artContent);
       setShow(false);
+      setFilter(ArtFilter);
     } else if (category === "Goodslist") {
       setOnOff(goodsContent);
       setShow(true);
+      setFilter(GoodsFilter);
     }
   }, [artContent, goodsContent, category]);
 
@@ -61,7 +67,7 @@ function ListBottom() {
       </div>
       <div className="bottomBottom">
         <div className="bottomLeft">
-          <LeftFilter />
+          <LeftFilter filter={filter} />
         </div>
         <div className="bottomRight">
           <div className="artworkBox">

@@ -21,8 +21,6 @@ function FilterComponent({ content }) {
                 : "/images/productList/Expand Arrow.png"
             }`}
           />
-
-          {/* <img alt="button" src="/images/productList/Expand Arrow.png" /> */}
         </button>
       </div>
       <div>
@@ -36,7 +34,6 @@ function FilterComponent({ content }) {
                 type="radio"
                 id={`${content.content.first.id}`}
                 name={content.name}
-                checked
               />
             </div>
             <div className="contentButton">

@@ -1,4 +1,4 @@
-const FilterContent = [
+const GoodsFilter = [
   {
     ids: 1,
     title: "Price",
@@ -21,29 +21,14 @@ const FilterContent = [
     content: {
       first: {
         id: 13,
-        contents: "100 - 400",
+        contents: "0 - 100",
       },
       second: {
         id: 14,
-        contents: "400 - 700",
-      },
-    },
-  },
-  {
-    ids: 3,
-    title: "Material",
-    name: "materialCheck",
-    content: {
-      first: {
-        id: 15,
-        contents: "oil",
-      },
-      second: {
-        id: 16,
-        contents: "acrylic",
+        contents: "100 - 500",
       },
     },
   },
 ];
 
-export default FilterContent;
+export default GoodsFilter;

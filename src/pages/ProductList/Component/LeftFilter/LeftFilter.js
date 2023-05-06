@@ -1,9 +1,8 @@
 import React from "react";
 import FilterComponent from "../FilterComponent/FilterComponent";
-import FilterContent from "./ForFilter";
 import "./LeftFilter.scss";
 
-function LeftFilter() {
+function LeftFilter({ filter }) {
   return (
     <div className="leftFilter">
       <div className="show">
@@ -11,7 +10,7 @@ function LeftFilter() {
         <input type="checkbox" id="checkbox" />
       </div>
       <div className="filters">
-        {FilterContent.map(content => {
+        {filter.map(content => {
           return <FilterComponent content={content} key={content.ids} />;
         })}
       </div>
