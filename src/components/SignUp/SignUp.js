@@ -4,6 +4,7 @@ import "./SignUp.scss";
 
 const SignUp = () => {
   const [message, setMessage] = useState([]);
+  const [signUpWarning, setSignUpWarning] = useState("");
   const [isPassword, setIsPassword] = useState(true);
   const [inputValues, setInputValues] = useState({
     lastName: "",
@@ -12,7 +13,7 @@ const SignUp = () => {
     password: "",
     passwordCheck: "",
   });
-
+  console.log(message);
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
   const loginValid =
@@ -23,6 +24,12 @@ const SignUp = () => {
   const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
+  };
+  const messageModal = () => {
+    !message.length &&
+      setSignUpWarning(
+        <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
+      );
   };
 
   const signUp = () => {
@@ -38,6 +45,7 @@ const SignUp = () => {
     })
       .then(res => res.json())
       .then(message => setMessage(message));
+    messageModal();
   };
 
   return (
@@ -67,7 +75,7 @@ const SignUp = () => {
           className="signUpEmail"
           placeholder=" 이메일 주소"
         />
-        <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
+        {signUpWarning}
         <input
           onChange={handleInput}
           type="password"
