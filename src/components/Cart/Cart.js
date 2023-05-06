@@ -1,6 +1,5 @@
 import React from "react";
 import "./Cart.scss";
-import CartRight from "./CartRight";
 import CartList from "./CartList";
 
 function Cart() {
@@ -16,12 +15,8 @@ function Cart() {
             <div className="cartEmpty" />
           </div>
           <CartList />
-          <div className="arrowUp">
-            <img className="arrowImg" src="../../assets/arrow.png" alt="닫기" />
-          </div>
+          <div className="arrowUp" />
         </div>
-        {/* 오른쪽 카트 입력칸 */}
-        {/* <CartRight /> */}
       </div>
     </div>
   );
