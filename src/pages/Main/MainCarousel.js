@@ -4,6 +4,7 @@ import "./MainCarousel.scss";
 export default function MainCarousel() {
   return (
     <div className="box2">
+      {/* // 캐러셀 이미지 */}
       <div className="artistBox">
         <div className="artistImg">
           <div className="artistText">
@@ -13,13 +14,19 @@ export default function MainCarousel() {
         </div>
         <div className="artistBox2">
           <div className="artistImg2" />
-          <p className="boxTextName">Tommy Dollar</p>
-          <p className="boxTextNameUnder">사이즈</p>
+          <div className="textBox">
+            <div className="textBoxName">
+              Tommy Dollar <div className="textBoxSize">220 x 480</div>
+            </div>
+          </div>
         </div>
         <div className="artistBox3">
           <div className="artistImg3" />
-          <p className="boxTextName">Tommy Dollar</p>
-          <p className="boxTextNameUnder">사이즈</p>
+          <div className="textBox">
+            <div className="textBoxName">
+              Tommy Dollar <div className="textBoxSize">220 x 480</div>
+            </div>
+          </div>
         </div>
         <div className="buttonBox">
           <div className="buttonBox">
@@ -30,10 +37,10 @@ export default function MainCarousel() {
           </div>
         </div>
       </div>
-      <div className="imgBarContainor">
-        <div className="imgBar">
-          1
-          <div className="imgBar2" />
+
+      <div className="indicatorBar">
+        <div className="Bar1">
+          <div className="Bar2" />
         </div>
       </div>
     </div>

@@ -32,26 +32,29 @@
     justify-content: center;
     height: 100vh;
 
-    .boxTextName {
+    .textBox {
       margin-top: 15px;
       margin-left: 55px;
       text-align: center;
     }
-    .boxTextNameUnder {
-      margin-top: 8px;
-      margin-left: 55px;
-      text-align: center;
+
+    .textBoxName {
+      //border-bottom: 1px solid #252525;
+    }
+    & .textBoxName:hover {
+      text-decoration: underline;
     }
 
-    span {
-      margin-top: -30px;
+    .textBoxSize {
+      margin-top: 8px;
+      text-align: center;
+      text-decoration: none;
     }
 
     .artistImg {
       display: block;
       width: 300px;
       height: 340px;
-      background-color: pink;
     }
 
     .artistText {
@@ -60,7 +63,7 @@
     }
 
     .artistText2 {
-      margin-top: 40px;
+      margin-top: 50px;
       font-size: 16px;
     }
 
@@ -71,11 +74,23 @@
       background-color: #252525;
     }
 
+    & .artistImg2:hover {
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform 0.8s;
+    }
+
     .artistImg3 {
       width: 300px;
       height: 340px;
       margin-left: 60px;
       background-color: #252525;
+    }
+
+    & .artistImg3:hover {
+      object-fit: cover;
+      transform: scale(1.05);
+      transition: transform 0.8s;
     }
   }
 
