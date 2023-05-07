@@ -8,13 +8,17 @@ const Login = ({ goToSignUp }) => {
     email: "",
     password: ""
   });
+  const { email, password } = inputValues;
+  const [loginWarning, setLoginWarning] = useState("");
 
   const handleInput = (event) => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
-  const loginValid =
-    inputValues.email.includes("@") && inputValues.password.length >= 5;
+
+  const loginValid = email.includes("@") && password.length >= 5;
+
+  const token = localStorage.getItem("TOKEN");
 
   const loginOn = (e) => {
     e.preventDefault();
@@ -28,7 +32,10 @@ const Login = ({ goToSignUp }) => {
     })
       .then((res) => res.json())
       .then((data) => localStorage.setItem("TOKEN", data.accessToken));
+
+    !token && setLoginWarning("회원정보가 일치하지 않습니다.");
   };
+
   return (
     <div className="login">
       <h2 className="loginTitle">로그인</h2>
@@ -48,7 +55,7 @@ const Login = ({ goToSignUp }) => {
           placeholder=" 비밀번호"
         />
       </form>
-      <p className="inputWarning">회원정보가 일치하지 않습니다.</p>
+      <p className="inputWarning">{loginWarning}</p>
       <div className="buttonBox">
         <Button
           btnOn={!loginValid}

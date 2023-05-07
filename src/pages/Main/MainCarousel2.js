@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./MainCarousel2.scss";
 
 export default function MainCarasol2() {
+  const [data, setData] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef(null);
+
   return (
     <div className="box4">
       <div className="goodsBox">
