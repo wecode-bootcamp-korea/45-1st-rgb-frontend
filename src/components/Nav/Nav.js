@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 const Nav = () => {
@@ -12,61 +13,27 @@ const Nav = () => {
     <nav className="nav">
       <ul className="items">
         <li>
-          <a
-            href="#main"
-            className={activeLink === "main" ? "active" : ""}
-            onClick={() => handleLinkClick("main")}
-          >
+          <Link to="/">
             <img src="/images/nav/Logo.png" alt="logo" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="Artists의 파일주소"
-            className={activeLink === "Artists" ? "active" : ""}
-            onClick={() => handleLinkClick("Artists")}
-          >
-            Artists
-          </a>
+          <Link to="/">Artist</Link>
         </li>
         <li>
-          <a
-            href="Shop의 파일주소"
-            className={activeLink === "Shop" ? "active" : ""}
-            onClick={() => handleLinkClick("Shop")}
-          >
-            Shop
-          </a>
+          <Link to="/">Shop</Link>
         </li>
       </ul>
 
       <ul className="items">
         <li>
-          <a
-            href="My Page의 파일주소"
-            className={activeLink === "My page" ? "active" : ""}
-            onClick={() => handleLinkClick("My page")}
-          >
-            My page
-          </a>
+          <Link to="/">My Page</Link>
         </li>
         <li>
-          <a
-            href="Cart의 파일주소"
-            className={activeLink === "Cart" ? "active" : ""}
-            onClick={() => handleLinkClick("Cart")}
-          >
-            Cart
-          </a>
+          <Link to="/">Cart</Link>
         </li>
         <li>
-          <a
-            href="Logout의 파일주소"
-            className={activeLink === "Logout" ? "active" : ""}
-            onClick={() => handleLinkClick("Logout")}
-          >
-            Log out
-          </a>
+          <Link to="/">Log-in</Link>
         </li>
       </ul>
     </nav>
