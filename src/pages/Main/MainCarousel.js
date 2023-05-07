@@ -34,7 +34,7 @@ export default function MainCarousel() {
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
-  }; // pre 버튼 첫번째 이미지에서 막기? -> 사진 잘림
+  };
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -47,17 +47,18 @@ export default function MainCarousel() {
 
   return (
     <div className="box2">
-      <div className="artistBox" ref={carouselRef}>
-        <div className="carouselContainer">
-          {items.map((item) => (
-            <CarouselItem key={item.id} item={item} />
-          ))}
+      <div className="artistBox">
+        <div className="section">
+          <ul className="carouselContainer" ref={carouselRef}>
+            {items.map((item) => (
+              <CarouselItem key={item.id} item={item} />
+            ))}
+          </ul>
+          <button className="buttonPre" onClick={handlePrev} />
+          <button className="buttonNext" onClick={handleNext} />
         </div>
       </div>
-      <div className="buttonBox">
-        <button className="buttonPre" onClick={handlePrev} />
-        <button className="buttonNext" onClick={handleNext} />
-      </div>
+
       <div className="indicatorBar">
         <div className="Bar1">
           <div className="Bar2" />

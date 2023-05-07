@@ -3,7 +3,7 @@ import "./CarouselItem.scss";
 export default function CarouselItem({ item }) {
   const { image, title, price } = item;
   return (
-    <div>
+    <li className="carouselItem">
       <div className="artistImg">
         <img src={image} alt={title} />
       </div>
@@ -12,6 +12,6 @@ export default function CarouselItem({ item }) {
           {item.title} <div className="textBoxSize">{price}</div>
         </div>
       </div>
-    </div>
+    </li>
   );
 }

@@ -1,34 +1,53 @@
 .box2 {
+  display: flex;
   position: relative;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+
   background-color: #fffef2;
 
-  .buttonBox {
-    position: flex;
-    margin-top: -110px;
-  }
+  .artistBox {
+    .section {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      width: 1536px;
+      height: max-content;
+      padding: 0 65px;
+      overflow: hidden;
 
-  .buttonPre {
-    position: absolute;
-    left: 60px;
-    width: 63px;
-    height: 63px;
-    background-image: url("../../assets/button-pre.png");
-  }
+      .carouselContainer {
+        display: flex;
+        width: 800px;
+        height: 100%;
+        margin-left: 300px;
+      }
+      .buttonPre {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 63px;
+        height: 63px;
+        transform: translateY(-50%);
+        background-image: url("../../assets/button-pre.png");
+      }
 
-  .buttonNext {
-    position: absolute;
-    right: 60px;
-    width: 63px;
-    height: 63px;
-    background-image: url("../../assets/button-next.png");
+      .buttonNext {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 63px;
+        height: 63px;
+        transform: translateY(-50%);
+        background-image: url("../../assets/button-next.png");
+      }
+    }
   }
 
   // .artistText {
   //   margin-top: 40%;
-  //   font-size: 30px;
+  //   font-size: 3 0px;
   // }
 
   // .artistText2 {
