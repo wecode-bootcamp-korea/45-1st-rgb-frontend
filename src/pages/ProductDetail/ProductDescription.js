@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ProductDescription.scss";
 
-const ProductDescription = ({ inOut }, { setInOut, noMore }) => {
+const ProductDescription = ({ inOut, setInOut, noMore }) => {
   // mock data 저장할 useState
   const [description, setDescription] = useState([]);
 
@@ -14,10 +14,9 @@ const ProductDescription = ({ inOut }, { setInOut, noMore }) => {
   }, []);
 
   return (
-    <div className="productDescription">
-      {/* className=
-      {`${inOut ? "productDescription" : "productDescription out"}`}
-      > */}
+    <div
+      className={`${inOut ? "productDescription" : "productDescription out"}`}
+    >
       <button onClick={noMore} />
       <div className="descriptionBox" key={description[0]?.id}>
         <h2>{description[0]?.title}</h2>

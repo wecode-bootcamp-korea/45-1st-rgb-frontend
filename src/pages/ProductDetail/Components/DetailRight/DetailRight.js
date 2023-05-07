@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../../../../components/Button/Button";
 import "./DetailRight.scss";
 
-function DetailRight({ details }, { inOut, setInOut, showMore }) {
+function DetailRight({ details, inOut, showMore }) {
   const [count, setCount] = useState(1);
   const price = details[0]?.price;
   const total = count * price;
