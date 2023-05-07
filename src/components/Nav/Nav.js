@@ -17,7 +17,7 @@ const Nav = () => {
             className={activeLink === "main" ? "active" : ""}
             onClick={() => handleLinkClick("main")}
           >
-            rgb.
+            <img src="/images/nav/Logo.png" alt="logo" />
           </a>
         </li>
         <li>
@@ -65,7 +65,7 @@ const Nav = () => {
             className={activeLink === "Logout" ? "active" : ""}
             onClick={() => handleLinkClick("Logout")}
           >
-            Logout
+            Log out
           </a>
         </li>
       </ul>
