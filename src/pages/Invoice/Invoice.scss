@@ -1,3 +1,461 @@
+@import "../../styles/variables";
+
 .invoice {
-  background-color: tomato;
+  .frameFrameWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    background-color: $main-ivory;
+  }
+
+  .frameFrame {
+    width: 1440px;
+    height: 1765px;
+    overflow: hidden;
+    border: none;
+  }
+
+  .frameOverlap {
+    position: relative;
+    top: -162px;
+    left: -26px;
+    width: 1466px;
+    height: 1927px;
+  }
+
+  .frameGroup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1466px;
+    height: 1927px;
+  }
+
+  .frameGroup193 {
+    width: 1514px;
+    height: 1927px;
+  }
+
+  .frameOverlapGroup {
+    position: relative;
+    top: 181px;
+    left: 26px;
+    width: 1440px;초
+    height: 1746px;
+  }
+
+  .frameLOGINDefault {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
+    height: 1746px;
+    background-color: $main-ivory;
+    box-shadow: 0px 4px 4px #00000040;
+  }
+
+  .frameRectangle {
+    height: 1024px;
+    background-color: $main-ivory;
+  }
+
+  .frameTextWrapper {
+    position: absolute;
+    top: 384px;
+    left: 416px;
+    width: 294px;
+    color: $main-grey;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameDiv {
+    position: absolute;
+    top: 384px;
+    left: 710px;
+    color: $main-grey;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .frameTextWrapper2 {
+    position: absolute;
+    top: 542px;
+    left: 416px;
+    width: 294px;
+    color: $main-grey;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper3 {
+    position: absolute;
+    top: 930px;
+    left: 416px;
+    width: 294px;
+    color: $main-grey;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .framePexelsPhoto {
+    position: absolute;
+    top: 994px;
+    left: 416px;
+    width: 319px;
+    height: 299px;
+    object-fit: cover;
+  }
+
+  .frameLine {
+    position: absolute;
+    top: 187px;
+    left: 0;
+    width: 1440px;
+    height: 1px;
+    object-fit: cover;
+  }
+
+  .frameP {
+    position: absolute;
+    top: 129px;
+    left: 28px;
+    color: $main-ivory;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .frameSpan {
+    color: $main-black;
+    font-weight: 300;
+  }
+
+  .frameTextWrapper4 {
+    color: $main-grey;
+    font-weight: 300;
+  }
+
+  .frameTextWrapper5 {
+    color: #494949;
+    font-weight: 800;
+  }
+
+  .frameTextWrapper6 {
+    position: absolute;
+    top: 440px;
+    left: 420px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 100;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper7 {
+    position: absolute;
+    top: 465px;
+    left: 421px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 200;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper8 {
+    position: absolute;
+    top: 630px;
+    left: 421px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 200;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper9 {
+    position: absolute;
+    top: 662px;
+    left: 421px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 200;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper10 {
+    position: absolute;
+    top: 704px;
+    left: 421px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 200;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameGroup232 {
+    position: absolute;
+    top: 768px;
+    left: 420px;
+    width: 628px;
+    height: 25px;
+  }
+
+  .frameTextWrapper11 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #646464;
+    font-size: 21px;
+    font-weight: 200;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .frameTextWrapper12 {
+    position: absolute;
+    top: 0;
+    left: 558px;
+    color: #646464;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  .frameTextWrapper13 {
+    position: absolute;
+    top: 598px;
+    left: 421px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 200;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameLine23 {
+    position: absolute;
+    top: 1316px;
+    left: 416px;
+    width: 641px;
+    height: 3px;
+  }
+
+  .frameLine24 {
+    position: absolute;
+    top: 1554px;
+    left: 416px;
+    width: 641px;
+    height: 3px;
+  }
+
+  .frameLine25 {
+    position: absolute;
+    top: 1373px;
+    left: 416px;
+    width: 641px;
+    height: 1px;
+    object-fit: cover;
+  }
+
+  .frameLine26 {
+    position: absolute;
+    top: 1433px;
+    left: 416px;
+    width: 641px;
+    height: 1px;
+    object-fit: cover;
+  }
+  .frameLine27 {
+    position: absolute;
+    top: 1493px;
+    left: 416px;
+    width: 641px;
+    height: 1px;
+    object-fit: cover;
+  }
+  .frameTextWrapper14 {
+    position: absolute;
+    top: 1334px;
+    left: 424px;
+    width: 104px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  .frameTextWrapper15 {
+    position: absolute;
+    top: 1334px;
+    left: 784px;
+    width: 104px;
+
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  .frameTextWrapper16 {
+    position: absolute;
+    top: 1513px;
+    left: 424px;
+    width: 104px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  .frameTextWrapper17 {
+    position: absolute;
+    top: 1575px;
+    left: 424px;
+    width: 104px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper18 {
+    position: absolute;
+    top: 1453px;
+    left: 424px;
+    width: 104px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper19 {
+    position: absolute;
+    top: 1393px;
+    left: 424px;
+    width: 173px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper20 {
+    position: absolute;
+    top: 1453px;
+    left: 1018px;
+    width: 104px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper21 {
+    position: absolute;
+    top: 1513px;
+    left: 784px;
+    width: 104px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper22 {
+    position: absolute;
+    top: 1334px;
+    left: 989px;
+    width: 77px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper23 {
+    position: absolute;
+    top: 1390px;
+    left: 989px;
+    width: 77px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper24 {
+    position: absolute;
+    top: 1575px;
+    left: 989px;
+    width: 77px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameTextWrapper25 {
+    position: absolute;
+    top: 1513px;
+    left: 1018px;
+    width: 77px;
+    color: #000000;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  .frameH1 {
+    position: absolute;
+    top: 276px;
+    left: 412px;
+    color: #292929;
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+  // .frameTextWrapper26 {
+  //   position: absolute;
+  //   top: 623px;
+  //   left: 736px;
+  //   width: 248px;
+  //   color: #000000;
+  //   font-size: 14px;
+  //   font-weight: 400;
+  //   letter-spacing: 0;
+  //   line-height: normal;
+  // }
 }
