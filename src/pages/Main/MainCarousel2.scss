@@ -7,9 +7,18 @@
   height: 100vh;
   background-color: $main-white;
 
+  .goodsBox {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+  }
   .buttonContainer {
     position: flex;
-    margin-top: -200px;
+    margin-top: 100px;
   }
 
   .buttonPre2 {
@@ -28,15 +37,36 @@
     background-image: url("../../assets/button-next.png");
   }
 }
-.goodsBox {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  height: 100vh;
 
-  .goodsImg {
-    width: 300px;
+.secondSlide {
+  display: flex;
+  width: 500px;
+  height: 100%;
+
+  .slideBox {
+    // display: flex;
+    // justify-content: center;
     height: 300px;
-    background-color: $main-black;
+    margin: 0 auto;
+    padding: 0;
+
+    .goodsImg {
+      display: block;
+      width: 300px;
+      height: 300px;
+      margin-right: 410px;
+      margin-left: -300px;
+    }
+    .textBox {
+      margin-top: 15px;
+      margin-left: 110px;
+      text-align: center;
+
+      .textBoxSize {
+        margin-top: 8px;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
   }
 }
