@@ -2,6 +2,10 @@
 @import "../../styles/mixin";
 
 .signUpModal {
+  width: 100%;
+  height: 100%;
+}
+.signUpModalBox {
   position: absolute;
   z-index: 9999;
   top: 0;
@@ -17,12 +21,10 @@
   & > h2 {
     padding-bottom: 20px;
     border-bottom: 2px solid $main-white;
-    font-size: $title-font;
   }
 
   .messageSubTitle {
     margin-bottom: 10%;
-    font-size: $subtitle-font;
   }
 
   .messageBox {
@@ -32,8 +34,7 @@
   .messageBox:last-child {
     padding: 40px;
     @include flex(flex, column, center, _);
-    background-color: $main-white;
-    color: $main-grey;
+    color: $main-white;
   }
   .border {
     width: 100px;
