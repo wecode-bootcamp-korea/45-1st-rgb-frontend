@@ -2,6 +2,7 @@ import React from "react";
 import "./CarouselItem.scss";
 export default function CarouselItem({ item }) {
   const { image, title, price } = item;
+
   return (
     <li className="carouselItem">
       <div className="artistImg">

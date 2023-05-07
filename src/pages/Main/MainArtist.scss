@@ -1,8 +1,11 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
 .box3 {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: #fffef2;
+  background-color: $main-white;
 
   .bocContainer {
     display: flex;

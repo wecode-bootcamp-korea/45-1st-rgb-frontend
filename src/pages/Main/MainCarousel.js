@@ -5,7 +5,7 @@ import "./MainCarousel.scss";
 export default function MainCarousel() {
   const [items, setItems] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselRef = useRef(null); //carousel 적용
+  const carouselRef = useRef(null);
 
   useEffect(() => {
     fetch("./data/productInfo.json", {
@@ -40,7 +40,7 @@ export default function MainCarousel() {
     if (carouselRef.current) {
       carouselRef.current.style.transition = "all 0.3s ease-in-out";
       carouselRef.current.style.transform = `translateX(-${
-        currentIndex * 33.3
+        currentIndex * 55.5
       }%)`;
     }
   }, [currentIndex, carouselRef]);
