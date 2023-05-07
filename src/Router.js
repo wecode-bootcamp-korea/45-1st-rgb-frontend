@@ -10,11 +10,12 @@ import ProductList from "./pages/ProductList/ProductList";
 import Order from "./pages/Order/Order";
 import Invoice from "./pages/Invoice/Invoice";
 import User from "./pages/User/User";
+import Navbar from "./pages/Invoice/Navbar";
 
 function Router() {
   return (
     <BrowserRouter>
-      <Nav />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/user" element={<User />} />
