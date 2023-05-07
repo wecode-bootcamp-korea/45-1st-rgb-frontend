@@ -3,7 +3,7 @@ import "./Delivery.scss";
 import Button from "../../../../components/Button/Button";
 
 function Delivery({ userData, setUserData, setIsDelivery }) {
-  console.log("userData", userData);
+  // console.log("userData", userData);
   const [isInputOpen, setIsInputOpen] = useState(false);
 
   /*   // user data 상태 관리 -> 이 data를 서버에 post 요청을 통해 넘겨줘야 한다.
@@ -14,37 +14,42 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
     points: "",
   });
  */
-  const handleNextPageBtn = event => {
-    console.log("e! ", event);
-    event.preventDefault();
+
+  const handleNextPageBtn = e => {
+    e.preventDefault();
+
+    // 다음페이지 버튼 클릭 시, 유저가 입력한 정보로 userData를 업데이트해준다.
+    // -> handleInput에서 한 번에 관리해주는듯!!! 와웅
+
+    // setUserData({...userData,cellphone:})
+    // setUserData({...userData,points:})
     // postUserDeliveryData();
     goToPayment();
   };
 
-  const postUserDeliveryData = () => {
+  /*   const postUserDeliveryData = () => {
     fetch("http://10.58.52.222:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         token: "", //요구하는 키값에 맞춰 헤더에 토큰을 담아 보낸다. authorization
       },
-      body: JSON
-        .stringify
-        // userInfo
-        /* address: "상세주소 state로 업데이트하기", userInfo.address
-        postalcode: "12569",
-        cellphone:
-          "12345678 - string type으로 보내야 하나? 유저가 입력한 8자리 숫자만 받아오기+상태관리", */
-        (),
+      body: JSON.stringify(userData),
+      // userInfo
+      // address: "상세주소 state로 업데이트하기", userInfo.address
+      //   postalcode: "12569",
+      //   cellphone:
+      //     "12345678 - string type으로 보내야 하나? 유저가 입력한 8자리 숫자만 받아오기+상태관리",
     });
-  };
+  }; */
 
   const goToPayment = () => {
     setIsDelivery(false);
   };
 
-  // 인풋창 값 받아오기
+  // 인풋창 값 받아오기 + setUserData하기
   const handleCellphoneInput = e => {
+    if (e.target.value === "") return;
     setUserData({ ...userData, cellphone: e.target.value });
   };
 
@@ -52,6 +57,31 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
   const acceptOnlyNumbers = e => {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
   };
+
+  // 주소창 인풋창 값 받아오기 + setUserData하기
+  const handleAddressInput = e => {
+    setUserData({ ...userData, address: e.target.value });
+  };
+
+  const getPostalCode = e => {
+    setUserData({ ...userData, postalcode: e.target.value });
+  };
+
+  // 모든 인풋창의 엔터키 막기
+  const preventEnterKey = e => {
+    if (e.code === "Enter") {
+      e.preventDefault();
+    }
+  };
+
+  const activatedButtonCondition =
+    userData.address !== "" &&
+    userData.cellphone !== "" &&
+    userData.postalcode !== "";
+  // userData.cellphone.length >= 11 &&
+  // userData.postalcode.length >= 5;
+
+  // console.log("지금 궁금한 부분! ", userData);
 
   return (
     <div className="delivery">
@@ -61,7 +91,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
         src="/images/Order/arrow2.png"
       />
       <h2 className="deliveryTitle">주문을 어디로 보내시겠습니까?</h2>
-      <form className="deliveryForm">
+      <form className="deliveryForm" onSubmit={e => e.preventDefault()}>
         <div className="inputFormWrapper">
           <div className="userInfoForm">
             <h3 className="formTitle">주문자 정보</h3>
@@ -91,6 +121,8 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
               type="text"
               placeholder="전화번호(010-0000-0000)"
               maxLength="13"
+              minLength="11"
+              onKeyDown={preventEnterKey}
               onInput={acceptOnlyNumbers}
               onChange={handleCellphoneInput}
             />
@@ -101,10 +133,21 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
               <input
                 type="text"
                 placeholder="상세주소 (아파트 동, 호수, 일반 주택 등)"
+                name="address"
+                onKeyDown={preventEnterKey}
+                onChange={handleAddressInput}
               />
             </div>
             <div className="postInput">
-              <input type="text" placeholder="우편번호" />
+              <input
+                type="text"
+                placeholder="우편번호"
+                maxLength="5"
+                name="postalcode"
+                onKeyDown={preventEnterKey}
+                onInput={acceptOnlyNumbers}
+                onChange={getPostalCode}
+              />
             </div>
           </div>
 
@@ -121,7 +164,6 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
           </div>
           <br />
 
-          {/* 글자 선택하면 하단의 인풋창 나오도록 다시 만들기 */}
           <div className="requestInputWrapper">
             <div className="request" htmlFor="request">
               <input id="request" type="checkbox" />
@@ -131,16 +173,30 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
               />
               배송 기사님께 요청 사항이 있습니다
             </div>
-            {isInputOpen && <input type="text" className="requestInput" />}
+            {isInputOpen && (
+              <input
+                type="text"
+                className="requestInput"
+                onKeyDown={preventEnterKey}
+              />
+            )}
           </div>
         </div>
-        <Button
+        <button
+          onClick={handleNextPageBtn}
+          className="bigButton dark"
+          buttonColor="dark"
+          disabled={!activatedButtonCondition}
+        >
+          다음페이지
+        </button>
+        {/*  <Button
           buttonSize="bigButton"
           buttonColor="dark"
-          action={handleNextPageBtn}
+          // submitAction={handleNextPageBtn}
         >
           다음 페이지
-        </Button>
+        </Button> */}
       </form>
     </div>
   );

@@ -1,22 +1,24 @@
 import React from "react";
 import "./CheckoutProduct.scss";
 
-function CheckoutProduct({ product }) {
-  const { image_urls, price, title } = product;
+function CheckoutProduct({ cartItem }) {
+  const { image_url, individualPrice, title, cartSum } = cartItem;
 
-  const productPrice = parseInt(price).toLocaleString();
+  const productPrice = (
+    parseInt(individualPrice) * parseInt(cartSum)
+  ).toLocaleString();
 
   return (
     <div className="checkoutProduct">
       <div className="thumbnailWrap">
-        <img alt="product thumbnail" src={image_urls} />
+        <img alt="product thumbnail" src={image_url} />
       </div>
       <div className="checkoutProductRight">
         <div className="topRow">
           <h5>{title}</h5>
           <div className="counter">
             <button>-</button>
-            <span>1</span>
+            <span>{cartSum}</span>
             <button>+</button>
           </div>
         </div>

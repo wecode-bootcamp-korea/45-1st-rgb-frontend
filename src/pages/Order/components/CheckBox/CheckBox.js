@@ -2,7 +2,7 @@ import React from "react";
 import "./CheckBox.scss";
 
 function CheckBox({ term }) {
-  console.log("props ", term);
+  // console.log("props ", term);
 
   return (
     <div className="checkBox">

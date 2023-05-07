@@ -1,6 +1,6 @@
 import React from "react";
 import "./OrderHeader.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function OrderHeader({ isDelivery, setIsDelivery }) {
   const handleDeliveryNavBar = () => {
@@ -11,7 +11,7 @@ function OrderHeader({ isDelivery, setIsDelivery }) {
   };
   const navigate = useNavigate();
 
-  console.log("isDelivery 상태값? ", isDelivery);
+  // console.log("isDelivery 상태값? ", isDelivery);
   return (
     <div className="orderHeader">
       <header>
@@ -45,7 +45,7 @@ function OrderHeader({ isDelivery, setIsDelivery }) {
               navigate("/invoice");
             }}
           >
-            <a>주문 확인</a>
+            <Link to="/invoice">주문 확인</Link>
           </li>
         </ul>
       </header>

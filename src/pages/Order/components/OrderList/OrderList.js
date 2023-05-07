@@ -2,16 +2,7 @@ import React from "react";
 import "./OrderList.scss";
 import CheckoutProduct from "./components/CheckoutProduct";
 
-function OrderList({ productList }) {
-  const getSum = productList => {
-    let sum = 0;
-    productList.forEach(product => {
-      sum += parseInt(product?.price);
-    });
-    return sum;
-  };
-
-  let totalPrice = getSum(productList);
+function OrderList({ cartProductList, totalPrice }) {
   const totalPriceComma = Number(totalPrice).toLocaleString();
 
   return (
@@ -36,8 +27,8 @@ function OrderList({ productList }) {
           </ul>
         </div>
         <div className="checkoutProductsBox">
-          {productList.map(product => {
-            return <CheckoutProduct key={product.id} product={product} />;
+          {cartProductList.map(cartItem => {
+            return <CheckoutProduct key={cartItem.id} cartItem={cartItem} />;
           })}
         </div>
       </div>
