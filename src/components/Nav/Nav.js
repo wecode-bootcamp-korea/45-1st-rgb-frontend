@@ -9,8 +9,8 @@ const Nav = () => {
   };
 
   return (
-    <nav>
-      <ul>
+    <nav className="nav">
+      <ul className="items">
         <li>
           <a
             href="#main"
@@ -38,6 +38,9 @@ const Nav = () => {
             Shop
           </a>
         </li>
+      </ul>
+
+      <ul className="items">
         <li>
           <a
             href="My Page의 파일주소"
