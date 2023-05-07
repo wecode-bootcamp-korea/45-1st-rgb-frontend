@@ -1,42 +1,41 @@
 @import "../../styles/variables";
 @import "../../styles/mixin";
 
-.box5 {
+.nextArtistContainer {
   position: relative;
   width: 100%;
   height: 100vh;
   background-color: $main-white;
 }
 
-.bocContainer5 {
+.nextImgBox {
   display: flex;
   position: relative;
   justify-content: flex-end;
 
-  .boxImg5 {
-    position: absolute;
-    width: 714px;
+  .nextArtistImg {
+    width: 780px;
     height: 400px;
-    margin-top: 130px;
-    background-color: #252525;
+    margin-top: -100px;
+    background-image: url("https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%208.jpeg ");
   }
 
-  .boxFiveText {
+  .nextArtistText {
     position: absolute;
-    left: 60px;
+    left: 180px;
     width: 480px;
-    margin-top: 240px;
+    margin-top: -30px;
   }
-  .text1 {
+  .firstText {
     margin-bottom: 40px;
     font-size: 16px;
   }
-  .text2 {
+  .secondText {
     margin-bottom: 20px;
     font-size: 37px;
   }
 
-  .text3 {
+  .artistName {
     margin-top: 10px;
     font-size: 16px;
   }

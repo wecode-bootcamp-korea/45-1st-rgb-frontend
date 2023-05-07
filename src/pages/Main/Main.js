@@ -9,24 +9,23 @@ import Button from "../../components/Button/Button";
 function Main() {
   return (
     <div className="main">
-      <div className="wrap">
-        <div className="box1">
-          <div className="content1">
-            <div className="titleContent">
-              <p className="boxText">Artist of May</p>
-            </div>
-            <div className="boxButton">
-              <Button buttonSize="mediumButton" buttonColor="dark">
-                바로가기
-              </Button>
-            </div>
+      <div className="wrapper">
+        <div className="mainContainer">
+          <div className="content" />
+          <div className="titleContent">
+            <p className="boxText">Artist of May</p>
+          </div>
+          <div className="boxButton">
+            <Button buttonSize="mediumButton" buttonColor="dark">
+              바로가기
+            </Button>
           </div>
         </div>
-        <MainCarasol />
-        <MainArtist />
-        <MainCarasol2 />
-        <MainArtistNext />
       </div>
+      <MainCarasol />
+      <MainArtist />
+      <MainCarasol2 />
+      <MainArtistNext />
     </div>
   );
 }

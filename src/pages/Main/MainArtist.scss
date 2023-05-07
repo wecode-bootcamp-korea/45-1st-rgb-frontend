@@ -1,41 +1,41 @@
 @import "../../styles/variables";
 @import "../../styles/mixin";
 
-.box3 {
+.introContainer {
   position: relative;
   width: 100%;
   height: 100vh;
   background-color: $main-white;
 
-  .bocContainer {
+  .boxContainer {
     display: flex;
     position: relative;
+    top: 100px;
     height: 100vh;
 
-    .boxImg3 {
-      position: absolute;
-      width: 714px;
+    .boxImg {
+      //position: absolute;
+      width: 780px;
       height: 400px;
-      margin-top: 130px;
-      background-color: #252525;
+      background-image: url("https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%2011.jpg");
     }
 
-    .boxText4 {
+    .introText {
       position: absolute;
       right: 60px;
-      margin-top: 260px;
-      margin-right: 60px;
+      margin-top: 120px;
+      margin-right: 118px;
     }
-    .text1 {
+    .firstText {
       margin-bottom: 40px;
       font-size: 16px;
     }
-    .text2 {
+    .secondText {
       margin-bottom: 20px;
       font-size: 37px;
     }
 
-    .text3 {
+    .textMore {
       margin-top: 40px;
       font-size: 16px;
       //언더라인

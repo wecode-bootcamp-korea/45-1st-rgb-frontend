@@ -8,7 +8,7 @@ export default function MainCarousel() {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    fetch("./data/productInfo.json", {
+    fetch("./data/productImage.json", {
       method: "GET"
     })
       .then((res) => res.json())
@@ -46,10 +46,10 @@ export default function MainCarousel() {
   }, [currentIndex, carouselRef]);
 
   return (
-    <div className="box2">
+    <div className="carouselContainer">
       <div className="artistBox">
         <div className="section">
-          <ul className="carouselContainer" ref={carouselRef}>
+          <ul className="carouselSlide" ref={carouselRef}>
             <div className="rgbText">
               <div>rgb. 이달의 아티스트를 만나보세요</div>
               <div>meet our international artist</div>

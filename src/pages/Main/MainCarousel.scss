@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 @import "../../styles/mixin";
 
-.box2 {
+.carouselContainer {
   display: flex;
   position: relative;
   justify-content: center;
@@ -16,6 +16,7 @@
       justify-content: center;
       width: 1453px;
       height: max-content;
+      margin-top: 180px;
       padding: 0 65px;
       overflow: hidden;
 
@@ -24,13 +25,9 @@
         position: absolute;
         margin-top: 170px;
         margin-left: -300px;
-        background-color: aqua;
-
-        // .div {
-        // }
       }
 
-      .carouselContainer {
+      .carouselSlide {
         display: flex;
         width: 500px;
         height: 100%;

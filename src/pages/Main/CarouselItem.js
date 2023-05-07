@@ -1,16 +1,19 @@
 import React from "react";
 import "./CarouselItem.scss";
 export default function CarouselItem({ item }) {
-  const { image, title, price } = item;
+  const { title, size, img } = item;
 
   return (
     <li className="carouselItem">
-      <div className="artistImg">
-        <img src={image} alt={title} />
-      </div>
+      {/* <img
+        className="artistImg"
+        src="https://cdn.pixabay.com/photo/2023/05/01/13/12/tree-7963026_1280.jpg"
+        alt="profile_img"
+      /> */}
+      <img className="artistImg" src={img} alt="artist" />
       <div className="textBox">
         <div className="textBoxName">
-          {item.title} <div className="textBoxSize">{price}</div>
+          {title} <div className="textBoxSize">{size}</div>
         </div>
       </div>
     </li>
