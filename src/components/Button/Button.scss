@@ -42,6 +42,8 @@
   }
 }
 
-.radius {
-  border-radius: 3px;
+.buttonOff {
+  @include buttonColor($main-grey, $main-white);
+  opacity: 40%;
+  cursor: default;
 }

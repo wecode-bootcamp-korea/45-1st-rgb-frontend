@@ -14,11 +14,24 @@
 
     & > input {
       @include modalInputStyle(400px, 60px, 17px);
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
     }
 
     .inputWarning {
       @include inputWarning;
+    }
+  }
+
+  .signUpFormTop {
+    @include flex(flex, row, center, space-between);
+    width: 400px;
+
+    .lastName {
+      @include modalInputStyle(120px, 60px, 17px);
+    }
+
+    .firstName {
+      @include modalInputStyle(230px, 60px, 17px);
     }
   }
 
@@ -32,7 +45,7 @@
       padding: 5px 0;
 
       &:first-child {
-        margin-bottom: 10px;
+        margin: 10px 0;
         border-bottom: 1px solid $main-grey;
       }
       & > input {
@@ -47,25 +60,13 @@
   }
 }
 
-.signUpFormTop {
-  @include flex(flex, row, center, space-between);
-  width: 400px;
-
-  .lastName {
-    @include modalInputStyle(120px, 60px, 21px);
-  }
-
-  .firstName {
-    @include modalInputStyle(230px, 60px, 21px);
-  }
-}
 .checkSignUpPwBox {
   @include flex(flex, row, center, space-between);
 
   .checkSignUpPw {
-    @include modalInputStyle(400px, 60px, 21px);
-    margin-bottom: 10px;
+    @include modalInputStyle(400px, 60px, 17px);
   }
+
   .viewPw {
     @include icon(30px, 20px, -40px);
     background-image: url(../../assets/viewPw.png);
