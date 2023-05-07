@@ -4,7 +4,7 @@ import SignUp from "../../components/SignUp/SignUp";
 import "./User.scss";
 
 const User = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   const goToSignUp = () => {
     setIsLogin(false);
