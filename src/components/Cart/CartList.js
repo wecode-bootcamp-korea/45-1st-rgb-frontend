@@ -8,17 +8,13 @@ export default function CartList() {
 
   useEffect(() => {
     fetch("./data/productInfo.json", {
-      method: "GET",
-      headers: {
-        Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE2ODMyNzgyNjF9.v4TFKL1VrFeXB_WHY3gxTOgASs-uz8gfUWoEAnw5DNQ"
-      }
+      method: "GET"
     })
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
       });
-  }, []); // cart list api
+  }, []);
 
   useEffect(() => {
     let total = 0;
@@ -38,15 +34,13 @@ export default function CartList() {
 
   const increment = (index) => {
     const newItems = [...items];
-    //if (newItems[index].sum < 5) { // 최대 수량이 5 이면 그 이상 못 담게 => 재고 부족 알람창
-    newItems[index].sum++; // sum 값 +/- 도 api?
-    setItems(newItems); // 데이터 값에 따라 max 수량 막기
-    //}
+    newItems[index].sum++;
+    setItems(newItems);
   };
 
   const deleteItem = (index) => {
     const newItems = items.filter((item, i) => i !== index);
-    setItems(newItems); // 카트 리스트 삭제 api
+    setItems(newItems);
   };
 
   return (
