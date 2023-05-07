@@ -14,12 +14,9 @@ const User = () => {
     <div className="user">
       <div className="userTop">
         {!isLogin && (
-          <button
-            onClick={() => setIsLogin(true)}
-            className="prevArrowIcon"
-          ></button>
+          <button onClick={() => setIsLogin(true)} className="prevArrowIcon" />
         )}
-        <button className="closeIcon"></button>
+        <button className="closeIcon" />
       </div>
       <div className="user">
         {isLogin ? <Login goToSignUp={goToSignUp} /> : <SignUp />}

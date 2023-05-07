@@ -1,12 +1,12 @@
-// @import "../../styles/variables";
-// @import "../../styles/mixin";
+@import "../../styles/variables";
+@import "../../styles/mixin";
 
 .cartBox {
   display: flex;
   justify-content: center;
   height: 100vh;
   padding: 40px 40px;
-  background-color: #252525;
+  background-color: $main-black;
 }
 
 .cartLeft {
@@ -24,7 +24,7 @@
     flex-basis: auto;
     flex-shrink: 0;
     width: 25%;
-    color: #f2f2f2;
+    color: $main-white;
     font-size: 16px;
     font-weight: 400;
   }
@@ -33,7 +33,7 @@
     flex-basis: auto;
     flex-shrink: 0;
     width: 25%;
-    color: #f2f2f2;
+    color: $main-white;
     font-size: 16px;
     font-weight: 400;
   }
@@ -42,7 +42,7 @@
     flex-basis: auto;
     flex-shrink: 0;
     width: 25%;
-    color: #f2f2f2;
+    color: $main-white;
     font-size: 16px;
     font-weight: 400;
   }
@@ -51,7 +51,7 @@
     flex-basis: auto;
     flex-shrink: 0;
     width: 25%;
-    color: #f2f2f2;
+    color: $main-white;
     font-size: 16px;
     font-weight: 400;
   }
@@ -66,7 +66,7 @@
     flex-basis: auto;
     flex-shrink: 0;
     width: 25%;
-    color: #fffef2;
+    color: $main-white;
     font-size: 16px;
     font-weight: 200;
   }
@@ -75,7 +75,7 @@
     flex-basis: auto;
     flex-shrink: 0;
     width: 25%;
-    color: #fffef2;
+    color: $main-white;
     font-size: 16px;
     font-weight: 200;
   }
@@ -84,20 +84,20 @@
     flex-basis: auto;
     flex-shrink: 0;
     width: 24%;
-    color: #fffef2;
+    color: $main-white;
     font-size: 14px;
     font-weight: 200;
   }
 
   .plus {
     margin-left: 9px;
-    color: #fffef2;
+    color: $main-white;
     font-weight: 200;
   }
 
   .minus {
     margin-right: 9px;
-    color: #fffef2;
+    color: $main-white;
     font-weight: 200;
   }
 
@@ -105,7 +105,7 @@
     flex-basis: auto;
     flex-shrink: 0;
     width: 25%;
-    color: #fffef2;
+    color: $main-white;
     font-size: 14px;
     font-weight: 200;
   }
@@ -125,7 +125,6 @@
 }
 
 .cartSummary {
-  //z-index: 10;
   right: 30px;
   bottom: 30px;
   width: 100%;
@@ -133,7 +132,7 @@
   font-size: 14px;
 
   .cartFree {
-    color: #fffef2;
+    color: $main-white;
     font-size: 16px;
     font-weight: 400;
   }
@@ -145,13 +144,13 @@
     padding-top: 20px;
 
     .vat {
-      color: #fffef2;
+      color: $main-ivory;
       font-size: 18px;
       font-weight: 200;
     }
 
     .sum {
-      color: #fffef2;
+      color: $main-ivory;
       font-size: 25px;
       font-weight: 400;
     }
@@ -165,110 +164,9 @@
     font-weight: 400;
     cursor: pointer;
   }
-
   .arrowUp {
-    background-image: url("../../assets/arrow.png");
-    background-repeat: no-repeat;
+    @include icon(30px, 20px, 10px);
+    margin: 0 auto;
+    background-image: url(../../assets/arrow.png);
   }
 }
-
-// .cartRight {
-//   display: flex;
-//   justify-content: center;
-//   width: 40%;
-//   padding-top: 80px;
-//   background-color: #252525;
-
-//   .cartForm {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     width: 380px;
-//     height: 500px;
-//     background-color: #fffef2;
-
-//     .profileBox {
-//       display: flex;
-//       position: relative;
-//       align-items: center;
-//       margin-top: -180px;
-//       margin-bottom: 60px;
-//       margin-left: 36px;
-
-//       .profileImg {
-//         position: absolute;
-//         width: 60px;
-//         height: 60px;
-//         margin-top: -80px;
-//         border-radius: 50%;
-//         background-color: #e0e0e0;
-//       }
-
-//       .profileText {
-//         position: absolute;
-//         margin-top: -80px;
-//         margin-left: 68px;
-//         font-size: 16px;
-//         font-weight: 400;
-//       }
-//     }
-
-//     .submitButton {
-//       display: flex;
-//       position: absolute;
-//       justify-content: center;
-//       margin-top: -120px;
-//       margin-left: 40px;
-//     }
-
-//     .buttonName {
-//       color: #252525;
-//     }
-
-//     .line {
-//       position: absolute;
-//       width: 300px;
-//       margin-left: 40px;
-//       border-bottom: 0.5px solid #252525;
-//     }
-//   }
-
-//   .cartForm2 {
-//     display: flex;
-//     justify-content: center;
-
-//     .formContent {
-//       position: absolute;
-//       width: 300px;
-//       margin-top: 100px;
-//     }
-
-//     .rgb {
-//       margin-bottom: 20px;
-//       font-size: 16px;
-//       font-weight: 600;
-//     }
-
-//     .formText {
-//       color: #252525;
-//       font-size: 14px;
-//     }
-
-//     .formText1 {
-//       margin-bottom: 6px;
-//       margin-left: 10px;
-//     }
-//     .formText2 {
-//       margin-bottom: 6px;
-//       margin-left: 10px;
-//     }
-//     .formText3 {
-//       margin-bottom: 6px;
-//       margin-left: 10px;
-//     }
-//     .formText4 {
-//       margin-bottom: 6px;
-//       margin-left: 10px;
-//     }
-//   }
-// }

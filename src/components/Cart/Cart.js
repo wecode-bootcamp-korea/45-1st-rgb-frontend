@@ -15,7 +15,6 @@ function Cart() {
             <div className="cartEmpty" />
           </div>
           <CartList />
-          <div className="arrowUp" />
         </div>
       </div>
     </div>
