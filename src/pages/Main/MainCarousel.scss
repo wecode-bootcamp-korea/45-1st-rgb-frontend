@@ -2,15 +2,16 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
   background-color: #fffef2;
 
   .buttonBox {
     position: flex;
+    margin-top: -110px;
   }
 
   .buttonPre {
     position: absolute;
-    top: 120px;
     left: 60px;
     width: 63px;
     height: 63px;
@@ -19,102 +20,50 @@
 
   .buttonNext {
     position: absolute;
-    top: 120px;
     right: 60px;
     width: 63px;
     height: 63px;
     background-image: url("../../assets/button-next.png");
   }
-  .artistBox {
-    display: flex;
-    position: relative;
-    top: 200px;
-    justify-content: center;
-    height: 100vh;
 
-    .textBox {
-      margin-top: 15px;
-      margin-left: 55px;
-      text-align: center;
-    }
+  // .artistText {
+  //   margin-top: 40%;
+  //   font-size: 30px;
+  // }
 
-    .textBoxName {
-      //border-bottom: 1px solid #252525;
-    }
-    & .textBoxName:hover {
-      text-decoration: underline;
-    }
+  // .artistText2 {
+  //   margin-top: 50px;
+  //   font-size: 16px;
+  // }
 
-    .textBoxSize {
-      margin-top: 8px;
-      text-align: center;
-      text-decoration: none;
-    }
+  // & .artistImg:hover {
+  //   object-fit: cover;
+  //   transform: scale(1.05);
+  //   transition: transform 0.8s;
+  // }
+}
 
-    .artistImg {
-      display: block;
-      width: 300px;
-      height: 340px;
-    }
+.imgBarContainor {
+  display: flex;
+  top: 650px;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0;
 
-    .artistText {
-      margin-top: 40%;
-      font-size: 30px;
-    }
+  .imgBar {
+    left: 0;
+    width: 1200px;
+    height: 1px;
+    margin: 0 auto;
+    border: 1px solid #dfdfdf;
 
-    .artistText2 {
-      margin-top: 50px;
-      font-size: 16px;
-    }
-
-    .artistImg2 {
-      width: 300px;
-      height: 340px;
-      margin-left: 60px;
-      background-color: #252525;
-    }
-
-    & .artistImg2:hover {
-      object-fit: cover;
-      transform: scale(1.05);
-      transition: transform 0.8s;
-    }
-
-    .artistImg3 {
-      width: 300px;
-      height: 340px;
-      margin-left: 60px;
-      background-color: #252525;
-    }
-
-    & .artistImg3:hover {
-      object-fit: cover;
-      transform: scale(1.05);
-      transition: transform 0.8s;
-    }
-  }
-
-  .imgBarContainor {
-    display: flex;
-    position: relative;
-    top: 650px;
-    padding: 0;
-
-    .imgBar {
-      left: 0;
-      width: 1200px;
+    .imgBar2 {
+      width: 240px;
       height: 1px;
-      margin: 0 auto;
-      border: 1px solid #dfdfdf;
-
-      .imgBar2 {
-        width: 240px;
-        height: 1px;
-        margin: 0px;
-        padding: 0px;
-        transition: left 1s;
-        border: 1px solid #000000;
-      }
+      margin: 0px;
+      padding: 0px;
+      transition: left 1s;
+      border: 1px solid #000000;
     }
   }
 }

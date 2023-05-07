@@ -1,3 +1,6 @@
+// @import "../../styles/variables";
+// @import "../../styles/mixin";
+
 .cartBox {
   display: flex;
   justify-content: center;
@@ -57,7 +60,6 @@
 .cartItem {
   display: flex;
   padding: 24px;
-  overflow-y: hidden;
   border-bottom: 1px solid rgba(255, 254, 242, 0.1);
 
   .itemName {

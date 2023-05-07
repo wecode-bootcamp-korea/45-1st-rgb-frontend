@@ -67,18 +67,14 @@ export default function CartList() {
             </button>
           </div>
           <div className="itemPrice">
-            {item.price *
-              item.sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            원
+            {(item.price * item.sum).toLocaleString()}원
           </div>
           <div className="cartDelete">
             <button className="deleteButton" onClick={() => deleteItem(id)} />
           </div>
         </div>
       ))}
-      <CartSum
-        totalPrice={totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-      />
+      <CartSum totalPrice={totalPrice.toLocaleString()} />
     </>
   );
 }

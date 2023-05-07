@@ -4,7 +4,7 @@ import MainArtist from "./MainArtist";
 import MainArtistNext from "./MainArtistNext";
 import MainCarasol2 from "./MainCarousel2";
 import MainCarasol from "./MainCarousel";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 
 function Main() {
   return (
