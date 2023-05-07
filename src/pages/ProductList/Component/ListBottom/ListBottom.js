@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import ArtWorks from "../ArtWorks/ArtWorks";
 import LeftFilter from "../LeftFilter/LeftFilter";
 import GoodsFilter from "../LeftFilter/GoodsFilter";
@@ -7,63 +8,100 @@ import GoodsCategory from "../GoodsCategory/GoodsCategory";
 import "./ListBottom.scss";
 
 function ListBottom() {
-  // Art Works 와 Goods 카테고리에 따른 컴포넌트 변화를 위한 useState
-  const [category, setCategory] = useState("Artlist");
-  const [artContent, setArtContent] = useState([]);
-  const [goodsContent, setGoodsContent] = useState([]);
-  const [onOff, setOnOff] = useState(artContent);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const offset = searchParams.get("offset");
+  const limit = searchParams.get("limit");
+  const category = searchParams.get("category");
+  const subCategory = searchParams.get("subCategory");
+  // // Art Works 와 Goods 카테고리에 따른 컴포넌트 변화를 위한 useState
+  // const [shopCategory, setShopCategory] = useState("Artlist");
+  // fetch 데이터 저장하는 useState
+  const [shopContent, setShopContent] = useState([]);
+  const [onOff, setOnOff] = useState(shopContent);
+  // goods 필터용 useState
   const [filter, setFilter] = useState(ArtFilter);
 
   // Goods 카테고리의 하위 카테고리 보이고 안보이기 위한 useState
   const [show, setShow] = useState(false);
 
-  const artlist = () => {
-    setCategory("Artlist");
+  // art 랑 goods categories_id 에 따라 filter
+  const arts = shopContent.filter(list => list.categories_id === 1);
+  const goods = shopContent.filter(
+    list =>
+      list.categories_id === 2 ||
+      list.categories_id === 3 ||
+      list.categories_id === 4 ||
+      list.categories_id === 10
+  );
+
+  const onClickArt = () => {
+    searchParams.set("category", "arts");
+    setSearchParams(searchParams);
   };
 
-  const goodslist = () => {
-    setCategory("Goodslist");
+  const onClickGoods = () => {
+    searchParams.set("category", "goods");
+    setSearchParams(searchParams);
+  };
+
+  const page = () => {
+    searchParams.set("offset", 0);
+    searchParams.set("limit", 6);
+    setSearchParams(searchParams);
   };
 
   useEffect(() => {
-    fetch("http://10.58.52.117:9000/products", {
-      method: "GET",
-      headers: { "Content-Type": "application/json;charset=utf-8" },
-    })
+    fetch(
+      `/data/artlist.json?limit=${limit}&start=${offset}&category=${category}`
+    )
       .then(res => res.json())
-      .then(artdata => {
-        setArtContent(artdata);
+      .then(shop => {
+        setShopContent(shop);
       });
-  }, []);
+  }, [offset, limit, category, subCategory]);
 
   useEffect(() => {
-    fetch("/data/goodslist.json")
-      .then(res => res.json())
-      .then(goodsdata => {
-        setGoodsContent(goodsdata);
-      });
-  }, []);
-
-  useEffect(() => {
-    if (category === "Artlist") {
-      setOnOff(artContent);
+    if (category === "arts") {
+      setOnOff(arts);
       setShow(false);
       setFilter(ArtFilter);
-    } else if (category === "Goodslist") {
-      setOnOff(goodsContent);
+    } else {
+      setOnOff(goods);
       setShow(true);
       setFilter(GoodsFilter);
     }
-  }, [artContent, goodsContent, category]);
+  }, [category, arts, goods]);
 
   return (
     <div className="listBottom">
       <div className="bottomTop">
         <div className="category">
-          <span onClick={artlist}>Art Works</span>
-          <span onClick={goodslist}>Goods</span>
+          <span
+            onClick={() => {
+              page();
+              onClickArt();
+            }}
+          >
+            Art Works
+          </span>
+          <span
+            onClick={() => {
+              page();
+              onClickGoods();
+            }}
+          >
+            Goods
+          </span>
         </div>
-        {show && <GoodsCategory />}
+        {show && (
+          <GoodsCategory
+            searchParams={searchParams}
+            setSearchParams={setSearchParams}
+            subCategory={subCategory}
+            shopContent={shopContent}
+            setOnOff={setOnOff}
+          />
+        )}
       </div>
       <div className="bottomBottom">
         <div className="bottomLeft">

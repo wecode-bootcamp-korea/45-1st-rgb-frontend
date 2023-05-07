@@ -1,11 +1,31 @@
 import React from "react";
 
-function GoodsCategory() {
+function GoodsCategory({
+  searchParams,
+  setSearchParams,
+  subCategory,
+  shopContent,
+}) {
+  const clickLivingGoods = () => {
+    searchParams.set("subCategory", "LivingGoods");
+    setSearchParams(searchParams);
+  };
+
+  const clickCase = () => {
+    searchParams.set("subCategory", "PhoneCase");
+    setSearchParams(searchParams);
+  };
+
+  const clickPoster = () => {
+    searchParams.set("subCategory", "Poster");
+    setSearchParams(searchParams);
+  };
+
   return (
     <div className="goodsCategory">
-      <button>Living Goods</button>
-      <button>Phone Case</button>
-      <button>Poster</button>
+      <button onClick={clickLivingGoods}>Living Goods</button>
+      <button onClick={clickCase}>Phone Case</button>
+      <button onClick={clickPoster}>Poster</button>
     </div>
   );
 }
