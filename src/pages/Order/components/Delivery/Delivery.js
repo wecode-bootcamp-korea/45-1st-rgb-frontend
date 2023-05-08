@@ -13,27 +13,15 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
     setIsDelivery(false);
   };
 
-  // 인풋창 값 받아오기 + setUserData하기
-  const handleCellphoneInput = e => {
-    if (e.target.value === "") return;
-    setUserData({ ...userData, cellphone: e.target.value });
+  const handleInputs = e => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
   };
 
-  // 전화번호에 숫자 입력만 받기
   const acceptOnlyNumbers = e => {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
   };
 
-  // 주소창 인풋창 값 받아오기 + setUserData하기
-  const handleAddressInput = e => {
-    setUserData({ ...userData, address: e.target.value });
-  };
-
-  const getPostalCode = e => {
-    setUserData({ ...userData, postalcode: e.target.value });
-  };
-
-  // 모든 인풋창의 엔터키 막기
   const preventEnterKey = e => {
     if (e.code === "Enter") {
       e.preventDefault();
@@ -85,7 +73,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
               maxLength="8"
               onKeyDown={preventEnterKey}
               onInput={acceptOnlyNumbers}
-              onChange={handleCellphoneInput}
+              onChange={handleInputs}
             />
           </div>
           <div className="deliveryInfoForm">
@@ -96,7 +84,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
                 placeholder="상세주소 (아파트 동, 호수, 일반 주택 등)"
                 name="address"
                 onKeyDown={preventEnterKey}
-                onChange={handleAddressInput}
+                onChange={handleInputs}
               />
             </div>
             <div className="postInput">
@@ -107,7 +95,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
                 name="postalcode"
                 onKeyDown={preventEnterKey}
                 onInput={acceptOnlyNumbers}
-                onChange={getPostalCode}
+                onChange={handleInputs}
               />
             </div>
           </div>

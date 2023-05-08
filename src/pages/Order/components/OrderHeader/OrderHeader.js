@@ -1,6 +1,6 @@
 import React from "react";
 import "./OrderHeader.scss";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function OrderHeader({ isDelivery, setIsDelivery }) {
   const handleDeliveryNavBar = () => {
@@ -11,7 +11,6 @@ function OrderHeader({ isDelivery, setIsDelivery }) {
   };
   const navigate = useNavigate();
 
-  // console.log("isDelivery 상태값? ", isDelivery);
   return (
     <div className="orderHeader">
       <header>
@@ -20,7 +19,7 @@ function OrderHeader({ isDelivery, setIsDelivery }) {
             className={isDelivery ? "orderNavActive" : "orderNavInactive"}
             onClick={handleDeliveryNavBar}
           >
-            <a>배송 정보</a>
+            배송 정보
           </li>
           <img
             className="orderNavArrow"
@@ -32,7 +31,7 @@ function OrderHeader({ isDelivery, setIsDelivery }) {
             className={!isDelivery ? "orderNavActive" : "orderNavInactive"}
             onClick={handlePaymentNavBar}
           >
-            <a>결제 방법</a>
+            결제 방법
           </li>
           <img
             className="orderNavArrow"
@@ -45,7 +44,7 @@ function OrderHeader({ isDelivery, setIsDelivery }) {
               navigate("/invoice");
             }}
           >
-            <Link to="/invoice">주문 확인</Link>
+            주문 확인
           </li>
         </ul>
       </header>

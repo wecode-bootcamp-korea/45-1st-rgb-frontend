@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
-import "./Order.scss";
 import OrderList from "./components/OrderList/OrderList";
 import OrderHeader from "./components/OrderHeader/OrderHeader";
 import Payment from "./components/Payment/Payment";
 import Delivery from "./components/Delivery/Delivery";
+import "./Order.scss";
 
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({
+    first_name: "",
+    last_name: "",
+    cellphone: "",
+    address: "",
+    postalcode: "",
+  });
 
   const getSum = cartProductList => {
     let sum = 0;
@@ -18,51 +24,40 @@ function Order() {
     return sum;
   };
 
-  // 카트에 담기 아이템들의 가격 합계
   let totalPrice = getSum(cartProductList);
-  console.log("⚙️", totalPrice);
 
-  // 정보 get [서버 통신]
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
-    // cart data 받아오기
     fetch("/data/cartData.json", {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMxLCJpYXQiOjE2ODM1Mzc1OTR9.T1xZb_n6v5qWIVNUNkbmfm0zKmyAYy61NHtTcmZL0ms",
+        Authorization: token,
       },
     })
       .then(res => {
-        console.log("carts res ", res);
         return res.json();
       })
       .then(data => {
-        console.log("carts data ", data);
         return setCartProductList(data);
       });
 
-    // user data 받아오기
     fetch("/data/userData.json", {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTY4MzUzNjY2NH0.daR_fPreDTkZfz5b2k2qFsJZPF2jqqRpkLuCMDkiNfs",
+        Authorization: token,
       },
     })
       .then(response => {
-        console.log("users response", response);
         return response.json();
       })
       .then(data => {
-        console.log(">>>>> user data", data);
         return setUserData(data.user);
       });
   }, []);
 
-  console.log("📢", userData);
-
   const [isDelivery, setIsDelivery] = useState(true);
-  // true이면 Delivery 컴포넌트, false이면 Payment 컴포넌트
+
   return (
     <div className="order">
       <OrderHeader isDelivery={isDelivery} setIsDelivery={setIsDelivery} />
