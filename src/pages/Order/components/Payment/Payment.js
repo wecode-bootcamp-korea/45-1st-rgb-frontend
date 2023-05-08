@@ -1,7 +1,8 @@
 import React from "react";
 import "./Payment.scss";
-import Button from "../../../../components/Button/Button";
-import CheckBox from "../CheckBox/CheckBox";
+// import Button from "../../../../components/Button/Button";
+// import CheckBox from "../CheckBox/CheckBox";
+import CheckInput from "../CheckBox/CheckInput";
 import { useNavigate } from "react-router-dom";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
@@ -116,7 +117,7 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
 
         {/* 이용약관 동의 인풋 */}
         <div className="contractWrapper">
-          <div>
+          {/* <div>
             <label className="agreeAll" htmlFor="agreeAll">
               <input type="checkbox" id="agreeAll" />
               <label htmlFor="agreeAll" />
@@ -149,7 +150,8 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
               <label htmlFor="orderCheck" />
               주문내역을 확인했으며, 이에 동의합니다 (필수)
             </label>
-          </div>
+          </div> */}
+          <CheckInput />
           {/* <CheckBox
             className="testBox"
             inputText="주문내역을 확인했으며, 이에 동의합니다 (필수)"

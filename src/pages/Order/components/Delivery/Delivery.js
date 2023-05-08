@@ -146,7 +146,6 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
         </div>
         <button
           onClick={handleNextPageBtn}
-          // className="bigButton dark"
           className={
             activatedButtonCondition
               ? `bigButton dark activate`
