@@ -27,7 +27,7 @@ const SignUp = ({ setIsLogin }) => {
     subscription,
   } = inputValues;
 
-  const subscriptionValue = subscription && 0;
+  const subscriptionValue = subscription && 1;
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
@@ -50,7 +50,7 @@ const SignUp = ({ setIsLogin }) => {
     );
   };
   const signUp = () => {
-    fetch("http://10.58.52.169:9000/users/signUp", {
+    fetch("http://10.58.52.169:9001/users/signUp", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -74,7 +74,7 @@ const SignUp = ({ setIsLogin }) => {
 
   return (
     <>
-      {message.length == 0 && (
+      {message.length != 0 && (
         <SignUpModal setIsLogin={setIsLogin} firstName={firstName} />
       )}
       <div className="signUp">

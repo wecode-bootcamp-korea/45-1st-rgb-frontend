@@ -17,12 +17,8 @@ const Login = ({ setLogIn, goToSignUp }) => {
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  useEffect(() => {
-    !token && setLoginWarning("회원정보가 일치하지 않습니다.");
-  }, [token]);
-
   const loginOn = () => {
-    fetch("http://10.58.52.169:9000/users/logIn", {
+    fetch("http://10.58.52.169:9001/users/logIn", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -33,7 +29,7 @@ const Login = ({ setLogIn, goToSignUp }) => {
       .then(res => res.json())
       .then(data => localStorage.setItem("TOKEN", data.accessToken));
 
-    token && setLogIn("");
+    token ? setLogIn("") : setLoginWarning("회원정보가 일치하지 않습니다.");
   };
 
   return (
