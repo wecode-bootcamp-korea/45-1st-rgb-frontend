@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import "./Delivery.scss";
 
-function Delivery({ userData, setUserData, setIsDelivery }) {
+function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
   const [isInputOpen, setIsInputOpen] = useState(false);
+
+  const handlePrevArrowBtn = () => {
+    setIsCart(true);
+  };
 
   const handleNextPageBtn = e => {
     e.preventDefault();
@@ -39,6 +43,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
         className="goBackArrow"
         alt="left arrow"
         src="/images/Order/arrow2.png"
+        onClick={handlePrevArrowBtn}
       />
       <h2 className="deliveryTitle">주문을 어디로 보내시겠습니까?</h2>
       <form className="deliveryForm" onSubmit={e => e.preventDefault()}>
@@ -81,7 +86,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
             <div className="addressInput">
               <input
                 type="text"
-                placeholder="상세주소 (아파트 동, 호수, 일반 주택 등)"
+                placeholder="상세주소 (아파트 동, 호수 등)"
                 name="address"
                 onKeyDown={preventEnterKey}
                 onChange={handleInputs}
@@ -102,8 +107,8 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
 
           <div className="labelWrapper">
             <label className="default">
-              <input type="checkbox" id="default" />
-              <label htmlFor="default" />이 주소를 기본 배송지로 저장합니다
+              <input type="checkbox" id="default" />이 주소를 기본 배송지로
+              저장합니다
             </label>
             <label className="identical">
               <input id="identical" type="checkbox" />
@@ -114,14 +119,16 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
           <br />
 
           <div className="requestInputWrapper">
-            <div className="request" htmlFor="request">
-              <input id="request" type="checkbox" />
+            <label for="requestInput">
+              <input id="requestInput" type="checkbox" />
               <label
-                htmlFor="request"
+                className="request"
+                htmlFor="requestInput"
                 onClick={() => setIsInputOpen(!isInputOpen)}
-              />
-              배송 기사님께 요청 사항이 있습니다
-            </div>
+              >
+                배송 기사님께 요청 사항이 있습니다
+              </label>
+            </label>
             {isInputOpen && (
               <input
                 type="text"

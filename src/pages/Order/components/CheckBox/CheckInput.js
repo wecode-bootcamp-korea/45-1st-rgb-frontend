@@ -1,8 +1,6 @@
 import React from "react";
 
 const CheckInput = ({ checkInputs, setCheckInputs }) => {
-  console.log("자식 ", checkInputs);
-
   const checkAllInputs = checked => {
     if (checked) {
       const idArray = [];
@@ -30,7 +28,6 @@ const CheckInput = ({ checkInputs, setCheckInputs }) => {
             id="agreeAll"
             checked={AGREEMENT_TERMS.length === checkInputs.length}
             onChange={e => {
-              // console.log(e.target.checked);
               checkAllInputs(e.target.checked);
             }}
           />
@@ -47,7 +44,6 @@ const CheckInput = ({ checkInputs, setCheckInputs }) => {
                 checked={checkInputs.includes(term.id)}
                 onChange={e => {
                   checkSingleInput(term.id, e.target.checked);
-                  // console.log("하나의 인풋 변화 ", e.target.checked);/
                 }}
               />
               {term.title}

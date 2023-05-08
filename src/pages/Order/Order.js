@@ -4,6 +4,7 @@ import OrderHeader from "./components/OrderHeader/OrderHeader";
 import Payment from "./components/Payment/Payment";
 import Delivery from "./components/Delivery/Delivery";
 import "./Order.scss";
+import Cart from "../../components/Cart/Cart";
 
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
@@ -57,28 +58,39 @@ function Order() {
   }, []);
 
   const [isDelivery, setIsDelivery] = useState(true);
+  const [isCart, setIsCart] = useState(false);
 
   return (
     <div className="order">
-      <OrderHeader isDelivery={isDelivery} setIsDelivery={setIsDelivery} />
-      <div className="orderBox">
-        {isDelivery ? (
-          <Delivery
-            userData={userData}
-            setIsDelivery={setIsDelivery}
-            setUserData={setUserData}
-          />
-        ) : (
-          <Payment
-            userData={userData}
-            totalPrice={totalPrice}
-            setIsDelivery={setIsDelivery}
-            cartProductList={cartProductList}
-          />
-        )}
+      {isCart ? (
+        <Cart />
+      ) : (
+        <>
+          <OrderHeader isDelivery={isDelivery} setIsDelivery={setIsDelivery} />
+          <div className="orderBox">
+            {isDelivery ? (
+              <Delivery
+                userData={userData}
+                setIsDelivery={setIsDelivery}
+                setUserData={setUserData}
+                setIsCart={setIsCart}
+              />
+            ) : (
+              <Payment
+                userData={userData}
+                totalPrice={totalPrice}
+                setIsDelivery={setIsDelivery}
+                cartProductList={cartProductList}
+              />
+            )}
 
-        <OrderList cartProductList={cartProductList} totalPrice={totalPrice} />
-      </div>
+            <OrderList
+              cartProductList={cartProductList}
+              totalPrice={totalPrice}
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 }

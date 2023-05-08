@@ -5,13 +5,8 @@ import "./Payment.scss";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
   const [checkInputs, setCheckInputs] = useState([]);
-  /*   const activatedPaymentButtonCondition = checkInputs.every(
-    (value, index) => value === [0, 1, 2][index]
-  ); */
 
   const activatedPaymentButtonCondition = checkInputs.length === 3;
-
-  console.log(activatedPaymentButtonCondition);
 
   const totalPriceInComma = Number(totalPrice / 1000).toLocaleString();
 
