@@ -60,7 +60,13 @@ const Nav = () => {
             </li>
           </div>
           <div className="navBox navBoxRight">
-            {!token ? <li>My Point</li> : <li>My Point : {myPoint} P</li>}
+            {!token ? (
+              <li onClick={() => setLogIn(<User setLogIn={setLogIn} />)}>
+                My Point
+              </li>
+            ) : (
+              <li>My Point : {myPoint} P</li>
+            )}
             <li>
               Cart <span className="cartCountButton">3</span>
             </li>
