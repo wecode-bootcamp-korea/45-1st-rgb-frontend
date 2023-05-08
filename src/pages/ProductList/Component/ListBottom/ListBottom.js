@@ -17,7 +17,6 @@ function ListBottom() {
   // const [shopCategory, setShopCategory] = useState("Artlist");
   // fetch 데이터 저장하는 useState
   const [shopContent, setShopContent] = useState([]);
-  const [onOff, setOnOff] = useState(shopContent);
   // goods 필터용 useState
   const [filter, setFilter] = useState(ArtFilter);
 
@@ -25,14 +24,17 @@ function ListBottom() {
   const [show, setShow] = useState(false);
 
   // art 랑 goods categories_id 에 따라 filter
-  const arts = shopContent.filter(list => list.categories_id === 1);
 
-  const goods = shopContent.filter(list => list.categories_id !== 1);
+  const livingGoods = shopContent.filter(cup => cup.categories_id === 2);
+  const phoneCase = shopContent.filter(
+    phonecase => phonecase.categories_id === 4 || phonecase.categories_id === 5
+  );
+  const poster = shopContent.filter(posters => posters.categories_id === 3);
 
   const onClickArt = () => {
     searchParams.set("category", "arts");
+    searchParams.delete("subCategory");
     setSearchParams(searchParams);
-    setOnOff(arts);
     setShow(false);
     setFilter(ArtFilter);
   };
@@ -40,7 +42,7 @@ function ListBottom() {
   const onClickGoods = () => {
     searchParams.set("category", "goods");
     setSearchParams(searchParams);
-    setOnOff(goods);
+
     setShow(true);
     setFilter(GoodsFilter);
   };
@@ -50,6 +52,10 @@ function ListBottom() {
     searchParams.set("limit", 10);
     setSearchParams(searchParams);
   };
+
+  // const deleteCategory = () => {
+  //   searchParams.delete("subCategory");
+  // };
 
   useEffect(() => {
     const url = `http://10.58.52.169:9000/products?limit=${limit}&start=${offset}&category=${category}`;
@@ -113,7 +119,6 @@ function ListBottom() {
             setSearchParams={setSearchParams}
             subCategory={subCategory}
             shopContent={shopContent}
-            setOnOff={setOnOff}
           />
         )}
       </div>
@@ -123,7 +128,7 @@ function ListBottom() {
         </div>
         <div className="bottomRight">
           <div className="artworkBox">
-            {onOff.map(art => {
+            {shopContent.map(art => {
               return <ArtWorks art={art} key={art.id} />;
             })}
           </div>
