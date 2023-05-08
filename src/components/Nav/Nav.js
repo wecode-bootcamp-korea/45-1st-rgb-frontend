@@ -1,7 +1,100 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import User from "../../pages/User/User";
+import Cart from "../../components/Cart/Cart";
 import "./Nav.scss";
 
-function Nav() {
-  return <div className="nav">Nav Component</div>;
-}
+const Nav = () => {
+  const navigate = useNavigate();
+  const [myPoint, setMyPoint] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [showCategory, setShowCategory] = useState("hidden");
+  const [logIn, setLogIn] = useState("");
+  const token = localStorage.getItem("TOKEN");
+
+  const [showCart, setShowCart] = useState(false);
+
+  const toggleCart = () => {
+    setShowCart(!showCart);
+  };
+
+  // if (token) {
+  //   const { user } = userData;
+  //   setMyPoint(Math.floor(user.points));
+  // }
+
+  useEffect(() => {
+    fetch("http://10.58.52.169:9000/users", {
+      method: "GET",
+      headers: { Authorization: token }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserData(data);
+      });
+  }, []);
+
+  const logOut = () => {
+    localStorage.removeItem("TOKEN");
+    navigate("/");
+  };
+
+  return (
+    <>
+      <div className="nav">
+        <div onClick={() => navigate("/")} className="logo" />
+        <ul className="navList">
+          <div className="navBox navBoxLeft">
+            <li onClick={() => navigate("/Artists")}>Artists</li>
+            <li
+              onClick={() => navigate("/productList")}
+              onMouseEnter={() => setShowCategory("shopCategory")}
+              onMouseLeave={() => setShowCategory("hidden")}
+              className="categoryShop">
+              Shop
+              <div
+                onMouseEnter={() => setShowCategory("shopCategory")}
+                onMouseLeave={() => setShowCategory("hidden")}
+                className={`categoryShop ${showCategory}`}>
+                <p onClick={() => navigate("/productList")}>Art</p>
+                <p onClick={() => navigate("/productList")}>Goods</p>
+              </div>
+            </li>
+          </div>
+          <div className="navBox navBoxRight">
+            {!token ? (
+              <li onClick={() => setLogIn(<User setLogIn={setLogIn} />)}>
+                My Point
+              </li>
+            ) : (
+              <li>My Point : {myPoint} P</li>
+            )}
+            <li onClick={toggleCart}>
+              Cart
+              <span className="cartCountButton">1</span>
+            </li>
+          </div>
+        </ul>
+
+        {!token ? (
+          <button
+            className="logIn"
+            onClick={() => setLogIn(<User setLogIn={setLogIn} />)}>
+            Log-in
+          </button>
+        ) : (
+          <button className="logOut" onClick={() => logOut()}>
+            Log-out
+          </button>
+        )}
+      </div>
+      {logIn}
+      {showCart && (
+        <div className="cartDropdown">
+          <Cart />
+        </div>
+      )}
+    </>
+  );
+};
 export default Nav;

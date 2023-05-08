@@ -41,6 +41,14 @@ export default function CartList() {
   const deleteItem = (index) => {
     const newItems = items.filter((item, i) => i !== index);
     setItems(newItems);
+
+    if (newItems.length === 0) {
+      // 장바구니에 상품이 없으면 드롭다운 닫기
+      const dropdown = document.querySelector(".dropdown");
+      dropdown.classList.remove("open");
+    }
+
+    window.scrollTo(0, 0);
   };
 
   return (

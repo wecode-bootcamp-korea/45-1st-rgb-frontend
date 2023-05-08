@@ -1,3 +1,95 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
 .nav {
-  background-color: aquamarine;
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 30px 30px 20px 10px;
+  background-color: $main-grey;
+  color: $main-white;
+  font-size: 17px;
+  @include flex(flex, row, flex-start, space-around);
+  font-weight: 600;
+
+  .logo {
+    width: 100px;
+    height: 50px;
+    margin-bottom: 20px;
+    // background-image: url(../../assets/rgb.png);
+    background-repeat: no-repeat;
+  }
+
+  .navList {
+    width: 80%;
+    padding-top: 30px;
+    @include flex(flex, row, _, space-between);
+
+    .navBox {
+      @include flex(flex, row, flex-start, _);
+
+      li {
+        margin-right: 40px;
+        cursor: pointer;
+      }
+
+      li:hover {
+        padding-bottom: 10px;
+        border-bottom: 2px solid $main-white;
+      }
+    }
+
+    li:last-child {
+      margin-right: 0;
+    }
+
+    & span {
+      padding: 0 6px;
+      border-radius: 100%;
+      background-color: $main-white;
+      color: $main-grey;
+      font-weight: bolder;
+    }
+  }
+
+  button {
+    width: 80px;
+    height: 25px;
+    margin: 25px 0 -3px 0;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  .logIn {
+    background-color: $main-white;
+  }
+
+  .logOut {
+    background-color: $main-black;
+    color: $main-white;
+  }
+}
+
+.categoryShop {
+  .shopCategory {
+    visibility: visible;
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    padding-left: 230px;
+    background-color: $main-black;
+    color: $main-white;
+    @include flex(flex, row, center, flex-start);
+
+    p:first-child {
+      margin-right: 40px;
+    }
+  }
+  .hidden {
+    visibility: hidden;
+  }
 }
