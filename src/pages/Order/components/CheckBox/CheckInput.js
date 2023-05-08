@@ -3,12 +3,16 @@ import React, { useState } from "react";
 const CheckInput = () => {
   const [checkInputs, setCheckInputs] = useState([]);
 
-  const checkAllInputs = () => {};
+  const checkAllInputs = checked => {};
   return (
     <div className="checkInput">
       <div className="agreeAllWrap">
         <label htmlFor="agreeAll">
-          <input type="checkbox" id="agreeAll" checked={false} />
+          <input
+            type="checkbox"
+            id="agreeAll"
+            checked={AGREEMENT_TERMS.length === checkInputs.length}
+          />
           전체동의
         </label>
       </div>

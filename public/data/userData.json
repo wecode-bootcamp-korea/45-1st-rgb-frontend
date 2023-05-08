@@ -1,9 +1,11 @@
 {
-  "id": 1,
-  "first_name": "yh",
-  "last_name": "moon",
-  "cellphone": "",
-  "address": "",
-  "postalcode": "",
-  "points": "1000.00"
+  "user": {
+    "id": 1,
+    "first_name": "yh",
+    "last_name": "moon",
+    "cellphone": "",
+    "address": "",
+    "postalcode": "",
+    "points": "1000.00"
+  }
 }

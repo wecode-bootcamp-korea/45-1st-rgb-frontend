@@ -1,37 +1,22 @@
 import React from "react";
 import "./Payment.scss";
-// import Button from "../../../../components/Button/Button";
-// import CheckBox from "../CheckBox/CheckBox";
 import CheckInput from "../CheckBox/CheckInput";
 import { useNavigate } from "react-router-dom";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
+  console.log("🍈", userData);
+  const { user } = userData;
+  console.log("🍈", user.id);
+
   const totalPriceInComma = Number(totalPrice / 1000).toLocaleString();
 
   const navigate = useNavigate();
 
-  const totalPoints = parseInt(userData?.points).toLocaleString();
+  const totalPoints = parseInt(user?.points).toLocaleString();
 
   const handlePrevComponent = () => {
     setIsDelivery(true);
   };
-
-  /*   const postUserDeliveryData = () => {
-    fetch("http://10.58.52.222:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        token: "", //요구하는 키값에 맞춰 헤더에 토큰을 담아 보낸다. authorization
-      },
-      // body: JSON.stringify({ ...userData, points: priceSum }),
-      // userInfo
-      // address: "상세주소 state로 업데이트하기", userInfo.address
-      //   postalcode: "12569",
-      //   cellphone:
-      //     "12345678 - string type으로 보내야 하나? 유저가 입력한 8자리 숫자만 받아오기+상태관리",
-    });
-  };
- */
 
   const orderedProductsArr = cartProductList.map(cartItem => {
     return {
@@ -47,12 +32,12 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: { userId: userData.id, products: orderedProductsArr },
+      body: { userId: user.id, products: orderedProductsArr },
       // JSON.stringify({ userId: userData.id, products: orderedProductsArr }),
     })
       .then(response => {
         console.log(response);
-        response.json();
+        return response.json();
       })
       .then(data => {
         if (data.message === "success") {
@@ -62,8 +47,6 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
         }
       });
   };
-
-  console.log("payment에서의 userData ", userData);
 
   const postUserData = () => {
     fetch("http://10.58.52.141:3000/getUserData", {
@@ -90,7 +73,7 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
   return (
     <div className="payment">
       <img
-        className="leftArrow"
+        className="goBackArrow"
         alt="left arrow"
         src="/images/Order/arrow2.png"
         onClick={handlePrevComponent}
@@ -176,15 +159,3 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
 }
 
 export default Payment;
-
-/* const PAYMENT_TERMS = [
-  {
-    id: 1,
-    text: "본인은 만 14세 이상입니다 (필수)",
-  },
-  {
-    id: 2,
-    text: "개인정보 수집 및 이용 조건에 동의합니다 (필수)",
-  },
-];
- */
