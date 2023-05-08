@@ -4,7 +4,7 @@ import "./SignUp.scss";
 import SignUpModal from "./SignUpModal";
 
 const SignUp = () => {
-  const [message, setMessage] = useState([{ a: 1 }]);
+  const [message, setMessage] = useState([]);
   const [signUpWarning, setSignUpWarning] = useState("");
   const [isPassword, setIsPassword] = useState(true);
   const [inputValues, setInputValues] = useState({
@@ -14,7 +14,7 @@ const SignUp = () => {
     password: "",
     passwordCheck: "",
   });
-  console.log(message.length);
+
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
   const loginValid =
@@ -32,7 +32,7 @@ const SignUp = () => {
   };
   const messageModal = () => {
     setSignUpWarning(
-      !message.length ? (
+      message.length ? (
         <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
       ) : (
         <SignUpModal firstName={firstName} />
@@ -41,7 +41,7 @@ const SignUp = () => {
   };
 
   const signUp = () => {
-    fetch("http://10.58.52.141:3000/users/signUp", {
+    fetch("http://10.58.52.169:9000/users/signUp", {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -49,10 +49,12 @@ const SignUp = () => {
         firstName: inputValues.firstName,
         email: inputValues.email,
         password: inputValues.password,
+        subscription: "0",
       }),
     })
       .then(res => res.json())
       .then(message => setMessage(message));
+
     messageModal();
   };
 
