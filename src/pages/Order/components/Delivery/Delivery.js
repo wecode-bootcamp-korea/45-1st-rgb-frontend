@@ -3,8 +3,6 @@ import "./Delivery.scss";
 
 function Delivery({ userData, setUserData, setIsDelivery }) {
   const [isInputOpen, setIsInputOpen] = useState(false);
-  const { user } = userData;
-  console.log("💣", user);
 
   const handleNextPageBtn = e => {
     e.preventDefault();
@@ -18,7 +16,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
   // 인풋창 값 받아오기 + setUserData하기
   const handleCellphoneInput = e => {
     if (e.target.value === "") return;
-    setUserData({ ...userData.user, cellphone: e.target.value });
+    setUserData({ ...userData, cellphone: e.target.value });
   };
 
   // 전화번호에 숫자 입력만 받기
@@ -28,11 +26,11 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
 
   // 주소창 인풋창 값 받아오기 + setUserData하기
   const handleAddressInput = e => {
-    setUserData({ ...userData.user, address: e.target.value });
+    setUserData({ ...userData, address: e.target.value });
   };
 
   const getPostalCode = e => {
-    setUserData({ ...userData.user, postalcode: e.target.value });
+    setUserData({ ...userData, postalcode: e.target.value });
   };
 
   // 모든 인풋창의 엔터키 막기
@@ -43,9 +41,9 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
   };
 
   const activatedButtonCondition =
-    user?.cellphone?.length === 8 &&
-    user?.address !== "" &&
-    user?.postalcode.length >= 5;
+    userData?.cellphone?.length === 8 &&
+    userData?.address !== "" &&
+    userData?.postalcode.length >= 5;
 
   return (
     <div className="delivery">
@@ -67,7 +65,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
                   placeholder="성"
                   readOnly
                 />
-                <span className="userFamilyName">{user?.first_name}</span>
+                <span className="userFamilyName">{userData?.first_name}</span>
               </div>
               <div className="firstNameWrap">
                 <input
@@ -76,7 +74,7 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
                   placeholder="이름"
                   readOnly
                 />
-                <span className="userFirstName">{user?.last_name}</span>
+                <span className="userFirstName">{userData?.last_name}</span>
               </div>
             </div>
             <input

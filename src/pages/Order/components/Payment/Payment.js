@@ -4,15 +4,11 @@ import CheckInput from "../CheckBox/CheckInput";
 import { useNavigate } from "react-router-dom";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
-  console.log("🍈", userData);
-  const { user } = userData;
-  console.log("🍈", user.id);
-
   const totalPriceInComma = Number(totalPrice / 1000).toLocaleString();
 
   const navigate = useNavigate();
 
-  const totalPoints = parseInt(user?.points).toLocaleString();
+  const totalPoints = parseInt(userData?.points).toLocaleString();
 
   const handlePrevComponent = () => {
     setIsDelivery(true);
@@ -32,7 +28,7 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: { userId: user.id, products: orderedProductsArr },
+      body: { userId: userData.id, products: orderedProductsArr },
       // JSON.stringify({ userId: userData.id, products: orderedProductsArr }),
     })
       .then(response => {
@@ -150,9 +146,6 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
         <button className="bigButton dark" onClick={handlePayButton}>
           결제하기
         </button>
-        {/* <Button buttonSize="bigButton" buttonColor="dark">
-          결제하기
-        </Button> */}
       </form>
     </div>
   );

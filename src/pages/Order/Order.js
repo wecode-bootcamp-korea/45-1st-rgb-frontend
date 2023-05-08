@@ -55,7 +55,7 @@ function Order() {
       })
       .then(data => {
         console.log(">>>>> user data", data);
-        return setUserData(data);
+        return setUserData(data.user);
       });
   }, []);
 
