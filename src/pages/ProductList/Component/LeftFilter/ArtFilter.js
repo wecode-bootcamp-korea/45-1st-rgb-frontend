@@ -1,4 +1,4 @@
-const ArtFilter = [
+export const ARTFILTER = [
   {
     ids: 1,
     title: "Price",
@@ -45,5 +45,3 @@ const ArtFilter = [
     },
   },
 ];
-
-export default ArtFilter;

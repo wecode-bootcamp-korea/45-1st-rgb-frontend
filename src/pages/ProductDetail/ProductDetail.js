@@ -4,9 +4,12 @@ import Location from "./Components/Location/Location";
 import ImageBox from "./Components/ImageBox/ImageBox";
 import DetailInformation from "./Components/DetailInformation/DetailInformation";
 import ProductDescription from "./ProductDescription";
+import User from "../User/User";
 import "./ProductDetail.scss";
 
 function ProductDetail() {
+  const [changeComponent, setChangeComponent] = useState("");
+
   // mock data 저장하는 곳
   const [details, setDetails] = useState([]);
   // 버튼 누르면 translate 효과 주는 class 이름 바꿀 용 useState
@@ -45,37 +48,41 @@ function ProductDetail() {
   // }, []);
 
   return (
-    <div className="productDetail">
-      <div className="description">
-        {/* 숨겨진 상세 설명 */}
-        <ProductDescription
-          details={details}
-          inOut={inOut}
-          setInOut={setInOut}
-          noMore={noMore}
-        />
-      </div>
-      <div className="productDetailBox">
-        {/* 상단 */}
-        <Location />
-        {/* 하단 */}
-        <div className="detailBox">
-          {/* 하단 왼쪽 */}
-          <div className="leftImage">
-            <ImageBox details={details} />
-          </div>
-          {/* 하단 오른쪽 */}
-          <div className="detailInfo">
-            <DetailInformation
-              details={details}
-              inOut={inOut}
-              setInOut={setInOut}
-              showMore={showMore}
-            />
+    <>
+      {changeComponent}
+      <div className="productDetail">
+        <div className="description">
+          {/* 숨겨진 상세 설명 */}
+          <ProductDescription
+            details={details}
+            inOut={inOut}
+            setInOut={setInOut}
+            noMore={noMore}
+          />
+        </div>
+        <div className="productDetailBox">
+          {/* 상단 */}
+          <Location />
+          {/* 하단 */}
+          <div className="detailBox">
+            {/* 하단 왼쪽 */}
+            <div className="leftImage">
+              <ImageBox details={details} />
+            </div>
+            {/* 하단 오른쪽 */}
+            <div className="detailInfo">
+              <DetailInformation
+                setChangeComponent={setChangeComponent}
+                details={details}
+                inOut={inOut}
+                setInOut={setInOut}
+                showMore={showMore}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

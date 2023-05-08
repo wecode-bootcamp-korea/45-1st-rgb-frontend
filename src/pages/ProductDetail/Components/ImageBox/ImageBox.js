@@ -3,7 +3,7 @@ import React from "react";
 import "./ImageBox.scss";
 
 function ImageBox({ details }) {
-  console.log(details);
+  console.log("details", details);
   const item = details.image_urls;
 
   return (

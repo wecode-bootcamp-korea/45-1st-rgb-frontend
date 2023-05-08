@@ -1,4 +1,4 @@
-const GoodsFilter = [
+export const GOODSFILTER = [
   {
     ids: 1,
     title: "Price",
@@ -30,5 +30,3 @@ const GoodsFilter = [
     },
   },
 ];
-
-export default GoodsFilter;

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import User from "../../pages/User/User";
-
 import "./Auth.scss";
 const Auth = () => {
   const [changeComponent, setChangeComponent] = useState("");

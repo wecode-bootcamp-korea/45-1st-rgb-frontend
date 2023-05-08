@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import ArtWorks from "../ArtWorks/ArtWorks";
 import LeftFilter from "../LeftFilter/LeftFilter";
-import GoodsFilter from "../LeftFilter/GoodsFilter";
-import ArtFilter from "../LeftFilter/ArtFilter";
+import GOODSFILTER from "../LeftFilter/GoodsFilter";
+import ARTFILTER from "../LeftFilter/ArtFilter";
 import GoodsCategory from "../GoodsCategory/GoodsCategory";
 import "./ListBottom.scss";
 
@@ -18,16 +18,13 @@ function ListBottom() {
   // fetch 데이터 저장하는 useState
   const [shopContent, setShopContent] = useState([]);
 
-  console.log(shopContent);
   // goods 필터용 useState
-  const [filter, setFilter] = useState(ArtFilter);
+  const [filter, setFilter] = useState(ARTFILTER);
 
   // Goods 카테고리의 하위 카테고리 보이고 안보이기 위한 useState
   const [show, setShow] = useState(false);
 
   const art = shopContent.filter(artworks => artworks.categories_id === 1);
-
-  console.log(art);
 
   // art 랑 goods categories_id 에 따라 filter
 
@@ -42,7 +39,7 @@ function ListBottom() {
     searchParams.delete("subCategory");
     setSearchParams(searchParams);
     setShow(false);
-    setFilter(ArtFilter);
+    setFilter(ARTFILTER);
   };
 
   const onClickGoods = () => {
@@ -50,7 +47,7 @@ function ListBottom() {
     setSearchParams(searchParams);
 
     setShow(true);
-    setFilter(GoodsFilter);
+    setFilter(GOODSFILTER);
   };
 
   const page = () => {
