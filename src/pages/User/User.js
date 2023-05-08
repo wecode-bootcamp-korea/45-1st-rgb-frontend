@@ -5,6 +5,7 @@ import "./User.scss";
 
 const User = ({ setLogIn }) => {
   const [isLogin, setIsLogin] = useState(true);
+
   const goToSignUp = () => {
     setIsLogin(false);
   };
@@ -24,7 +25,7 @@ const User = ({ setLogIn }) => {
         {isLogin ? (
           <Login setLogIn={setLogIn} goToSignUp={goToSignUp} />
         ) : (
-          <SignUp />
+          <SignUp setIsLogin={setIsLogin} />
         )}
       </div>
     </div>

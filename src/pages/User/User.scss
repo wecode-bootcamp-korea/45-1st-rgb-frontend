@@ -5,7 +5,6 @@
   @include flex(flex, column, center, flex-start);
   position: absolute;
   width: 100%;
-  background-color: $main-white;
 
   &Top {
     position: relative;
