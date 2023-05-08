@@ -26,6 +26,8 @@ function ListBottom() {
 
   const art = shopContent.filter(artworks => artworks.categories_id === 1);
 
+  const goods = shopContent.filter(goods => goods.categories_id !== 1);
+
   // art 랑 goods categories_id 에 따라 filter
 
   // const livingGoods = shopContent.filter(cup => cup.categories_id === 2);
