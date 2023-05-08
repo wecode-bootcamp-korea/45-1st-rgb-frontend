@@ -31,7 +31,8 @@ function ListBottom() {
       list.categories_id === 2 ||
       list.categories_id === 3 ||
       list.categories_id === 4 ||
-      list.categories_id === 10
+      list.categories_id === 5 ||
+      list.categories_id === 6
   );
 
   const onClickArt = () => {
@@ -46,13 +47,17 @@ function ListBottom() {
 
   const page = () => {
     searchParams.set("offset", 0);
-    searchParams.set("limit", 6);
+    searchParams.set("limit", 10);
     setSearchParams(searchParams);
   };
 
   useEffect(() => {
     fetch(
-      `/data/artlist.json?limit=${limit}&start=${offset}&category=${category}`
+      `http://10.58.52.169:9000/products?limit=${limit}&start=${offset}&category=${category}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json;charset=utf-8" },
+      }
     )
       .then(res => res.json())
       .then(shop => {
@@ -60,17 +65,27 @@ function ListBottom() {
       });
   }, [offset, limit, category, subCategory]);
 
-  useEffect(() => {
-    if (category === "arts") {
-      setOnOff(arts);
-      setShow(false);
-      setFilter(ArtFilter);
-    } else {
-      setOnOff(goods);
-      setShow(true);
-      setFilter(GoodsFilter);
-    }
-  }, [category, arts, goods]);
+  // useEffect(() => {
+  //   fetch(
+  //     `/data/artlist.json?limit=${limit}&start=${offset}&category=${category}`
+  //   )
+  //     .then(res => res.json())
+  //     .then(shop => {
+  //       setShopContent(shop);
+  //     });
+  // }, [offset, limit, category, subCategory]);
+
+  // useEffect(() => {
+  //   if (category === "arts") {
+  //     setOnOff(arts);
+  //     setShow(false);
+  //     setFilter(ArtFilter);
+  //   } else {
+  //     setOnOff(goods);
+  //     setShow(true);
+  //     setFilter(GoodsFilter);
+  //   }
+  // }, [category, arts, goods]);
 
   return (
     <div className="listBottom">
