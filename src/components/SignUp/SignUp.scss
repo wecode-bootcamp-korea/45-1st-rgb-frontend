@@ -14,7 +14,6 @@
 
     & > input {
       @include modalInputStyle(400px, 60px, 17px);
-      // margin-bottom: 10px;
     }
 
     .inputWarning {
