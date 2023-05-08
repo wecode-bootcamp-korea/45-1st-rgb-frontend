@@ -4,36 +4,17 @@ import Button from "../../../../components/Button/Button";
 import CheckBox from "../CheckBox/CheckBox";
 import { useNavigate } from "react-router-dom";
 
-function Payment({
-  userData,
-  totalPrice,
-  setUserData,
-  productList,
-  setIsDelivery,
-  cartProductList,
-  setCartProductList,
-}) {
+function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
   const totalPriceInComma = Number(totalPrice / 1000).toLocaleString();
 
   const navigate = useNavigate();
-  // 보유 포인트 콤마 사용하여 입력
-  const totalPoints = parseInt(userData?.points / 1000).toLocaleString();
+
+  const totalPoints = parseInt(userData?.points).toLocaleString();
 
   const handlePrevComponent = () => {
     setIsDelivery(true);
   };
 
-  /*   const postProductInfo = () => {
-    fetch("http://10.58.52.222:3000/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        token: "",
-      },
-      body: JSON.stringify(productList),
-    });
-  };
- */
   /*   const postUserDeliveryData = () => {
     fetch("http://10.58.52.222:3000/users", {
       method: "POST",
@@ -50,18 +31,13 @@ function Payment({
     });
   };
  */
-  console.log("결제하기 버튼 단계 ", cartProductList, userData);
 
-  const updatedOrderData = {
-    products: cartProductList.map(cartItem => {
-      return {
-        productId: String(cartItem.id),
-        quantity: cartItem.cartSum,
-      };
-    }),
-  };
-
-  console.log("updatedOrderData", updatedOrderData);
+  const orderedProductsArr = cartProductList.map(cartItem => {
+    return {
+      productId: String(cartItem.id),
+      quantity: cartItem.cartSum,
+    };
+  });
 
   // 최종 주문 데이터 넘겨주기.
   const postOrderData = () => {
@@ -70,11 +46,13 @@ function Payment({
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: JSON.stringify(cartProductList),
+      body: { userId: userData.id, products: orderedProductsArr },
+      // JSON.stringify({ userId: userData.id, products: orderedProductsArr }),
     })
-      .then(response =>
-        response.json({ userId: userData.id, updatedOrderData })
-      )
+      .then(response => {
+        console.log(response);
+        response.json();
+      })
       .then(data => {
         if (data.message === "success") {
           alert("결제 완료되었습니다");
@@ -84,17 +62,29 @@ function Payment({
       });
   };
 
+  console.log("payment에서의 userData ", userData);
+
+  const postUserData = () => {
+    fetch("http://10.58.52.141:3000/getUserData", {
+      method: "POST",
+      headers: { "Content-Type": "application/json; charset=utf-8" },
+      // body: { userData },
+      body: JSON.stringify({ userData }),
+    })
+      .then(response => {
+        console.log(response);
+        return response.json();
+      })
+      .then(data => console.log("통신 성공! ", data));
+  };
+
   // 결제하기 버튼
   const handlePayButton = e => {
     e.preventDefault();
-    setUserData({ ...userData, points: String(totalPrice / 1000) });
-    // postUserDeliveryData();
-    // postProductInfo();
     postOrderData();
+    postUserData();
     navigate("/invoice");
   };
-
-  console.log("결제하기 버튼 클릭 이후, ", userData);
 
   return (
     <div className="payment">
@@ -111,14 +101,14 @@ function Payment({
           <span className="pointText">포인트</span>
         </div>
         <div>
-          <label className="pointLabel" for="totalPoint">
+          <label className="pointLabel" htmlFor="totalPoint">
             보유 <input type="text" id="totalPoint" readOnly />
             <span className="pointUnit">{totalPoints}&nbsp;P</span>
           </label>
         </div>
 
         <div>
-          <label className="pointLabel" for="pricePoint">
+          <label className="pointLabel" htmlFor="pricePoint">
             사용 <input type="text" id="pricePoint" readOnly />
             <span className="pointUnit">{totalPriceInComma}&nbsp;P</span>
           </label>
@@ -127,24 +117,24 @@ function Payment({
         {/* 이용약관 동의 인풋 */}
         <div className="contractWrapper">
           <div>
-            <label className="agreeAll" for="agreeAll">
+            <label className="agreeAll" htmlFor="agreeAll">
               <input type="checkbox" id="agreeAll" />
-              <label for="agreeAll" />
+              <label htmlFor="agreeAll" />
               전체 동의
             </label>
           </div>
           <div className="agreementDetail">
-            <label className="ageCheck" for="ageCheck">
+            <label className="ageCheck" htmlFor="ageCheck">
               <input type="checkbox" id="ageCheck" />
-              <label for="ageCheck" />
+              <label htmlFor="ageCheck" />
               본인은 만 14세 이상입니다 (필수)
             </label>
           </div>
 
           <div className="agreementDetail">
-            <label className="privacy" for="privacy">
+            <label className="privacy" htmlFor="privacy">
               <input type="checkbox" id="privacy" />
-              <label for="privacy" />
+              <label htmlFor="privacy" />
               개인정보 수집 및 이용조건에 동의합니다 (필수)
             </label>
             <img
@@ -154,9 +144,9 @@ function Payment({
             />
           </div>
           <div className="agreementDetail">
-            <label className="orderCheck" for="orderCheck">
+            <label className="orderCheck" htmlFor="orderCheck">
               <input type="checkbox" id="orderCheck" />
-              <label for="orderCheck" />
+              <label htmlFor="orderCheck" />
               주문내역을 확인했으며, 이에 동의합니다 (필수)
             </label>
           </div>

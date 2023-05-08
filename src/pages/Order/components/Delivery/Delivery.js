@@ -3,45 +3,12 @@ import "./Delivery.scss";
 import Button from "../../../../components/Button/Button";
 
 function Delivery({ userData, setUserData, setIsDelivery }) {
-  // console.log("userData", userData);
   const [isInputOpen, setIsInputOpen] = useState(false);
-
-  /*   // user data 상태 관리 -> 이 data를 서버에 post 요청을 통해 넘겨줘야 한다.
-  const [userInfo, setUserInfo] = useState({
-    address: "",
-    postalcode: "",
-    cellphone: "",
-    points: "",
-  });
- */
 
   const handleNextPageBtn = e => {
     e.preventDefault();
-
-    // 다음페이지 버튼 클릭 시, 유저가 입력한 정보로 userData를 업데이트해준다.
-    // -> handleInput에서 한 번에 관리해주는듯!!! 와웅
-
-    // setUserData({...userData,cellphone:})
-    // setUserData({...userData,points:})
-    // postUserDeliveryData();
     goToPayment();
   };
-
-  /*   const postUserDeliveryData = () => {
-    fetch("http://10.58.52.222:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        token: "", //요구하는 키값에 맞춰 헤더에 토큰을 담아 보낸다. authorization
-      },
-      body: JSON.stringify(userData),
-      // userInfo
-      // address: "상세주소 state로 업데이트하기", userInfo.address
-      //   postalcode: "12569",
-      //   cellphone:
-      //     "12345678 - string type으로 보내야 하나? 유저가 입력한 8자리 숫자만 받아오기+상태관리",
-    });
-  }; */
 
   const goToPayment = () => {
     setIsDelivery(false);
@@ -81,8 +48,6 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
   // userData.cellphone.length >= 11 &&
   // userData.postalcode.length >= 5;
 
-  // console.log("지금 궁금한 부분! ", userData);
-
   return (
     <div className="delivery">
       <img
@@ -119,9 +84,8 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
               className="phoneNumber"
               name="cellphone"
               type="text"
-              placeholder="전화번호(010-0000-0000)"
-              maxLength="13"
-              minLength="11"
+              placeholder="전화번호 뒷 8자리를 입력해주세요"
+              maxLength="8"
               onKeyDown={preventEnterKey}
               onInput={acceptOnlyNumbers}
               onChange={handleCellphoneInput}
@@ -154,11 +118,11 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
           <div className="labelWrapper">
             <label className="default">
               <input type="checkbox" id="default" />
-              <label for="default" />이 주소를 기본 배송지로 저장합니다
+              <label htmlFor="default" />이 주소를 기본 배송지로 저장합니다
             </label>
             <label className="identical">
               <input id="identical" type="checkbox" />
-              <label for="identical" />
+              <label htmlFor="identical" />
               주문자 정보와 배송지 정보가 동일합니다
             </label>
           </div>
@@ -185,7 +149,6 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
         <button
           onClick={handleNextPageBtn}
           className="bigButton dark"
-          buttonColor="dark"
           disabled={!activatedButtonCondition}
         >
           다음페이지
