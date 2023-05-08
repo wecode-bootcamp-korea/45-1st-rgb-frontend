@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import User from "../../pages/User/User";
 import "./Nav.scss";
 
 const Nav = () => {
   const [navData, setNavData] = useState([]);
   const [showCategory, setShowCategory] = useState("hidden");
   const navigate = useNavigate();
+  const [logIn, setLogin] = useState("");
+  const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
     fetch("/data/navData.json", {
@@ -55,8 +58,13 @@ const Nav = () => {
                 </li>
               </div>
             </ul>
-            {data.logIn ? (
-              <button className="logIn">Log-in</button>
+            {!token ? (
+              <button
+                className="logIn"
+                onClick={() => setLogin(<User setLogin={setLogin} />)}
+              >
+                Log-in
+              </button>
             ) : (
               <button className="logOut" onClick={() => logOut()}>
                 Log-out
@@ -65,6 +73,7 @@ const Nav = () => {
           </div>
         );
       })}
+      {logIn}
     </>
   );
 };
