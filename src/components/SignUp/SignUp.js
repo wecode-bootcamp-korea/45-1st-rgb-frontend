@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import "./SignUp.scss";
+import SignUpModal from "./SignUpModal";
 
 const SignUp = () => {
-  const [message, setMessage] = useState([]);
+  const [message, setMessage] = useState([{ a: 1 }]);
+  const [signUpWarning, setSignUpWarning] = useState("");
   const [isPassword, setIsPassword] = useState(true);
   const [inputValues, setInputValues] = useState({
     lastName: "",
@@ -12,17 +14,30 @@ const SignUp = () => {
     password: "",
     passwordCheck: "",
   });
-
+  console.log(message.length);
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
   const loginValid =
-    email.includes("@") && password.length >= 5 && firstName && lastName != "";
+    email.includes("@") &&
+    password.length >= 5 &&
+    firstName &&
+    lastName != "" &&
+    passwordCheck === password;
 
   const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
 
   const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
+  };
+  const messageModal = () => {
+    setSignUpWarning(
+      !message.length ? (
+        <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
+      ) : (
+        <SignUpModal firstName={firstName} />
+      )
+    );
   };
 
   const signUp = () => {
@@ -38,6 +53,7 @@ const SignUp = () => {
     })
       .then(res => res.json())
       .then(message => setMessage(message));
+    messageModal();
   };
 
   return (
@@ -67,7 +83,7 @@ const SignUp = () => {
           className="signUpEmail"
           placeholder=" 이메일 주소"
         />
-        <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
+        {signUpWarning}
         <input
           onChange={handleInput}
           type="password"
