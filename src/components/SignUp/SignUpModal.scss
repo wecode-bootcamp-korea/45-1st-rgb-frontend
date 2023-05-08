@@ -2,21 +2,26 @@
 @import "../../styles/mixin";
 
 .signUpModal {
+  position: absolute;
+  z-index: 9998;
+  top: 50px;
+  left: 0;
   width: 100%;
   height: 100%;
+  background-color: $main-white;
 }
 .signUpModalBox {
   position: absolute;
   z-index: 9999;
-  top: 0;
-  left: -25%;
+  top: 30px;
+  left: 33%;
   width: 600px;
   height: 600px;
   padding: 20px;
-  @include flex(flex, column, center, space-evenly);
   border-top-width: 500px;
   background-color: $main-grey;
   color: $main-white;
+  @include flex(flex, column, center, space-evenly);
 
   & > h2 {
     padding-bottom: 20px;

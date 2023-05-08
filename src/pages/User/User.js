@@ -19,10 +19,14 @@ const User = ({ setLogIn }) => {
             className="prevArrowIcon"
           ></button>
         )}
-        <button className="closeIcon" onClick={() => setLogIn("")}></button>
+        <button className="closeIcon" onClick={() => setLogIn("")} />
       </div>
       <div className="userItem">
-        {isLogin ? <Login goToSignUp={goToSignUp} /> : <SignUp />}
+        {isLogin ? (
+          <Login setLogIn={setLogIn} goToSignUp={goToSignUp} />
+        ) : (
+          <SignUp setIsLogin={setIsLogin} />
+        )}
       </div>
     </div>
   );
