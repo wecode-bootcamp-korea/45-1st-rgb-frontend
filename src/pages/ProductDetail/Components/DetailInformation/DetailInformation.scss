@@ -1,0 +1,94 @@
+.detailInformation {
+  margin-right: 20%;
+  h2 {
+    padding-bottom: 25px;
+    font-size: 37px;
+    font-weight: 400;
+  }
+  h3 {
+    padding-bottom: 30px;
+    font-size: 17px;
+    font-weight: 400;
+  }
+
+  .infoTop {
+    border-bottom: 1px solid black;
+
+    p.size {
+      padding-bottom: 30px;
+      font-size: 14px;
+    }
+
+    .material {
+      width: 160px;
+      margin-bottom: 20px;
+      padding: 15px 0px;
+      border-radius: 10px;
+      background-color: rgba(51, 51, 51, 20%);
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .infoMiddle {
+    display: flex;
+    align-items: center;
+    height: 150px;
+    border-bottom: 1px solid black;
+
+    .description {
+      width: 350px;
+      height: 70px;
+      margin-right: 25px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+
+    button {
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+  .infoBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 20px 20px 0;
+    border-bottom: 1px solid black;
+
+    .price,
+    .quantity {
+      display: flex;
+      justify-content: space-between;
+    }
+    .price {
+      padding-bottom: 30px;
+    }
+
+    .countButton {
+      display: flex;
+      justify-content: space-between;
+      width: 50px;
+    }
+  }
+
+  .buyingButtons {
+    .totalPrice {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 20px 40px 0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+}
