@@ -42,6 +42,7 @@ const SignUp = ({ setIsLogin }) => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
+
   const messageModal = () => {
     setSignUpWarning(
       !message.length && (
@@ -49,6 +50,7 @@ const SignUp = ({ setIsLogin }) => {
       )
     );
   };
+
   const signUp = () => {
     fetch("http://10.58.52.169:9001/users/signUp", {
       method: "POST",
@@ -66,11 +68,6 @@ const SignUp = ({ setIsLogin }) => {
 
     messageModal();
   };
-
-  useEffect(() => {
-    console.log("inputValues", inputValues);
-    console.log("subscriptionValue", subscriptionValue);
-  }, [inputValues]);
 
   return (
     <>

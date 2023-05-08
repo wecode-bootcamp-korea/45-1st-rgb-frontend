@@ -12,6 +12,7 @@ const Login = ({ setLogIn, goToSignUp }) => {
   const [loginWarning, setLoginWarning] = useState("");
   const loginValid = email.includes("@") && password.length >= 5;
   const token = localStorage.getItem("TOKEN");
+
   const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });

@@ -12,18 +12,6 @@ const Nav = () => {
   const token = localStorage.getItem("TOKEN");
   const { user } = userData;
 
-  const getUserData = () => {
-    if (token) {
-      setLogIn("");
-    }
-  };
-
-  console.log("userData", userData);
-  console.log("userData.user", userData.user);
-  console.log("user", user);
-  console.log("token", token);
-  console.log("myCart", myCart);
-
   useEffect(() => {
     fetch("http://10.58.52.169:9001/users", {
       method: "GET",
@@ -47,7 +35,7 @@ const Nav = () => {
   }, []);
 
   useEffect(() => {
-    getUserData();
+    if (token) return setLogIn("");
   }, [token]);
 
   const logOut = () => {

@@ -4,7 +4,6 @@
 .login {
   @include flex(flex, column, flex-start, space-between);
   @include inputSize;
-
   .loginTitle {
     @include modalTitle(60px, 37px);
   }
