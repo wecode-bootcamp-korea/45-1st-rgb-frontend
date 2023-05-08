@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckInput from "../CheckBox/CheckInput";
 import "./Payment.scss";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
+  const [checkInputs, setCheckInputs] = useState([]);
+  /*   const activatedPaymentButtonCondition = checkInputs.every(
+    (value, index) => value === [0, 1, 2][index]
+  ); */
+
+  const activatedPaymentButtonCondition = checkInputs.length === 3;
+
+  console.log(activatedPaymentButtonCondition);
+
   const totalPriceInComma = Number(totalPrice / 1000).toLocaleString();
 
   const navigate = useNavigate();
@@ -94,9 +103,20 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
         </div>
 
         <div className="contractWrapper">
-          <CheckInput />
+          <CheckInput
+            checkInputs={checkInputs}
+            setCheckInputs={setCheckInputs}
+          />
         </div>
-        <button className="bigButton dark" onClick={handlePayButton}>
+        <button
+          className={
+            !activatedPaymentButtonCondition
+              ? `bigButton buttonOff`
+              : `bigButton dark`
+          }
+          disabled={!activatedPaymentButtonCondition}
+          onClick={handlePayButton}
+        >
           결제하기
         </button>
       </form>

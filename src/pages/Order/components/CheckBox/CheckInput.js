@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
-const CheckInput = () => {
-  const [checkInputs, setCheckInputs] = useState([]);
-  console.log(checkInputs);
+const CheckInput = ({ checkInputs, setCheckInputs }) => {
+  console.log("자식 ", checkInputs);
 
   const checkAllInputs = checked => {
     if (checked) {
@@ -31,7 +30,7 @@ const CheckInput = () => {
             id="agreeAll"
             checked={AGREEMENT_TERMS.length === checkInputs.length}
             onChange={e => {
-              console.log(e.target.checked);
+              // console.log(e.target.checked);
               checkAllInputs(e.target.checked);
             }}
           />
@@ -48,7 +47,7 @@ const CheckInput = () => {
                 checked={checkInputs.includes(term.id)}
                 onChange={e => {
                   checkSingleInput(term.id, e.target.checked);
-                  console.log("하나의 인풋 변화 ", e.target.checked);
+                  // console.log("하나의 인풋 변화 ", e.target.checked);/
                 }}
               />
               {term.title}
