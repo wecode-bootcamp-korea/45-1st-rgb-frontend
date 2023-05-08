@@ -2,8 +2,26 @@ import React, { useState } from "react";
 
 const CheckInput = () => {
   const [checkInputs, setCheckInputs] = useState([]);
+  console.log(checkInputs);
 
-  const checkAllInputs = checked => {};
+  const checkAllInputs = checked => {
+    if (checked) {
+      const idArray = [];
+      AGREEMENT_TERMS.forEach(term => idArray.push(term.id));
+      setCheckInputs(idArray);
+    } else {
+      setCheckInputs([]);
+    }
+  };
+
+  const checkSingleInput = (id, checked) => {
+    if (checked) {
+      setCheckInputs(prev => [...prev, id]);
+    } else {
+      setCheckInputs(checkInputs.filter(input => input !== id));
+    }
+  };
+
   return (
     <div className="checkInput">
       <div className="agreeAllWrap">
@@ -12,6 +30,10 @@ const CheckInput = () => {
             type="checkbox"
             id="agreeAll"
             checked={AGREEMENT_TERMS.length === checkInputs.length}
+            onChange={e => {
+              console.log(e.target.checked);
+              checkAllInputs(e.target.checked);
+            }}
           />
           전체동의
         </label>
@@ -20,7 +42,15 @@ const CheckInput = () => {
         return (
           <div key={term.id}>
             <label htmlFor={term.htmlFor}>
-              <input type="checkbox" id={term.htmlFor} />
+              <input
+                type="checkbox"
+                id={term.htmlFor}
+                checked={checkInputs.includes(term.id)}
+                onChange={e => {
+                  checkSingleInput(term.id, e.target.checked);
+                  console.log("하나의 인풋 변화 ", e.target.checked);
+                }}
+              />
               {term.title}
             </label>
           </div>
