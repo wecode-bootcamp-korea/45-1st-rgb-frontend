@@ -4,11 +4,21 @@ import User from "../../pages/User/User";
 import "./Nav.scss";
 
 const Nav = () => {
-  const [navData, setNavData] = useState([]);
-  const [showCategory, setShowCategory] = useState("hidden");
   const navigate = useNavigate();
-  const [logIn, setLogin] = useState("");
+  const [myPoint, setMyPoint] = useState([]);
+  const [navData, setNavData] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [showCategory, setShowCategory] = useState("hidden");
+  const [logIn, setLogIn] = useState("");
   const token = localStorage.getItem("TOKEN");
+
+  if (token) {
+    const { user } = userData;
+    setMyPoint(Math.floor(user.points));
+    console.log("userData", userData);
+    console.log("user", user);
+    console.log("user.points", user.points);
+  }
 
   useEffect(() => {
     fetch("/data/navData.json", {
@@ -17,6 +27,17 @@ const Nav = () => {
       .then(res => res.json())
       .then(data => {
         setNavData(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("http://10.58.52.169:9000/users", {
+      method: "GET",
+      headers: { Authorization: token },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setUserData(data);
       });
   }, []);
 
@@ -52,7 +73,7 @@ const Nav = () => {
                 </li>
               </div>
               <div className="navBox navBoxRight">
-                <li>My Point {data.point}P</li>
+                {!token ? <li>My Point</li> : <li>My Point : {myPoint} P</li>}
                 <li>
                   Cart <span className="cartCountButton"> {data.count}</span>
                 </li>
@@ -61,7 +82,7 @@ const Nav = () => {
             {!token ? (
               <button
                 className="logIn"
-                onClick={() => setLogin(<User setLogin={setLogin} />)}
+                onClick={() => setLogIn(<User setLogIn={setLogIn} />)}
               >
                 Log-in
               </button>

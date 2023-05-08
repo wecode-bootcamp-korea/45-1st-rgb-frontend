@@ -12,11 +12,11 @@ const Login = ({ goToSignUp }) => {
   const [loginWarning, setLoginWarning] = useState("");
   const loginValid = email.includes("@") && password.length >= 5;
   const token = localStorage.getItem("TOKEN");
-  console.log(token);
   const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
+
   useEffect(() => {
     !token
       ? setLoginWarning("회원정보가 일치하지 않습니다.")

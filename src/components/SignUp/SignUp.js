@@ -14,6 +14,7 @@ const SignUp = () => {
     password: "",
     passwordCheck: "",
   });
+
   console.log(message.length);
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
