@@ -5,7 +5,6 @@ import "./User.scss";
 
 const User = ({ setLogIn }) => {
   const [isLogin, setIsLogin] = useState(true);
-
   const goToSignUp = () => {
     setIsLogin(false);
   };
@@ -19,10 +18,14 @@ const User = ({ setLogIn }) => {
             className="prevArrowIcon"
           ></button>
         )}
-        <button className="closeIcon" onClick={() => setLogIn("")}></button>
+        <button className="closeIcon" onClick={() => setLogIn("")} />
       </div>
       <div className="userItem">
-        {isLogin ? <Login goToSignUp={goToSignUp} /> : <SignUp />}
+        {isLogin ? (
+          <Login setLogIn={setLogIn} goToSignUp={goToSignUp} />
+        ) : (
+          <SignUp />
+        )}
       </div>
     </div>
   );

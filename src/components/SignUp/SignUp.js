@@ -39,7 +39,6 @@ const SignUp = () => {
       )
     );
   };
-
   const signUp = () => {
     fetch("http://10.58.52.169:9000/users/signUp", {
       method: "POST",

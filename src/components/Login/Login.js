@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import "./Login.scss";
 
-const Login = ({ goToSignUp }) => {
+const Login = ({ setLogIn, goToSignUp }) => {
   const [inputValues, setInputValues] = useState({
     email: "",
     password: "",
@@ -18,9 +18,7 @@ const Login = ({ goToSignUp }) => {
   };
 
   useEffect(() => {
-    !token
-      ? setLoginWarning("회원정보가 일치하지 않습니다.")
-      : setLoginWarning("");
+    !token && setLoginWarning("회원정보가 일치하지 않습니다.");
   }, [token]);
 
   const loginOn = () => {
@@ -34,6 +32,8 @@ const Login = ({ goToSignUp }) => {
     })
       .then(res => res.json())
       .then(data => localStorage.setItem("TOKEN", data.accessToken));
+
+    token && setLogIn("");
   };
 
   return (

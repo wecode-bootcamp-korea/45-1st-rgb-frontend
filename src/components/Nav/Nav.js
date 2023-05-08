@@ -11,10 +11,13 @@ const Nav = () => {
   const [logIn, setLogIn] = useState("");
   const token = localStorage.getItem("TOKEN");
 
-  if (token) {
-    const { user } = userData;
-    setMyPoint(Math.floor(user.points));
-  }
+  // if (token) {
+  //   setLogIn("");
+  //   const { user } = userData;
+  //   setMyPoint(Math.floor(user.points));
+  // }
+
+  console.log("userData", userData);
 
   useEffect(() => {
     fetch("http://10.58.52.169:9000/users", {
