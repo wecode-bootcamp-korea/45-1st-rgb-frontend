@@ -1,8 +1,8 @@
 import React from "react";
-import LeftImage from "../LeftImage/LeftImage";
-import "./DetailLeft.scss";
+import LeftImage from "../Images/Images";
+import "./ImageBox.scss";
 
-function DetailLeft({ details }) {
+function ImageBox({ details }) {
   const item = details[0]?.img;
 
   return (
@@ -22,7 +22,6 @@ function DetailLeft({ details }) {
           <LeftImage item={item} key={index} />
           // <img key={index} alt="artimg" src={item} />
         ))}
-        .0
       </div>
       <button className="arrowRight">
         <img alt="right" src="/images/productDetail/button-next.png" />
@@ -31,4 +30,4 @@ function DetailLeft({ details }) {
   );
 }
 
-export default DetailLeft;
+export default ImageBox;

@@ -1,6 +1,4 @@
-@import "../../../../styles/variables";
-
-div.detailRight {
+.detailInformation {
   margin-right: 20%;
   h2 {
     padding-bottom: 25px;
@@ -13,7 +11,7 @@ div.detailRight {
     font-weight: 400;
   }
 
-  .rightTop {
+  .infoTop {
     border-bottom: 1px solid black;
 
     p.size {
@@ -32,7 +30,7 @@ div.detailRight {
     }
   }
 
-  .rightMiddle {
+  .infoMiddle {
     display: flex;
     align-items: center;
     height: 150px;
@@ -54,7 +52,7 @@ div.detailRight {
     }
   }
 
-  .rightBottom {
+  .infoBottom {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -78,8 +76,6 @@ div.detailRight {
   }
 
   .buyingButtons {
-    // padding: 50px 50px 0 50px;
-
     .totalPrice {
       display: flex;
       justify-content: space-between;

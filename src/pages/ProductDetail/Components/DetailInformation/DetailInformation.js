@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from "../../../../components/Button/Button";
-import "./DetailRight.scss";
+import "./DetailInformation.scss";
 
-function DetailRight({ details, inOut, showMore }) {
+function DetailInformation({ details, showMore }) {
   const [count, setCount] = useState(1);
   const price = details[0]?.price;
   const total = count * price;
@@ -21,18 +21,18 @@ function DetailRight({ details, inOut, showMore }) {
     }
   };
   return (
-    <div className="detailRight">
+    <div className="detailInformation">
       <h2>{details[0]?.title}</h2>
       <h3>{details[0]?.artistName}</h3>
       {/* 사이즈와 재료 */}
-      <div className="rightTop">
+      <div className="infoTop">
         <p className="size">
           {`${details[0]?.productsSizeLeft} x ${details[0]?.productsSizeRight} cm`}
         </p>
         <p className="material">{`${details[0]?.material}`}</p>
       </div>
       {/* 상세 설명 */}
-      <div className="rightMiddle">
+      <div className="infoMiddle">
         <span className="description">{`${details[0]?.description}`}</span>
         <span>
           <button onClick={showMore}>
@@ -41,7 +41,7 @@ function DetailRight({ details, inOut, showMore }) {
         </span>
       </div>
       {/* 가격과 수량 */}
-      <div className="rightBottom">
+      <div className="infoBottom">
         <div className="price">
           <span className="bold">Price</span>
           <span>{`${details[0]?.price} won`}</span>
@@ -82,4 +82,4 @@ function DetailRight({ details, inOut, showMore }) {
   );
 }
 
-export default DetailRight;
+export default DetailInformation;
