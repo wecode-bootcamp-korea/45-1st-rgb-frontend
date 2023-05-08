@@ -15,40 +15,13 @@
   width: 100%;
 }
 
-.cartCategory {
+.cartCategoryBox {
   display: flex;
   flex-direction: row;
   padding: 24px;
   padding-bottom: 22px;
 
-  .cartTitle {
-    flex-basis: auto;
-    flex-shrink: 0;
-    width: 25%;
-    color: $main-white;
-    font-size: 16px;
-    font-weight: 400;
-  }
-
-  .cartSize {
-    flex-basis: auto;
-    flex-shrink: 0;
-    width: 25%;
-    color: $main-white;
-    font-size: 16px;
-    font-weight: 400;
-  }
-
-  .cartQuantity {
-    flex-basis: auto;
-    flex-shrink: 0;
-    width: 25%;
-    color: $main-white;
-    font-size: 16px;
-    font-weight: 400;
-  }
-
-  .cartPrice {
+  .cartCategory {
     flex-basis: auto;
     flex-shrink: 0;
     width: 25%;

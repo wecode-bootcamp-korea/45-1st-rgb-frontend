@@ -26,26 +26,27 @@
     margin-top: 100px;
     overflow: hidden;
   }
-  .buttonContainer {
-    position: flex;
-    margin-top: 100px;
-  }
+}
 
-  .buttonPre2 {
-    position: absolute;
-    left: 0px;
-    width: 63px;
-    height: 63px;
-    background-image: url("../../assets/button-pre.png");
-  }
+.buttonContainer {
+  position: flex;
+  margin-top: -910px;
+}
 
-  .buttonNext2 {
-    position: absolute;
-    right: 0px;
-    width: 63px;
-    height: 63px;
-    background-image: url("../../assets/button-next.png");
-  }
+.buttonPre2 {
+  position: absolute;
+  left: 260px;
+  width: 63px;
+  height: 63px;
+  background-image: url("../../assets/button-pre.png");
+}
+
+.buttonNext2 {
+  position: absolute;
+  right: 260px;
+  width: 63px;
+  height: 63px;
+  background-image: url("../../assets/button-next.png");
 }
 
 .secondSlide {
