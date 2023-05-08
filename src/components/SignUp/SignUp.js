@@ -32,7 +32,7 @@ const SignUp = () => {
   };
   const messageModal = () => {
     setSignUpWarning(
-      !message.length ? (
+      message.length ? (
         <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
       ) : (
         <SignUpModal firstName={firstName} />

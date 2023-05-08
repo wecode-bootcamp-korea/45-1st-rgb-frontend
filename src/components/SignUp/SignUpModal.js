@@ -3,11 +3,11 @@ import "./SignUpModal.scss";
 
 const SignUpModal = ({ firstName }) => {
   return (
-    <div className="signUpModal">
+    <div onClick={() => console.log("닫기")} className="signUpModal">
       <h2>환영합니다. {firstName}님! </h2>
       <div className="messageBox">
         <p className="messageSubTitle">회원가입이 완료되셨습니다.</p>
-        <p>창을 닫으시면 자동으로 로그인이 됩니다.</p>
+        <p>창을 닫으시면 로그인 페이지로 이동합니다.</p>
       </div>
       <div className="border" />
       <div className="messageBox">

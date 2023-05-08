@@ -32,8 +32,7 @@
   .messageBox:last-child {
     padding: 40px;
     @include flex(flex, column, center, _);
-    background-color: $main-white;
-    color: $main-grey;
+    background-color: $main-grey;
   }
   .border {
     width: 100px;
