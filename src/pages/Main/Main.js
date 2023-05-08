@@ -13,7 +13,6 @@ function Main() {
         <div className="mainContainer">
           <div className="content" />
           <div className="titleContent">
-            <span className="spanTitle">Make art part of your world!</span>
             <span className="boxText">Artist of May</span>
           </div>
           <div className="boxButton">
