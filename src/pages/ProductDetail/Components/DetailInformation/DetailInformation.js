@@ -4,12 +4,12 @@ import "./DetailInformation.scss";
 
 function DetailInformation({ details, showMore }) {
   const [count, setCount] = useState(1);
-  const price = details[0]?.price;
+  const price = details.price;
   const total = count * price;
 
   const plusCount = () => {
     setCount(count + 1);
-    if (count === details[0]?.quantity) {
+    if (count === details.quantity) {
       setCount(count + 0);
     }
   };
@@ -22,18 +22,18 @@ function DetailInformation({ details, showMore }) {
   };
   return (
     <div className="detailInformation">
-      <h2>{details[0]?.title}</h2>
-      <h3>{details[0]?.artistName}</h3>
+      <h2>{details.title}</h2>
+      <h3>{details.artistName}</h3>
       {/* 사이즈와 재료 */}
       <div className="infoTop">
         <p className="size">
-          {`${details[0]?.productsSizeLeft} x ${details[0]?.productsSizeRight} cm`}
+          {`${details.products_size_left} x ${details.products_size_right} cm`}
         </p>
-        <p className="material">{`${details[0]?.material}`}</p>
+        <p className="material">{`${details.material}`}</p>
       </div>
       {/* 상세 설명 */}
       <div className="infoMiddle">
-        <span className="description">{`${details[0]?.description}`}</span>
+        <span className="description">{`${details.description}`}</span>
         <span>
           <button onClick={showMore}>
             <img alt="plusButton" src="/images/productDetail/plusButton.png" />
@@ -44,7 +44,7 @@ function DetailInformation({ details, showMore }) {
       <div className="infoBottom">
         <div className="price">
           <span className="bold">Price</span>
-          <span>{`${details[0]?.price} won`}</span>
+          <span>{`${details.price} won`}</span>
         </div>
         <div className="quantity">
           <span className="bold">수량</span>
@@ -52,7 +52,7 @@ function DetailInformation({ details, showMore }) {
             <button className="minusButton" onClick={minusCount}>
               -
             </button>
-            {count}/{details[0]?.quantity}
+            {count}/{details.quantity}
             <button className="plusButton" onClick={plusCount}>
               +
             </button>

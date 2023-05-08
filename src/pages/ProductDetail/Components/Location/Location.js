@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Location.scss";
 
 function Location() {
@@ -6,7 +7,9 @@ function Location() {
     <div className="location">
       <p>Shop &gt; Art Works</p>
       <button>
-        <img alt="arrow" src="/images/productDetail/arrow2.png" />
+        <Link to="/productList">
+          <img alt="arrow" src="/images/productDetail/arrow2.png" />
+        </Link>
       </button>
     </div>
   );

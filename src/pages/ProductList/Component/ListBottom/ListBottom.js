@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import ArtWorks from "../ArtWorks/ArtWorks";
 import LeftFilter from "../LeftFilter/LeftFilter";
 import GoodsFilter from "../LeftFilter/GoodsFilter";
@@ -25,11 +25,11 @@ function ListBottom() {
 
   // art 랑 goods categories_id 에 따라 filter
 
-  const livingGoods = shopContent.filter(cup => cup.categories_id === 2);
-  const phoneCase = shopContent.filter(
-    phonecase => phonecase.categories_id === 4 || phonecase.categories_id === 5
-  );
-  const poster = shopContent.filter(posters => posters.categories_id === 3);
+  // const livingGoods = shopContent.filter(cup => cup.categories_id === 2);
+  // const phoneCase = shopContent.filter(
+  //   phonecase => phonecase.categories_id === 4 || phonecase.categories_id === 5
+  // );
+  // const poster = shopContent.filter(posters => posters.categories_id === 3);
 
   const onClickArt = () => {
     searchParams.set("category", "arts");
@@ -129,7 +129,11 @@ function ListBottom() {
         <div className="bottomRight">
           <div className="artworkBox">
             {shopContent.map(art => {
-              return <ArtWorks art={art} key={art.id} />;
+              return (
+                <Link key={art.id} to={`/productDetail/${art.id}`}>
+                  <ArtWorks art={art} key={art.id} />;
+                </Link>
+              );
             })}
           </div>
         </div>

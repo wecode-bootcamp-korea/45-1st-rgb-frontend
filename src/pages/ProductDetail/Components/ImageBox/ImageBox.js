@@ -1,9 +1,10 @@
 import React from "react";
-import LeftImage from "../Images/Images";
+// import Images from "../Images/Images";
 import "./ImageBox.scss";
 
 function ImageBox({ details }) {
-  const item = details[0]?.img;
+  console.log(details);
+  const item = details.image_urls;
 
   return (
     <div className="detailLeft">
@@ -18,10 +19,12 @@ function ImageBox({ details }) {
       {/* <LeftImage image={details[0]?.img} /> */}
       {/* <img alt="artimg" src={`${item[0]}`} /> */}
       <div className="imageContainer">
-        {item?.map((item, index) => (
-          <LeftImage item={item} key={index} />
-          // <img key={index} alt="artimg" src={item} />
-        ))}
+        {item?.map((item, index) => {
+          return (
+            // <Images item={item} key={index} />
+            <img key={index} alt="artimg" src={item} />
+          );
+        })}
       </div>
       <button className="arrowRight">
         <img alt="right" src="/images/productDetail/button-next.png" />
