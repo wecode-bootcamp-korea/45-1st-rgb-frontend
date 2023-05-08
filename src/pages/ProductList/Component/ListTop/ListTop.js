@@ -6,7 +6,7 @@ function ListTop() {
     <div className="listTop">
       <div className="topOfTop">
         <span className="artistOfMay">Artist of May</span>
-        <span className="haechan">Hae Chan</span>
+        <span className="haechan">Hae</span>
       </div>
       <img
         alt="List"

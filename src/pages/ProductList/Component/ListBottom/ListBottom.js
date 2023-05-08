@@ -17,11 +17,17 @@ function ListBottom() {
   // const [shopCategory, setShopCategory] = useState("Artlist");
   // fetch 데이터 저장하는 useState
   const [shopContent, setShopContent] = useState([]);
+
+  console.log(shopContent);
   // goods 필터용 useState
   const [filter, setFilter] = useState(ArtFilter);
 
   // Goods 카테고리의 하위 카테고리 보이고 안보이기 위한 useState
   const [show, setShow] = useState(false);
+
+  const art = shopContent.filter(artworks => artworks.categories_id === 1);
+
+  console.log(art);
 
   // art 랑 goods categories_id 에 따라 filter
 
