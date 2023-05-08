@@ -2,8 +2,8 @@
   "id": 1,
   "first_name": "yh",
   "last_name": "moon",
-  "cellphone": null,
-  "address": null,
-  "postalcode": null,
+  "cellphone": "",
+  "address": "",
+  "postalcode": "",
   "points": "1000.00"
 }

@@ -42,11 +42,9 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
   };
 
   const activatedButtonCondition =
+    userData?.cellphone?.length === 8 &&
     userData.address !== "" &&
-    userData.cellphone !== "" &&
-    userData.postalcode !== "";
-  // userData.cellphone.length >= 11 &&
-  // userData.postalcode.length >= 5;
+    userData.postalcode.length >= 5;
 
   return (
     <div className="delivery">
@@ -148,7 +146,12 @@ function Delivery({ userData, setUserData, setIsDelivery }) {
         </div>
         <button
           onClick={handleNextPageBtn}
-          className="bigButton dark"
+          // className="bigButton dark"
+          className={
+            activatedButtonCondition
+              ? `bigButton dark activate`
+              : `bigButton buttonOff`
+          }
           disabled={!activatedButtonCondition}
         >
           다음페이지

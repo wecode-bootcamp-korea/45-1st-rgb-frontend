@@ -8,9 +8,9 @@ import Delivery from "./components/Delivery/Delivery";
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
   const [userData, setUserData] = useState({
-    address: "",
-    postalcode: "",
-    cellphone: "",
+    // address: "",
+    // postalcode: "",
+    // cellphone: "",
   });
 
   const getSum = cartProductList => {
@@ -39,11 +39,6 @@ function Order() {
         setUserData(data);
       });
   }, []);
-
-  const parsedUserDefaultPoints = parseInt(userData.points);
-  const updatedUserPoints = parsedUserDefaultPoints - totalPrice / 1000;
-  console.log("updatedUserPoints", updatedUserPoints);
-  console.log("updatedUserPoints!!", parseInt(userData.points));
 
   const [isDelivery, setIsDelivery] = useState(true);
   // true이면 Delivery 컴포넌트, false이면 Payment 컴포넌트
