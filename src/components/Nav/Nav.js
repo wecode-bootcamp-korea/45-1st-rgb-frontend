@@ -8,7 +8,7 @@ const Nav = () => {
   const handleLinkClick = link => {
     setActiveLink(link);
   };
-
+  // const points = 10;
   return (
     <nav className="nav">
       <ul className="items">
@@ -18,22 +18,23 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link to="/">Artist</Link>
+          <Link to="/artist">Artist</Link>
         </li>
         <li>
-          <Link to="/">Shop</Link>
+          <Link to="/shop">Shop</Link>
         </li>
       </ul>
 
       <ul className="items">
         <li>
-          <Link to="/">My Page</Link>
+          <Link to="/mypage">My Page</Link>
+          {/* <div>{points}</div> */}
         </li>
         <li>
-          <Link to="/">Cart</Link>
+          <Link to="/cart">Cart</Link>
         </li>
         <li>
-          <Link to="/">Log-in</Link>
+          <Link to="/login">Log-in</Link>
         </li>
       </ul>
     </nav>
