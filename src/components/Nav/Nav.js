@@ -6,7 +6,6 @@ import "./Nav.scss";
 const Nav = () => {
   const navigate = useNavigate();
   const [myPoint, setMyPoint] = useState([]);
-  const [navData, setNavData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
@@ -19,16 +18,6 @@ const Nav = () => {
     console.log("user", user);
     console.log("user.points", user.points);
   }
-
-  useEffect(() => {
-    fetch("/data/navData.json", {
-      method: "GET",
-    })
-      .then(res => res.json())
-      .then(data => {
-        setNavData(data);
-      });
-  }, []);
 
   useEffect(() => {
     fetch("http://10.58.52.169:9000/users", {
@@ -48,52 +37,48 @@ const Nav = () => {
 
   return (
     <>
-      {navData.map(data => {
-        return (
-          <div className="nav">
-            <div onClick={() => navigate("/")} className="logo"></div>
-            <ul className="navList">
-              <div className="navBox navBoxLeft">
-                <li onClick={() => navigate("/Artists")}>Artists</li>
-                <li
-                  onClick={() => navigate("/productList")}
-                  onMouseEnter={() => setShowCategory("shopCategory")}
-                  onMouseLeave={() => setShowCategory("hidden")}
-                  className="categoryShop"
-                >
-                  Shop
-                  <div
-                    onMouseEnter={() => setShowCategory("shopCategory")}
-                    onMouseLeave={() => setShowCategory("hidden")}
-                    className={`categoryShop ${showCategory}`}
-                  >
-                    <p onClick={() => navigate("/productList")}>Art</p>
-                    <p onClick={() => navigate("/productList")}>Goods</p>
-                  </div>
-                </li>
-              </div>
-              <div className="navBox navBoxRight">
-                {!token ? <li>My Point</li> : <li>My Point : {myPoint} P</li>}
-                <li>
-                  Cart <span className="cartCountButton"> {data.count}</span>
-                </li>
-              </div>
-            </ul>
-            {!token ? (
-              <button
-                className="logIn"
-                onClick={() => setLogIn(<User setLogIn={setLogIn} />)}
+      <div className="nav">
+        <div onClick={() => navigate("/")} className="logo"></div>
+        <ul className="navList">
+          <div className="navBox navBoxLeft">
+            <li onClick={() => navigate("/Artists")}>Artists</li>
+            <li
+              onClick={() => navigate("/productList")}
+              onMouseEnter={() => setShowCategory("shopCategory")}
+              onMouseLeave={() => setShowCategory("hidden")}
+              className="categoryShop"
+            >
+              Shop
+              <div
+                onMouseEnter={() => setShowCategory("shopCategory")}
+                onMouseLeave={() => setShowCategory("hidden")}
+                className={`categoryShop ${showCategory}`}
               >
-                Log-in
-              </button>
-            ) : (
-              <button className="logOut" onClick={() => logOut()}>
-                Log-out
-              </button>
-            )}
+                <p onClick={() => navigate("/productList")}>Art</p>
+                <p onClick={() => navigate("/productList")}>Goods</p>
+              </div>
+            </li>
           </div>
-        );
-      })}
+          <div className="navBox navBoxRight">
+            {!token ? <li>My Point</li> : <li>My Point : {myPoint} P</li>}
+            <li>
+              Cart <span className="cartCountButton">3</span>
+            </li>
+          </div>
+        </ul>
+        {!token ? (
+          <button
+            className="logIn"
+            onClick={() => setLogIn(<User setLogIn={setLogIn} />)}
+          >
+            Log-in
+          </button>
+        ) : (
+          <button className="logOut" onClick={() => logOut()}>
+            Log-out
+          </button>
+        )}
+      </div>
       {logIn}
     </>
   );
