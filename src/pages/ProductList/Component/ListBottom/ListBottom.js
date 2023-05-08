@@ -9,9 +9,9 @@ import "./ListBottom.scss";
 
 function ListBottom() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const offset = searchParams.get("offset");
-  const limit = searchParams.get("limit");
-  const category = searchParams.get("category");
+  const offset = searchParams.get("offset") || 0;
+  const limit = searchParams.get("limit") || 10;
+  const category = searchParams.get("category") || "arts";
   const subCategory = searchParams.get("subCategory");
   // // Art Works 와 Goods 카테고리에 따른 컴포넌트 변화를 위한 useState
   // const [shopCategory, setShopCategory] = useState("Artlist");
@@ -26,23 +26,23 @@ function ListBottom() {
 
   // art 랑 goods categories_id 에 따라 filter
   const arts = shopContent.filter(list => list.categories_id === 1);
-  const goods = shopContent.filter(
-    list =>
-      list.categories_id === 2 ||
-      list.categories_id === 3 ||
-      list.categories_id === 4 ||
-      list.categories_id === 5 ||
-      list.categories_id === 6
-  );
+
+  const goods = shopContent.filter(list => list.categories_id !== 1);
 
   const onClickArt = () => {
     searchParams.set("category", "arts");
     setSearchParams(searchParams);
+    setOnOff(arts);
+    setShow(false);
+    setFilter(ArtFilter);
   };
 
   const onClickGoods = () => {
     searchParams.set("category", "goods");
     setSearchParams(searchParams);
+    setOnOff(goods);
+    setShow(true);
+    setFilter(GoodsFilter);
   };
 
   const page = () => {
@@ -52,23 +52,22 @@ function ListBottom() {
   };
 
   useEffect(() => {
-    fetch(
-      `http://10.58.52.169:9000/products?limit=${limit}&start=${offset}&category=${category}`,
-      {
-        method: "GET",
-        headers: { "Content-Type": "application/json;charset=utf-8" },
-      }
-    )
+    const url = `http://10.58.52.169:9000/products?limit=${limit}&start=${offset}&category=${category}`;
+
+    fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json;charset=utf-8" },
+    })
       .then(res => res.json())
       .then(shop => {
         setShopContent(shop);
       });
-  }, [offset, limit, category, subCategory]);
+  }, [offset, limit, searchParams]);
 
   // useEffect(() => {
-  //   fetch(
-  //     `/data/artlist.json?limit=${limit}&start=${offset}&category=${category}`
-  //   )
+  //   const url = `/data/artlist.json?limit=${limit}&start=${offset}&category=${category}`;
+  //   console.log(url);
+  //   fetch(url)
   //     .then(res => res.json())
   //     .then(shop => {
   //       setShopContent(shop);
@@ -77,13 +76,13 @@ function ListBottom() {
 
   // useEffect(() => {
   //   if (category === "arts") {
-  //     setOnOff(arts);
-  //     setShow(false);
-  //     setFilter(ArtFilter);
+  // setOnOff(arts);
+  // setShow(false);
+  // setFilter(ArtFilter);
   //   } else {
-  //     setOnOff(goods);
-  //     setShow(true);
-  //     setFilter(GoodsFilter);
+  // setOnOff(goods);
+  // setShow(true);
+  // setFilter(GoodsFilter);
   //   }
   // }, [category, arts, goods]);
 
