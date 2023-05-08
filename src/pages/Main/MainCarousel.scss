@@ -24,7 +24,17 @@
         display: inline-block;
         position: absolute;
         margin-top: 170px;
-        margin-left: -300px;
+        margin-left: -350px;
+        font-size: 21px;
+        font-weight: 400;
+      }
+
+      .rgbBold {
+        font-weight: 800;
+      }
+
+      .textEn {
+        margin-top: 10px;
       }
 
       .carouselSlide {
@@ -53,22 +63,6 @@
       }
     }
   }
-
-  // .artistText {
-  //   margin-top: 40%;
-  //   font-size: 3 0px;
-  // }
-
-  // .artistText2 {
-  //   margin-top: 50px;
-  //   font-siz e: 16px;
-  // }
-
-  // & .artistImg:hover {
-  //   object-fit: cover;
-  //   transform: scale(1.05);
-  //   transition: transform 0.8s;
-  // }
 }
 
 .imgBarContainor {

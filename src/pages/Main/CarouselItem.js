@@ -5,11 +5,6 @@ export default function CarouselItem({ item }) {
 
   return (
     <li className="carouselItem">
-      {/* <img
-        className="artistImg"
-        src="https://cdn.pixabay.com/photo/2023/05/01/13/12/tree-7963026_1280.jpg"
-        alt="profile_img"
-      /> */}
       <img className="artistImg" src={img} alt="artist" />
       <div className="textBox">
         <div className="textBoxName">

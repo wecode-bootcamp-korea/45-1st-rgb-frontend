@@ -33,7 +33,7 @@ export default function MainCarousel() {
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1)); // 포인트 커서 : 디폴트 값으로
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1)); // 포인트 커서 : 디폴트 값으로 변경하기
   };
 
   useEffect(() => {
@@ -51,8 +51,9 @@ export default function MainCarousel() {
         <div className="section">
           <ul className="carouselSlide" ref={carouselRef}>
             <div className="rgbText">
-              <div>rgb. 이달의 아티스트를 만나보세요</div>
-              <div>meet our international artist</div>
+              <span className="rgbBold">rgb .</span>
+              <span> 이달의 아티스트를 만나보세요</span>
+              <div className="textEn">Make art part of your world!</div>
             </div>
             {items.map((item) => (
               <CarouselItem key={item.id} item={item} />

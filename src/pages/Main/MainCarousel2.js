@@ -21,7 +21,7 @@ export default function MainCarousel2() {
   useEffect(() => {
     if (slideRef.current) {
       slideRef.current.style.transition = "transform 0.2s ease-in";
-      slideRef.current.style.transform = `translateX(-${currentSlide * 33.3}%)`;
+      slideRef.current.style.transform = `translateX(-${currentSlide * 44.4}%)`;
     }
   }, [currentSlide]);
 
@@ -43,6 +43,7 @@ export default function MainCarousel2() {
 
   return (
     <div className="goodsContainer">
+      <div className="goodsTitle">탁월한 셀렉션 -</div>
       <div className="goodsBox">
         <ul className="secondSlide" ref={slideRef}>
           {carouselItem.map((item, id) => (
