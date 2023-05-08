@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Location from "./Components/Location/Location";
 import ImageBox from "./Components/ImageBox/ImageBox";
-import DetailRight from "./Components/DetailInformation/DetailInformation";
+import DetailInformation from "./Components/DetailInformation/DetailInformation";
 import ProductDescription from "./ProductDescription";
 import "./ProductDetail.scss";
-import DetailInformation from "./Components/DetailInformation/DetailInformation";
 
 function ProductDetail() {
   const [details, setDetails] = useState([]);
