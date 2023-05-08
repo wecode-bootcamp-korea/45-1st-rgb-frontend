@@ -3,7 +3,6 @@ import User from "../../pages/User/User";
 
 import "./Auth.scss";
 const Auth = () => {
-  // const [isToken, setIsToken] = useState(true);
   const [changeComponent, setChangeComponent] = useState("");
   const [button1, setButton1] = useState(false);
   const [button2, setButton2] = useState(false);

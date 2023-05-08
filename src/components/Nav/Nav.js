@@ -14,9 +14,6 @@ const Nav = () => {
   if (token) {
     const { user } = userData;
     setMyPoint(Math.floor(user.points));
-    console.log("userData", userData);
-    console.log("user", user);
-    console.log("user.points", user.points);
   }
 
   useEffect(() => {
