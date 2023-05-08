@@ -18,7 +18,7 @@ export default function CartSum({ totalPrice }) {
               결제하기
             </Button>
           </div>
-          <div className="arrowUp" />
+          <button className="arrowUp" />
         </div>
       </div>
     </div>

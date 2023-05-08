@@ -14,7 +14,7 @@ const ProductDescription = () => {
 
   return (
     <div className="productDescription">
-      <button></button>
+      <button />
       {description.map((data) => (
         <div className="descriptionBox" key={data.id}>
           <h2>{data.title}</h2>
