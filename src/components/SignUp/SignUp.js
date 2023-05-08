@@ -13,10 +13,12 @@ const SignUp = () => {
     email: "",
     password: "",
     passwordCheck: "",
+    subscription: "",
   });
 
-  const { lastName, firstName, email, password, passwordCheck } = inputValues;
-
+  const { lastName, firstName, email, password, passwordCheck, subscription } =
+    inputValues;
+  const subscriptionValue = subscription && 0;
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
@@ -48,7 +50,7 @@ const SignUp = () => {
         firstName: inputValues.firstName,
         email: inputValues.email,
         password: inputValues.password,
-        subscription: "0",
+        subscription: subscriptionValue,
       }),
     })
       .then(res => res.json())
