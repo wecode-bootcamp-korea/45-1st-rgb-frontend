@@ -17,6 +17,14 @@ export default function MainCarousel() {
       });
   }, []);
 
+  useEffect(() => {
+    const lastIndex = items.length - 1;
+    if (currentIndex === lastIndex) {
+      document.querySelector(".buttonNext").style.display = "none";
+    } else {
+      document.querySelector(".buttonNext").style.display = "block";
+    }
+  }, [currentIndex, items]);
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === items.length - 1 ? 0 : prevIndex + 1
@@ -24,6 +32,7 @@ export default function MainCarousel() {
   };
 
   const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
   };
 
