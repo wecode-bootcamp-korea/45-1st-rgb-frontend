@@ -4,7 +4,7 @@
 .signUp {
   @include flex(flex, column, flex-start, space-between);
   @include inputSize;
-
+  position: relative;
   .signUpTitle {
     @include modalTitle(40px, 37px);
   }
@@ -14,7 +14,6 @@
 
     & > input {
       @include modalInputStyle(400px, 60px, 17px);
-      // margin-bottom: 10px;
     }
 
     .inputWarning {
