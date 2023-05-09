@@ -32,7 +32,7 @@ const SignUp = ({ setIsLogin }) => {
     email.includes("@") &&
     password.length >= 5 &&
     firstName &&
-    lastName != "" &&
+    lastName &&
     passwordCheck === password &&
     privacy === "on";
 
