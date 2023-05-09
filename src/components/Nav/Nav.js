@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
-import Cart from "../../components/Cart/Cart";
+// import API_ADDRESS from "../../../public/data/API_ADDRESS";
 import "./Nav.scss";
+import Cart from "../Cart/Cart";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -20,28 +21,6 @@ const Nav = () => {
   const { user } = userData;
 
   useEffect(() => {
-    fetch("http://10.58.52.195:3000/users", {
-      method: "GET",
-      headers: { Authorization: token },
-    })
-      .then(res => res.json())
-      .then(data => {
-        setUserData(data);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch("http://10.58.52.195:3000/carts", {
-      method: "GET",
-      headers: { Authorization: token },
-    })
-      .then(res => res.json())
-      .then(data => {
-        setMyCart(data);
-      });
-  }, []);
-
-  useEffect(() => {
     if (token) return setLogIn("");
   }, [token]);
 
@@ -50,10 +29,7 @@ const Nav = () => {
     navigate("/");
   };
 
-  if (!user) return null;
-  if (!myCart) return null;
-
-  const myPoint = Math.floor(user.points);
+  const myPoint = Math.floor(user?.points);
   const cartCount = myCart.length;
   return (
     <>
@@ -106,11 +82,7 @@ const Nav = () => {
         )}
       </div>
       {logIn}
-      {showCart && (
-        <div className="cartDropdown">
-          <Cart />
-        </div>
-      )}
+      {showCart && <Cart showCart={showCart} setShowCart={setShowCart} />}
     </>
   );
 };

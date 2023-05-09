@@ -99,6 +99,13 @@
   }
 }
 
+.cartList {
+  display: flex;
+  left: 100&;
+  color: $main-ivory;
+  font-size: 16px;
+}
+
 .cartSumBox {
   display: flex;
   padding: 24px;
@@ -149,5 +156,6 @@
     position: relative;
     margin-left: 46%;
     background-image: url(../../assets/arrow.png);
+    background-repeat: no-repeat;
   }
 }
