@@ -3,37 +3,38 @@ import { Link } from "react-router-dom";
 import Button from "../Button/Button";
 import "./Login.scss";
 
-const Login = ({ goToSignUp }) => {
+const Login = ({ setLogIn, goToSignUp }) => {
   const [inputValues, setInputValues] = useState({
     email: "",
-    password: "",
+    password: ""
   });
   const { email, password } = inputValues;
   const [loginWarning, setLoginWarning] = useState("");
+
   const loginValid = email.includes("@") && password.length >= 5;
   const token = localStorage.getItem("TOKEN");
+
   const handleInput = event => {
+
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  useEffect(() => {
-    !token
-      ? setLoginWarning("회원정보가 일치하지 않습니다.")
-      : setLoginWarning("");
-  }, [token]);
 
   const loginOn = () => {
-    fetch("http://10.58.52.169:9000/users/logIn", {
+    fetch("http://10.58.52.169:9001/users/logIn", {
+
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
         email: inputValues.email,
-        password: inputValues.password,
-      }),
+        password: inputValues.password
+      })
     })
-      .then(res => res.json())
-      .then(data => localStorage.setItem("TOKEN", data.accessToken));
+      .then((res) => res.json())
+      .then((data) => localStorage.setItem("TOKEN", data.accessToken));
+
+    token ? setLogIn("") : setLoginWarning("회원정보가 일치하지 않습니다.");
   };
 
   return (
@@ -61,8 +62,7 @@ const Login = ({ goToSignUp }) => {
           btnOn={!loginValid}
           action={loginOn}
           buttonSize="bigButton"
-          buttonColor={loginValid ? "dark" : "buttonOff"}
-        >
+          buttonColor="dark">
           로그인
         </Button>
         <div className="loginTextBox">

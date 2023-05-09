@@ -7,7 +7,7 @@ function Location() {
     <div className="location">
       <p>Shop &gt; Art Works</p>
       <button>
-        <Link to="/productList">
+        <Link to="/productList/all">
           <img alt="arrow" src="/images/productDetail/arrow2.png" />
         </Link>
       </button>

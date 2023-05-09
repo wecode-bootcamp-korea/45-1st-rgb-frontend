@@ -4,8 +4,7 @@ import "./ProductDescription.scss";
 const ProductDescription = ({ inOut, noMore, details }) => {
   return (
     <div
-      className={`${inOut ? "productDescription" : "productDescription out"}`}
-    >
+      className={`${inOut ? "productDescription" : "productDescription out"}`}>
       <button onClick={noMore} />
       <div className="descriptionBox" key={details.id}>
         <h2>{details.title}</h2>

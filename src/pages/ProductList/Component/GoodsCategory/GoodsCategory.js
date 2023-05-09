@@ -1,11 +1,6 @@
 import React from "react";
 
-function GoodsCategory({
-  searchParams,
-  setSearchParams,
-  subCategory,
-  shopContent,
-}) {
+function GoodsCategory({ searchParams, setSearchParams, shopContent }) {
   const click = (a, b) => {
     searchParams.set(a, b);
     setSearchParams(searchParams);
@@ -29,23 +24,20 @@ function GoodsCategory({
     <div className="goodsCategory">
       <button
         onClick={() => {
-          click("subCategory", "LivingGoods");
-        }}
-      >
+          click("category", 2);
+        }}>
         Living Goods
       </button>
       <button
         onClick={() => {
-          click("subCategory", "PhoneCase");
-        }}
-      >
+          click("category", 3);
+        }}>
         Phone Case
       </button>
       <button
         onClick={() => {
-          click("subCategory", "Poster");
-        }}
-      >
+          click("category", 5);
+        }}>
         Poster
       </button>
     </div>

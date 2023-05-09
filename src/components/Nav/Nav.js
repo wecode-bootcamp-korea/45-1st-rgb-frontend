@@ -5,37 +5,53 @@ import "./Nav.scss";
 
 const Nav = () => {
   const navigate = useNavigate();
-  const [myPoint, setMyPoint] = useState([]);
+  const [myCart, setMyCart] = useState([]);
   const [userData, setUserData] = useState([]);
   const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
   const token = localStorage.getItem("TOKEN");
-
-  if (token) {
-    const { user } = userData;
-    setMyPoint(Math.floor(user.points));
-  }
+  const { user } = userData;
 
   useEffect(() => {
-    fetch("http://10.58.52.169:9000/users", {
+    fetch("http://10.58.52.195:3000/users", {
       method: "GET",
-      headers: { Authorization: token },
+      headers: { Authorization: token }
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setUserData(data);
       });
   }, []);
+
+  useEffect(() => {
+    fetch("http://10.58.52.195:3000/carts", {
+      method: "GET",
+      headers: { Authorization: token }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setMyCart(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (token) return setLogIn("");
+  }, [token]);
 
   const logOut = () => {
     localStorage.removeItem("TOKEN");
     navigate("/");
   };
 
+  if (!user) return null;
+  if (!myCart) return null;
+
+  const myPoint = Math.floor(user.points);
+  const cartCount = myCart.length;
   return (
     <>
       <div className="nav">
-        <div onClick={() => navigate("/")} className="logo"></div>
+        <div onClick={() => navigate("/")} className="logo" />
         <ul className="navList">
           <div className="navBox navBoxLeft">
             <li onClick={() => navigate("/Artists")}>Artists</li>
@@ -43,14 +59,12 @@ const Nav = () => {
               onClick={() => navigate("/productList")}
               onMouseEnter={() => setShowCategory("shopCategory")}
               onMouseLeave={() => setShowCategory("hidden")}
-              className="categoryShop"
-            >
+              className="categoryShop">
               Shop
               <div
                 onMouseEnter={() => setShowCategory("shopCategory")}
                 onMouseLeave={() => setShowCategory("hidden")}
-                className={`categoryShop ${showCategory}`}
-              >
+                className={`categoryShop ${showCategory}`}>
                 <p onClick={() => navigate("/productList")}>Art</p>
                 <p onClick={() => navigate("/productList")}>Goods</p>
               </div>
@@ -62,18 +76,17 @@ const Nav = () => {
                 My Point
               </li>
             ) : (
-              <li>My Point : {myPoint} P</li>
+              <li>My Point : {myPoint}P</li>
             )}
             <li>
-              Cart <span className="cartCountButton">3</span>
+              Cart <span className="cartCountButton">{cartCount}</span>
             </li>
           </div>
         </ul>
         {!token ? (
           <button
             className="logIn"
-            onClick={() => setLogIn(<User setLogIn={setLogIn} />)}
-          >
+            onClick={() => setLogIn(<User setLogIn={setLogIn} />)}>
             Log-in
           </button>
         ) : (

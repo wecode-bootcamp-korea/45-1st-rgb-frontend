@@ -27,14 +27,14 @@ function ProductDetail() {
   };
 
   useEffect(() => {
-    const url = `http://10.58.52.169:9000/products/${productId}`;
+    const url = `http://10.58.52.169:9001/products/${productId}`;
 
     fetch(url, {
       method: "GET",
-      headers: { "Content-Type": "application/json;charset=utf-8" },
+      headers: { "Content-Type": "application/json;charset=utf-8" }
     })
-      .then(res => res.json())
-      .then(detailData => {
+      .then((res) => res.json())
+      .then((detailData) => {
         setDetails(detailData);
       });
   }, [productId]);
@@ -53,12 +53,7 @@ function ProductDetail() {
       <div className="productDetail">
         <div className="description">
           {/* 숨겨진 상세 설명 */}
-          <ProductDescription
-            details={details}
-            inOut={inOut}
-            setInOut={setInOut}
-            noMore={noMore}
-          />
+          <ProductDescription details={details} inOut={inOut} noMore={noMore} />
         </div>
         <div className="productDetailBox">
           {/* 상단 */}

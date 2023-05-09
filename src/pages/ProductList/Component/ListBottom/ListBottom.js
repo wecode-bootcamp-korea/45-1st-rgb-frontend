@@ -3,16 +3,16 @@ import { useSearchParams, Link } from "react-router-dom";
 import ArtWorks from "../ArtWorks/ArtWorks";
 import LeftFilter from "../LeftFilter/LeftFilter";
 import { ARTFILTER } from "../LeftFilter/ArtFilter";
-import { GOODSFILTER } from "../LeftFilter/GoodsFilter";
-import GoodsCategory from "../GoodsCategory/GoodsCategory";
+// import { GOODSFILTER } from "../LeftFilter/GoodsFilter";
+// import GoodsCategory from "../GoodsCategory/GoodsCategory";
 import "./ListBottom.scss";
 
 function ListBottom() {
   const [searchParams, setSearchParams] = useSearchParams();
   const offset = searchParams.get("offset") || 0;
   const limit = searchParams.get("limit") || 10;
-  const category = searchParams.get("category") || "arts";
-  const subCategory = searchParams.get("subCategory");
+  const category = searchParams.get("category");
+  // const subCategory = searchParams.get("subCategory");
   // // Art Works 와 Goods 카테고리에 따른 컴포넌트 변화를 위한 useState
   // const [shopCategory, setShopCategory] = useState("Artlist");
   // fetch 데이터 저장하는 useState
@@ -22,11 +22,11 @@ function ListBottom() {
   const [filter, setFilter] = useState(ARTFILTER);
 
   // Goods 카테고리의 하위 카테고리 보이고 안보이기 위한 useState
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const art = shopContent.filter(artworks => artworks.categories_id === 1);
+  // const art = shopContent.filter((artworks) => artworks.categories_id === 1);
 
-  const goods = shopContent.filter(goods => goods.categories_id !== 1);
+  // const goods = shopContent.filter((goods) => goods.categories_id !== 1);
 
   // art 랑 goods categories_id 에 따라 filter
 
@@ -36,21 +36,21 @@ function ListBottom() {
   // );
   // const poster = shopContent.filter(posters => posters.categories_id === 3);
 
-  const onClickArt = () => {
-    searchParams.set("category", "arts");
-    searchParams.delete("subCategory");
-    setSearchParams(searchParams);
-    setShow(false);
-    setFilter(ARTFILTER);
-  };
+  // const onClickArt = () => {
+  //   searchParams.set("category", 1);
+  //   searchParams.delete("subCategory");
+  //   setSearchParams(searchParams);
+  //   setShow(false);
+  //   setFilter(ARTFILTER);
+  // };
 
-  const onClickGoods = () => {
-    searchParams.set("category", "goods");
-    setSearchParams(searchParams);
+  // const onClickGoods = () => {
+  //   searchParams.set("category", 2);
+  //   setSearchParams(searchParams);
 
-    setShow(true);
-    setFilter(GOODSFILTER);
-  };
+  //   setShow(true);
+  //   setFilter(GOODSFILTER);
+  // };
 
   const page = () => {
     searchParams.set("offset", 0);
@@ -63,14 +63,16 @@ function ListBottom() {
   // };
 
   useEffect(() => {
-    const url = `http://10.58.52.169:9000/products?limit=${limit}&start=${offset}&category=${category}`;
+    const url = `http://10.58.52.169:9001/products/all?limit=${limit}&start=${offset}`;
+
+    // const url = `http://10.58.52.169:9001/products?limit=${limit}&start=${offset}&category=${category}`;
 
     fetch(url, {
       method: "GET",
-      headers: { "Content-Type": "application/json;charset=utf-8" },
+      headers: { "Content-Type": "application/json;charset=utf-8" }
     })
-      .then(res => res.json())
-      .then(shop => {
+      .then((res) => res.json())
+      .then((shop) => {
         setShopContent(shop);
       });
   }, [offset, limit, searchParams]);
@@ -79,8 +81,8 @@ function ListBottom() {
   //   const url = `/data/artlist.json?limit=${limit}&start=${offset}&category=${category}`;
   //   console.log(url);
   //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(shop => {
+  //     .then((res) => res.json())
+  //     .then((shop) => {
   //       setShopContent(shop);
   //     });
   // }, [offset, limit, category, subCategory]);
@@ -104,28 +106,27 @@ function ListBottom() {
           <span
             onClick={() => {
               page();
-              onClickArt();
-            }}
-          >
-            Art Works
+              // onClickArt();
+            }}>
+            All
           </span>
-          <span
+          {/* <span
             onClick={() => {
               page();
-              onClickGoods();
-            }}
-          >
-            Goods
-          </span>
+              // onClickGoods();
+            }}>
+            <Link to="/productList">Goods</Link>
+          </span> */}
         </div>
-        {show && (
+        {/* {show && (
           <GoodsCategory
+            // category={category}
             searchParams={searchParams}
             setSearchParams={setSearchParams}
-            subCategory={subCategory}
+            // subCategory={subCategory}
             shopContent={shopContent}
           />
-        )}
+        )} */}
       </div>
       <div className="bottomBottom">
         <div className="bottomLeft">
@@ -133,7 +134,7 @@ function ListBottom() {
         </div>
         <div className="bottomRight">
           <div className="artworkBox">
-            {shopContent.map(art => {
+            {shopContent.map((art) => {
               return (
                 <Link key={art.id} to={`/productDetail/${art.id}`}>
                   <ArtWorks art={art} key={art.id} />;

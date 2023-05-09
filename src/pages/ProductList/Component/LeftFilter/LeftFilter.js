@@ -5,14 +5,12 @@ import "./LeftFilter.scss";
 function LeftFilter({ filter }) {
   return (
     <div className="leftFilter">
-      <div className="show">
+      {/* <div className="show">
         <label for="checkbox">Show only available artwork</label>
         <input type="checkbox" id="checkbox" />
-      </div>
+      </div> */}
       <div className="filters">
-        {filter.map(content => {
-          return <FilterComponent content={content} key={content.ids} />;
-        })}
+        <FilterComponent content={filter} key={filter.id} />
       </div>
     </div>
   );

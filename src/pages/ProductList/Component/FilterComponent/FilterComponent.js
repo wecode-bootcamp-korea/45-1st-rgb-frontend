@@ -6,13 +6,12 @@ function FilterComponent({ content }) {
   return (
     <div className="filterContent">
       <div className="priceAndButton">
-        <span>{content.title}</span>
+        <span className="all">전체보기</span>
         {/* 보이기 버튼 */}
         <button
           onClick={() => {
             setShow(!show);
-          }}
-        >
+          }}>
           <img
             alt="button"
             src={`${
@@ -25,28 +24,15 @@ function FilterComponent({ content }) {
       </div>
       <div>
         {show ? (
-          <>
-            <div className="contentButton">
-              <label for={`${content.content.first.id}`}>
-                {content.content.first.contents}
-              </label>
-              <input
-                type="radio"
-                id={`${content.content.first.id}`}
-                name={content.name}
-              />
-            </div>
-            <div className="contentButton">
-              <label for={`${content.content.second.id}`}>
-                {content.content.second.contents}
-              </label>
-              <input
-                type="radio"
-                id={`${content.content.second.id}`}
-                name={content.name}
-              />
-            </div>
-          </>
+          <div className="contentButton">
+            {content.map((content) => {
+              return (
+                <p className="sorting" key={`${content.id}`}>
+                  <button>{content.title}</button>
+                </p>
+              );
+            })}
+          </div>
         ) : (
           ""
         )}

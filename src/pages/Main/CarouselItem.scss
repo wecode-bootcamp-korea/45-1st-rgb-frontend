@@ -1,0 +1,23 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.carouselItem {
+  .artistImg {
+    display: block;
+    width: 300px;
+    height: 340px;
+    margin-right: 70px;
+  }
+
+  .textBox {
+    margin-top: 15px;
+    margin-right: 82px;
+    text-align: center;
+
+    .textBoxSize {
+      margin-top: 8px;
+      text-align: center;
+      text-decoration: none;
+    }
+  }
+}

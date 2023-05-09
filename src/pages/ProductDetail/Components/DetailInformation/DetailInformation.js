@@ -10,7 +10,6 @@ function DetailInformation({ details, showMore, setChangeComponent }) {
   const [message, setMessage] = useState("");
   const price = details.price;
   const total = count * price;
-
   const [button1, setButton1] = useState(false);
   const [button2, setButton2] = useState(false);
   const token = localStorage.getItem("TOKEN");
@@ -18,7 +17,6 @@ function DetailInformation({ details, showMore, setChangeComponent }) {
 
   useEffect(() => {
     if (button1) {
-      console.log("button1");
       // 이 자리에 카트에 수량 추가되는 함수
       token ? post() : setChangeComponent(<User />);
     }
@@ -52,19 +50,22 @@ function DetailInformation({ details, showMore, setChangeComponent }) {
   };
 
   const post = () => {
-    const url = `http://10.58.52.169:9000/products/`;
+    const url = `http://10.58.52.195:3000/carts`;
 
     fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
-        Authorization: localStorage.getItem("token"),
+        Authorization: token
       },
-      body: JSON.stringify({ quantity: `${count}` }),
+      body: JSON.stringify({
+        productsId: details.id,
+        quantity: count
+      })
     })
-      .then(res => res.json())
-      .then(message => setMessage(message));
-    alert("카트에 성공적으로 담겼습니다!");
+      .then((res) => res.json())
+      .then((message) => setMessage(message));
+    alert(`${message}`);
   };
 
   return (
@@ -116,15 +117,13 @@ function DetailInformation({ details, showMore, setChangeComponent }) {
           <Button
             buttonColor="bright"
             buttonSize="smallButton"
-            action={cartButton}
-          >
+            action={cartButton}>
             카트 추가
           </Button>
           <Button
             buttonColor="dark"
             buttonSize="smallButton"
-            action={buyButton}
-          >
+            action={buyButton}>
             바로 구매
           </Button>
         </div>
