@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 import SignUpModal from "./SignUpModal";
-import API_ADDRESS from "../../utils";
+import API_ADDRESS from "../../utils/API_ADDRESS";
 import "./SignUp.scss";
 
 const SignUp = ({ setIsLogin }) => {
@@ -28,7 +28,7 @@ const SignUp = ({ setIsLogin }) => {
     subscription,
   } = inputValues;
 
-  const subscriptionValue = subscription && 1;
+  const subscriptionValue = subscription === "on" ? 1 : 0;
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
@@ -51,17 +51,16 @@ const SignUp = ({ setIsLogin }) => {
       )
     );
   };
-
+  console.log("message", message);
   const signUp = () => {
     fetch(`${API_ADDRESS}users/signUp`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
-        lastName: inputValues.lastName,
-        firstName: inputValues.firstName,
         email: inputValues.email,
-
         password: inputValues.password,
+        firstName: inputValues.firstName,
+        lastName: inputValues.lastName,
         subscription: subscriptionValue,
       }),
     })
