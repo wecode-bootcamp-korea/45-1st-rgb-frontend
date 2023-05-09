@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
+import API_ADDRESS from "../../../public/data/API_ADDRESS";
 
 import "./Nav.scss";
 
@@ -10,15 +11,12 @@ const Nav = () => {
   const [userData, setUserData] = useState([]);
   const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
-  // const token =
-  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJpYXQiOjE2ODM1NDY5NTJ9.DwJwMfBPt80nklkphzVBvOIOetdbluu6pfI9C6M3iFk";
   const token = localStorage.getItem("TOKEN");
   const { user } = userData;
-  const url = "http://10.58.52.195:3000/";
 
   useEffect(() => {
     if (!token) return;
-    fetch(`${url}users`, {
+    fetch(`${API_ADDRESS}users`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -30,7 +28,7 @@ const Nav = () => {
 
   useEffect(() => {
     if (!token) return;
-    fetch(`${url}carts`, {
+    fetch(`${API_ADDRESS}carts`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -48,9 +46,6 @@ const Nav = () => {
     localStorage.removeItem("TOKEN");
     navigate("/");
   };
-
-  // if (!user) return;
-  // if (!myCart) return;
 
   const myPoint = Math.floor(user?.points);
   const cartCount = myCart.length;
