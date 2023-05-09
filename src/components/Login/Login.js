@@ -14,16 +14,13 @@ const Login = ({ setLogIn, goToSignUp }) => {
   const loginValid = email.includes("@") && password.length >= 5;
   const token = localStorage.getItem("TOKEN");
 
-  const handleInput = event => {
-
+  const handleInput = (event) => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
 
-
   const loginOn = () => {
     fetch("http://10.58.52.169:9001/users/logIn", {
-
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({

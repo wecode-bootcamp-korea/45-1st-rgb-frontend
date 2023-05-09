@@ -8,9 +8,7 @@ import ProductList from "./pages/ProductList/ProductList";
 import Order from "./pages/Order/Order";
 import Invoice from "./pages/Invoice/Invoice";
 import User from "./pages/User/User";
-
 import Auth from "./components/Nav/Auth";
-
 
 function Router() {
   return (
@@ -23,9 +21,7 @@ function Router() {
         <Route path="/productList" element={<ProductList />} />
         <Route path="/order" element={<Order />} />
         <Route path="/invoice" element={<Invoice />} />
-
         <Route path="/auth" element={<Auth />} />
-
       </Routes>
       <Footer />
     </BrowserRouter>
