@@ -5,7 +5,7 @@ import User from "../../../User/User";
 
 import "./DetailInformation.scss";
 
-function DetailInformation({ details, showMore, setChangeComponent }) {
+function DetailInformation({ details, showMore, setLogIn }) {
   const [count, setCount] = useState(1);
   const [message, setMessage] = useState("");
   const price = details.price;
@@ -13,19 +13,20 @@ function DetailInformation({ details, showMore, setChangeComponent }) {
   const [button1, setButton1] = useState(false);
   const [button2, setButton2] = useState(false);
   const token = localStorage.getItem("TOKEN");
+  // const [logIn, setLogIn] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     if (button1) {
       // 이 자리에 카트에 수량 추가되는 함수
-      token ? post() : setChangeComponent(<User />);
+      token ? post() : setLogIn(<User setLogIn={setLogIn} />);
     }
   }, [button1]);
 
   useEffect(() => {
     if (button2) {
       // 이 자리에 useNavigate로 결제 창으로 넘어가는 함수
-      token ? navigate("/order") : setChangeComponent(<User />);
+      token ? navigate("/order") : setLogIn(<User setLogIn={setLogIn} />);
     }
   }, [button2]);
 

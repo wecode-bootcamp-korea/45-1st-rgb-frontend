@@ -7,7 +7,8 @@ import ProductDescription from "./ProductDescription";
 import "./ProductDetail.scss";
 
 function ProductDetail() {
-  const [changeComponent, setChangeComponent] = useState("");
+  // const [changeComponent, setChangeComponent] = useState("");
+  const [logIn, setLogIn] = useState("");
 
   // mock data 저장하는 곳
   const [details, setDetails] = useState([]);
@@ -48,7 +49,7 @@ function ProductDetail() {
 
   return (
     <>
-      {changeComponent}
+      {logIn}
       <div className="productDetail">
         <div className="description">
           {/* 숨겨진 상세 설명 */}
@@ -66,10 +67,8 @@ function ProductDetail() {
             {/* 하단 오른쪽 */}
             <div className="detailInfo">
               <DetailInformation
-                setChangeComponent={setChangeComponent}
+                setLogIn={setLogIn}
                 details={details}
-                inOut={inOut}
-                setInOut={setInOut}
                 showMore={showMore}
               />
             </div>

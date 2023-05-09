@@ -57,10 +57,10 @@ function ListBottom() {
 
     fetch(url, {
       method: "GET",
-      headers: { "Content-Type": "application/json;charset=utf-8" }
+      headers: { "Content-Type": "application/json;charset=utf-8" },
     })
-      .then((res) => res.json())
-      .then((shop) => {
+      .then(res => res.json())
+      .then(shop => {
         setShopContent(shop);
       });
   }, []);
@@ -93,7 +93,8 @@ function ListBottom() {
           <span
             onClick={() => {
               page();
-            }}>
+            }}
+          >
             All
           </span>
         </div>
@@ -107,7 +108,7 @@ function ListBottom() {
         </div>
         <div className="bottomRight">
           <div className="artworkBox">
-            {shopContent.map((art) => {
+            {shopContent.map(art => {
               return (
                 <Link key={art.id} to={`/productDetail/${art.id}`}>
                   <ArtWorks art={art} key={art.id} />;
