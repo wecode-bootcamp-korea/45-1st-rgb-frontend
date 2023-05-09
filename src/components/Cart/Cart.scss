@@ -1,3 +1,147 @@
-.cart {
-  background-color: tomato;
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.cartBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  padding: 40px 40px;
+  background-color: $main-black;
+}
+
+.cartContainer {
+  position: relative;
+  width: 100%;
+}
+
+.cartCategoryBox {
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+  padding-bottom: 22px;
+
+  .cartCategory {
+    flex-basis: auto;
+    flex-shrink: 0;
+    width: 25%;
+    color: $main-white;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.cartItem {
+  display: flex;
+  padding: 24px;
+  border-bottom: 1px solid rgba(255, 254, 242, 0.1);
+
+  .itemName {
+    flex-basis: auto;
+    flex-shrink: 0;
+    width: 25%;
+    color: $main-white;
+    font-size: 16px;
+    font-weight: 200;
+  }
+
+  .itemSize {
+    flex-basis: auto;
+    flex-shrink: 0;
+    width: 25%;
+    color: $main-white;
+    font-size: 16px;
+    font-weight: 200;
+  }
+
+  .itemQuantity {
+    flex-basis: auto;
+    flex-shrink: 0;
+    width: 24%;
+    color: $main-white;
+    font-size: 14px;
+    font-weight: 200;
+  }
+
+  .plus {
+    margin-left: 9px;
+    color: $main-white;
+    font-weight: 200;
+  }
+
+  .minus {
+    margin-right: 9px;
+    color: $main-white;
+    font-weight: 200;
+  }
+
+  .itemPrice {
+    flex-basis: auto;
+    flex-shrink: 0;
+    width: 25%;
+    color: $main-white;
+    font-size: 14px;
+    font-weight: 200;
+  }
+
+  .deleteButton {
+    width: 9px;
+    height: 9px;
+    background-image: url("../../assets/delete.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.cartSumBox {
+  display: flex;
+  padding: 24px;
+}
+
+.cartSummary {
+  right: 30px;
+  bottom: 30px;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 14px;
+
+  .cartFree {
+    color: $main-white;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .totalPrice {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding-top: 20px;
+
+    .vat {
+      color: $main-ivory;
+      font-size: 18px;
+      font-weight: 200;
+    }
+
+    .sum {
+      color: $main-ivory;
+      font-size: 25px;
+      font-weight: 400;
+    }
+  }
+
+  .payBtn {
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .arrowUp {
+    @include icon(30px, 20px, 10px);
+    position: fixed;
+    margin-left: 46%;
+    background-image: url(../../assets/arrow.png);
+  }
 }

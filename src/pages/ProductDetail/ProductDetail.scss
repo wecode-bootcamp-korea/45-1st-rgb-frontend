@@ -1,3 +1,29 @@
+@import "../../styles/variables";
+
 .productDetail {
-  border: 1px solid #000;
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.productDetailBox {
+  width: 100%;
+  background-color: $main-ivory;
+
+  .detailBox {
+    display: flex;
+    width: 100%;
+    padding: 5% 0 7% 0;
+
+    .leftImage {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 60%;
+    }
+
+    .detailInfo {
+      width: 40%;
+    }
+  }
 }

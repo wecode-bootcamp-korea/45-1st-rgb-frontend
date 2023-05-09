@@ -3,7 +3,7 @@ import Login from "../../components/Login/Login";
 import SignUp from "../../components/SignUp/SignUp";
 import "./User.scss";
 
-const User = () => {
+const User = ({ setLogIn }) => {
   const [isLogin, setIsLogin] = useState(true);
 
   const goToSignUp = () => {
@@ -13,11 +13,18 @@ const User = () => {
   return (
     <div className="user">
       <div className="userTop">
-        <button className="prevArrowIcon"></button>
-        <button className="closeIcon"></button>
+        {!isLogin && (
+          <button onClick={() => setIsLogin(true)} className="prevArrowIcon" />
+        )}
+
+        <button className="closeIcon" onClick={() => setLogIn("")} />
       </div>
-      <div className="user">
-        {isLogin ? <Login goToSignUp={goToSignUp} /> : <SignUp />}
+      <div className="userItem">
+        {isLogin ? (
+          <Login setLogIn={setLogIn} goToSignUp={goToSignUp} />
+        ) : (
+          <SignUp setIsLogin={setIsLogin} />
+        )}
       </div>
     </div>
   );
