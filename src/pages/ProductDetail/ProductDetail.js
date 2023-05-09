@@ -28,7 +28,6 @@ function ProductDetail() {
 
   return (
     <div className="productDetail">
-
       <div className="description">
         {/* 숨겨진 상세 설명 */}
         <ProductDescription inOut={inOut} setInOut={setInOut} noMore={noMore} />
@@ -53,7 +52,6 @@ function ProductDetail() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }

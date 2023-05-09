@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
+
 import "./Nav.scss";
 
 const Nav = () => {
@@ -51,7 +52,7 @@ const Nav = () => {
   return (
     <>
       <div className="nav">
-        <div onClick={() => navigate("/")} className="logo"></div>
+        <div onClick={() => navigate("/")} className="logo" />
         <ul className="navList">
           <div className="navBox navBoxLeft">
             <li onClick={() => navigate("/Artists")}>Artists</li>
