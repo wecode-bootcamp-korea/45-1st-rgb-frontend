@@ -1,13 +1,20 @@
 @import "../../styles/variables";
 @import "../../styles/mixin";
 
+.out {
+  transform: translateX(-100%);
+  transition-duration: 2s;
+}
+
 .productDescription {
   display: flex;
+  position: absolute;
   flex-direction: column;
   align-items: flex-end;
   width: 50%;
-  height: 100vh;
+  height: 100%;
   padding: 70px;
+  transition-duration: 2s;
   background-color: rgba(0, 0, 0, 0.6);
   color: $main-white;
 
