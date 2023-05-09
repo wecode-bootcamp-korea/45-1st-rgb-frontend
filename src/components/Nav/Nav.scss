@@ -71,6 +71,11 @@
     background-color: $main-black;
     color: $main-white;
   }
+
+  .showCart {
+    transform: rotate(-180deg);
+    transition: transform 250ms ease-out;
+  }
 }
 
 .categoryShop {

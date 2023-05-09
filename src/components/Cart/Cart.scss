@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
   padding: 40px 40px;
   background-color: $main-black;
 }
@@ -75,6 +74,13 @@
     font-weight: 200;
   }
 
+  .check {
+    margin-left: 20px;
+    color: $main-ivory;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
   .itemPrice {
     flex-basis: auto;
     flex-shrink: 0;
@@ -140,7 +146,7 @@
   }
   .arrowUp {
     @include icon(30px, 20px, 10px);
-    position: fixed;
+    position: relative;
     margin-left: 46%;
     background-image: url(../../assets/arrow.png);
   }

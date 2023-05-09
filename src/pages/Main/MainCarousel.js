@@ -63,7 +63,6 @@ export default function MainCarousel() {
           <button className="buttonNext" onClick={handleNext} />
         </div>
       </div>
-
       <div className="indicatorBar">
         <div className="Bar1">
           <div className="Bar2" />

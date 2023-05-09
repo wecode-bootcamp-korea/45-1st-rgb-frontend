@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CartSum from "./CartSum";
 import "./Cart.scss";
 
-export default function CartList({}) {
+export default function CartList({ toggleCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const token =
@@ -23,15 +23,16 @@ export default function CartList({}) {
       });
   }, []);
 
-  const handleCheckout = () => {
-    fetch("http://10.58.52.195:3000/carts/117", {
+  //fetch로 보내줄때 -> 확인버튼 클릭 수량 변경
+  const handleCount = index => {
+    fetch(`http://10.58.52.195:3000/carts/${items[index].id}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        authorization: token,
+        Authorization: token,
       },
-      body: JSON.stringify({ count: items[0].count }),
+      body: JSON.stringify({ count: items[index].count }),
     })
       .then(response => response.json())
       .then(data => console.log(data))
@@ -45,17 +46,6 @@ export default function CartList({}) {
     });
     setTotalPrice(total);
   }, [items]);
-
-  // const updateCart = (newItems) => {
-  //   fetch(`http://cart/${product_id}`, {
-  //     method: "POST",
-  //     body: JSON.stringify({ items: newItems }),
-  //     headers: {}
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data))
-  //     .catch((error) => console.error(error));
-  // };
 
   const decrement = index => {
     const newItems = [...items];
@@ -71,25 +61,11 @@ export default function CartList({}) {
     setItems(newItems);
   };
 
+  //  delete api
   const deleteItem = index => {
     const newItems = items.filter((item, i) => i !== index);
     setItems(newItems);
   };
-
-  // const deleteItem = index => {
-  //   const id = items[index].id; // 삭제할 아이템의 ID를 가져옴
-  //   fetch(`http://example.com/api/cart/items/${id}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       const newItems = items.filter((item, i) => i !== index); // 상태 업데이트
-  //       setItems(newItems);
-  //     })
-  //     .catch(error => console.error("Error:", error));
-  // };
 
   return (
     <>
@@ -107,7 +83,12 @@ export default function CartList({}) {
             <button className="plus" onClick={() => increment(idx)}>
               +
             </button>
+            <button className="check" onClick={() => handleCount(idx)}>
+              확인
+            </button>
+            {/* 확인 버튼 생성 */}
           </div>
+
           <div className="itemPrice">
             {(item.price * item.count).toLocaleString()}원
           </div>
@@ -118,7 +99,7 @@ export default function CartList({}) {
       ))}
       <CartSum
         totalPrice={totalPrice.toLocaleString()}
-        handleCheckout={handleCheckout}
+        toggleCart={toggleCart}
       />
     </>
   );

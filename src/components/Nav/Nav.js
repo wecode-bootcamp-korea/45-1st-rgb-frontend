@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
-
+import Cart from "../../components/Cart/Cart";
 import "./Nav.scss";
 
 const Nav = () => {
@@ -10,11 +10,17 @@ const Nav = () => {
   const [userData, setUserData] = useState([]);
   const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
-  const token = localStorage.getItem("TOKEN");
+  const token = "";
+
+  const [showCart, setShowCart] = useState(false);
+  const toggleCart = () => {
+    setShowCart(!showCart);
+  };
+
   const { user } = userData;
 
   useEffect(() => {
-    fetch("http://10.58.52.169:9001/users", {
+    fetch("http://10.58.52.195:3000/users", {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -25,7 +31,7 @@ const Nav = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://10.58.52.169:9001/carts", {
+    fetch("http://10.58.52.195:3000/carts", {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -81,7 +87,7 @@ const Nav = () => {
             ) : (
               <li>My Point : {myPoint}P</li>
             )}
-            <li>
+            <li onClick={toggleCart}>
               Cart <span className="cartCountButton">{cartCount}</span>
             </li>
           </div>
@@ -100,6 +106,11 @@ const Nav = () => {
         )}
       </div>
       {logIn}
+      {showCart && (
+        <div className="cartDropdown">
+          <Cart />
+        </div>
+      )}
     </>
   );
 };

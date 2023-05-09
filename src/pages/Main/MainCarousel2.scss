@@ -10,8 +10,7 @@
   .goodsTitle {
     display: flex;
     top: 0;
-    left: 0;
-    margin-left: 300px;
+
     font-size: 21px;
     font-weight: 400;
   }
@@ -30,12 +29,12 @@
 
 .buttonContainer {
   position: flex;
-  margin-top: -910px;
+  margin-top: 100px;
 }
 
 .buttonPre2 {
   position: absolute;
-  left: 260px;
+  left: 0px;
   width: 63px;
   height: 63px;
   background-image: url("../../assets/button-pre.png");
@@ -43,7 +42,7 @@
 
 .buttonNext2 {
   position: absolute;
-  right: 260px;
+  right: 0px;
   width: 63px;
   height: 63px;
   background-image: url("../../assets/button-next.png");

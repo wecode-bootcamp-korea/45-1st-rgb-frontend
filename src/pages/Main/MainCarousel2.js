@@ -43,15 +43,13 @@ export default function MainCarousel2() {
 
   return (
     <div className="goodsContainer">
-      <div className="goodsTitle">탁월한 셀렉션 -</div>
-      <div className="goodsButton">
-        <div className="goodsBox">
-          <ul className="secondSlide" ref={slideRef}>
-            {carouselItem.map((item, id) => (
-              <SecondCarousel key={id} item={item} />
-            ))}
-          </ul>
-        </div>
+      <div className="goodsTitle">탁월한 셀렉션</div>
+      <div className="goodsBox">
+        <ul className="secondSlide" ref={slideRef}>
+          {carouselItem.map((item, id) => (
+            <SecondCarousel key={id} item={item} />
+          ))}
+        </ul>
         <div className="buttonContainer">
           <button className="buttonPre2" onClick={prevSlide} />
           <button className="buttonNext2" onClick={nextSlide} />
