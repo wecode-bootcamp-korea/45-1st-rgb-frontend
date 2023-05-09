@@ -31,10 +31,10 @@ function ProductDetail() {
 
     fetch(url, {
       method: "GET",
-      headers: { "Content-Type": "application/json;charset=utf-8" }
+      headers: { "Content-Type": "application/json;charset=utf-8" },
     })
-      .then((res) => res.json())
-      .then((detailData) => {
+      .then(res => res.json())
+      .then(detailData => {
         setDetails(detailData);
       });
   }, [productId]);

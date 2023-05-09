@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import "./SignUp.scss";
 import SignUpModal from "./SignUpModal";
@@ -12,11 +12,9 @@ const SignUp = ({ setIsLogin }) => {
     firstName: "",
     email: "",
     password: "",
-
     passwordCheck: "",
     privacy: "",
     subscription: "",
-
   });
 
   const {
@@ -34,13 +32,13 @@ const SignUp = ({ setIsLogin }) => {
     email.includes("@") &&
     password.length >= 5 &&
     firstName &&
-    lastName != "" &&
+    lastName &&
     passwordCheck === password &&
     privacy === "on";
 
   const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
 
-  const handleInput = (event) => {
+  const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
@@ -70,7 +68,6 @@ const SignUp = ({ setIsLogin }) => {
       .then(message => setMessage(message));
 
     messageModal();
-
   };
 
   return (
@@ -163,7 +160,6 @@ const SignUp = ({ setIsLogin }) => {
           </div>
         </fieldset>
 
-
         <Button
           btnOn={!loginValid}
           action={signUp}
@@ -174,7 +170,6 @@ const SignUp = ({ setIsLogin }) => {
         </Button>
       </div>
     </>
-
   );
 };
 

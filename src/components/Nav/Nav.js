@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
+import API_ADDRESS from "../../../public/data/API_ADDRESS";
+
 import "./Nav.scss";
 
 const Nav = () => {
@@ -13,23 +15,25 @@ const Nav = () => {
   const { user } = userData;
 
   useEffect(() => {
-    fetch("http://10.58.52.195:3000/users", {
+    if (!token) return;
+    fetch(`${API_ADDRESS}users`, {
       method: "GET",
-      headers: { Authorization: token }
+      headers: { Authorization: token },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setUserData(data);
       });
   }, []);
 
   useEffect(() => {
-    fetch("http://10.58.52.195:3000/carts", {
+    if (!token) return;
+    fetch(`${API_ADDRESS}carts`, {
       method: "GET",
-      headers: { Authorization: token }
+      headers: { Authorization: token },
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setMyCart(data);
       });
   }, []);
@@ -43,10 +47,7 @@ const Nav = () => {
     navigate("/");
   };
 
-  if (!user) return null;
-  if (!myCart) return null;
-
-  const myPoint = Math.floor(user.points);
+  const myPoint = Math.floor(user?.points);
   const cartCount = myCart.length;
   return (
     <>
@@ -59,12 +60,14 @@ const Nav = () => {
               onClick={() => navigate("/productList")}
               onMouseEnter={() => setShowCategory("shopCategory")}
               onMouseLeave={() => setShowCategory("hidden")}
-              className="categoryShop">
+              className="categoryShop"
+            >
               Shop
               <div
                 onMouseEnter={() => setShowCategory("shopCategory")}
                 onMouseLeave={() => setShowCategory("hidden")}
-                className={`categoryShop ${showCategory}`}>
+                className={`categoryShop ${showCategory}`}
+              >
                 <p onClick={() => navigate("/productList")}>Art</p>
                 <p onClick={() => navigate("/productList")}>Goods</p>
               </div>
@@ -86,7 +89,8 @@ const Nav = () => {
         {!token ? (
           <button
             className="logIn"
-            onClick={() => setLogIn(<User setLogIn={setLogIn} />)}>
+            onClick={() => setLogIn(<User setLogIn={setLogIn} />)}
+          >
             Log-in
           </button>
         ) : (
