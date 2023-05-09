@@ -56,15 +56,15 @@ function DetailInformation({ details, showMore, setChangeComponent }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
-        Authorization: token
+        Authorization: token,
       },
       body: JSON.stringify({
         productsId: details.id,
-        quantity: count
-      })
+        quantity: count,
+      }),
     })
-      .then((res) => res.json())
-      .then((message) => setMessage(message));
+      .then(res => res.json())
+      .then(message => setMessage(message));
     alert(`${message}`);
   };
 
@@ -117,13 +117,15 @@ function DetailInformation({ details, showMore, setChangeComponent }) {
           <Button
             buttonColor="bright"
             buttonSize="smallButton"
-            action={cartButton}>
+            action={cartButton}
+          >
             카트 추가
           </Button>
           <Button
             buttonColor="dark"
             buttonSize="smallButton"
-            action={buyButton}>
+            action={buyButton}
+          >
             바로 구매
           </Button>
         </div>

@@ -4,7 +4,6 @@ import Location from "./Components/Location/Location";
 import ImageBox from "./Components/ImageBox/ImageBox";
 import DetailInformation from "./Components/DetailInformation/DetailInformation";
 import ProductDescription from "./ProductDescription";
-import User from "../User/User";
 import "./ProductDetail.scss";
 
 function ProductDetail() {

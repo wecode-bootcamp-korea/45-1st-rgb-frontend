@@ -3,7 +3,7 @@
 
 .out {
   transform: translateX(-100%);
-  transition-duration: 0.5s;
+  transition-duration: 1s;
 }
 
 .productDescription {
@@ -14,7 +14,7 @@
   width: 50%;
   height: 100%;
   padding: 70px;
-  transition-duration: 2s;
+  transition-duration: 1s;
   background-color: rgba(0, 0, 0, 0.6);
   color: $main-white;
 
