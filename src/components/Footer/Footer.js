@@ -5,9 +5,6 @@ import Paper from "./Paper";
 
 const Footer = () => {
   const [notice, setNotice] = useState("N");
-  const a = "leftButton";
-  const b = "line";
-  const c = `dfs ${a} asf`;
   return (
     <div className="total">
       <div className="totalLeft">
@@ -18,7 +15,9 @@ const Footer = () => {
               setNotice("N");
             }}
           >
-            <div className={notice === "N" ? `${a} ${b}` : `${a} `}>NOTICE</div>
+            <div className={notice === "N" ? "leftButton line" : "leftButton"}>
+              NOTICE
+            </div>
           </button>
           <button
             className="rightButton"
@@ -26,7 +25,9 @@ const Footer = () => {
               setNotice("P");
             }}
           >
-            <div className={notice === "P" ? "leftButton line" : "leftButton"}>
+            <div
+              className={notice === "P" ? "rightButton line" : "rightButton"}
+            >
               NEWS
             </div>
           </button>
@@ -56,7 +57,7 @@ const Footer = () => {
             </div>
             <div>
               사업자등록번호: 532-81-01317 통신판매업신고: 2023서울강남01952
-              [사업자정보확인] 전화번호: 07043234050
+              [사업자정보확인] 전화번호: 070-4323-4050
             </div>
             이메일:
             <span className="underBar">customer@rgb.co.kr </span>
