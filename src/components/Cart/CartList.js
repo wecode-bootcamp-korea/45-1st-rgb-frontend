@@ -12,35 +12,35 @@ export default function CartList({}) {
     fetch("http://10.58.52.195:3000/carts", {
       method: "GET",
       headers: {
-        Authorization: token
-      }
+        Authorization: token,
+      },
     })
-      .then((res) => {
+      .then(res => {
         return res.json();
       })
-      .then((data) => {
+      .then(data => {
         return setItems(data);
       });
   }, []);
 
   const handleCheckout = () => {
-    fetch("http://10.58.52.195:3000/carts/17", {
+    fetch("http://10.58.52.195:3000/carts/117", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        authorization: token
+        authorization: token,
       },
-      body: JSON.stringify({ count: items[0].count })
+      body: JSON.stringify({ count: items[0].count }),
     })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
   };
 
   useEffect(() => {
     let total = 0;
-    items.forEach((item) => {
+    items.forEach(item => {
       total += item.price * item.count;
     });
     setTotalPrice(total);
@@ -57,7 +57,7 @@ export default function CartList({}) {
   //     .catch((error) => console.error(error));
   // };
 
-  const decrement = (index) => {
+  const decrement = index => {
     const newItems = [...items];
     if (newItems[index].count > 1) {
       newItems[index].count--;
@@ -65,30 +65,31 @@ export default function CartList({}) {
     }
   };
 
-  const increment = (index) => {
+  const increment = index => {
     const newItems = [...items];
     newItems[index].count++;
     setItems(newItems);
   };
 
-  const deleteItem = (index) => {
+  const deleteItem = index => {
     const newItems = items.filter((item, i) => i !== index);
     setItems(newItems);
   };
 
-  // const deleteItem = (index) => {
+  // const deleteItem = index => {
   //   const id = items[index].id; // 삭제할 아이템의 ID를 가져옴
   //   fetch(`http://example.com/api/cart/items/${id}`, {
-  //     method: 'DELETE'
+  //     method: "DELETE",
   //   })
-  //   .then(response => {
-  //     if (!response.ok) {
-  //       throw new Error('Network response was not ok');
-  //     }
-  //     const newItems = items.filter((item, i) => i !== index); // 상태 업데이트
-  //     setItems(newItems);
-  //   })
-  //   .catch(error => console.error('Error:', error)); };
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       const newItems = items.filter((item, i) => i !== index); // 상태 업데이트
+  //       setItems(newItems);
+  //     })
+  //     .catch(error => console.error("Error:", error));
+  // };
 
   return (
     <>

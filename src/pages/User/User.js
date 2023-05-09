@@ -18,7 +18,6 @@ const User = ({ setLogIn }) => {
         )}
 
         <button className="closeIcon" onClick={() => setLogIn("")} />
-
       </div>
       <div className="userItem">
         {isLogin ? (

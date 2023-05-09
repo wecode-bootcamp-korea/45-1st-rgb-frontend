@@ -17,7 +17,8 @@ export default function CartSum({ totalPrice, handleCheckout }) {
             <Button
               buttonSize="mediumButton"
               buttonColor="bright"
-              action={handleCheckout}>
+              action={handleCheckout}
+            >
               결제하기
             </Button>
           </div>

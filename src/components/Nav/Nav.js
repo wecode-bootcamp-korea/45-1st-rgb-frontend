@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
+
 import "./Nav.scss";
 
 const Nav = () => {
