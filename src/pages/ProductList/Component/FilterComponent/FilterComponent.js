@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function FilterComponent({ content }) {
+function FilterComponent({ shopContent, setShopContent }) {
   const [show, setShow] = useState(false);
 
   return (
@@ -25,13 +25,31 @@ function FilterComponent({ content }) {
       <div>
         {show ? (
           <div className="contentButton">
-            {content.map((content) => {
+            <p className="sorting">
+              <button className="sortingButton" onClick={() => {}}>
+                가격순
+              </button>
+            </p>
+            <p className="sorting">
+              <button
+                className="sortingButton"
+                onClick={() => {
+                  let copy = [...shopContent];
+                  copy.sort((a, b) =>
+                    a.title.toUpperCase() < b.title.toUpperCase() ? -1 : 1
+                  );
+                  setShopContent(copy);
+                }}>
+                가나다순
+              </button>
+            </p>
+            {/* {content.map((content) => {
               return (
                 <p className="sorting" key={`${content.id}`}>
-                  <button>{content.title}</button>
+                  <button className="sortingButton">{content.title}</button>
                 </p>
               );
-            })}
+            })} */}
           </div>
         ) : (
           ""

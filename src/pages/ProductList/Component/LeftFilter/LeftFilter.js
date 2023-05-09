@@ -2,7 +2,7 @@ import React from "react";
 import FilterComponent from "../FilterComponent/FilterComponent";
 import "./LeftFilter.scss";
 
-function LeftFilter({ filter }) {
+function LeftFilter({ shopContent, setShopContent }) {
   return (
     <div className="leftFilter">
       {/* <div className="show">
@@ -10,7 +10,10 @@ function LeftFilter({ filter }) {
         <input type="checkbox" id="checkbox" />
       </div> */}
       <div className="filters">
-        <FilterComponent content={filter} key={filter.id} />
+        <FilterComponent
+          shopContent={shopContent}
+          setShopContent={setShopContent}
+        />
       </div>
     </div>
   );

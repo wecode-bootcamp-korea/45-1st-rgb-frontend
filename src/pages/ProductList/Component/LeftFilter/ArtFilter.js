@@ -1,10 +1,10 @@
 export const ARTFILTER = [
   {
     id: 1,
-    title: "Price"
+    title: "가격순"
   },
   {
     id: 2,
-    title: "ABC"
+    title: "가나다"
   }
 ];
