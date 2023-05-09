@@ -7,13 +7,14 @@ const ProductDescription = ({ inOut, setInOut, noMore }) => {
 
   useEffect(() => {
     fetch("/data/detailInfo.json")
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setDescription(data);
       });
   }, []);
 
   return (
+
     <div
       className={`${inOut ? "productDescription" : "productDescription out"}`}
     >
@@ -27,6 +28,7 @@ const ProductDescription = ({ inOut, setInOut, noMore }) => {
         <p className="material">{description[0]?.material}</p>
         <p className="description">{description[0]?.description}</p>
       </div>
+
     </div>
   );
 };

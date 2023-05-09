@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+
+.introContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: $main-white;
+
+  .boxContainer {
+    display: flex;
+    position: relative;
+    top: 100px;
+    height: 100vh;
+
+    .boxImg {
+      width: 780px;
+      height: 400px;
+      background-image: url("https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%2011.jpg");
+    }
+
+    .introText {
+      position: absolute;
+      right: 60px;
+      margin-top: 120px;
+      margin-right: 118px;
+    }
+    .firstText {
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    .secondText {
+      margin-bottom: 20px;
+      font-size: 37px;
+    }
+
+    .textMore {
+      margin-top: 40px;
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 12,
+    "title": "Dreamy Landscape",
+    "width": 300,
+    "height": 340,
+    "img": "https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/12.jpeg",
+    "size": "200 x 480"
+  },
+  {
+    "id": 13,
+    "title": "What a Delight 2023",
+    "width": 300,
+    "height": 340,
+    "img": "https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/14.webp",
+    "size": "200 x 480"
+  },
+  {
+    "id": 14,
+    "title": "Abstract Composition",
+    "width": 300,
+    "height": 340,
+    "img": "https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/15.jpeg",
+    "size": "200 x 480"
+  },
+  {
+    "id": 15,
+    "title": "Floral Postcard Set",
+    "width": 300,
+    "height": 340,
+    "img": "https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/5.jpeg",
+    "size": "200 x 480"
+  },
+  {
+    "id": 15,
+    "title": "Floral Postcard Set",
+    "width": 300,
+    "height": 340,
+    "img": "https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/6.jpeg",
+    "size": "200 x 480"
+  },
+  {
+    "id": 15,
+    "title": "Floral Postcard Set",
+    "width": 300,
+    "height": 340,
+    "img": "https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%2010.jpeg",
+    "size": "200 x 480"
+  }
+]

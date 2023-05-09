@@ -6,8 +6,7 @@ const Button = ({ btnOn, buttonSize, buttonColor, children, action }) => {
     <button
       onClick={() => action()}
       disabled={btnOn}
-      className={`${buttonSize} ${buttonColor}`}
-    >
+      className={`${buttonSize} ${buttonColor}`}>
       {children}
     </button>
   );

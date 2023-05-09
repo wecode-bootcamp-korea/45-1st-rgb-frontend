@@ -12,9 +12,11 @@ const SignUp = ({ setIsLogin }) => {
     firstName: "",
     email: "",
     password: "",
+
     passwordCheck: "",
     privacy: "",
     subscription: "",
+
   });
 
   const {
@@ -38,7 +40,7 @@ const SignUp = ({ setIsLogin }) => {
 
   const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
 
-  const handleInput = event => {
+  const handleInput = (event) => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
@@ -59,6 +61,7 @@ const SignUp = ({ setIsLogin }) => {
         lastName: inputValues.lastName,
         firstName: inputValues.firstName,
         email: inputValues.email,
+
         password: inputValues.password,
         subscription: subscriptionValue,
       }),
@@ -67,6 +70,7 @@ const SignUp = ({ setIsLogin }) => {
       .then(message => setMessage(message));
 
     messageModal();
+
   };
 
   return (
@@ -159,6 +163,7 @@ const SignUp = ({ setIsLogin }) => {
           </div>
         </fieldset>
 
+
         <Button
           btnOn={!loginValid}
           action={signUp}
@@ -169,6 +174,7 @@ const SignUp = ({ setIsLogin }) => {
         </Button>
       </div>
     </>
+
   );
 };
 
