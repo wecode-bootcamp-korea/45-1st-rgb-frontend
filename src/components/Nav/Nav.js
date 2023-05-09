@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
+import API_ADDRESS from "../../../public/data/API_ADDRESS";
 
 import "./Nav.scss";
 
@@ -14,7 +15,8 @@ const Nav = () => {
   const { user } = userData;
 
   useEffect(() => {
-    fetch("http://10.58.52.169:9001/users", {
+    if (!token) return;
+    fetch(`${API_ADDRESS}users`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -25,7 +27,8 @@ const Nav = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://10.58.52.169:9001/carts", {
+    if (!token) return;
+    fetch(`${API_ADDRESS}carts`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -44,10 +47,7 @@ const Nav = () => {
     navigate("/");
   };
 
-  if (!user) return null;
-  if (!myCart) return null;
-
-  const myPoint = Math.floor(user.points);
+  const myPoint = Math.floor(user?.points);
   const cartCount = myCart.length;
   return (
     <>

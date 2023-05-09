@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import "./SignUp.scss";
 import SignUpModal from "./SignUpModal";
@@ -12,7 +12,6 @@ const SignUp = ({ setIsLogin }) => {
     firstName: "",
     email: "",
     password: "",
-
     passwordCheck: "",
     privacy: "",
     subscription: "",
@@ -33,7 +32,7 @@ const SignUp = ({ setIsLogin }) => {
     email.includes("@") &&
     password.length >= 5 &&
     firstName &&
-    lastName != "" &&
+    lastName &&
     passwordCheck === password &&
     privacy === "on";
 
