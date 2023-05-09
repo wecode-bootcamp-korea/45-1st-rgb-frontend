@@ -2,12 +2,12 @@ import { useState } from "react";
 import "./Footer.scss";
 import Notice from "./Notice";
 import Paper from "./Paper";
-import Left from "./Left";
-import Right from "./Right";
 
 const Footer = () => {
   const [notice, setNotice] = useState("N");
-
+  const a = "leftButton";
+  const b = "line";
+  const c = `dfs ${a} asf`;
   return (
     <div className="total">
       <div className="totalLeft">
@@ -18,7 +18,7 @@ const Footer = () => {
               setNotice("N");
             }}
           >
-            <div className="point">NOTICE</div>
+            <div className={notice === "N" ? `${a} ${b}` : `${a} `}>NOTICE</div>
           </button>
           <button
             className="rightButton"
@@ -26,9 +26,10 @@ const Footer = () => {
               setNotice("P");
             }}
           >
-            <div className="aim">NEWS</div>
+            <div className={notice === "P" ? "leftButton line" : "leftButton"}>
+              NEWS
+            </div>
           </button>
-          <div>{notice === "N" ? <Left /> : <Right />}</div>
         </div>
         <div>{notice === "N" ? <Notice /> : <Paper />}</div>
 
