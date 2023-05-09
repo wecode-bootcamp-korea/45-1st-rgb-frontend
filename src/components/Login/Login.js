@@ -9,6 +9,7 @@ const Login = ({ setLogIn, goToSignUp }) => {
     email: "",
     password: "",
   });
+
   const { email, password } = inputValues;
   const [loginWarning, setLoginWarning] = useState("");
   const token = localStorage.getItem("TOKEN");

@@ -29,6 +29,7 @@ const SignUp = ({ setIsLogin }) => {
   } = inputValues;
 
   const subscriptionValue = subscription === "on" ? 1 : 0;
+  
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
@@ -51,6 +52,7 @@ const SignUp = ({ setIsLogin }) => {
       )
     );
   };
+
   const signUp = () => {
     fetch(`${API_ADDRESS}users/signUp`, {
       method: "POST",
