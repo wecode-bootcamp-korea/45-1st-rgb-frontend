@@ -74,9 +74,7 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
     userData?.postalcode,
   ]);
 
-  // 여기가 기본 배송지 저장 기능!
   const handleDefaultAddress = () => {
-    console.log(isDefaultAddressChecked);
     setIsDefaultAddressChecked(!isDefaultAddressChecked);
   };
 
@@ -129,7 +127,11 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
               onChange={handleInputs}
               readOnly={isDefaultAddressChecked}
             />
-            <span className="userPhoneNumber">{userData?.cellphone}</span>
+            {isDefaultAddressChecked ? (
+              <span className="userPhoneNumber">{userData?.cellphone}</span>
+            ) : (
+              ""
+            )}
           </div>
           <div className="deliveryInfoForm">
             <h3 className="formTitle">배송지 정보</h3>
@@ -145,9 +147,12 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
                 onKeyDown={preventEnterKey}
                 onChange={handleInputs}
                 readOnly={isDefaultAddressChecked}
-                // value="상세주소"
               />
-              <span className="userAddress">{userData?.address}</span>
+              {isDefaultAddressChecked ? (
+                <span className="userAddress">{userData?.address}</span>
+              ) : (
+                ""
+              )}
             </div>
             <div className="postInput">
               <label className="postalPlaceholder" htmlFor="postalcode">
@@ -163,9 +168,12 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
                 onInput={acceptOnlyNumbers}
                 onChange={handleInputs}
                 readOnly={isDefaultAddressChecked}
-                // value="우편번호"
               />
-              <span className="userPostalcode">{userData?.postalcode}</span>
+              {isDefaultAddressChecked ? (
+                <span className="userPostalcode">{userData?.postalcode}</span>
+              ) : (
+                ""
+              )}
             </div>
           </div>
 

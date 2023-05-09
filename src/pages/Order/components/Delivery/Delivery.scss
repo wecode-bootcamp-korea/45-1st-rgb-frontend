@@ -88,11 +88,13 @@
     .phonePlaceholder {
       display: flex;
       align-items: center;
+      color: $main-grey;
+      font-size: 14px;
     }
 
     .phoneNumberInput {
       display: block;
-      width: 40%;
+      width: 45%;
       border: none;
     }
 
@@ -111,9 +113,12 @@
     .addressPlaceholder {
       display: flex;
       align-items: center;
+      color: $main-grey;
+      font-size: 14px;
     }
 
     .address {
+      width: 55%;
       border: none;
     }
 
@@ -130,8 +135,11 @@
     .postalPlaceholder {
       display: flex;
       align-items: center;
+      color: $main-grey;
+      font-size: 14px;
     }
     .postalcode {
+      width: 55%;
       border: none;
     }
 
@@ -139,5 +147,44 @@
       display: flex;
       align-items: center;
     }
+  }
+}
+
+.requestInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  /*   .request {
+    display: flex;
+    gap: 5px;
+  } */
+  /* 
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + label {
+    display: inline-block;
+    position: relative;
+    width: 15px;
+    height: 15px;
+    border: 2px solid $main-black;
+    border-radius: 50%;
+  }
+
+  input[id="request"]:checked + label::after {
+    content: "●";
+    position: absolute;
+    top: 0.6px;
+    left: 0.6px;
+    width: 9px;
+    height: 9px;
+    font-size: 10px;
+    text-align: center;
+  } */
+
+  .requestInput {
+    border: 1px solid $main-grey;
   }
 }

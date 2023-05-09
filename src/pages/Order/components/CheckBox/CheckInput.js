@@ -1,6 +1,7 @@
 import React from "react";
 
 const CheckInput = ({ checkInputs, setCheckInputs }) => {
+  const isAllChecked = AGREEMENT_TERMS.length === checkInputs.length;
   const checkAllInputs = checked => {
     if (checked) {
       const idArray = [];
@@ -26,7 +27,7 @@ const CheckInput = ({ checkInputs, setCheckInputs }) => {
           <input
             type="checkbox"
             id="agreeAll"
-            checked={AGREEMENT_TERMS.length === checkInputs.length}
+            checked={isAllChecked}
             onChange={e => {
               checkAllInputs(e.target.checked);
             }}
