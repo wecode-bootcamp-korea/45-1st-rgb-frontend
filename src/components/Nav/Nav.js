@@ -10,12 +10,14 @@ const Nav = () => {
   const [userData, setUserData] = useState([]);
   const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJpYXQiOjE2ODM1NDY5NTJ9.DwJwMfBPt80nklkphzVBvOIOetdbluu6pfI9C6M3iFk";
-  // const token = localStorage.getItem("TOKEN");
+  // const token =
+  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJpYXQiOjE2ODM1NDY5NTJ9.DwJwMfBPt80nklkphzVBvOIOetdbluu6pfI9C6M3iFk";
+  const token = localStorage.getItem("TOKEN");
   const { user } = userData;
   const url = "http://10.58.52.195:3000/";
+
   useEffect(() => {
+    if (!token) return;
     fetch(`${url}users`, {
       method: "GET",
       headers: { Authorization: token },
@@ -27,6 +29,7 @@ const Nav = () => {
   }, []);
 
   useEffect(() => {
+    if (!token) return;
     fetch(`${url}carts`, {
       method: "GET",
       headers: { Authorization: token },
@@ -46,10 +49,10 @@ const Nav = () => {
     navigate("/");
   };
 
-  if (!user) return null;
-  if (!myCart) return null;
+  // if (!user) return;
+  // if (!myCart) return;
 
-  const myPoint = Math.floor(user.points);
+  const myPoint = Math.floor(user?.points);
   const cartCount = myCart.length;
   return (
     <>
