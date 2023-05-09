@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button/Button";
 
-export default function CartSum({ totalPrice }) {
+export default function CartSum({ totalPrice, handleCheckout }) {
   return (
     <div className="cartSumBox">
       <div className="cartSummary">
@@ -14,7 +14,11 @@ export default function CartSum({ totalPrice }) {
             <span className="sum">{totalPrice}원</span>
           </div>
           <div className="payBtn">
-            <Button buttonSize="mediumButton" buttonColor="bright">
+            <Button
+              buttonSize="mediumButton"
+              buttonColor="bright"
+              action={handleCheckout}
+            >
               결제하기
             </Button>
           </div>

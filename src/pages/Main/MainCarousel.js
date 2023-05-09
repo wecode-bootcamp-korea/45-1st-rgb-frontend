@@ -9,10 +9,10 @@ export default function MainCarousel() {
 
   useEffect(() => {
     fetch("./data/productImage.json", {
-      method: "GET"
+      method: "GET",
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setItems(data);
       });
   }, []);
@@ -26,14 +26,14 @@ export default function MainCarousel() {
     }
   }, [currentIndex, items]);
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
+    setCurrentIndex(prevIndex =>
       prevIndex === items.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
+    setCurrentIndex(prevIndex => (prevIndex === 0 ? 0 : prevIndex - 1));
+    setCurrentIndex(prevIndex => (prevIndex === 0 ? 0 : prevIndex - 1));
   };
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function MainCarousel() {
               <span> 이달의 아티스트를 만나보세요</span>
               <div className="textEn">Make art part of your world!</div>
             </div>
-            {items.map((item) => (
+            {items.map(item => (
               <CarouselItem key={item.id} item={item} />
             ))}
           </ul>

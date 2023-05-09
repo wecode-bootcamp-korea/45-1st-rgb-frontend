@@ -6,7 +6,7 @@ import "./Login.scss";
 const Login = ({ setLogIn, goToSignUp }) => {
   const [inputValues, setInputValues] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const { email, password } = inputValues;
   const [loginWarning, setLoginWarning] = useState("");
@@ -14,7 +14,7 @@ const Login = ({ setLogIn, goToSignUp }) => {
   const loginValid = email.includes("@") && password.length >= 5;
   const token = localStorage.getItem("TOKEN");
 
-  const handleInput = (event) => {
+  const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
@@ -25,11 +25,11 @@ const Login = ({ setLogIn, goToSignUp }) => {
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
         email: inputValues.email,
-        password: inputValues.password
-      })
+        password: inputValues.password,
+      }),
     })
-      .then((res) => res.json())
-      .then((data) => localStorage.setItem("TOKEN", data.accessToken));
+      .then(res => res.json())
+      .then(data => localStorage.setItem("TOKEN", data.accessToken));
 
     token ? setLogIn("") : setLoginWarning("회원정보가 일치하지 않습니다.");
   };
@@ -59,7 +59,8 @@ const Login = ({ setLogIn, goToSignUp }) => {
           btnOn={!loginValid}
           action={loginOn}
           buttonSize="bigButton"
-          buttonColor="dark">
+          buttonColor="dark"
+        >
           로그인
         </Button>
         <div className="loginTextBox">

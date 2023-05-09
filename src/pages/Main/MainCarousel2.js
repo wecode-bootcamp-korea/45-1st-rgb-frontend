@@ -29,7 +29,7 @@ export default function MainCarousel2() {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
     } else {
-      setCurrentSlide((prev) => prev + 1);
+      setCurrentSlide(prev => prev + 1);
     }
   };
 
@@ -37,7 +37,7 @@ export default function MainCarousel2() {
     if (currentSlide === 0) {
       setCurrentSlide(TOTAL_SLIDES);
     } else {
-      setCurrentSlide((prev) => prev - 1);
+      setCurrentSlide(prev => prev - 1);
     }
   };
 

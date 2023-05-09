@@ -14,7 +14,7 @@ const SignUp = ({ setIsLogin }) => {
     password: "",
     passwordCheck: "",
     privacy: "",
-    subscription: ""
+    subscription: "",
   });
 
   const {
@@ -24,7 +24,7 @@ const SignUp = ({ setIsLogin }) => {
     password,
     passwordCheck,
     privacy,
-    subscription
+    subscription,
   } = inputValues;
 
   const subscriptionValue = subscription && 1;
@@ -38,7 +38,7 @@ const SignUp = ({ setIsLogin }) => {
 
   const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
 
-  const handleInput = (event) => {
+  const handleInput = event => {
     const { name, value } = event.target;
     setInputValues({ ...inputValues, [name]: value });
   };
@@ -61,11 +61,11 @@ const SignUp = ({ setIsLogin }) => {
         email: inputValues.email,
 
         password: inputValues.password,
-        subscription: subscriptionValue
-      })
+        subscription: subscriptionValue,
+      }),
     })
-      .then((res) => res.json())
-      .then((message) => setMessage(message));
+      .then(res => res.json())
+      .then(message => setMessage(message));
 
     messageModal();
   };
@@ -164,7 +164,8 @@ const SignUp = ({ setIsLogin }) => {
           btnOn={!loginValid}
           action={signUp}
           buttonSize="bigButton"
-          buttonColor={loginValid ? "dark" : "buttonOff"}>
+          buttonColor={loginValid ? "dark" : "buttonOff"}
+        >
           가입하기
         </Button>
       </div>
