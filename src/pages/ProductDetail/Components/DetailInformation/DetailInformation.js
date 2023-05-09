@@ -6,9 +6,19 @@ import User from "../../../User/User";
 import "./DetailInformation.scss";
 
 function DetailInformation({ details, showMore, setLogIn }) {
+  const {
+    quantity,
+    id,
+    title,
+    artist_name,
+    products_size_left,
+    products_size_right,
+    material,
+    description,
+    price,
+  } = details;
+
   const [count, setCount] = useState(1);
-  const [message, setMessage] = useState("");
-  const price = details.price;
   const total = count * price;
   const [button1, setButton1] = useState(false);
   const [button2, setButton2] = useState(false);
@@ -38,7 +48,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
   };
   const plusCount = () => {
     setCount(count + 1);
-    if (count === details.quantity) {
+    if (count === quantity) {
       setCount(count + 0);
     }
   };
@@ -60,29 +70,29 @@ function DetailInformation({ details, showMore, setLogIn }) {
         Authorization: token,
       },
       body: JSON.stringify({
-        productsId: details.id,
+        productsId: id,
         quantity: count,
       }),
     })
       .then(res => res.json())
-      .then(message => setMessage(message));
-    alert(`${message}`);
+      .then(data => console.log(data));
+    alert("카트에 성공적으로 담겼습니다");
   };
 
   return (
     <div className="detailInformation">
-      <h2>{details.title}</h2>
-      <h3>{details.artistName}</h3>
+      <h2>{title}</h2>
+      <h3>{artist_name}</h3>
       {/* 사이즈와 재료 */}
       <div className="infoTop">
         <p className="size">
-          {`${details.products_size_left} x ${details.products_size_right} cm`}
+          {`${products_size_left} x ${products_size_right} cm`}
         </p>
-        <p className="material">{`${details.material}`}</p>
+        <p className="material">{`${material}`}</p>
       </div>
       {/* 상세 설명 */}
       <div className="infoMiddle">
-        <span className="description">{`${details.description}`}</span>
+        <span className="description">{`${description}`}</span>
         <span>
           <button onClick={showMore}>
             <img alt="plusButton" src="/images/productDetail/plusButton.png" />
@@ -93,7 +103,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
       <div className="infoBottom">
         <div className="price">
           <span className="bold">Price</span>
-          <span>{`${details.price} point`}</span>
+          <span>{`${price} point`}</span>
         </div>
         <div className="quantity">
           <span className="bold">수량</span>

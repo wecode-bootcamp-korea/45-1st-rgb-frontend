@@ -27,7 +27,28 @@ function FilterComponent({ shopContent, setShopContent }) {
         {show ? (
           <div className="contentButton">
             <p className="sorting">
-              <button className="sortingButton" onClick={() => {}}>
+              <button
+                className="sortingButton"
+                onClick={() => {
+                  let thirdCopy = [...shopContent];
+                  thirdCopy.sort((a, b) =>
+                    a.categories_id < b.categories_id ? -1 : 1
+                  );
+                  setShopContent(thirdCopy);
+                }}
+              >
+                전체 보기
+              </button>
+            </p>
+            <p className="sorting">
+              <button
+                className="sortingButton"
+                onClick={() => {
+                  let secondCopy = [...shopContent];
+                  secondCopy.sort((a, b) => (a.price < b.price ? -1 : 1));
+                  setShopContent(secondCopy);
+                }}
+              >
                 가격순
               </button>
             </p>

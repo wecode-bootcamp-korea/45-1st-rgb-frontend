@@ -2,15 +2,23 @@ import React from "react";
 import "./ArtWorks.scss";
 
 function ArtWorks({ art }) {
+  const {
+    image_urls,
+    title,
+    price,
+    material,
+    products_size_left,
+    products_size_right,
+  } = art;
   return (
     <div className="artWorks">
-      <img alt="artimg" src={`${art.image_urls}`} />
+      <img alt="artimg" src={`${image_urls}`} />
       <div className="titleAndPrice">
-        <p>{art.title}</p>
-        <p>{art.price}</p>
+        <p>{title}</p>
+        <p>{price}</p>
       </div>
-      <p>{art.material}</p>
-      <p>{`${art.products_size_left} x ${art.products_size_right} cm`}</p>
+      <p>{material}</p>
+      <p>{`${products_size_left} x ${products_size_right} cm`}</p>
     </div>
   );
 }

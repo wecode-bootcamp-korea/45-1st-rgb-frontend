@@ -5,7 +5,7 @@ import "./Location.scss";
 function Location() {
   return (
     <div className="location">
-      <p>Shop &gt; Art Works</p>
+      <p>Shop</p>
       <button>
         <Link to="/productList/all">
           <img alt="arrow" src="/images/productDetail/arrow2.png" />

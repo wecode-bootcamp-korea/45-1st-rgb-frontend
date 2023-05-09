@@ -39,14 +39,6 @@ function ProductDetail() {
       });
   }, [productId]);
 
-  // useEffect(() => {
-  //   fetch("/data/detailInfo.json")
-  //     .then(res => res.json())
-  //     .then(detailData => {
-  //       setDetails(detailData);
-  //     });
-  // }, []);
-
   return (
     <>
       {logIn}

@@ -1,9 +1,8 @@
 import React from "react";
-// import Images from "../Images/Images";
+import Images from "../Images/Images";
 import "./ImageBox.scss";
 
 function ImageBox({ details }) {
-  console.log("details", details);
   const item = details.image_urls;
 
   return (
@@ -21,8 +20,8 @@ function ImageBox({ details }) {
       <div className="imageContainer">
         {item?.map((item, index) => {
           return (
-            // <Images item={item} key={index} />
-            <img key={index} alt="artimg" src={item} />
+            <Images item={item} key={index} />
+            // <img key={index} alt="artimg" src={item} />
           );
         })}
       </div>
