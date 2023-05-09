@@ -3,6 +3,8 @@ import "./OrderList.scss";
 import CheckoutProduct from "./components/CheckoutProduct";
 
 function OrderList({ cartProductList, totalPrice }) {
+  /*  // 왜 배송지 정보 인풋을 입력하면 cartProductList 정보가 렌더링되나......이거 수정해야할듯.ㅜㅜ
+  console.log(cartProductList); */
   const totalPriceComma = Number(totalPrice).toLocaleString();
 
   return (

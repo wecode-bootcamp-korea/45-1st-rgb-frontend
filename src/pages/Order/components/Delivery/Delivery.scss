@@ -69,33 +69,75 @@
         left: 50px;
         font-size: 17px;
       }
+
+      .userPhoneNumber {
+        position: absolute;
+        right: 0px;
+      }
     }
   }
 
-  .phoneNumber {
-    width: 630px;
-  }
-
-  .labelWrapper {
+  // 여기서부터 css 재작성
+  .cellphoneWrap {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-}
-
-.deliveryInfoForm {
-  margin-bottom: 5px;
-  input {
     width: 630px;
+    height: 60px;
+    padding: 0;
+    border-bottom: 1px solid $main-black;
+
+    .phonePlaceholder {
+      display: flex;
+      align-items: center;
+    }
+
+    .phoneNumberInput {
+      display: block;
+      width: 40%;
+      border: none;
+    }
+
+    .userPhoneNumber {
+      display: flex;
+      align-items: center;
+    }
   }
-}
 
-.requestInputWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  .addressInput {
+    display: flex;
+    width: 630px;
+    width: 100%;
+    border-bottom: 1px solid $main-black;
 
-  .requestInput {
-    border: 1px solid $main-grey;
+    .addressPlaceholder {
+      display: flex;
+      align-items: center;
+    }
+
+    .address {
+      border: none;
+    }
+
+    .userAddress {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .postInput {
+    display: flex;
+    width: 630px;
+    border-bottom: 1px solid $main-black;
+    .postalPlaceholder {
+      display: flex;
+      align-items: center;
+    }
+    .postalcode {
+      border: none;
+    }
+
+    .userPostalcode {
+      display: flex;
+      align-items: center;
+    }
   }
 }

@@ -9,18 +9,17 @@ import Cart from "../../components/Cart/Cart";
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
   const [userData, setUserData] = useState({
-    first_name: "",
-    last_name: "",
+    // first_name: "",
+    // last_name: "",
     cellphone: "",
     address: "",
-    postalcode: "",
+    postalCode: "",
   });
 
   const getSum = cartProductList => {
     let sum = 0;
     cartProductList.forEach(cartProduct => {
-      sum +=
-        parseInt(cartProduct?.individualPrice) * parseInt(cartProduct?.cartSum);
+      sum += parseInt(cartProduct?.price) * parseInt(cartProduct?.count);
     });
     return sum;
   };
@@ -33,26 +32,33 @@ function Order() {
     fetch("/data/cartData.json", {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization: token,
+        Authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJpYXQiOjE2ODM1MzgwNzZ9.pDdwVNPhBaFlSm34hEX8HZGkfKwy13geGtkfzBRjepU",
+        // Authorization: token,
       },
     })
       .then(res => {
+        console.log(res);
         return res.json();
       })
       .then(data => {
+        console.log("data ? ", data);
         return setCartProductList(data);
       });
 
-    fetch("/data/userData.json", {
+    fetch("/data/userData.json ", {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization: token,
+        Authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTY4MzYxMDY0Nn0.8m5ZuyVgy_u1g-wiW1v4RHX_WB5Q7QZpSAQsfjvUst8",
       },
     })
       .then(response => {
+        console.log("get response ", response);
         return response.json();
       })
       .then(data => {
+        console.log("get data ", data);
         return setUserData(data.user);
       });
   }, []);
