@@ -11,7 +11,8 @@ function FilterComponent({ shopContent, setShopContent }) {
         <button
           onClick={() => {
             setShow(!show);
-          }}>
+          }}
+        >
           <img
             alt="button"
             src={`${
@@ -39,7 +40,8 @@ function FilterComponent({ shopContent, setShopContent }) {
                     a.title.toUpperCase() < b.title.toUpperCase() ? -1 : 1
                   );
                   setShopContent(copy);
-                }}>
+                }}
+              >
                 가나다순
               </button>
             </p>
