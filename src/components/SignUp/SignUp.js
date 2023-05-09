@@ -59,6 +59,7 @@ const SignUp = ({ setIsLogin }) => {
         lastName: inputValues.lastName,
         firstName: inputValues.firstName,
         email: inputValues.email,
+
         password: inputValues.password,
         subscription: subscriptionValue,
       }),

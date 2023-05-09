@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
+
 import "./Nav.scss";
 
 const Nav = () => {
@@ -9,11 +10,13 @@ const Nav = () => {
   const [userData, setUserData] = useState([]);
   const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
-  const token = localStorage.getItem("TOKEN");
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJpYXQiOjE2ODM1NDY5NTJ9.DwJwMfBPt80nklkphzVBvOIOetdbluu6pfI9C6M3iFk";
+  // const token = localStorage.getItem("TOKEN");
   const { user } = userData;
-
+  const url = "http://10.58.52.195:3000/";
   useEffect(() => {
-    fetch("http://10.58.52.169:9001/users", {
+    fetch(`${url}users`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -24,7 +27,7 @@ const Nav = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://10.58.52.169:9001/carts", {
+    fetch(`${url}carts`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -51,7 +54,7 @@ const Nav = () => {
   return (
     <>
       <div className="nav">
-        <div onClick={() => navigate("/")} className="logo"></div>
+        <div onClick={() => navigate("/")} className="logo" />
         <ul className="navList">
           <div className="navBox navBoxLeft">
             <li onClick={() => navigate("/Artists")}>Artists</li>

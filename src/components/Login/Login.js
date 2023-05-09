@@ -10,6 +10,7 @@ const Login = ({ setLogIn, goToSignUp }) => {
   });
   const { email, password } = inputValues;
   const [loginWarning, setLoginWarning] = useState("");
+
   const loginValid = email.includes("@") && password.length >= 5;
   const token = localStorage.getItem("TOKEN");
 
@@ -58,7 +59,7 @@ const Login = ({ setLogIn, goToSignUp }) => {
           btnOn={!loginValid}
           action={loginOn}
           buttonSize="bigButton"
-          buttonColor={loginValid ? "dark" : "buttonOff"}
+          buttonColor="dark"
         >
           로그인
         </Button>
