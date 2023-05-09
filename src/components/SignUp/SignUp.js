@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
-import "./SignUp.scss";
 import SignUpModal from "./SignUpModal";
+import API_ADDRESS from "../../utils";
+import "./SignUp.scss";
 
 const SignUp = ({ setIsLogin }) => {
   const [message, setMessage] = useState([]);
@@ -52,7 +53,7 @@ const SignUp = ({ setIsLogin }) => {
   };
 
   const signUp = () => {
-    fetch("http://10.58.52.169:9001/users/signUp", {
+    fetch(`${API_ADDRESS}users/signUp`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
