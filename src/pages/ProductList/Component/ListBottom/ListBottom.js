@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import ArtWorks from "../ArtWorks/ArtWorks";
 import LeftFilter from "../LeftFilter/LeftFilter";
-import GOODSFILTER from "../LeftFilter/GoodsFilter";
-import ARTFILTER from "../LeftFilter/ArtFilter";
+import { ARTFILTER } from "../LeftFilter/ArtFilter";
+import { GOODSFILTER } from "../LeftFilter/GoodsFilter";
 import GoodsCategory from "../GoodsCategory/GoodsCategory";
 import "./ListBottom.scss";
 
