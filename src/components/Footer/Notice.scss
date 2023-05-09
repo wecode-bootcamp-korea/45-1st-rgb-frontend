@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+.list {
+  width: 100%;
+  margin-bottom: 40px;
+  color: $main-white;
+  font-size: 23px;
+  font-weight: 100;
+  .texts {
+    li {
+      margin-bottom: 30px;
+    }
+  }
+}

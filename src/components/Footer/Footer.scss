@@ -1,377 +1,115 @@
 @import "../../styles/variables";
 
-.footerfooterWrapper {
+.total {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  background-color: $main-ivory;
-}
-.footerFooter {
-  width: 1440px;
-  height: 669px;
-  border: 1px none;
-}
-.footerGroup {
-  height: 669px;
-}
-.footerGroup2 {
-  width: 1440px;
-  height: 669px;
-}
-
-.footerOverlap {
-  position: relative;
-  width: 1440px;
-  height: 669px;
-  background-color: $main-grey;
-}
-
-.footerLOGINDefault {
-  position: absolute;
-  top: 12px;
-  left: 0;
-  width: 1440px;
   height: 657px;
-  overflow: hidden;
-  background-color: $main-ivory;
-  box-shadow: 0px 4px 4px #00000040;
-}
-.footerOverlapGroup {
-  position: relative;
-  height: 1024px;
+  background-color: $main-black;
 }
 
-.footerinnerGroup {
-  position: absolute;
-  top: 0;
-  left: 78px;
-  width: 1295px;
-  height: 547px;
-}
-.footerNotice1 {
-  position: absolute;
-  top: 130px;
-  left: 0;
-  width: 481px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.footerNotice2 {
-  position: absolute;
-  top: 163px;
-  left: 0;
-  width: 481px;
-  height: 65px;
-}
-
-.footerP {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 481px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.footerNotice3 {
-  position: absolute;
-  top: 38px;
-  left: 0;
-  width: 481px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.footerNotice4 {
-  position: absolute;
-  top: 234px;
-  left: 0;
-  width: 481px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.footerNotice5 {
-  position: absolute;
-  top: 267px;
-  left: 0;
-  width: 481px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.footerTermsofusegroup {
+.totalLeft {
   display: flex;
-  position: absolute;
-  top: 430px;
-  left: 641px;
   flex-direction: column;
-  align-items: flex-start;
-  width: 636px;
-  height: 114px;
-  gap: 12px;
-}
-.footerTermsofuse {
-  position: relative;
-  width: 636px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-.termsofuseHead {
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-}
-.termsofuseContext {
-  position: relative;
-  width: 636px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.termsofuseEmail {
-  text-decoration: underline;
-}
-.footerSpan {
-  position: relative;
-  width: 636px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
+  justify-content: space-between;
+  width: 40%;
+  height: 657px;
+  padding: 80px;
+  padding-left: 120px;
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    height: 50px;
+    padding: 5px;
+
+    .leftButton {
+      color: $main-white;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .rightButton {
+      color: $main-white;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+
+  .cs {
+    width: 30%;
+    height: 90px;
+    margin-bottom: 30px;
+    color: $main-white;
+    font-size: 24px;
+    font-weight: 500;
+
+    .faq {
+      margin-top: 1px;
+    }
+    .inquiry {
+      margin-top: 30px;
+    }
+  }
 }
 
-.footerLeft {
-  position: absolute;
-  top: 480px;
-  left: 2px;
-  color: $main-ivory;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.footerLeftbottom {
-  position: absolute;
-  top: 530px;
-  left: 2px;
-  color: $main-ivory;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.footerNews {
-  position: absolute;
-  top: 71px;
-  left: 300px;
-  width: 38px;
-  height: 15px;
-}
+.totalRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  height: 657px;
+  margin-left: 140px;
+  padding: 75px;
+  color: $main-white;
 
-.footerNewstitle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.footerNotice {
-  position: absolute;
-  top: 74px;
-  left: 0;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.footerNewsletter {
-  position: absolute;
-  top: 94px;
-  left: 0;
-  width: 46px;
-  height: 1px;
-  object-fit: cover;
-}
-.footerRectangle {
-  position: absolute;
-  top: 705px;
-  left: 7331px;
-  width: 651px;
-  height: 122px;
-}
-.customerService {
-  position: absolute;
-  top: 57px;
-  left: 639px;
-  width: 628px;
-  height: 321px;
-}
-.customerserviceTitle {
-  position: absolute;
-  top: 0;
-  left: 3px;
-  color: $main-ivory;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.newsLetter {
-  position: absolute;
-  top: 177px;
-  left: 4px;
-  color: $main-ivory;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.newsletterSub {
-  position: absolute;
-  top: 231px;
-  left: 4px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.customerserviceSub {
-  position: absolute;
-  top: 87px;
-  left: 4px;
-  color: $main-ivory;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.customerserviceEmail {
-  position: absolute;
-  top: 118px;
-  left: 3px;
-  color: $main-ivory;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
+  .companyInfo {
+    width: 70%;
+    height: 200px;
 
-.customerservicePhone {
-  position: absolute;
-  top: 23px;
-  left: 0;
-  color: $main-ivory;
-  font-size: 45px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-.newsletterSubgroup {
-  position: absolute;
-  top: 304px;
-  left: 3px;
-  width: 621px;
-  height: 17px;
-}
-.newsletterSubtext1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: $main-ivory;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.newsletterSubtext2 {
-  position: absolute;
-  top: 0;
-  left: 181px;
-  color: $main-ivory;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.newsletterSubtext3 {
-  position: absolute;
-  top: 0;
-  left: 375px;
-  color: $main-ivory;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.newsletterSubtext4 {
-  position: absolute;
-  top: 0;
-  left: 535px;
-  color: $main-ivory;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
-}
-.newsletterInit {
-  position: absolute;
-  top: 261px;
-  left: 3px;
-  width: 613px;
-  height: 1px;
-  object-fit: cover;
-}
+    line-height: 60px;
+    .csCenter {
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+    .phone {
+      color: $main-ivory;
+      font-size: 70px;
+      letter-spacing: 3px;
+    }
+    .hours {
+      font-size: 20px;
+      font-weight: 100;
+      line-height: 40px;
+      word-spacing: 5px;
+    }
+    .mail {
+      font-size: 20px;
+      font-weight: 100;
+      letter-spacing: 2px;
+      line-height: 30px;
+    }
+  }
 
-.newsletterButton {
-  position: absolute;
-  top: 216px;
-  left: 543px;
-  width: 75px;
-  height: 32px;
-}
-
-.newsletterButtonwrapper {
-  position: relative;
-  width: 73px;
-  height: 32px;
-  border-radius: 5px;
-  background-color: $main-ivory;
-}
-
-.newsletterButtonit {
-  position: absolute;
-  top: 7px;
-  left: 20px;
-  color: $main-grey;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: normal;
+  .termsOfUse {
+    width: 105%;
+    height: 200px;
+    column-gap: 100px;
+    font-size: 18px;
+    .policy {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .address {
+      margin-bottom: 20px;
+      font-weight: 100;
+      line-height: 20px;
+      .underBar {
+        text-decoration: underline;
+      }
+    }
+    .alert {
+      font-weight: 100;
+      line-height: 20px;
+    }
+  }
 }
