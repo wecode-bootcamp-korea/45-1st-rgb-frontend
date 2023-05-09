@@ -24,16 +24,13 @@
   }
 }
 
-.buttonContainer {
-  position: flex;
-  margin-top: 100px;
-}
-
 .buttonPre2 {
   position: absolute;
   left: 0px;
   width: 63px;
   height: 63px;
+  margin-top: 220px;
+  margin-left: -70px;
   background-image: url("../../assets/button-pre.png");
 }
 
@@ -42,6 +39,8 @@
   right: 0px;
   width: 63px;
   height: 63px;
+  margin-top: 220px;
+  margin-right: -70px;
   background-image: url("../../assets/button-next.png");
 }
 

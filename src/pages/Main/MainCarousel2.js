@@ -20,8 +20,8 @@ export default function MainCarousel2() {
 
   useEffect(() => {
     if (slideRef.current) {
-      slideRef.current.style.transition = "transform 0.2s ease-in";
-      slideRef.current.style.transform = `translateX(-${currentSlide * 44.4}%)`;
+      slideRef.current.style.transition = "transform 0.3s ease-in";
+      slideRef.current.style.transform = `translateX(-${currentSlide * 41}%)`;
     }
   }, [currentSlide]);
 
@@ -44,16 +44,14 @@ export default function MainCarousel2() {
   return (
     <div className="goodsContainer">
       <div className="goodsTitle">탁월한 셀렉션</div>
+      <button className="buttonPre2" onClick={prevSlide} />
+      <button className="buttonNext2" onClick={nextSlide} />
       <div className="goodsBox">
         <ul className="secondSlide" ref={slideRef}>
           {carouselItem.map((item, id) => (
             <SecondCarousel key={id} item={item} />
           ))}
         </ul>
-        <div className="buttonContainer">
-          <button className="buttonPre2" onClick={prevSlide} />
-          <button className="buttonNext2" onClick={nextSlide} />
-        </div>
       </div>
     </div>
   );
