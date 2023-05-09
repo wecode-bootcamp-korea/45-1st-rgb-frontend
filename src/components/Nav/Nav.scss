@@ -72,25 +72,3 @@
     color: $main-white;
   }
 }
-
-.categoryShop {
-  .shopCategory {
-    visibility: visible;
-    position: absolute;
-    bottom: -60px;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    padding-left: 230px;
-    background-color: $main-black;
-    color: $main-white;
-    @include flex(flex, row, center, flex-start);
-
-    p:first-child {
-      margin-right: 40px;
-    }
-  }
-  .hidden {
-    visibility: hidden;
-  }
-}
