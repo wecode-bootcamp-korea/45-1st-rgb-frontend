@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
+import API_ADDRESS from "../../utils/API_ADDRESS";
 import "./Login.scss";
 
 const Login = ({ setLogIn, goToSignUp }) => {
@@ -10,17 +11,11 @@ const Login = ({ setLogIn, goToSignUp }) => {
   });
   const { email, password } = inputValues;
   const [loginWarning, setLoginWarning] = useState("");
-
-  const loginValid = email.includes("@") && password.length >= 5;
   const token = localStorage.getItem("TOKEN");
-
-  const handleInput = event => {
-    const { name, value } = event.target;
-    setInputValues({ ...inputValues, [name]: value });
-  };
+  const loginValid = email.includes("@") && password.length >= 5;
 
   const loginOn = () => {
-    fetch("http://10.58.52.169:9001/users/logIn", {
+    fetch(`${API_ADDRESS}users/logIn`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
@@ -29,9 +24,20 @@ const Login = ({ setLogIn, goToSignUp }) => {
       }),
     })
       .then(res => res.json())
-      .then(data => localStorage.setItem("TOKEN", data.accessToken));
+      .then(data => {
+        localStorage.setItem("TOKEN", data.accessToken);
 
-    token ? setLogIn("") : setLoginWarning("회원정보가 일치하지 않습니다.");
+        if (!localStorage.getItem("TOKEN")) {
+          setLoginWarning("회원정보가 일치하지 않습니다.");
+        } else {
+          setLogIn("");
+        }
+      });
+  };
+
+  const handleInput = event => {
+    const { name, value } = event.target;
+    setInputValues({ ...inputValues, [name]: value });
   };
 
   return (

@@ -51,7 +51,6 @@ const SignUp = ({ setIsLogin }) => {
       )
     );
   };
-  console.log("message", message);
   const signUp = () => {
     fetch(`${API_ADDRESS}users/signUp`, {
       method: "POST",
