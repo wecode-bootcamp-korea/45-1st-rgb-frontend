@@ -51,7 +51,9 @@ function FilterComponent({ shopContent, setShopContent }) {
                 className="sortingButton"
                 onClick={() => {
                   let secondCopy = [...shopContent];
-                  secondCopy.sort((a, b) => (a.price < b.price ? -1 : 1));
+                  secondCopy.sort((a, b) =>
+                    Number(a.price) < Number(b.price) ? -1 : 1
+                  );
                   setShopContent(secondCopy);
                 }}
               >
