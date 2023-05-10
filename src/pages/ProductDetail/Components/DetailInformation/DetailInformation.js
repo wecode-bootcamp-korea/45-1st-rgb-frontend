@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
-
+import API_ADDRESS from "../../../../utils/API_ADDRESS";
 import "./DetailInformation.scss";
 
 function DetailInformation({ details, showMore, setLogIn }) {
@@ -48,7 +48,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
   };
 
   const postCart = () => {
-    const url = `http://10.58.52.195:3000/carts`;
+    const url = `${API_ADDRESS}carts`;
 
     fetch(url, {
       method: "POST",
