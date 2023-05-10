@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import ArtWorks from "../ArtWorks/ArtWorks";
 import LeftFilter from "../LeftFilter/LeftFilter";
+import API_ADDRESS from "../../../../utils/API_ADDRESS";
 import "./ListBottom.scss";
 
 function ListBottom() {
@@ -11,7 +12,7 @@ function ListBottom() {
   const [shopContent, setShopContent] = useState([]);
 
   useEffect(() => {
-    const url = `http://10.58.52.169:9001/products/all?limit=${limit}&offset=${offset}`;
+    const url = `${API_ADDRESS}products/all?limit=${limit}&offset=${offset}`;
 
     fetch(url, {
       method: "GET",
