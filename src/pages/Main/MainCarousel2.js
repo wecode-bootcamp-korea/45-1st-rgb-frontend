@@ -51,9 +51,9 @@ export default function MainCarousel2() {
             <SecondCarousel key={id} item={item} />
           ))}
         </ul>
+        <button className="buttonPre2" onClick={prevSlide} />
+        <button className="buttonNext2" onClick={nextSlide} />
       </div>
-      <button className="buttonPre2" onClick={prevSlide} />
-      <button className="buttonNext2" onClick={nextSlide} />
       <div className="indicatorBar2">
         {carouselItem.map((item, id) => (
           <div

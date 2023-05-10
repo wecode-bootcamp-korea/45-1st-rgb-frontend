@@ -2,26 +2,16 @@ import { useState, useEffect } from "react";
 import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
-//import { Link } from "react-router-dom";
-//import { useHistory } from "react-router-dom";
 
-export default function CartList({ handleClose, toggleCart }) {
+export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
-  //const goToOrder = <Link to="/order" />;
-
-  // const history = useHistory();
-
-  // const handleCartClick = () => {
-  //   toggleCart();
-  //   history.push("/cart");
-  // };
 
   useEffect(() => {
-    fetch("./data/productInfo.json", {
-      method: "GET",
+    fetch("http://10.58.52.195:3000/carts", {
+      method: "GET", //api 통신 질문
       headers: {
         Authorization: localStorage.getItem(token),
       },
@@ -34,7 +24,6 @@ export default function CartList({ handleClose, toggleCart }) {
       });
   }, []);
 
-  //fetch로 보내줄때 -> 확인버튼 클릭 수량 변경
   const handleCount = id => {
     fetch(`http://10.58.52.195:3000/carts/${items[id].id}`, {
       method: "PATCH",
@@ -46,9 +35,7 @@ export default function CartList({ handleClose, toggleCart }) {
       body: JSON.stringify({ count: items[id].count }),
     })
       .then(response => response.json())
-      // eslint-disable-next-line no-console
       .then(data => console.log(data))
-      // eslint-disable-next-line no-console
       .catch(error => console.log(error));
   };
 
@@ -86,7 +73,6 @@ export default function CartList({ handleClose, toggleCart }) {
     });
 
     const newItems = items.filter((item, i) => i !== id);
-
     setItems(newItems);
   };
 
@@ -128,7 +114,7 @@ export default function CartList({ handleClose, toggleCart }) {
                   +
                 </button>
                 <button className="check" onClick={() => handleCount(id)}>
-                  <span className="hover-text">수량변경</span>
+                  <span className="texth">수량변경</span>
                 </button>
 
                 {/* 확인 버튼 생성 */}
@@ -159,7 +145,10 @@ export default function CartList({ handleClose, toggleCart }) {
                 </div>
                 <div className="payBtn">
                   <Button
-                    action={(() => handleClose(), () => navigate("/order"))}
+                    action={() => {
+                      navigate("/order");
+                      setShowCart(false);
+                    }}
                     buttonSize="mediumButton"
                     buttonColor="bright"
                   >
