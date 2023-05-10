@@ -3,11 +3,11 @@
 
 .invoiceUserData {
   @include flex(flex, column, flex-start, _);
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .invoiceUserDataTopBox {
-  width: 400px;
+  width: 500px;
   @include flex(flex, row, flex-start, space-between);
 }
 
@@ -29,7 +29,7 @@
 
   & > li {
     @include flex(flex, row, flex-start, space-between);
-    width: 350px;
+    width: 450px;
     margin: 0 0 15px 10px;
     font-size: 14px;
   }

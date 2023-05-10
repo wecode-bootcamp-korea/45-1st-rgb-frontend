@@ -3,7 +3,7 @@
 
 .invoiceOrderData {
   @include flex(flex, column, flex-start, _);
-  padding-bottom: 20px;
+  padding: 20px;
 }
 
 .invoiceProductImage {
@@ -12,7 +12,7 @@
   background-color: aqua;
 }
 .invoiceOrderDataTable {
-  width: 400px;
+  width: 450px;
   margin-top: 20px;
 
   & > tr {
