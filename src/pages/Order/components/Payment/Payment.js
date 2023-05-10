@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckInput from "../CheckBox/CheckInput";
 import "./Payment.scss";
-import API_ADDRESS from "../../../../utils/API_ADDRESS";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
   const [checkInputs, setCheckInputs] = useState([]);
@@ -22,7 +22,7 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
   const token = localStorage.getItem("TOKEN");
 
   const postOrderData = () => {
-    fetch(`${API_ADDRESS}orders`, {
+    fetch(`${API_ADDRESS_ORDERS}orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",

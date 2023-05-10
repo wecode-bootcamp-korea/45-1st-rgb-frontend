@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Delivery.scss";
-import API_ADDRESS from "../../../../utils/API_ADDRESS";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
   const [isInputOpen, setIsInputOpen] = useState(false);
@@ -38,7 +38,7 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
   useEffect(() => {
     if (!isDefaultAddressChecked) return;
 
-    fetch(`${API_ADDRESS}users`, {
+    fetch(`${API_ADDRESS_ORDERS}users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",

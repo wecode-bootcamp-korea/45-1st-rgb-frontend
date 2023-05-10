@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Invoice.scss";
 import { useParams } from "react-router-dom";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 
 function Invoice() {
   const [invoiceData, setInvoiceData] = useState();
@@ -10,7 +11,7 @@ function Invoice() {
   const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
-    fetch(`http://10.58.52.169:9001/orders/${orderId}`, {
+    fetch(`${API_ADDRESS_ORDERS}orders/${orderId}`, {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: token,

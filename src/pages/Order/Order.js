@@ -5,7 +5,7 @@ import Payment from "./components/Payment/Payment";
 import Delivery from "./components/Delivery/Delivery";
 import "./Order.scss";
 import Cart from "../../components/Cart/Cart";
-import API_ADDRESS from "../../utils/API_ADDRESS";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
@@ -28,7 +28,7 @@ function Order() {
   const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
-    fetch(`${API_ADDRESS}carts`, {
+    fetch(`${API_ADDRESS_ORDERS}carts`, {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: token,
@@ -41,7 +41,7 @@ function Order() {
         return setCartProductList(data);
       });
 
-    fetch(`${API_ADDRESS}users`, {
+    fetch(`${API_ADDRESS_ORDERS}users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
