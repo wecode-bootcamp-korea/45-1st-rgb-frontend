@@ -21,7 +21,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
   const [count, setCount] = useState(1);
   const total = count * price;
   const [button1, setButton1] = useState(false);
-  const [button2, setButton2] = useState(false);
+  // const [button2, setButton2] = useState(false);
   const token = localStorage.getItem("TOKEN");
   // const [logIn, setLogIn] = useState("");
   const navigate = useNavigate();
@@ -33,25 +33,25 @@ function DetailInformation({ details, showMore, setLogIn }) {
     }
   }, [button1]);
 
-  useEffect(() => {
-    if (button2) {
-      // 이 자리에 useNavigate로 결제 창으로 넘어가는 함수
-      // token ? navigate("/order") : setLogIn(<User setLogIn={setLogIn} />);
-      if (token) {
-        postPay();
-        navigate("/order");
-      } else {
-        setLogIn(<User setLogIn={setLogIn} />);
-      }
-    }
-  }, [button2]);
+  // useEffect(() => {
+  //   if (button2) {
+  //     // 이 자리에 useNavigate로 결제 창으로 넘어가는 함수
+  //     // token ? navigate("/order") : setLogIn(<User setLogIn={setLogIn} />);
+  //     if (token) {
+  //       postPay();
+  //       navigate("/order");
+  //     } else {
+  //       setLogIn(<User setLogIn={setLogIn} />);
+  //     }
+  //   }
+  // }, [button2]);
 
   const cartButton = () => {
     setButton1(!button1);
   };
-  const buyButton = () => {
-    setButton2(!button2);
-  };
+  // const buyButton = () => {
+  //   setButton2(!button2);
+  // };
   const plusCount = () => {
     setCount(count + 1);
     if (count === quantity) {
@@ -85,23 +85,23 @@ function DetailInformation({ details, showMore, setLogIn }) {
     alert("카트에 성공적으로 담겼습니다");
   };
 
-  const postPay = () => {
-    const url = `http://10.58.52.195:3000/carts`;
+  // const postPay = () => {
+  //   const url = `http://10.58.52.195:3000/carts`;
 
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        productsId: id,
-        quantity: count,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
-  };
+  //   fetch(url, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json;charset=utf-8",
+  //       Authorization: token,
+  //     },
+  //     body: JSON.stringify({
+  //       productsId: id,
+  //       quantity: count,
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // };
 
   return (
     <div className="detailInformation">
@@ -151,18 +151,18 @@ function DetailInformation({ details, showMore, setLogIn }) {
         <div className="buttons">
           <Button
             buttonColor="bright"
-            buttonSize="smallButton"
+            buttonSize="bigButton"
             action={cartButton}
           >
             카트 추가
           </Button>
-          <Button
+          {/* <Button
             buttonColor="dark"
             buttonSize="smallButton"
             action={buyButton}
           >
             바로 구매
-          </Button>
+          </Button> */}
         </div>
       </div>
     </div>
