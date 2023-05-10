@@ -64,11 +64,11 @@ export default function MainCarousel() {
         </div>
       </div>
       <div className="indicatorBar">
-        {items.map((item, index) => (
+        {items.map((item, id) => (
           <div
             key={item.id}
-            className={`indicator ${currentIndex === index ? "active" : ""}`}
-            onClick={() => setCurrentIndex(index)}
+            className={`indicator ${currentIndex === id ? "active" : ""}`}
+            onClick={() => setCurrentIndex(id)}
           />
         ))}
       </div>

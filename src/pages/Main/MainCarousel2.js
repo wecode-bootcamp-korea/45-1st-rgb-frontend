@@ -55,11 +55,11 @@ export default function MainCarousel2() {
       <button className="buttonPre2" onClick={prevSlide} />
       <button className="buttonNext2" onClick={nextSlide} />
       <div className="indicatorBar2">
-        {carouselItem.map((item, index) => (
+        {carouselItem.map((item, id) => (
           <div
             key={item.id}
-            className={`indicator2 ${currentSlide === index ? "active2" : ""}`}
-            onClick={() => setCurrentSlide(index)}
+            className={`indicator2 ${currentSlide === id ? "active2" : ""}`}
+            onClick={() => setCurrentSlide(id)}
           />
         ))}
       </div>

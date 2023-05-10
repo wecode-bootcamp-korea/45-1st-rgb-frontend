@@ -74,11 +74,16 @@
     font-weight: 200;
   }
 
-  .check {
+  button.check {
+    display: none;
     margin-left: 20px;
     color: $main-ivory;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 200;
+  }
+
+  button.check:hover {
+    display: block;
   }
 
   .itemPrice {
