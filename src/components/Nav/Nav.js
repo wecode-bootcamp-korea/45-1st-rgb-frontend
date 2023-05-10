@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
+import Cart from "../Cart/Cart";
 import API_ADDRESS from "../../utils/API_ADDRESS";
 import "./Nav.scss";
-import Cart from "../Cart/Cart";
 
 const Nav = () => {
   const navigate = useNavigate();
   const [myCart, setMyCart] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
   const token = localStorage.getItem("TOKEN");
   const { user } = userData;
-
+  const [showCart, setShowCart] = useState(false);
+  const toggleCart = () => {
+    setShowCart(!showCart);
+  };
+  console.log("user", user);
   useEffect(() => {
     if (!token) return;
-    fetch("http://10.58.52.195:3000/users", {
+    fetch(`${API_ADDRESS}users`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -28,7 +31,7 @@ const Nav = () => {
 
   useEffect(() => {
     if (!token) return;
-    fetch("http://10.58.52.195:3000/carts", {
+    fetch(`${API_ADDRESS}carts`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -37,11 +40,6 @@ const Nav = () => {
         setMyCart(data);
       });
   }, []);
-
-  const [showCart, setShowCart] = useState(false);
-  const toggleCart = () => {
-    setShowCart(!showCart);
-  };
 
   useEffect(() => {
     if (token) return setLogIn("");
@@ -57,12 +55,31 @@ const Nav = () => {
   return (
     <>
       <div className="nav">
-        <div onClick={() => navigate("/")} className="logo" />
+        <div
+          onClick={() => {
+            navigate("/");
+            setLogIn("");
+            setShowCart(false);
+          }}
+          className="logo"
+        />
         <ul className="navList">
           <div className="navBox navBoxLeft">
-            <li onClick={() => navigate("/Artists")}>Artists</li>
             <li
-              onClick={() => navigate("/productList")}
+              onClick={() => {
+                setLogIn("");
+                setShowCart(false);
+                navigate("/Artists");
+              }}
+            >
+              Artists
+            </li>
+            <li
+              onClick={() => {
+                setLogIn("");
+                setShowCart(false);
+                navigate("/productList/all");
+              }}
               className="categoryShop"
             >
               Shop
