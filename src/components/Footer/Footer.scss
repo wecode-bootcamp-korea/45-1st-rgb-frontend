@@ -4,115 +4,114 @@
   display: flex;
   height: 657px;
   background-color: $main-black;
-}
 
-.totalLeft {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 40%;
-  height: 550px;
-  padding: 80px;
-  padding-left: 120px;
-
-  .buttons {
+  .totalLeft {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 70%;
-    height: 50px;
-    padding: 5px;
+    width: 40%;
+    height: 550px;
+    padding: 80px;
+    padding-left: 120px;
 
-    .leftButton {
-      color: $main-white;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .rightButton {
-      color: $main-white;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .line {
-      text-decoration: underline;
-    }
-  }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 70%;
+      height: 50px;
 
-  .cs {
-    width: 30%;
-    height: 90px;
-    margin-bottom: 30px;
-    color: $main-white;
-    font-size: 18px;
-    font-weight: 500;
-
-    .faq {
-      margin-top: 1px;
-    }
-    .inquiry {
-      margin-top: 30px;
-    }
-  }
-}
-
-.totalRight {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 50%;
-  height: 657px;
-  margin-left: 140px;
-  padding: 75px;
-  color: $main-white;
-
-  .companyInfo {
-    width: 70%;
-    height: 200px;
-
-    line-height: 60px;
-    .csCenter {
-      font-size: 18px;
-      letter-spacing: 2px;
-    }
-    .phone {
-      color: $main-ivory;
-      font-size: 21px;
-      letter-spacing: 3px;
-    }
-    .hours {
-      font-size: 12px;
-      font-weight: 100;
-      line-height: 40px;
-      word-spacing: 5px;
-    }
-    .mail {
-      font-size: 12px;
-      font-weight: 100;
-      letter-spacing: 2px;
-      line-height: 30px;
-    }
-  }
-
-  .termsOfUse {
-    width: 105%;
-    height: 200px;
-    column-gap: 100px;
-    font-size: 10px;
-    .policy {
-      margin-top: 10px;
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-    .address {
-      margin-bottom: 20px;
-      font-weight: 100;
-      line-height: 20px;
-      .underBar {
+      .leftButton {
+        color: $main-white;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .rightButton {
+        color: $main-white;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .lineeee {
         text-decoration: underline;
       }
     }
-    .alert {
-      font-weight: 100;
-      line-height: 20px;
+
+    .cs {
+      width: 30%;
+      height: 90px;
+      margin-bottom: 30px;
+      color: $main-white;
+      font-size: 18px;
+      font-weight: 500;
+
+      .faq {
+        margin-top: 1px;
+      }
+      .inquiry {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .totalRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    height: 657px;
+    margin-left: 140px;
+    padding: 75px;
+    color: $main-white;
+
+    .companyInfo {
+      width: 70%;
+      height: 200px;
+
+      line-height: 60px;
+      .csCenter {
+        font-size: 18px;
+        letter-spacing: 2px;
+      }
+      .phone {
+        color: $main-ivory;
+        font-size: 21px;
+        letter-spacing: 3px;
+      }
+      .hours {
+        font-size: 12px;
+        font-weight: 100;
+        line-height: 40px;
+        word-spacing: 5px;
+      }
+      .mail {
+        font-size: 12px;
+        font-weight: 100;
+        letter-spacing: 2px;
+        line-height: 30px;
+      }
+    }
+
+    .termsOfUse {
+      width: 105%;
+      height: 200px;
+      column-gap: 100px;
+      font-size: 10px;
+      .policy {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+      .address {
+        margin-bottom: 20px;
+        font-weight: 100;
+        line-height: 20px;
+        .underBar {
+          text-decoration: underline;
+        }
+      }
+      .alert {
+        font-weight: 100;
+        line-height: 20px;
+      }
     }
   }
 }

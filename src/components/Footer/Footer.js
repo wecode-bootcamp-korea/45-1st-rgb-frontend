@@ -15,7 +15,9 @@ const Footer = () => {
               setNotice("N");
             }}
           >
-            <div className={notice === "N" ? "leftButton line" : "leftButton"}>
+            <div
+              className={notice === "N" ? "leftButton lineeee" : "leftButton"}
+            >
               NOTICE
             </div>
           </button>
@@ -26,7 +28,7 @@ const Footer = () => {
             }}
           >
             <div
-              className={notice === "P" ? "rightButton line" : "rightButton"}
+              className={notice === "P" ? "rightButton lineeee" : "rightButton"}
             >
               NEWS
             </div>
