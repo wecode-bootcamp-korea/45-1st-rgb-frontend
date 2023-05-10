@@ -6,7 +6,7 @@ import Paper from "./Paper";
 const Footer = () => {
   const [notice, setNotice] = useState("N");
   return (
-    <div className="total">
+    <div className="footer">
       <div className="totalLeft">
         <div className="buttons">
           <button
@@ -15,7 +15,9 @@ const Footer = () => {
               setNotice("N");
             }}
           >
-            <div className={notice === "N" ? "leftButton line" : "leftButton"}>
+            <div
+              className={notice === "N" ? "leftButton underLine" : "leftButton"}
+            >
               NOTICE
             </div>
           </button>
@@ -26,7 +28,9 @@ const Footer = () => {
             }}
           >
             <div
-              className={notice === "P" ? "rightButton line" : "rightButton"}
+              className={
+                notice === "P" ? "rightButton underLine" : "rightButton"
+              }
             >
               NEWS
             </div>
