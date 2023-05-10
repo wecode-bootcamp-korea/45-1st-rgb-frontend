@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import CarouselItem from "./CarouselItem";
 import "./MainCarousel.scss";
+import API_ADDRESS2 from "../../utils/API_ADDRESS";
 
 export default function MainCarousel() {
   const [items, setItems] = useState([]);
@@ -8,8 +9,9 @@ export default function MainCarousel() {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    fetch("./data/productImage.json", {
+    fetch(`${API_ADDRESS2}products/all`, {
       method: "GET",
+      headers: { "Content-Type": "application/json;charset=utf-8" },
     })
       .then(res => res.json())
       .then(data => {
@@ -41,7 +43,7 @@ export default function MainCarousel() {
     if (carouselRef.current) {
       carouselRef.current.style.transition = "all 0.5s ease-in";
       carouselRef.current.style.transform = `translateX(-${
-        currentIndex * 48.5
+        currentIndex * 60
       }%)`;
     }
   }, [currentIndex, carouselRef]);
@@ -56,7 +58,7 @@ export default function MainCarousel() {
               <span> 이달의 아티스트를 만나보세요</span>
               <div className="textEn">Make art part of your world!</div>
             </div>
-            {items.map(item => (
+            {items?.map(item => (
               <CarouselItem key={item.id} item={item} />
             ))}
           </ul>

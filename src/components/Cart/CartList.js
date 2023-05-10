@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import API_ADDRESS from "../../utils/API_ADDRESS";
 
 export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
@@ -10,7 +11,7 @@ export default function CartList({ handleClose, setShowCart }) {
   const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
-    fetch("http://10.58.52.195:3000/carts", {
+    fetch(`${API_ADDRESS}carts`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -25,7 +26,7 @@ export default function CartList({ handleClose, setShowCart }) {
   }, []);
 
   const handleCount = id => {
-    fetch(`http://10.58.52.195:3000/carts/${items[id].id}`, {
+    fetch(`${API_ADDRESS}carts/${items[id].id}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -63,7 +64,7 @@ export default function CartList({ handleClose, setShowCart }) {
 
   //  delete api
   const deleteItem = id => {
-    fetch(`http://10.58.52.195:3000/carts/${items[id].id}`, {
+    fetch(`${API_ADDRESS}carts/${items[id].id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -99,11 +100,11 @@ export default function CartList({ handleClose, setShowCart }) {
             <div className="cartCategory">가격</div>
             <div className="cartCategory" />
           </div>
-          {items.map((item, id) => (
+          {items?.map((item, id) => (
             <div key={item.id} className="cartItem">
               <div className="itemName">{item.title}</div>
               <div className="itemSize">
-                {item.width}/{item.height}
+                {item.products_size_left}/{item.products_size_right}
               </div>
               <div className="itemQuantity">
                 <button className="minus" onClick={() => decrement(id)}>
