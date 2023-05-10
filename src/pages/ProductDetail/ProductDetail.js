@@ -39,8 +39,6 @@ function ProductDetail() {
       });
   }, [productId]);
 
-  console.log("parent : ", details);
-
   return (
     <>
       {logIn}

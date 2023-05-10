@@ -34,6 +34,7 @@ div.leftFilter {
 .sorting {
   padding-bottom: 10px;
 
+  &:active,
   &:hover {
     background-color: $main-ivory;
   }

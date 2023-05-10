@@ -29,14 +29,20 @@ function DetailInformation({ details, showMore, setLogIn }) {
   useEffect(() => {
     if (button1) {
       // 이 자리에 카트에 수량 추가되는 함수
-      token ? post() : setLogIn(<User setLogIn={setLogIn} />);
+      token ? postCart() : setLogIn(<User setLogIn={setLogIn} />);
     }
   }, [button1]);
 
   useEffect(() => {
     if (button2) {
       // 이 자리에 useNavigate로 결제 창으로 넘어가는 함수
-      token ? navigate("/order") : setLogIn(<User setLogIn={setLogIn} />);
+      // token ? navigate("/order") : setLogIn(<User setLogIn={setLogIn} />);
+      if (token) {
+        postPay();
+        navigate("/order");
+      } else {
+        setLogIn(<User setLogIn={setLogIn} />);
+      }
     }
   }, [button2]);
 
@@ -60,7 +66,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
     }
   };
 
-  const post = () => {
+  const postCart = () => {
     const url = `http://10.58.52.195:3000/carts`;
 
     fetch(url, {
@@ -77,6 +83,24 @@ function DetailInformation({ details, showMore, setLogIn }) {
       .then(res => res.json())
       .then(data => console.log(data));
     alert("카트에 성공적으로 담겼습니다");
+  };
+
+  const postPay = () => {
+    const url = `http://10.58.52.195:3000/carts`;
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        productsId: id,
+        quantity: count,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
   };
 
   return (
