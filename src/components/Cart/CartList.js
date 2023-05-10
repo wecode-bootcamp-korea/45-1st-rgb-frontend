@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import "./Cart.scss";
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
 
-export default function CartList({ handleClose }) {
+export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJpYXQiOjE2ODM2MzI3NTF9.eyI8dQmAAefZVgrqcgM5xupnKzxjeI708rtvrUGbvMs";
+  const navigate = useNavigate();
+  const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
-    fetch("./data/productInfo.json", {
+    fetch("http://10.58.52.195:3000/carts", {
       method: "GET",
       headers: {
         Authorization: token,
@@ -23,21 +24,18 @@ export default function CartList({ handleClose }) {
       });
   }, []);
 
-  //fetch로 보내줄때 -> 확인버튼 클릭 수량 변경
-  const handleCount = index => {
-    fetch(`http://10.58.52.195:3000/carts/${items[index].id}`, {
+  const handleCount = id => {
+    fetch(`http://10.58.52.195:3000/carts/${items[id].id}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
         Authorization: token,
       },
-      body: JSON.stringify({ count: items[index].count }),
+      body: JSON.stringify({ count: items[id].count }),
     })
       .then(response => response.json())
-      // eslint-disable-next-line no-console
       .then(data => console.log(data))
-      // eslint-disable-next-line no-console
       .catch(error => console.log(error));
   };
 
@@ -49,23 +47,23 @@ export default function CartList({ handleClose }) {
     setTotalPrice(total);
   }, [items]);
 
-  const decrement = index => {
+  const decrement = id => {
     const newItems = [...items];
-    if (newItems[index].count > 1) {
-      newItems[index].count--;
+    if (newItems[id].count > 1) {
+      newItems[id].count--;
       setItems(newItems);
     }
   };
 
-  const increment = index => {
+  const increment = id => {
     const newItems = [...items];
-    newItems[index].count++;
+    newItems[id].count++;
     setItems(newItems);
   };
 
   //  delete api
-  const deleteItem = index => {
-    fetch(`http://10.58.52.195:3000/carts/${items[index].id}`, {
+  const deleteItem = id => {
+    fetch(`http://10.58.52.195:3000/carts/${items[id].id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -74,8 +72,7 @@ export default function CartList({ handleClose }) {
       },
     });
 
-    const newItems = items.filter((item, i) => i !== index);
-
+    const newItems = items.filter((item, i) => i !== id);
     setItems(newItems);
   };
 
@@ -102,24 +99,23 @@ export default function CartList({ handleClose }) {
             <div className="cartCategory">가격</div>
             <div className="cartCategory" />
           </div>
-          {items.map((item, idx) => (
+          {items.map((item, id) => (
             <div key={item.id} className="cartItem">
               <div className="itemName">{item.title}</div>
               <div className="itemSize">
                 {item.width}/{item.height}
               </div>
               <div className="itemQuantity">
-                <button className="minus" onClick={() => decrement(idx)}>
+                <button className="minus" onClick={() => decrement(id)}>
                   -
                 </button>
                 {item.count}
-                <button className="plus" onClick={() => increment(idx)}>
+                <button className="plus" onClick={() => increment(id)}>
                   +
                 </button>
-                <button className="check" onClick={() => handleCount(idx)}>
-                  확인
+                <button className="check" onClick={() => handleCount(id)}>
+                  수량변경
                 </button>
-                {/* 확인 버튼 생성 */}
               </div>
 
               <div className="itemPrice">
@@ -129,7 +125,7 @@ export default function CartList({ handleClose }) {
                 <button
                   className="deleteButton"
                   onClick={() => {
-                    deleteItem(idx);
+                    deleteItem(id);
                   }}
                 />
               </div>
@@ -147,14 +143,22 @@ export default function CartList({ handleClose }) {
                 </div>
                 <div className="payBtn">
                   <Button
+                    action={() => {
+                      navigate("/order");
+                      setShowCart(false);
+                    }}
                     buttonSize="mediumButton"
                     buttonColor="bright"
-                    // 결제 페이지로만 이동되게
                   >
                     결제하기
                   </Button>
                 </div>
-                <button className="arrowUp" onClick={handleClose} />
+                <button
+                  className="arrowUp"
+                  onClick={() => {
+                    handleClose();
+                  }}
+                />
               </div>
             </div>
           </div>
