@@ -1,0 +1,62 @@
+@import "../../../../styles/variables";
+
+.orderList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  background-color: #f5f5e6;
+
+  .orderItemWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .orderItem {
+      display: flex;
+      justify-content: space-between;
+      gap: 210px;
+      width: 100%;
+    }
+  }
+}
+
+.orderListBox {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .checkoutProductsBox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkoutProduct + .checkoutProduct {
+    border-top: none;
+  }
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkoutProductRight {
+  padding: 5px 0px;
+
+  .topRow {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .bottomRow {
+    display: flex;
+    justify-content: space-between;
+    color: $main-grey;
+
+    button {
+      color: $main-grey;
+    }
+  }
+}
