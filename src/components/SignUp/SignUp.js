@@ -29,7 +29,7 @@ const SignUp = ({ setLogIn }) => {
     subscription,
   } = inputValues;
 
-  const subscriptionValue = subscription === "on" ? 1 : 0;
+  const subscriptionValue = subscription === "on" ? "1" : "0";
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
@@ -45,14 +45,6 @@ const SignUp = ({ setLogIn }) => {
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  // const messageModal = () => {
-  //   setSignUpWarning(
-  //     !message.length && (
-  //       <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
-  //     )
-  //   );
-  // };
-
   const signUp = () => {
     fetch(`${API_ADDRESS}users/signUp`, {
       method: "POST",
@@ -67,12 +59,11 @@ const SignUp = ({ setLogIn }) => {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         localStorage.setItem("TOKEN", data.accessToken);
-        if (!localStorage.getItem("TOKEN")) {
-          setSignUpWarning(
-            <p className="inputWarning">
-              중복된 이메일입니다. 다시 입력해주세요.
-            </p>
+        if (localStorage.getItem("TOKEN") == "undefined") {
+          return setSignUpWarning(
+            <p className="inputWarning">다시 입력해주세요.</p>
           );
         } else if (localStorage.getItem("TOKEN")) {
           setSignUpModal(
