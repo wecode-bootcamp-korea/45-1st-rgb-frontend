@@ -38,9 +38,9 @@ export default function MainCarousel() {
 
   useEffect(() => {
     if (carouselRef.current) {
-      carouselRef.current.style.transition = "all 0.3s ease-in";
+      carouselRef.current.style.transition = "all 0.5s ease-in";
       carouselRef.current.style.transform = `translateX(-${
-        currentIndex * 52.5
+        currentIndex * 48.5
       }%)`;
     }
   }, [currentIndex, carouselRef]);
@@ -63,11 +63,14 @@ export default function MainCarousel() {
           <button className="buttonNext" onClick={handleNext} />
         </div>
       </div>
-
       <div className="indicatorBar">
-        <div className="Bar1">
-          <div className="Bar2" />
-        </div>
+        {items.map((item, index) => (
+          <div
+            key={item.id}
+            className={`indicator ${currentIndex === index ? "active" : ""}`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
       </div>
     </div>
   );

@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import CartSum from "./CartSum";
 import "./Cart.scss";
+import Button from "../Button/Button";
 
-export default function CartList({}) {
+export default function CartList({ handleClose }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJpYXQiOjE2ODM1OTM0Mzd9.RA1t9pgmR2C2h16KMCe3esvQMkTBfRS7yBm5D9nH3mw";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMzLCJpYXQiOjE2ODM2MzI3NTF9.eyI8dQmAAefZVgrqcgM5xupnKzxjeI708rtvrUGbvMs";
 
   useEffect(() => {
-    fetch("http://10.58.52.195:3000/carts", {
+    fetch("./data/productInfo.json", {
       method: "GET",
       headers: {
         Authorization: token,
@@ -23,18 +23,21 @@ export default function CartList({}) {
       });
   }, []);
 
-  const handleCheckout = () => {
-    fetch("http://10.58.52.195:3000/carts/117", {
+  //fetch로 보내줄때 -> 확인버튼 클릭 수량 변경
+  const handleCount = index => {
+    fetch(`http://10.58.52.195:3000/carts/${items[index].id}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        authorization: token,
+        Authorization: token,
       },
-      body: JSON.stringify({ count: items[0].count }),
+      body: JSON.stringify({ count: items[index].count }),
     })
       .then(response => response.json())
+      // eslint-disable-next-line no-console
       .then(data => console.log(data))
+      // eslint-disable-next-line no-console
       .catch(error => console.log(error));
   };
 
@@ -45,17 +48,6 @@ export default function CartList({}) {
     });
     setTotalPrice(total);
   }, [items]);
-
-  // const updateCart = (newItems) => {
-  //   fetch(`http://cart/${product_id}`, {
-  //     method: "POST",
-  //     body: JSON.stringify({ items: newItems }),
-  //     headers: {}
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data))
-  //     .catch((error) => console.error(error));
-  // };
 
   const decrement = index => {
     const newItems = [...items];
@@ -71,55 +63,103 @@ export default function CartList({}) {
     setItems(newItems);
   };
 
+  //  delete api
   const deleteItem = index => {
+    fetch(`http://10.58.52.195:3000/carts/${items[index].id}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    });
+
     const newItems = items.filter((item, i) => i !== index);
+
     setItems(newItems);
   };
 
-  // const deleteItem = index => {
-  //   const id = items[index].id; // 삭제할 아이템의 ID를 가져옴
-  //   fetch(`http://example.com/api/cart/items/${id}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       const newItems = items.filter((item, i) => i !== index); // 상태 업데이트
-  //       setItems(newItems);
-  //     })
-  //     .catch(error => console.error("Error:", error));
-  // };
+  useEffect(() => {
+    if (items.length) return;
+    const timer = setTimeout(() => {
+      handleClose();
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [items]);
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {items.map((item, idx) => (
-        <div key={item.id} className="cartItem">
-          <div className="itemName">{item.title}</div>
-          <div className="itemSize">
-            {item.width}/{item.height}
+      {items.length === 0 ? (
+        <div className="cartList">장바구니에 담긴 상품이 없습니다.</div>
+      ) : (
+        <>
+          <div className="cartCategoryBox">
+            <div className="cartCategory">카트</div>
+            <div className="cartCategory">사이즈</div>
+            <div className="cartCategory">수량</div>
+            <div className="cartCategory">가격</div>
+            <div className="cartCategory" />
           </div>
-          <div className="itemQuantity">
-            <button className="minus" onClick={() => decrement(idx)}>
-              -
-            </button>
-            {item.count}
-            <button className="plus" onClick={() => increment(idx)}>
-              +
-            </button>
+          {items.map((item, idx) => (
+            <div key={item.id} className="cartItem">
+              <div className="itemName">{item.title}</div>
+              <div className="itemSize">
+                {item.width}/{item.height}
+              </div>
+              <div className="itemQuantity">
+                <button className="minus" onClick={() => decrement(idx)}>
+                  -
+                </button>
+                {item.count}
+                <button className="plus" onClick={() => increment(idx)}>
+                  +
+                </button>
+                <button className="check" onClick={() => handleCount(idx)}>
+                  확인
+                </button>
+                {/* 확인 버튼 생성 */}
+              </div>
+
+              <div className="itemPrice">
+                {(item.price * item.count).toLocaleString()}원
+              </div>
+              <div className="cartDelete">
+                <button
+                  className="deleteButton"
+                  onClick={() => {
+                    deleteItem(idx);
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+          <div className="cartSumBox">
+            <div className="cartSummary">
+              <div className="bottomPadding">
+                <span className="cartFree">
+                  rgb . 만의 무료 배송 혜택을 즐겨보세요.
+                </span>
+                <div className="totalPrice">
+                  <span className="vat">소계(세금 포함)</span>
+                  <span className="sum">{totalPrice.toLocaleString()}원</span>
+                </div>
+                <div className="payBtn">
+                  <Button
+                    buttonSize="mediumButton"
+                    buttonColor="bright"
+                    // 결제 페이지로만 이동되게
+                  >
+                    결제하기
+                  </Button>
+                </div>
+                <button className="arrowUp" onClick={handleClose} />
+              </div>
+            </div>
           </div>
-          <div className="itemPrice">
-            {(item.price * item.count).toLocaleString()}원
-          </div>
-          <div className="cartDelete">
-            <button className="deleteButton" onClick={() => deleteItem(idx)} />
-          </div>
-        </div>
-      ))}
-      <CartSum
-        totalPrice={totalPrice.toLocaleString()}
-        handleCheckout={handleCheckout}
-      />
+        </>
+      )}
     </>
   );
 }

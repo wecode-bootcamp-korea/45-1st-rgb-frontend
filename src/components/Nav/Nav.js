@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
 import API_ADDRESS from "../../utils/API_ADDRESS";
-
 import "./Nav.scss";
+import Cart from "../Cart/Cart";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -38,6 +38,11 @@ const Nav = () => {
       });
   }, []);
 
+  const [showCart, setShowCart] = useState(false);
+  const toggleCart = () => {
+    setShowCart(!showCart);
+  };
+
   useEffect(() => {
     if (token) return setLogIn("");
   }, [token]);
@@ -71,7 +76,7 @@ const Nav = () => {
             ) : (
               <li>My Point : {myPoint}P</li>
             )}
-            <li>
+            <li onClick={toggleCart}>
               Cart <span className="cartCountButton">{cartCount}</span>
             </li>
           </div>
@@ -90,6 +95,7 @@ const Nav = () => {
         )}
       </div>
       {logIn}
+      {showCart && <Cart showCart={showCart} setShowCart={setShowCart} />}
     </>
   );
 };
