@@ -1,7 +1,7 @@
 import React from "react";
 import "./InvoiceOrderData.scss";
 
-function InvoiceOrderData() {
+function InvoiceOrderData({ orderData }) {
   return (
     <div className="invoiceOrderData">
       <p className="invoiceOrderDataSubTitle">주문 정보</p>

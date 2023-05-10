@@ -1,7 +1,7 @@
 import React from "react";
 import "./InvoiceUserData.scss";
 
-function InvoiceUserData() {
+function InvoiceUserData({ userData }) {
   return (
     <div className="invoiceUserData">
       <div className="invoiceUserDataTopBox">

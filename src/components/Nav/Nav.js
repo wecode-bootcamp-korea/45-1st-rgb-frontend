@@ -9,7 +9,6 @@ const Nav = () => {
   const navigate = useNavigate();
   const [myCart, setMyCart] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
   const token = localStorage.getItem("TOKEN");
   const { user } = userData;
