@@ -3,7 +3,7 @@
 
 .inputCheckBox {
   @include flex(flex, row, center, _);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   input {
     margin-right: 10px;
@@ -11,5 +11,10 @@
 
   label {
     margin-top: -2px;
+  }
+
+  .viewMore {
+    @include icon(30px, 20px, 10px);
+    background-image: url(../../assets/Expand-Arrow.png);
   }
 }

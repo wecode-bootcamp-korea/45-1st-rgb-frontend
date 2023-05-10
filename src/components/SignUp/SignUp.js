@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
-import "./SignUp.scss";
 import SignUpModal from "./SignUpModal";
+import API_ADDRESS from "../../utils/API_ADDRESS";
+import CheckBox from "../CheckBox/CheckBox";
+import "./SignUp.scss";
 
-const SignUp = ({ setIsLogin }) => {
-  const [message, setMessage] = useState([]);
+const SignUp = ({ setLogIn }) => {
   const [signUpWarning, setSignUpWarning] = useState("");
+  const [signUpModal, setSignUpModal] = useState("");
+  const [checkItems, setCheckItems] = useState([]);
   const [isPassword, setIsPassword] = useState(true);
   const [inputValues, setInputValues] = useState({
     lastName: "",
@@ -13,28 +16,20 @@ const SignUp = ({ setIsLogin }) => {
     email: "",
     password: "",
     passwordCheck: "",
-    privacy: "",
-    subscription: "",
   });
+  console.log("checkItems", checkItems);
+  console.log("checkItems.length", checkItems.length);
+  console.log("checkItems[0]", checkItems[0]);
+  const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
-  const {
-    lastName,
-    firstName,
-    email,
-    password,
-    passwordCheck,
-    privacy,
-    subscription,
-  } = inputValues;
-
-  const subscriptionValue = subscription && 1;
+  const subscriptionValue = checkItems[1] ? "1" : "0";
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
     firstName &&
     lastName &&
     passwordCheck === password &&
-    privacy === "on";
+    checkItems[0] === 0;
 
   const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
 
@@ -43,37 +38,36 @@ const SignUp = ({ setIsLogin }) => {
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  const messageModal = () => {
-    setSignUpWarning(
-      !message.length && (
-        <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
-      )
-    );
-  };
-
   const signUp = () => {
-    fetch("http://10.58.52.169:9001/users/signUp", {
+    fetch(`${API_ADDRESS}users/signUp`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
-        lastName: inputValues.lastName,
-        firstName: inputValues.firstName,
         email: inputValues.email,
         password: inputValues.password,
+        firstName: inputValues.firstName,
+        lastName: inputValues.lastName,
         subscription: subscriptionValue,
       }),
     })
       .then(res => res.json())
-      .then(message => setMessage(message));
-
-    messageModal();
+      .then(data => {
+        localStorage.setItem("TOKEN", data.accessToken);
+        if (localStorage.getItem("TOKEN") == "undefined") {
+          return setSignUpWarning(
+            <p className="inputWarning">다시 입력해주세요.</p>
+          );
+        } else if (localStorage.getItem("TOKEN")) {
+          setSignUpModal(
+            <SignUpModal setLogIn={setLogIn} firstName={firstName} />
+          );
+        }
+      });
   };
 
   return (
     <>
-      {message.length != 0 && (
-        <SignUpModal setIsLogin={setIsLogin} firstName={firstName} />
-      )}
+      {signUpModal}
       <div className="signUp">
         <h2 className="signUpTitle">회원가입</h2>
         <form className="signUpForm">
@@ -132,33 +126,7 @@ const SignUp = ({ setIsLogin }) => {
             <p className="inputWarning">비밀번호가 일치하지 않습니다.</p>
           )}
         </form>
-        <fieldset>
-          <div>
-            <input type="checkbox" id="allAgree" name="allAgree" />
-            <label for="allAgree">전체 동의</label>
-          </div>
-          <div>
-            <input
-              onChange={handleInput}
-              type="checkbox"
-              id="privacy"
-              name="privacy"
-            />
-            <label for="privacy">개인 정보 동의 (필수)</label>
-            <button className="viewMore" />
-          </div>
-          <div>
-            <input
-              onChange={handleInput}
-              type="checkbox"
-              id="subscription"
-              name="subscription"
-            />
-            <label for="subscription">뉴스레터 구독 (선택)</label>
-            <button className="viewMore" />
-          </div>
-        </fieldset>
-
+        <CheckBox checkItems={checkItems} setCheckItems={setCheckItems} />
         <Button
           btnOn={!loginValid}
           action={signUp}

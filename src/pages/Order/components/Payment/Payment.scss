@@ -1,0 +1,73 @@
+@import "../../../../styles/variables";
+
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  padding: 50px 100px;
+
+  .paymentTitle {
+    padding-bottom: 20px;
+    font-size: 37px;
+    font-weight: 700;
+  }
+
+  .pointTitle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    .pointText {
+      font-size: 17px;
+    }
+  }
+}
+
+.pointForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .pointLabel {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 400px;
+
+    #totalPoint,
+    #pricePoint {
+      width: 350px;
+      border-bottom: 1px solid $main-grey;
+    }
+
+    .pointUnit {
+      position: absolute;
+      right: 0;
+
+      font-size: 14px;
+    }
+  }
+}
+
+.contractWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 400px;
+  padding: 20px 0px;
+
+  .agreementDetail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .arrowBottom {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import react, { Children } from "react";
+import React, { Children } from "react";
 import "./Button.scss";
 
 const Button = ({ btnOn, buttonSize, buttonColor, children, action }) => {

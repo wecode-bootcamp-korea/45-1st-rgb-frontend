@@ -12,8 +12,20 @@ div.detailLeft {
   }
 
   .imageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 500px;
     height: 500px;
     overflow: hidden;
+
+    .inner {
+      transform: 0.3s;
+      white-space: nowrap;
+      .itemImage {
+        width: 500px;
+        height: 500px;
+      }
+    }
   }
 }

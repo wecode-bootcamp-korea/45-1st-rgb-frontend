@@ -1,0 +1,37 @@
+@import "../../../../styles/variables";
+
+div.leftFilter {
+  padding: 0 25px 30px 25px;
+  font-size: 17px;
+
+  label {
+    padding-right: 10px;
+  }
+
+  .filterContent {
+    .priceAndButton {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 138px;
+      padding: 15px 0 30px 0;
+
+      button {
+        height: 18px;
+      }
+    }
+
+    .contentButton {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.sorting {
+  padding-bottom: 10px;
+
+  &:active,
+  &:hover {
+    background-color: $main-ivory;
+  }
+}
