@@ -17,7 +17,7 @@ function ImageBox({ details }) {
   useEffect(() => {
     if (slideRef.current) {
       slideRef.current.style.transition = "transform 0.5s ease-in";
-      slideRef.current.style.transform = `translateX(-${currentSlide * 105}%)`;
+      slideRef.current.style.transform = `translateX(-${currentSlide * 500}px)`;
     }
   }, [currentSlide]);
 

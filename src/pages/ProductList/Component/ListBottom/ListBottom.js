@@ -7,19 +7,19 @@ import "./ListBottom.scss";
 function ListBottom() {
   const [searchParams, setSearchParams] = useSearchParams();
   const offset = searchParams.get("offset") || 0;
-  const limit = searchParams.get("limit") || 10;
+  const limit = searchParams.get("limit") || 4;
   // fetch 데이터 저장하는 useState
   const [shopContent, setShopContent] = useState([]);
 
-  const page = () => {
-    searchParams.set("offset", 0);
-    searchParams.set("limit", 10);
-    setSearchParams(searchParams);
-  };
+  // const page = () => {
+  //   searchParams.set("offset", 0);
+  //   searchParams.set("limit", 4);
+  //   setSearchParams(searchParams);
+  // };
 
   useEffect(() => {
-    const url = `http://10.58.52.169:9001/products/all?limit=${limit}&start=${offset}`;
-
+    const url = `http://10.58.52.169:9001/products/all?limit=${limit}&offset=${offset}`;
+    console.log(url);
     // const url = `http://10.58.52.169:9001/products?limit=${limit}&start=${offset}&category=${category}`;
 
     fetch(url, {
@@ -29,8 +29,15 @@ function ListBottom() {
       .then(res => res.json())
       .then(shop => {
         setShopContent(shop);
+        console.log(shop);
       });
-  }, []);
+  }, [offset, limit]);
+
+  const movePage = pageNumber => {
+    searchParams.set("offset", (pageNumber - 1) * 4);
+    searchParams.set("limit", 4);
+    setSearchParams(searchParams);
+  };
 
   // useEffect(() => {
   //   const url = `/data/artlist.json?limit=${limit}&start=${offset}`;
@@ -46,9 +53,9 @@ function ListBottom() {
       <div className="bottomTop">
         <div className="category">
           <span
-            onClick={() => {
-              page();
-            }}
+          // onClick={() => {
+          //   page();
+          // }}
           >
             All
           </span>
@@ -70,6 +77,29 @@ function ListBottom() {
                 </Link>
               );
             })}
+          </div>
+          <div className="pageButton">
+            <button
+              onClick={() => {
+                movePage(1);
+              }}
+            >
+              1
+            </button>
+            <button
+              onClick={() => {
+                movePage(2);
+              }}
+            >
+              2
+            </button>
+            <button
+              onClick={() => {
+                movePage(3);
+              }}
+            >
+              3
+            </button>
           </div>
         </div>
       </div>
