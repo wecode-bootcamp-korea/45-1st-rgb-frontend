@@ -8,6 +8,7 @@ import ProductList from "./pages/ProductList/ProductList";
 import Order from "./pages/Order/Order";
 import Invoice from "./pages/Invoice/Invoice";
 import Cart from "./components/Cart/Cart";
+import CheckBox from "./components/CheckBox/CheckBox";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
         <Route path="/order" element={<Order />} />
         <Route path="/invoice" element={<Invoice />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkBox" element={<CheckBox />} />
       </Routes>
       <Footer />
     </BrowserRouter>

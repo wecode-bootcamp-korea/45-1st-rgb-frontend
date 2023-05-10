@@ -41,15 +41,24 @@
     & > div {
       @include flex(flex, row, center, flex-start);
       width: 400px;
-      padding: 5px 0;
+      padding: 10px 0;
 
       &:first-child {
         margin: 10px 0;
         border-bottom: 1px solid $main-grey;
       }
+
       & > input {
         margin-right: 10px;
       }
+
+      label {
+        margin-top: -2px;
+      }
+    }
+
+    .checkBox {
+      @include flex(flex, column, flex-start, center);
     }
 
     .viewMore {

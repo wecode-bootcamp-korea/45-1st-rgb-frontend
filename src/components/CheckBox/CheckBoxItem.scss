@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.inputCheckBox {
+  @include flex(flex, row, center, _);
+  margin-bottom: 10px;
+
+  input {
+    margin-right: 10px;
+  }
+
+  label {
+    margin-top: -2px;
+  }
+}
