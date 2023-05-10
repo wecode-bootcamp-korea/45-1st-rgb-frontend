@@ -8,7 +8,7 @@ function ImageBox({ details }) {
   // console.log("details : ", details);
   // console.log("images :", image_urls);
 
-  const TOTAL_SLIDE = 3;
+  const TOTAL_SLIDE = 2;
 
   const [currentSlide, setCurrentSlide] = useState(0);
   // const [imageItem, setImageItem] = useState([]);
@@ -19,7 +19,7 @@ function ImageBox({ details }) {
   useEffect(() => {
     if (slideRef.current) {
       slideRef.current.style.transition = "transform 0.5s ease-in";
-      slideRef.current.style.transform = `translateX(${currentSlide * 100}%)`;
+      slideRef.current.style.transform = `translateX(-${currentSlide * 105}%)`;
     }
   }, [currentSlide]);
 
@@ -32,7 +32,7 @@ function ImageBox({ details }) {
   };
 
   const nextButton = () => {
-    if (currentSlide === TOTAL_SLIDE) {
+    if (currentSlide >= TOTAL_SLIDE) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(prev => prev + 1);
@@ -55,7 +55,7 @@ function ImageBox({ details }) {
       {/* <LeftImage image={details[0]?.img} /> */}
       {/* <img alt="artimg" src={`${item[0]}`} /> */}
       <div className="imageContainer">
-        <div className="inner">
+        <div className="inner" ref={slideRef}>
           {/* {image_urls?.map((item, index) => {
           return (
             <Images item={item} key={index} />
