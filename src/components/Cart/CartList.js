@@ -9,7 +9,7 @@ export default function CartList({ handleClose, setShowCart }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
-
+  const [isButtonActive, setButtonActive] = useState(false);
   useEffect(() => {
     fetch(`${API_ADDRESS}carts`, {
       method: "GET",
@@ -26,7 +26,8 @@ export default function CartList({ handleClose, setShowCart }) {
   }, []);
 
   const handleCount = id => {
-    fetch(`${API_ADDRESS}carts/${items[id].id}`, {
+    const url = `${API_ADDRESS}carts/${items[id].id}`;
+    fetch(url, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -73,7 +74,7 @@ export default function CartList({ handleClose, setShowCart }) {
       },
     });
 
-    const newItems = items.filter((item, i) => i !== id);
+    const newItems = items.filter((_, i) => i !== id);
     setItems(newItems);
   };
 
@@ -101,7 +102,12 @@ export default function CartList({ handleClose, setShowCart }) {
             <div className="cartCategory" />
           </div>
           {items?.map((item, id) => (
-            <div key={item.id} className="cartItem">
+            <div
+              key={item.id}
+              className="cartItem"
+              onMouseEnter={setButtonActive(true)}
+              onMouseLeave={setButtonActive(false)}
+            >
               <div className="itemName">{item.title}</div>
               <div className="itemSize">
                 {item.products_size_left}/{item.products_size_right}
