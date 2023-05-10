@@ -4,7 +4,6 @@ import CheckInput from "../CheckBox/CheckInput";
 import "./Payment.scss";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
-  console.log(userData);
   const [checkInputs, setCheckInputs] = useState([]);
 
   const activatedPaymentButtonCondition = checkInputs.length === 3;

@@ -20,7 +20,6 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
 
   const handleInputs = e => {
     const { name, value } = e.target;
-    // if (value === "") alert("배송 정보를 입력해주세요.");
     setUserData({ ...userData, [name]: value });
   };
 
@@ -33,12 +32,6 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
       e.preventDefault();
     }
   };
-
-  const activatedButtonCondition =
-    userData.cellphone?.length === 8 &&
-    userData?.address !== "" &&
-    userData.postalcode?.length >= 5;
-
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -49,27 +42,25 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTY4MzYxMDY0Nn0.8m5ZuyVgy_u1g-wiW1v4RHX_WB5Q7QZpSAQsfjvUst8",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY4MzY4MTc3MX0.xpC9Sh5wdkx_nIIW5Xvzdzryl3gTofk3jb0Xx1U8BfE",
       },
       body: JSON.stringify({
         cellphone: userData?.cellphone,
         address: userData?.address,
         postalcode: userData?.postalcode,
       }),
-    })
-      .then(res => {
-        console.log(res);
-        return res.json();
-      })
-      .then(data => {
-        console.log(data);
-      });
+    });
   }, [
     isDefaultAddressChecked,
-    // userData?.cellphone,
-    // userData?.address,
-    // userData?.postalcode,
+    userData?.cellphone,
+    userData?.address,
+    userData?.postalcode,
   ]);
+
+  const activatedButtonCondition =
+    userData.cellphone?.length === 8 &&
+    userData?.address !== "" &&
+    userData.postalcode?.length >= 5;
 
   const handleDefaultAddress = () => {
     setIsDefaultAddressChecked(!isDefaultAddressChecked);

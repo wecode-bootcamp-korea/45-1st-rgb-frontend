@@ -9,8 +9,6 @@ import Cart from "../../components/Cart/Cart";
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
   const [userData, setUserData] = useState({
-    // first_name: "",
-    // last_name: "",
     cellphone: "",
     address: "",
     postalCode: "",
@@ -29,7 +27,7 @@ function Order() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    fetch("http://10.58.52.1150:3000/carts", {
+    fetch("http://10.58.52.150:3000/carts", {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization:
@@ -37,30 +35,19 @@ function Order() {
         // Authorization: token,
       },
     })
-      .then(res => {
-        console.log(res);
-        return res.json();
-      })
-      .then(data => {
-        console.log("data ? ", data);
-        return setCartProductList(data);
-      });
+      .then(res => res.json())
+      .then(data => setCartProductList(data));
 
-    fetch("/data/userData.json ", {
+    fetch("http://10.58.52.169:9001/users", {
+      method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTY4MzYxMDY0Nn0.8m5ZuyVgy_u1g-wiW1v4RHX_WB5Q7QZpSAQsfjvUst8",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY4MzY4MTc3MX0.xpC9Sh5wdkx_nIIW5Xvzdzryl3gTofk3jb0Xx1U8BfE",
       },
     })
-      .then(response => {
-        console.log("get response ", response);
-        return response.json();
-      })
-      .then(data => {
-        console.log("get data ", data);
-        return setUserData(data.user);
-      });
+      .then(response => response.json())
+      .then(data => setUserData(data.user));
   }, []);
 
   const [isDelivery, setIsDelivery] = useState(true);
