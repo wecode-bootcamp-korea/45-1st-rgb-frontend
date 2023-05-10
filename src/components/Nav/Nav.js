@@ -16,7 +16,6 @@ const Nav = () => {
   const toggleCart = () => {
     setShowCart(!showCart);
   };
-  console.log("user", user);
   useEffect(() => {
     if (!token) return;
     fetch(`${API_ADDRESS}users`, {
@@ -69,7 +68,7 @@ const Nav = () => {
               onClick={() => {
                 setLogIn("");
                 setShowCart(false);
-                navigate("/Artists");
+                navigate("/artists");
               }}
             >
               Artists
