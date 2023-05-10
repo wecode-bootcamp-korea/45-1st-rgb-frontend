@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
-import "./SignUp.scss";
 import SignUpModal from "./SignUpModal";
+import API_ADDRESS from "../../utils/API_ADDRESS";
+import "./SignUp.scss";
 
-const SignUp = ({ setIsLogin }) => {
-  const [message, setMessage] = useState([]);
+const SignUp = ({ setLogIn }) => {
+  const token = localStorage.getItem("TOKEN");
   const [signUpWarning, setSignUpWarning] = useState("");
+  const [signUpModal, setSignUpModal] = useState("");
   const [isPassword, setIsPassword] = useState(true);
   const [inputValues, setInputValues] = useState({
     lastName: "",
@@ -27,7 +29,7 @@ const SignUp = ({ setIsLogin }) => {
     subscription,
   } = inputValues;
 
-  const subscriptionValue = subscription && 1;
+  const subscriptionValue = subscription === "on" ? 1 : 0;
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
@@ -43,38 +45,46 @@ const SignUp = ({ setIsLogin }) => {
     setInputValues({ ...inputValues, [name]: value });
   };
 
-  const messageModal = () => {
-    setSignUpWarning(
-      !message.length && (
-        <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
-      )
-    );
-  };
+  // const messageModal = () => {
+  //   setSignUpWarning(
+  //     !message.length && (
+  //       <p className="inputWarning">중복된 이메일입니다. 다시 입력해주세요.</p>
+  //     )
+  //   );
+  // };
 
   const signUp = () => {
-    fetch("http://10.58.52.169:9001/users/signUp", {
+    fetch(`${API_ADDRESS}users/signUp`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({
-        lastName: inputValues.lastName,
-        firstName: inputValues.firstName,
         email: inputValues.email,
-
         password: inputValues.password,
+        firstName: inputValues.firstName,
+        lastName: inputValues.lastName,
         subscription: subscriptionValue,
       }),
     })
       .then(res => res.json())
-      .then(message => setMessage(message));
-
-    messageModal();
+      .then(data => {
+        localStorage.setItem("TOKEN", data.accessToken);
+        if (!localStorage.getItem("TOKEN")) {
+          setSignUpWarning(
+            <p className="inputWarning">
+              중복된 이메일입니다. 다시 입력해주세요.
+            </p>
+          );
+        } else if (localStorage.getItem("TOKEN")) {
+          setSignUpModal(
+            <SignUpModal setLogIn={setLogIn} firstName={firstName} />
+          );
+        }
+      });
   };
 
   return (
     <>
-      {message.length != 0 && (
-        <SignUpModal setIsLogin={setIsLogin} firstName={firstName} />
-      )}
+      {signUpModal}
       <div className="signUp">
         <h2 className="signUpTitle">회원가입</h2>
         <form className="signUpForm">
