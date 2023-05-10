@@ -6,7 +6,14 @@ function FilterComponent({ shopContent, setShopContent }) {
   return (
     <div className="filterContent">
       <div className="priceAndButton">
-        <span className="all">전체보기</span>
+        <span
+          className="all"
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          전체보기
+        </span>
         <button
           onClick={() => {
             setShow(!show);

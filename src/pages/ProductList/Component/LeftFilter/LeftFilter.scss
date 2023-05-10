@@ -21,6 +21,14 @@ div.leftFilter {
       }
     }
 
+    .all {
+      &:hover,
+      &:active {
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
     .contentButton {
       padding-bottom: 10px;
     }
