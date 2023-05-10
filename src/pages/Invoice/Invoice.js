@@ -13,6 +13,7 @@ function Invoice() {
   const [orderData, setOrderData] = useState([]);
   console.log("userData", userData);
   console.log("orderData", orderData);
+
   useEffect(() => {
     if (!token) return;
     fetch(`${API_ADDRESS}users`, {
@@ -43,7 +44,7 @@ function Invoice() {
         <button className="closeIcon" onClick={() => navigate("/")} />
         <h2 className="invoiceTitle">결제가 완료되었습니다.</h2>
         <InvoiceUserData userData={userData} />
-        <InvoiceOrderData orderData={orderData} />
+        <InvoiceOrderData orderData={orderData} setUserData={setUserData} />
       </div>
     </div>
   );
