@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./MainCarousel2.scss";
 import SecondCarousel from "./SecondCarousel";
 
-const TOTAL_SLIDES = 6;
+const TOTAL_SLIDES = 7;
 
 export default function MainCarousel2() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,7 +20,7 @@ export default function MainCarousel2() {
 
   useEffect(() => {
     if (slideRef.current) {
-      slideRef.current.style.transition = "transform 0.3s ease-in";
+      slideRef.current.style.transition = "transform 0.5s ease-in";
       slideRef.current.style.transform = `translateX(-${currentSlide * 41}%)`;
     }
   }, [currentSlide]);
@@ -44,6 +44,7 @@ export default function MainCarousel2() {
   return (
     <div className="goodsContainer">
       <div className="goodsTitle">탁월한 셀렉션</div>
+      <div className="line" />
       <button className="buttonPre2" onClick={prevSlide} />
       <button className="buttonNext2" onClick={nextSlide} />
       <div className="goodsBox">
@@ -52,6 +53,15 @@ export default function MainCarousel2() {
             <SecondCarousel key={id} item={item} />
           ))}
         </ul>
+      </div>
+      <div className="indicatorBar2">
+        {carouselItem.map((item, index) => (
+          <div
+            key={item.id}
+            className={`indicator2 ${currentSlide === index ? "active2" : ""}`}
+            onClick={() => setCurrentSlide(index)}
+          />
+        ))}
       </div>
     </div>
   );

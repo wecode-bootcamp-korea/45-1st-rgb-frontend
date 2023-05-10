@@ -35,7 +35,9 @@ export default function CartList({ handleClose }) {
       body: JSON.stringify({ count: items[index].count }),
     })
       .then(response => response.json())
+      // eslint-disable-next-line no-console
       .then(data => console.log(data))
+      // eslint-disable-next-line no-console
       .catch(error => console.log(error));
   };
 
@@ -73,19 +75,21 @@ export default function CartList({ handleClose }) {
     });
 
     const newItems = items.filter((item, i) => i !== index);
+
     setItems(newItems);
   };
-  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
+    if (items.length) return;
     const timer = setTimeout(() => {
-      setVisible(false);
-    }, 3000);
+      handleClose();
+    }, 2000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [items]);
 
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {items.length === 0 ? (
         <div className="cartList">장바구니에 담긴 상품이 없습니다.</div>

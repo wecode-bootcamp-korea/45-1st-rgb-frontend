@@ -1,7 +1,7 @@
 import React from "react";
 import "./Main.scss";
 import MainArtist from "./MainArtist";
-import MainArtistNext from "./MainArtistNext";
+import MainComingUpArtist from "./MainComingUpArtist";
 import MainCarasol2 from "./MainCarousel2";
 import MainCarasol from "./MainCarousel";
 import Button from "../../components/Button/Button";
@@ -25,7 +25,7 @@ function Main() {
       <MainCarasol />
       <MainArtist />
       <MainCarasol2 />
-      <MainArtistNext />
+      <MainComingUpArtist />
     </div>
   );
 }

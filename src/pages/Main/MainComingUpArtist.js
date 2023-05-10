@@ -1,5 +1,5 @@
 import React from "react";
-import "./MainArtistNext.scss";
+import "./MainComingUpArtist.scss";
 
 export default function MainArtistNext() {
   return (

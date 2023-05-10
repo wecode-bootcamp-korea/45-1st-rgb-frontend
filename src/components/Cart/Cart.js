@@ -6,7 +6,7 @@ function Cart({ showCart, setShowCart, cartItems }) {
   const handleClose = () => {
     setShowCart(false);
   };
-
+  // console.log(cartItems);
   return (
     <div className="cart">
       <div className="cartBox">
