@@ -1,31 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./ProductDescription.scss";
 
-const ProductDescription = ({ inOut, setInOut, noMore }) => {
-  // mock data 저장할 useState
-  const [description, setDescription] = useState([]);
-
-  useEffect(() => {
-    fetch("/data/detailInfo.json")
-      .then(res => res.json())
-      .then(data => {
-        setDescription(data);
-      });
-  }, []);
+const ProductDescription = ({ inOut, noMore, details }) => {
+  const {
+    id,
+    title,
+    artist_name,
+    products_size_left,
+    products_size_right,
+    material,
+    description,
+  } = details;
 
   return (
     <div
       className={`${inOut ? "productDescription" : "productDescription out"}`}
     >
       <button onClick={noMore} />
-      <div className="descriptionBox" key={description[0]?.id}>
-        <h2>{description[0]?.title}</h2>
-        <p className="artistName">{description[0]?.artistName}</p>
+      <div className="descriptionBox" key={id}>
+        <h2>{title}</h2>
+        <p className="artistName">{artist_name}</p>
         <p className="productsSize">
-          {`${description[0]?.productsSizeLeft} x ${description[0]?.productsSizeRight}cm`}
+          {`${products_size_left} x ${products_size_right}cm`}
         </p>
-        <p className="material">{description[0]?.material}</p>
-        <p className="description">{description[0]?.description}</p>
+        <p className="material">{material}</p>
+        <p className="description">{description}</p>
       </div>
     </div>
   );
