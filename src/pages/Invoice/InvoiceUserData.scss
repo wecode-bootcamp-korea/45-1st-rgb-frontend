@@ -3,6 +3,7 @@
 
 .invoiceUserData {
   @include flex(flex, column, flex-start, _);
+  padding-bottom: 20px;
 }
 
 .invoiceUserDataTopBox {
@@ -24,6 +25,13 @@
 
   .invoiceShippingCharge {
     margin-top: 25px;
+  }
+
+  & > li {
+    @include flex(flex, row, flex-start, space-between);
+    width: 350px;
+    margin: 0 0 15px 10px;
+    font-size: 14px;
   }
 }
 
