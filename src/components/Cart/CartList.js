@@ -11,7 +11,7 @@ export default function CartList({ handleClose, setShowCart }) {
 
   useEffect(() => {
     fetch("http://10.58.52.195:3000/carts", {
-      method: "GET", //api 통신 질문
+      method: "GET",
       headers: {
         Authorization: token,
       },
@@ -116,8 +116,6 @@ export default function CartList({ handleClose, setShowCart }) {
                 <button className="check" onClick={() => handleCount(id)}>
                   수량변경
                 </button>
-
-                {/* 확인 버튼 생성 */}
               </div>
 
               <div className="itemPrice">
