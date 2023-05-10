@@ -17,9 +17,7 @@ const SignUp = ({ setLogIn }) => {
     password: "",
     passwordCheck: "",
   });
-  console.log("checkItems", checkItems);
-  console.log("checkItems.length", checkItems.length);
-  console.log("checkItems[0]", checkItems[0]);
+
   const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
   const subscriptionValue = checkItems[1] ? "1" : "0";
