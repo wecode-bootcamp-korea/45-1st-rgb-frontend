@@ -1,3 +1,22 @@
+@import "../../styles/mixin";
+@import "../../styles/variables";
+
 .invoice {
-  background-color: tomato;
+  @include flex(flex, column, center, space-between);
+  padding: 80px;
+  .invoiceBox {
+    .closeIcon {
+      position: absolute;
+      top: 170px;
+      right: 70px;
+      float: right;
+      background-image: url(../../assets/close.png);
+      @include icon(20px, 20px, 0);
+    }
+
+    .invoiceTitle {
+      margin: 50px 20px;
+      font-size: $title-font;
+    }
+  }
 }

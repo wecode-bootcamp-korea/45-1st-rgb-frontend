@@ -2,9 +2,9 @@ import React from "react";
 
 function InvoiceOrderData() {
   return (
-    <div className="InvoiceOrderData">
-      <p className="InvoiceOrderDataSubTitle">주문 정보</p>
-      <img className="InvoiceProductImage" />
+    <div className="invoiceOrderData">
+      <p className="invoiceOrderDataSubTitle">주문 정보</p>
+      <img className="invoiceProductImage" />
       <table>
         <tr>
           <td>상품명</td>
