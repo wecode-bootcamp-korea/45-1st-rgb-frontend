@@ -29,7 +29,6 @@ const SignUp = ({ setIsLogin }) => {
   } = inputValues;
 
   const subscriptionValue = subscription === "on" ? 1 : 0;
-  
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
