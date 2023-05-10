@@ -1,11 +1,12 @@
 import React from "react";
+import "./InvoiceOrderData.scss";
 
 function InvoiceOrderData() {
   return (
     <div className="invoiceOrderData">
       <p className="invoiceOrderDataSubTitle">주문 정보</p>
       <img className="invoiceProductImage" />
-      <table>
+      <table className="invoiceOrderDataTable">
         <tr>
           <td>상품명</td>
           <td>수량</td>

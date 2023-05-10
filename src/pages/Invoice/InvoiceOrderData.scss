@@ -1,2 +1,42 @@
 @import "../../styles/mixin";
 @import "../../styles/variables";
+
+.invoiceOrderData {
+  @include flex(flex, column, flex-start, _);
+  padding-bottom: 20px;
+}
+
+.invoiceProductImage {
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+}
+.invoiceOrderDataTable {
+  width: 400px;
+  margin-top: 20px;
+
+  & > tr {
+    @include flex(flex, row, center, space-between);
+    height: 50px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  & > tr:first-child {
+    border-top: 3px solid $main-black;
+    border-bottom: 1px solid $main-black;
+  }
+
+  & > tr:nth-child(2) {
+    border-bottom: 1px solid $main-black;
+  }
+
+  & > tr:last-child {
+    border-top: 3px solid $main-black;
+  }
+}
+
+.invoiceOrderDataSubTitle {
+  margin: 0 0 25px 0;
+  font-size: 17px;
+}
