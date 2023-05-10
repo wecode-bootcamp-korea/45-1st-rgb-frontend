@@ -45,8 +45,6 @@ export default function MainCarousel2() {
     <div className="goodsContainer">
       <div className="goodsTitle">탁월한 셀렉션</div>
       <div className="line" />
-      <button className="buttonPre2" onClick={prevSlide} />
-      <button className="buttonNext2" onClick={nextSlide} />
       <div className="goodsBox">
         <ul className="secondSlide" ref={slideRef}>
           {carouselItem.map((item, id) => (
@@ -54,6 +52,8 @@ export default function MainCarousel2() {
           ))}
         </ul>
       </div>
+      <button className="buttonPre2" onClick={prevSlide} />
+      <button className="buttonNext2" onClick={nextSlide} />
       <div className="indicatorBar2">
         {carouselItem.map((item, index) => (
           <div
