@@ -28,7 +28,7 @@ function Order() {
   const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
-    fetch("http://10.58.52.169:9001/carts", {
+    fetch(`${API_ADDRESS}carts`, {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: token,
@@ -41,7 +41,7 @@ function Order() {
         return setCartProductList(data);
       });
 
-    fetch("http://10.58.52.169:9001/users", {
+    fetch(`${API_ADDRESS}users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",

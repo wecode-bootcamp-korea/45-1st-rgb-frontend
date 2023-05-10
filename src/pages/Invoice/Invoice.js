@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 function Invoice() {
   const [invoiceData, setInvoiceData] = useState();
   const params = useParams();
-  const orderId = params.uuid;
+  const orderId = params.orderNumber;
 
   const token = localStorage.getItem("TOKEN");
 
