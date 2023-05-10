@@ -14,8 +14,6 @@ function ImageBox({ details }) {
   // const [imageItem, setImageItem] = useState([]);
   const slideRef = useRef(null);
 
-  console.log("ref : ", slideRef);
-
   useEffect(() => {
     if (slideRef.current) {
       slideRef.current.style.transition = "transform 0.5s ease-in";
@@ -38,9 +36,6 @@ function ImageBox({ details }) {
       setCurrentSlide(prev => prev + 1);
     }
   };
-
-  console.log("slide current : ", slideRef.current);
-  console.log("current :", currentSlide);
 
   return (
     <div className="detailLeft">
