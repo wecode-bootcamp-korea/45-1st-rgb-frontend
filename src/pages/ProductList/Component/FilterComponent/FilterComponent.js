@@ -7,7 +7,6 @@ function FilterComponent({ shopContent, setShopContent }) {
     <div className="filterContent">
       <div className="priceAndButton">
         <span className="all">전체보기</span>
-        {/* 보이기 버튼 */}
         <button
           onClick={() => {
             setShow(!show);
@@ -66,13 +65,6 @@ function FilterComponent({ shopContent, setShopContent }) {
                 가나다순
               </button>
             </p>
-            {/* {content.map((content) => {
-              return (
-                <p className="sorting" key={`${content.id}`}>
-                  <button className="sortingButton">{content.title}</button>
-                </p>
-              );
-            })} */}
           </div>
         ) : (
           ""

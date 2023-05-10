@@ -7,12 +7,9 @@ import ProductDescription from "./ProductDescription";
 import "./ProductDetail.scss";
 
 function ProductDetail() {
-  // const [changeComponent, setChangeComponent] = useState("");
   const [logIn, setLogIn] = useState("");
 
-  // mock data 저장하는 곳
   const [details, setDetails] = useState([]);
-  // 버튼 누르면 translate 효과 주는 class 이름 바꿀 용 useState
   const [inOut, setInOut] = useState(false);
   const params = useParams();
 
@@ -44,19 +41,14 @@ function ProductDetail() {
       {logIn}
       <div className="productDetail">
         <div className="description">
-          {/* 숨겨진 상세 설명 */}
           <ProductDescription details={details} inOut={inOut} noMore={noMore} />
         </div>
         <div className="productDetailBox">
-          {/* 상단 */}
           <Location />
-          {/* 하단 */}
           <div className="detailBox">
-            {/* 하단 왼쪽 */}
             <div className="leftImage">
               <ImageBox details={details} />
             </div>
-            {/* 하단 오른쪽 */}
             <div className="detailInfo">
               <DetailInformation
                 setLogIn={setLogIn}

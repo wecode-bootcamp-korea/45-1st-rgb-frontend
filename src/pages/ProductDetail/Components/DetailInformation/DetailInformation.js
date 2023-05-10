@@ -21,37 +21,18 @@ function DetailInformation({ details, showMore, setLogIn }) {
   const [count, setCount] = useState(1);
   const total = count * price;
   const [button1, setButton1] = useState(false);
-  // const [button2, setButton2] = useState(false);
   const token = localStorage.getItem("TOKEN");
-  // const [logIn, setLogIn] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     if (button1) {
-      // 이 자리에 카트에 수량 추가되는 함수
       token ? postCart() : setLogIn(<User setLogIn={setLogIn} />);
     }
   }, [button1]);
 
-  // useEffect(() => {
-  //   if (button2) {
-  //     // 이 자리에 useNavigate로 결제 창으로 넘어가는 함수
-  //     // token ? navigate("/order") : setLogIn(<User setLogIn={setLogIn} />);
-  //     if (token) {
-  //       postPay();
-  //       navigate("/order");
-  //     } else {
-  //       setLogIn(<User setLogIn={setLogIn} />);
-  //     }
-  //   }
-  // }, [button2]);
-
   const cartButton = () => {
     setButton1(!button1);
   };
-  // const buyButton = () => {
-  //   setButton2(!button2);
-  // };
   const plusCount = () => {
     setCount(count + 1);
     if (count === quantity) {
@@ -85,36 +66,16 @@ function DetailInformation({ details, showMore, setLogIn }) {
     alert("카트에 성공적으로 담겼습니다");
   };
 
-  // const postPay = () => {
-  //   const url = `http://10.58.52.195:3000/carts`;
-
-  //   fetch(url, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json;charset=utf-8",
-  //       Authorization: token,
-  //     },
-  //     body: JSON.stringify({
-  //       productsId: id,
-  //       quantity: count,
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // };
-
   return (
     <div className="detailInformation">
       <h2>{title}</h2>
       <h3>{artist_name}</h3>
-      {/* 사이즈와 재료 */}
       <div className="infoTop">
         <p className="size">
           {`${products_size_left} x ${products_size_right} cm`}
         </p>
         <p className="material">{`${material}`}</p>
       </div>
-      {/* 상세 설명 */}
       <div className="infoMiddle">
         <span className="description">{`${description}`}</span>
         <span>
@@ -123,7 +84,6 @@ function DetailInformation({ details, showMore, setLogIn }) {
           </button>
         </span>
       </div>
-      {/* 가격과 수량 */}
       <div className="infoBottom">
         <div className="price">
           <span className="bold">Price</span>
@@ -142,7 +102,6 @@ function DetailInformation({ details, showMore, setLogIn }) {
           </div>
         </div>
       </div>
-      {/* 카트 추가 & 바로 구매 버튼 */}
       <div className="buyingButtons">
         <div className="totalPrice">
           <span className="bold">총 가격</span>
@@ -156,13 +115,6 @@ function DetailInformation({ details, showMore, setLogIn }) {
           >
             카트 추가
           </Button>
-          {/* <Button
-            buttonColor="dark"
-            buttonSize="smallButton"
-            action={buyButton}
-          >
-            바로 구매
-          </Button> */}
         </div>
       </div>
     </div>

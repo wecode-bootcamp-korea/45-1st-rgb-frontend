@@ -8,19 +8,10 @@ function ListBottom() {
   const [searchParams, setSearchParams] = useSearchParams();
   const offset = searchParams.get("offset") || 0;
   const limit = searchParams.get("limit") || 4;
-  // fetch 데이터 저장하는 useState
   const [shopContent, setShopContent] = useState([]);
-
-  // const page = () => {
-  //   searchParams.set("offset", 0);
-  //   searchParams.set("limit", 4);
-  //   setSearchParams(searchParams);
-  // };
 
   useEffect(() => {
     const url = `http://10.58.52.169:9001/products/all?limit=${limit}&offset=${offset}`;
-    console.log(url);
-    // const url = `http://10.58.52.169:9001/products?limit=${limit}&start=${offset}&category=${category}`;
 
     fetch(url, {
       method: "GET",
@@ -29,7 +20,6 @@ function ListBottom() {
       .then(res => res.json())
       .then(shop => {
         setShopContent(shop);
-        console.log(shop);
       });
   }, [offset, limit]);
 
@@ -39,26 +29,11 @@ function ListBottom() {
     setSearchParams(searchParams);
   };
 
-  // useEffect(() => {
-  //   const url = `/data/artlist.json?limit=${limit}&start=${offset}`;
-  //   fetch(url)
-  //     .then(res => res.json())
-  //     .then(shop => {
-  //       setShopContent(shop);
-  //     });
-  // }, []);
-
   return (
     <div className="listBottom">
       <div className="bottomTop">
         <div className="category">
-          <span
-          // onClick={() => {
-          //   page();
-          // }}
-          >
-            All
-          </span>
+          <span>All</span>
         </div>
       </div>
       <div className="bottomBottom">
