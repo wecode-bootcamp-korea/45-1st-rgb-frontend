@@ -7,7 +7,6 @@ function FilterComponent({ shopContent, setShopContent }) {
     <div className="filterContent">
       <div className="priceAndButton">
         <span
-          className="all"
           onClick={() => {
             setShow(!show);
           }}
