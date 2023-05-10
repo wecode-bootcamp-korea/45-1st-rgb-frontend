@@ -1,33 +1,9 @@
 @import "../../styles/variables";
 
-.checkBox {
-  .labelWrap {
-    display: flex;
-    gap: 5px;
-  }
+.selectAllBox {
+  margin-bottom: 10px;
 
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  input[type="checkbox"] + label {
-    display: inline-block;
-    position: relative;
-    width: 15px;
-    height: 15px;
-    border: 2px solid $main-black;
-    border-radius: 50%;
-  }
-
-  input:checked + label::after {
-    content: "●";
-    position: absolute;
-    top: -0.5px;
-    left: -2.5px;
-    width: 15px;
-    height: 15px;
-    color: $main-black;
-    font-size: 10px;
-    text-align: center;
+  input {
+    margin-right: 10px;
   }
 }
