@@ -18,7 +18,7 @@ function Router() {
         <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/productList/all" element={<ProductList />} />
         <Route path="/order" element={<Order />} />
-        <Route path="/invoice" element={<Invoice />} />
+        <Route path="/invoice/:uuid" element={<Invoice />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
