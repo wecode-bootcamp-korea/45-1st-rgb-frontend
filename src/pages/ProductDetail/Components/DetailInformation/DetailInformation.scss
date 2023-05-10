@@ -1,5 +1,7 @@
 .detailInformation {
+  position: relative;
   margin-right: 20%;
+
   h2 {
     padding-bottom: 25px;
     font-size: 37px;
@@ -83,8 +85,7 @@
     }
 
     .buttons {
-      display: flex;
-      justify-content: space-evenly;
+      text-align: center;
     }
   }
 

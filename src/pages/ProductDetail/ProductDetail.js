@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Location from "./Components/Location/Location";
 import ImageBox from "./Components/ImageBox/ImageBox";
 import DetailInformation from "./Components/DetailInformation/DetailInformation";
@@ -6,9 +7,13 @@ import ProductDescription from "./ProductDescription";
 import "./ProductDetail.scss";
 
 function ProductDetail() {
+  const [logIn, setLogIn] = useState("");
+
   const [details, setDetails] = useState([]);
-  // 버튼 누르면 translate 효과 주는 class 이름 바꿀 용 useState
   const [inOut, setInOut] = useState(false);
+  const params = useParams();
+
+  const productId = params.id;
 
   const showMore = () => {
     setInOut(true);
@@ -19,40 +24,42 @@ function ProductDetail() {
   };
 
   useEffect(() => {
-    fetch("/data/detailInfo.json")
+    const url = `http://10.58.52.169:9001/products/${productId}`;
+
+    fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json;charset=utf-8" },
+    })
       .then(res => res.json())
       .then(detailData => {
         setDetails(detailData);
       });
-  }, []);
+  }, [productId]);
 
   return (
-    <div className="productDetail">
-      <div className="description">
-        {/* 숨겨진 상세 설명 */}
-        <ProductDescription inOut={inOut} setInOut={setInOut} noMore={noMore} />
-      </div>
-      <div className="productDetailBox">
-        {/* 상단 */}
-        <Location />
-        {/* 하단 */}
-        <div className="detailBox">
-          {/* 하단 왼쪽 */}
-          <div className="leftImage">
-            <ImageBox details={details} />
-          </div>
-          {/* 하단 오른쪽 */}
-          <div className="detailInfo">
-            <DetailInformation
-              details={details}
-              inOut={inOut}
-              setInOut={setInOut}
-              showMore={showMore}
-            />
+    <>
+      {logIn}
+      <div className="productDetail">
+        <div className="description">
+          <ProductDescription details={details} inOut={inOut} noMore={noMore} />
+        </div>
+        <div className="productDetailBox">
+          <Location />
+          <div className="detailBox">
+            <div className="leftImage">
+              <ImageBox details={details} />
+            </div>
+            <div className="detailInfo">
+              <DetailInformation
+                setLogIn={setLogIn}
+                details={details}
+                showMore={showMore}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

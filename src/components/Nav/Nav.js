@@ -15,7 +15,7 @@ const Nav = () => {
 
   useEffect(() => {
     if (!token) return;
-    fetch(`${API_ADDRESS}users`, {
+    fetch("http://10.58.52.195:3000/users", {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -27,7 +27,7 @@ const Nav = () => {
 
   useEffect(() => {
     if (!token) return;
-    fetch(`${API_ADDRESS}carts`, {
+    fetch("http://10.58.52.195:3000/carts", {
       method: "GET",
       headers: { Authorization: token },
     })

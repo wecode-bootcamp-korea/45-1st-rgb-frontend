@@ -1,15 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button/Button";
+import User from "../../../User/User";
+
 import "./DetailInformation.scss";
 
-function DetailInformation({ details, showMore }) {
-  const [count, setCount] = useState(1);
-  const price = details[0]?.price;
-  const total = count * price;
+function DetailInformation({ details, showMore, setLogIn }) {
+  const {
+    quantity,
+    id,
+    title,
+    artist_name,
+    products_size_left,
+    products_size_right,
+    material,
+    description,
+    price,
+  } = details;
 
+  const [count, setCount] = useState(1);
+  const total = count * price;
+  const [button1, setButton1] = useState(false);
+  const token = localStorage.getItem("TOKEN");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (button1) {
+      token ? postCart() : setLogIn(<User setLogIn={setLogIn} />);
+    }
+  }, [button1]);
+
+  const cartButton = () => {
+    setButton1(!button1);
+  };
   const plusCount = () => {
     setCount(count + 1);
-    if (count === details[0]?.quantity) {
+    if (count === quantity) {
       setCount(count + 0);
     }
   };
@@ -20,31 +46,48 @@ function DetailInformation({ details, showMore }) {
       setCount(count - 0);
     }
   };
+
+  const postCart = () => {
+    const url = `http://10.58.52.195:3000/carts`;
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        productsId: id,
+        quantity: count,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => console.log(data));
+    alert("카트에 성공적으로 담겼습니다");
+  };
+
   return (
     <div className="detailInformation">
-      <h2>{details[0]?.title}</h2>
-      <h3>{details[0]?.artistName}</h3>
-      {/* 사이즈와 재료 */}
+      <h2>{title}</h2>
+      <h3>{artist_name}</h3>
       <div className="infoTop">
         <p className="size">
-          {`${details[0]?.productsSizeLeft} x ${details[0]?.productsSizeRight} cm`}
+          {`${products_size_left} x ${products_size_right} cm`}
         </p>
-        <p className="material">{`${details[0]?.material}`}</p>
+        <p className="material">{`${material}`}</p>
       </div>
-      {/* 상세 설명 */}
       <div className="infoMiddle">
-        <span className="description">{`${details[0]?.description}`}</span>
+        <span className="description">{`${description}`}</span>
         <span>
           <button onClick={showMore}>
             <img alt="plusButton" src="/images/productDetail/plusButton.png" />
           </button>
         </span>
       </div>
-      {/* 가격과 수량 */}
       <div className="infoBottom">
         <div className="price">
           <span className="bold">Price</span>
-          <span>{`${details[0]?.price} won`}</span>
+          <span>{`${price} point`}</span>
         </div>
         <div className="quantity">
           <span className="bold">수량</span>
@@ -52,30 +95,26 @@ function DetailInformation({ details, showMore }) {
             <button className="minusButton" onClick={minusCount}>
               -
             </button>
-            {count}/{details[0]?.quantity}
+            {count}/{details.quantity}
             <button className="plusButton" onClick={plusCount}>
               +
             </button>
           </div>
         </div>
       </div>
-      {/* 카트 추가 & 바로 구매 버튼 */}
       <div className="buyingButtons">
         <div className="totalPrice">
           <span className="bold">총 가격</span>
-          <span>{`${total} won`}</span>
+          <span>{`${total} point`}</span>
         </div>
         <div className="buttons">
           <Button
             buttonColor="bright"
-            buttonSize="smallButton"
-            children="카트 추가"
-          />
-          <Button
-            buttonColor="dark"
-            buttonSize="smallButton"
-            children="바로 구매"
-          />
+            buttonSize="bigButton"
+            action={cartButton}
+          >
+            카트 추가
+          </Button>
         </div>
       </div>
     </div>
