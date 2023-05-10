@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Main from "./pages/Main/Main";
 import Nav from "./components/Nav/Nav";
+import Main from "./pages/Main/Main";
+import Artists from "./pages/Artists/Artists";
 import Footer from "./components/Footer/Footer";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import ProductList from "./pages/ProductList/ProductList";
@@ -15,6 +16,7 @@ function Router() {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/artists" element={<Artists />} />
         <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/productList/all" element={<ProductList />} />
         <Route path="/order" element={<Order />} />
