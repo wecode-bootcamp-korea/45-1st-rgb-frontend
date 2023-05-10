@@ -23,6 +23,12 @@ function ListBottom() {
       });
   }, [offset, limit]);
 
+  const reset = () => {
+    searchParams.set("offset", 0);
+    searchParams.set("limit", 10);
+    setSearchParams(searchParams);
+  };
+
   const movePage = pageNumber => {
     searchParams.set("offset", (pageNumber - 1) * 4);
     searchParams.set("limit", 4);
@@ -33,7 +39,7 @@ function ListBottom() {
     <div className="listBottom">
       <div className="bottomTop">
         <div className="category">
-          <span>All</span>
+          <span onClick={reset}>All</span>
         </div>
       </div>
       <div className="bottomBottom">

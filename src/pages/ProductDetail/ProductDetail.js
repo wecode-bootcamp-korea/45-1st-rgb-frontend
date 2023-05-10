@@ -47,7 +47,7 @@ function ProductDetail() {
           <Location />
           <div className="detailBox">
             <div className="leftImage">
-              <ImageBox details={details} />
+              <ImageBox details={details} inOut={inOut} />
             </div>
             <div className="detailInfo">
               <DetailInformation

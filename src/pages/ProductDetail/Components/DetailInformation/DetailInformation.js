@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
 
@@ -22,7 +21,6 @@ function DetailInformation({ details, showMore, setLogIn }) {
   const total = count * price;
   const [button1, setButton1] = useState(false);
   const token = localStorage.getItem("TOKEN");
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (button1) {
