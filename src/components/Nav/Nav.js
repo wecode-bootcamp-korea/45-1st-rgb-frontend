@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
 import API_ADDRESS from "../../utils/API_ADDRESS";
-
 import "./Nav.scss";
 import Cart from "../Cart/Cart";
 
@@ -12,14 +11,37 @@ const Nav = () => {
   const [userData, setUserData] = useState([]);
   const [showCategory, setShowCategory] = useState("hidden");
   const [logIn, setLogIn] = useState("");
-  const token = "";
+  const token = localStorage.getItem("TOKEN");
+  const { user } = userData;
+
+  useEffect(() => {
+    if (!token) return;
+    fetch(`${API_ADDRESS}users`, {
+      method: "GET",
+      headers: { Authorization: token },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setUserData(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (!token) return;
+    fetch(`${API_ADDRESS}carts`, {
+      method: "GET",
+      headers: { Authorization: token },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setMyCart(data);
+      });
+  }, []);
 
   const [showCart, setShowCart] = useState(false);
   const toggleCart = () => {
     setShowCart(!showCart);
   };
-
-  const { user } = userData;
 
   useEffect(() => {
     if (token) return setLogIn("");
