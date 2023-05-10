@@ -1,0 +1,195 @@
+@import "../../../../styles/variables";
+
+.delivery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  padding: 50px 100px;
+
+  &Title {
+    margin-bottom: 30px;
+    font-size: 37px;
+    font-weight: 700;
+  }
+
+  &Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    .formTitle {
+      padding: 10px;
+      padding-left: 0;
+      font-size: 17px;
+    }
+
+    input[type="text"] {
+      height: 60px;
+      padding: 10px;
+      border-bottom: 1px solid $main-grey;
+      font-size: 17px;
+    }
+  }
+
+  .inputNameWrap {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    width: 630px;
+    height: 60px;
+
+    .familyNameWrap {
+      display: flex;
+      position: relative;
+      align-content: center;
+      justify-content: space-between;
+      width: 30%;
+
+      padding: 0;
+      border-bottom: 1px solid $main-black;
+
+      .familyNamePlaceholder {
+        display: flex;
+        align-items: center;
+        color: $main-grey;
+        font-size: 14px;
+      }
+
+      .familyName {
+        width: 100%;
+        border: none;
+      }
+
+      .userFamilyName {
+        position: absolute;
+        top: 21.5px;
+        left: 30px;
+        font-size: 17px;
+      }
+    }
+
+    .firstNameWrap {
+      display: flex;
+      position: relative;
+      align-items: center;
+      width: 70%;
+      padding: 0;
+      border-bottom: 1px solid $main-black;
+
+      .firstNamePlaceholder {
+        display: flex;
+        align-items: center;
+        width: 20%;
+        color: $main-grey;
+        font-size: 14px;
+      }
+      .firstName {
+        width: 100%;
+        border: none;
+      }
+
+      .userFirstName {
+        position: absolute;
+
+        left: 50px;
+        font-size: 17px;
+      }
+    }
+  }
+
+  .cellphoneWrap {
+    display: flex;
+    width: 630px;
+    height: 60px;
+    padding: 0;
+    border-bottom: 1px solid $main-black;
+
+    .phonePlaceholder {
+      display: flex;
+      align-items: center;
+      color: $main-grey;
+      font-size: 14px;
+    }
+
+    .phoneNumberInput {
+      display: block;
+      width: 45%;
+      border: none;
+    }
+
+    .userPhoneNumber {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .deliveryInfoForm {
+    padding-top: 15px;
+
+    .addressInput {
+      display: flex;
+      width: 630px;
+      width: 100%;
+      border-bottom: 1px solid $main-black;
+
+      .addressPlaceholder {
+        display: flex;
+        align-items: center;
+        color: $main-grey;
+        font-size: 14px;
+      }
+
+      .address {
+        width: 55%;
+        border: none;
+      }
+
+      .userAddress {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .postInput {
+      display: flex;
+      width: 630px;
+      border-bottom: 1px solid $main-black;
+      .postalPlaceholder {
+        display: flex;
+        align-items: center;
+        color: $main-grey;
+        font-size: 14px;
+      }
+      .postalcode {
+        width: 55%;
+        border: none;
+      }
+
+      .userPostalcode {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.checkboxBox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  .requestInputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .requestInput {
+      border: 1px solid $main-grey;
+    }
+  }
+}
