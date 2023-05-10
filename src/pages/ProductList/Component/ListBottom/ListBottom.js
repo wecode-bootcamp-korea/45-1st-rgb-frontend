@@ -29,6 +29,8 @@ function ListBottom() {
     searchParams.set("offset", 0);
     searchParams.set("limit", 10);
     setSearchParams(searchParams);
+
+    setPage(false);
   };
 
   const showFour = () => {
