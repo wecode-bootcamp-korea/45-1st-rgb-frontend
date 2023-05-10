@@ -29,11 +29,11 @@ function Order() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    fetch("/data/cartData.json", {
+    fetch("http://10.58.52.1150:3000/carts", {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMyLCJpYXQiOjE2ODM1MzgwNzZ9.pDdwVNPhBaFlSm34hEX8HZGkfKwy13geGtkfzBRjepU",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4MzY3OTI0NX0.tp76AbP1vvMOgTPPWRJE2IrOkOyjUGcDvSt69gKg-N4",
         // Authorization: token,
       },
     })

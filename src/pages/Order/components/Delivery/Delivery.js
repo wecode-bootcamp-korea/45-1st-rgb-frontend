@@ -44,9 +44,6 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
   useEffect(() => {
     if (!isDefaultAddressChecked) return;
 
-    console.log("인풋 체크되서, [POST] userAddress[GET] userData 실행!!");
-
-    // [POST] userAddress
     fetch("http://10.58.52.169:9001/users", {
       method: "POST",
       headers: {
@@ -69,9 +66,9 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
       });
   }, [
     isDefaultAddressChecked,
-    userData?.cellphone,
-    userData?.address,
-    userData?.postalcode,
+    // userData?.cellphone,
+    // userData?.address,
+    // userData?.postalcode,
   ]);
 
   const handleDefaultAddress = () => {
@@ -92,26 +89,30 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
           <h3 className="formTitle">주문자 정보</h3>
           <div className="inputNameWrap">
             <div className="familyNameWrap">
+              <label className="familyNamePlaceholder" htmlFor="familyName">
+                성
+              </label>
               <input
+                id="familyName"
                 className="familyName"
                 type="text"
-                placeholder="성"
                 readOnly
               />
-              <span className="userFamilyName">{userData?.first_name}</span>
+              <span className="userFamilyName">{userData?.last_name}</span>
             </div>
             <div className="firstNameWrap">
+              <label className="firstNamePlaceholder" htmlFor="firstName">
+                이름
+              </label>
               <input
+                id="firstName"
                 className="firstName"
                 type="text"
-                placeholder="이름"
                 readOnly
               />
-              <span className="userFirstName">{userData?.last_name}</span>
+              <span className="userFirstName">{userData?.first_name}</span>
             </div>
           </div>
-
-          {/* 여기서부터 수정 필요!! */}
           <div className="cellphoneWrap">
             <label className="phonePlaceholder" htmlFor="cellphone">
               전화번호 뒷 8자리
@@ -177,37 +178,37 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
             </div>
           </div>
 
-          <div className="labelWrapper">
-            <label className="default">
-              <input
-                type="checkbox"
-                id="default"
-                onChange={handleDefaultAddress}
-              />
-              이 주소를 기본 배송지로 저장합니다
-            </label>
-          </div>
-          <br />
-
-          <div className="requestInputWrapper">
-            <label for="requestInput">
-              <input id="requestInput" type="checkbox" />
-              <label
-                className="request"
-                htmlFor="requestInput"
-                onClick={() => setIsInputOpen(!isInputOpen)}
-              >
-                배송 기사님께 요청 사항이 있습니다
+          <fieldset className="checkboxBox">
+            <div className="labelWrapper">
+              <label className="default">
+                <input
+                  type="checkbox"
+                  id="default"
+                  onChange={handleDefaultAddress}
+                />
+                이 주소를 기본 배송지로 저장합니다
               </label>
-            </label>
-            {isInputOpen && (
-              <input
-                type="text"
-                className="requestInput"
-                onKeyDown={preventEnterKey}
-              />
-            )}
-          </div>
+            </div>
+            <div className="requestInputWrapper">
+              <label for="requestInput">
+                <input id="requestInput" type="checkbox" />
+                <label
+                  className="request"
+                  htmlFor="requestInput"
+                  onClick={() => setIsInputOpen(!isInputOpen)}
+                >
+                  배송 기사님께 요청 사항이 있습니다
+                </label>
+              </label>
+              {isInputOpen && (
+                <input
+                  type="text"
+                  className="requestInput"
+                  onKeyDown={preventEnterKey}
+                />
+              )}
+            </div>
+          </fieldset>
         </div>
         <button
           onClick={handleNextPageBtn}

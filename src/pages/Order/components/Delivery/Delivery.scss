@@ -38,46 +38,68 @@
     display: flex;
     align-items: center;
     gap: 70px;
+    width: 630px;
+    height: 60px;
 
     .familyNameWrap {
+      display: flex;
       position: relative;
+      align-content: center;
+      justify-content: space-between;
       width: 30%;
+
+      padding: 0;
+      border-bottom: 1px solid $main-black;
+
+      .familyNamePlaceholder {
+        display: flex;
+        align-items: center;
+        color: $main-grey;
+        font-size: 14px;
+      }
 
       .familyName {
         width: 100%;
+        border: none;
       }
 
       .userFamilyName {
         position: absolute;
-        top: 22px;
-        left: 50px;
+        top: 21.5px;
+        left: 30px;
         font-size: 17px;
       }
     }
 
     .firstNameWrap {
+      display: flex;
       position: relative;
+      align-items: center;
       width: 70%;
+      padding: 0;
+      border-bottom: 1px solid $main-black;
 
+      .firstNamePlaceholder {
+        display: flex;
+        align-items: center;
+        width: 20%;
+        color: $main-grey;
+        font-size: 14px;
+      }
       .firstName {
         width: 100%;
+        border: none;
       }
 
       .userFirstName {
         position: absolute;
-        top: 22px;
+
         left: 50px;
         font-size: 17px;
-      }
-
-      .userPhoneNumber {
-        position: absolute;
-        right: 0px;
       }
     }
   }
 
-  // 여기서부터 css 재작성
   .cellphoneWrap {
     display: flex;
     width: 630px;
@@ -104,62 +126,73 @@
     }
   }
 
-  .addressInput {
-    display: flex;
-    width: 630px;
-    width: 100%;
-    border-bottom: 1px solid $main-black;
+  .deliveryInfoForm {
+    padding-top: 15px;
 
-    .addressPlaceholder {
+    .addressInput {
       display: flex;
-      align-items: center;
-      color: $main-grey;
-      font-size: 14px;
+      width: 630px;
+      width: 100%;
+      border-bottom: 1px solid $main-black;
+
+      .addressPlaceholder {
+        display: flex;
+        align-items: center;
+        color: $main-grey;
+        font-size: 14px;
+      }
+
+      .address {
+        width: 55%;
+        border: none;
+      }
+
+      .userAddress {
+        display: flex;
+        align-items: center;
+      }
     }
 
-    .address {
-      width: 55%;
-      border: none;
-    }
-
-    .userAddress {
+    .postInput {
       display: flex;
-      align-items: center;
-    }
-  }
+      width: 630px;
+      border-bottom: 1px solid $main-black;
+      .postalPlaceholder {
+        display: flex;
+        align-items: center;
+        color: $main-grey;
+        font-size: 14px;
+      }
+      .postalcode {
+        width: 55%;
+        border: none;
+      }
 
-  .postInput {
-    display: flex;
-    width: 630px;
-    border-bottom: 1px solid $main-black;
-    .postalPlaceholder {
-      display: flex;
-      align-items: center;
-      color: $main-grey;
-      font-size: 14px;
-    }
-    .postalcode {
-      width: 55%;
-      border: none;
-    }
-
-    .userPostalcode {
-      display: flex;
-      align-items: center;
+      .userPostalcode {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 }
 
-.requestInputWrapper {
+.checkboxBox {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
-  /*   .request {
+  .requestInputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    /*   .request {
     display: flex;
     gap: 5px;
   } */
-  /* 
+    /* 
   input[type="checkbox"] {
     display: none;
   }
@@ -184,7 +217,8 @@
     text-align: center;
   } */
 
-  .requestInput {
-    border: 1px solid $main-grey;
+    .requestInput {
+      border: 1px solid $main-grey;
+    }
   }
 }
