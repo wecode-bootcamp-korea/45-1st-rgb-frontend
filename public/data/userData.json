@@ -1,0 +1,11 @@
+{
+  "user": {
+    "id": 1,
+    "first_name": "yh",
+    "last_name": "moon",
+    "cellphone": null,
+    "address": "",
+    "postalCode": "",
+    "points": "1000.00"
+  }
+}

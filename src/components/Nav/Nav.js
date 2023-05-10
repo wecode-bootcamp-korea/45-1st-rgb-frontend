@@ -63,19 +63,9 @@ const Nav = () => {
             <li onClick={() => navigate("/Artists")}>Artists</li>
             <li
               onClick={() => navigate("/productList")}
-              onMouseEnter={() => setShowCategory("shopCategory")}
-              onMouseLeave={() => setShowCategory("hidden")}
               className="categoryShop"
             >
               Shop
-              <div
-                onMouseEnter={() => setShowCategory("shopCategory")}
-                onMouseLeave={() => setShowCategory("hidden")}
-                className={`categoryShop ${showCategory}`}
-              >
-                <p onClick={() => navigate("/productList")}>Art</p>
-                <p onClick={() => navigate("/productList")}>Goods</p>
-              </div>
             </li>
           </div>
           <div className="navBox navBoxRight">
