@@ -46,7 +46,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
   };
 
   const postCart = () => {
-    const url = `http://10.58.52.195:3000/carts`;
+    const url = `http://10.58.52.150:3000/carts`;
 
     fetch(url, {
       method: "POST",
