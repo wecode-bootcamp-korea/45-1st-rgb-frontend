@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.total {
+.footer {
   display: flex;
   height: 657px;
   background-color: $main-black;
@@ -30,7 +30,7 @@
         font-size: 14px;
         font-weight: bold;
       }
-      .lineeee {
+      .underLine {
         text-decoration: underline;
       }
     }
