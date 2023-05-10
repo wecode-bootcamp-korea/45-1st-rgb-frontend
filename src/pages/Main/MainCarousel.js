@@ -25,6 +25,7 @@ export default function MainCarousel() {
       document.querySelector(".buttonNext").style.display = "block";
     }
   }, [currentIndex, items]);
+
   const handleNext = () => {
     setCurrentIndex(prevIndex =>
       prevIndex === items.length - 1 ? 0 : prevIndex + 1
@@ -64,11 +65,11 @@ export default function MainCarousel() {
         </div>
       </div>
       <div className="indicatorBar">
-        {items.map((item, id) => (
+        {items.map((item, index) => (
           <div
             key={item.id}
-            className={`indicator ${currentIndex === id ? "active" : ""}`}
-            onClick={() => setCurrentIndex(id)}
+            className={`indicator ${currentIndex === index ? "active" : ""}`}
+            onClick={() => setCurrentIndex(index)}
           />
         ))}
       </div>

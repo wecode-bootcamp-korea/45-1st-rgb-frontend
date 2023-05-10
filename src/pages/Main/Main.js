@@ -20,7 +20,7 @@ function Main() {
           </div>
           <div className="boxButton">
             <Button
-              action={() => navigate("/Artist")}
+              action={() => navigate("/artist")}
               buttonSize="mediumButton"
               buttonColor="dark"
             >

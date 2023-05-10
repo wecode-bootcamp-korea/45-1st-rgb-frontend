@@ -75,16 +75,10 @@
   }
 
   .check {
-    display: none;
     margin-left: 20px;
-    transition: all 5s ease-in;
     color: $main-ivory;
     font-size: 14px;
     font-weight: 200;
-  }
-
-  .texth:hover.check {
-    display: block;
   }
 
   .itemPrice {

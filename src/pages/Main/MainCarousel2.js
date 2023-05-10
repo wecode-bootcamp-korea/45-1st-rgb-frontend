@@ -41,6 +41,15 @@ export default function MainCarousel2() {
     }
   };
 
+  useEffect(() => {
+    const lastSlide = carouselItem.length - 0;
+    if (currentSlide === lastSlide) {
+      document.querySelector(".buttonNext2").style.display = "none";
+    } else {
+      document.querySelector(".buttonNext2").style.display = "block";
+    }
+  }, [currentSlide, carouselItem]);
+
   return (
     <div className="goodsContainer">
       <div className="goodsTitle">탁월한 셀렉션</div>
@@ -55,11 +64,11 @@ export default function MainCarousel2() {
         <button className="buttonNext2" onClick={nextSlide} />
       </div>
       <div className="indicatorBar2">
-        {carouselItem.map((item, id) => (
+        {carouselItem.map((item, index) => (
           <div
             key={item.id}
-            className={`indicator2 ${currentSlide === id ? "active2" : ""}`}
-            onClick={() => setCurrentSlide(id)}
+            className={`indicator2 ${currentSlide === index ? "active2" : ""}`}
+            onClick={() => setCurrentSlide(index)}
           />
         ))}
       </div>

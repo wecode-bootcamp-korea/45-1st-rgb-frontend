@@ -13,7 +13,7 @@ export default function CartList({ handleClose, setShowCart }) {
     fetch("http://10.58.52.195:3000/carts", {
       method: "GET", //api 통신 질문
       headers: {
-        Authorization: localStorage.getItem(token),
+        Authorization: token,
       },
     })
       .then(res => {
@@ -30,7 +30,7 @@ export default function CartList({ handleClose, setShowCart }) {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("TOKEN"),
+        Authorization: token,
       },
       body: JSON.stringify({ count: items[id].count }),
     })
@@ -68,7 +68,7 @@ export default function CartList({ handleClose, setShowCart }) {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("TOKEN"),
+        Authorization: token,
       },
     });
 
@@ -114,7 +114,7 @@ export default function CartList({ handleClose, setShowCart }) {
                   +
                 </button>
                 <button className="check" onClick={() => handleCount(id)}>
-                  <span className="texth">수량변경</span>
+                  수량변경
                 </button>
 
                 {/* 확인 버튼 생성 */}
