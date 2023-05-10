@@ -23,7 +23,7 @@ const User = ({ setLogIn }) => {
         {isLogin ? (
           <Login setLogIn={setLogIn} goToSignUp={goToSignUp} />
         ) : (
-          <SignUp setIsLogin={setIsLogin} />
+          <SignUp setLogIn={setLogIn} />
         )}
       </div>
     </div>
