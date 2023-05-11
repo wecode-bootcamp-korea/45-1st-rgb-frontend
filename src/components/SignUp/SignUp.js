@@ -59,7 +59,6 @@ const SignUp = ({ setLogIn }) => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         localStorage.setItem("TOKEN", data.accessToken);
         if (localStorage.getItem("TOKEN") == "undefined") {
           return setSignUpWarning(
