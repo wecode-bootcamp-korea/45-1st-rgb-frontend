@@ -4,7 +4,7 @@ import Location from "./Components/Location/Location";
 import ImageBox from "./Components/ImageBox/ImageBox";
 import DetailInformation from "./Components/DetailInformation/DetailInformation";
 import ProductDescription from "./ProductDescription";
-import API_ADDRESS from "../../utils/API_ADDRESS";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 import "./ProductDetail.scss";
 
 function ProductDetail() {
@@ -25,7 +25,7 @@ function ProductDetail() {
   };
 
   useEffect(() => {
-    const url = `${API_ADDRESS}products/${productId}`;
+    const url = `${API_ADDRESS_ORDERS}products/${productId}`;
 
     fetch(url, {
       method: "GET",
