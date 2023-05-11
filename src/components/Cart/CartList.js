@@ -2,16 +2,21 @@ import { useState, useEffect } from "react";
 import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
-import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
-
+import { API_ADDRESS } from "../../utils/API_ADDRESS";
 export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
-  const [isButtonActive, setButtonActive] = useState(false);
+  const [showChangeButton, setShowChangeButton] = useState();
+  const handleMouseEnter = id => {
+    setShowChangeButton(id);
+  };
+  const handleMouseLeave = () => {
+    setShowChangeButton(false);
+  };
   useEffect(() => {
-    fetch(`${API_ADDRESS_ORDERS}carts`, {
+    fetch(`${API_ADDRESS}carts`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -24,9 +29,8 @@ export default function CartList({ handleClose, setShowCart }) {
         return setItems(data);
       });
   }, []);
-
   const handleCount = id => {
-    const url = `${API_ADDRESS_ORDERS}carts/${items[id].id}`;
+    const url = `${API_ADDRESS}carts/${items[id].id}`;
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -37,18 +41,17 @@ export default function CartList({ handleClose, setShowCart }) {
       body: JSON.stringify({ count: items[id].count }),
     })
       .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
+      .then(data => data)
+      .catch(error => error);
   };
-
   useEffect(() => {
     let total = 0;
-    items.forEach(item => {
-      total += item.price * item.count;
-    });
+    items.length &&
+      items.forEach(item => {
+        total += item.price * item.count;
+      });
     setTotalPrice(total);
   }, [items]);
-
   const decrement = id => {
     const newItems = [...items];
     if (newItems[id].count > 1) {
@@ -56,16 +59,13 @@ export default function CartList({ handleClose, setShowCart }) {
       setItems(newItems);
     }
   };
-
   const increment = id => {
     const newItems = [...items];
     newItems[id].count++;
     setItems(newItems);
   };
-
-  //  delete api
   const deleteItem = id => {
-    fetch(`${API_ADDRESS_ORDERS}carts/${items[id].id}`, {
+    fetch(`${API_ADDRESS}carts/${items[id].id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
@@ -73,25 +73,21 @@ export default function CartList({ handleClose, setShowCart }) {
         Authorization: token,
       },
     });
-
     const newItems = items.filter((_, i) => i !== id);
     setItems(newItems);
   };
-
   useEffect(() => {
     if (items.length) return;
     const timer = setTimeout(() => {
       handleClose();
     }, 2000);
-
     return () => clearTimeout(timer);
   }, [items]);
-
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {items.length === 0 ? (
-        <div className="cartList">장바구니에 담긴 상품이 없습니다.</div>
+      {items.length === 0 || !token ? (
+        <div className="cartList">장바구니가 비었습니다.</div>
       ) : (
         <>
           <div className="cartCategoryBox">
@@ -101,43 +97,44 @@ export default function CartList({ handleClose, setShowCart }) {
             <div className="cartCategory">가격</div>
             <div className="cartCategory" />
           </div>
-          {items?.map((item, id) => (
-            <div
-              key={item.id}
-              className="cartItem"
-              onMouseEnter={setButtonActive(true)}
-              onMouseLeave={setButtonActive(false)}
-            >
-              <div className="itemName">{item.title}</div>
-              <div className="itemSize">
-                {item.products_size_left}/{item.products_size_right}
+          {items.length &&
+            items.map((item, id) => (
+              <div key={item.id} className="cartItem">
+                <div className="itemName">{item.title}</div>
+                <div className="itemSize">
+                  {item.width}/{item.height}
+                </div>
+                <div
+                  className="itemQuantity"
+                  onMouseEnter={() => handleMouseEnter(id)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button className="minus" onClick={() => decrement(id)}>
+                    -
+                  </button>
+                  {item.count}
+                  <button className="plus" onClick={() => increment(id)}>
+                    +
+                  </button>
+                  {showChangeButton === id && (
+                    <button className="check" onClick={() => handleCount(id)}>
+                      수량변경
+                    </button>
+                  )}
+                </div>
+                <div className="itemPrice">
+                  {(item.price * item.count).toLocaleString()} P
+                </div>
+                <div className="cartDelete">
+                  <button
+                    className="deleteButton"
+                    onClick={() => {
+                      deleteItem(id);
+                    }}
+                  />
+                </div>
               </div>
-              <div className="itemQuantity">
-                <button className="minus" onClick={() => decrement(id)}>
-                  -
-                </button>
-                {item.count}
-                <button className="plus" onClick={() => increment(id)}>
-                  +
-                </button>
-                <button className="check" onClick={() => handleCount(id)}>
-                  수량변경
-                </button>
-              </div>
-
-              <div className="itemPrice">
-                {(item.price * item.count).toLocaleString()}원
-              </div>
-              <div className="cartDelete">
-                <button
-                  className="deleteButton"
-                  onClick={() => {
-                    deleteItem(id);
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
           <div className="cartSumBox">
             <div className="cartSummary">
               <div className="bottomPadding">
@@ -146,7 +143,7 @@ export default function CartList({ handleClose, setShowCart }) {
                 </span>
                 <div className="totalPrice">
                   <span className="vat">소계(세금 포함)</span>
-                  <span className="sum">{totalPrice.toLocaleString()}원</span>
+                  <span className="sum">{totalPrice.toLocaleString()} P</span>
                 </div>
                 <div className="payBtn">
                   <Button
@@ -160,13 +157,13 @@ export default function CartList({ handleClose, setShowCart }) {
                     결제하기
                   </Button>
                 </div>
-                <button
-                  className="arrowUp"
-                  onClick={() => {
-                    handleClose();
-                  }}
-                />
               </div>
+              <button
+                className="arrowUp"
+                onClick={() => {
+                  handleClose();
+                }}
+              />
             </div>
           </div>
         </>

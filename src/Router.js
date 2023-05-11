@@ -17,7 +17,7 @@ function Router() {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/artists" element={<Artists />} />
+        <Route path="/artist" element={<Artists />} />
         <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/productList/all" element={<ProductList />} />
         <Route path="/order" element={<Order />} />

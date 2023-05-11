@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Button from "../Button/Button";
 import SignUpModal from "./SignUpModal";
 import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import CheckBox from "../CheckBox/CheckBox";
 import "./SignUp.scss";
 
 const SignUp = ({ setLogIn }) => {
-  const token = localStorage.getItem("TOKEN");
   const [signUpWarning, setSignUpWarning] = useState("");
   const [signUpModal, setSignUpModal] = useState("");
+  const [checkItems, setCheckItems] = useState([]);
   const [isPassword, setIsPassword] = useState(true);
   const [inputValues, setInputValues] = useState({
     lastName: "",
@@ -15,28 +16,18 @@ const SignUp = ({ setLogIn }) => {
     email: "",
     password: "",
     passwordCheck: "",
-    privacy: "",
-    subscription: "",
   });
 
-  const {
-    lastName,
-    firstName,
-    email,
-    password,
-    passwordCheck,
-    privacy,
-    subscription,
-  } = inputValues;
+  const { lastName, firstName, email, password, passwordCheck } = inputValues;
 
-  const subscriptionValue = subscription === "on" ? "1" : "0";
+  const subscriptionValue = checkItems[1] ? "1" : "0";
   const loginValid =
     email.includes("@") &&
     password.length >= 5 &&
     firstName &&
     lastName &&
     passwordCheck === password &&
-    privacy === "on";
+    checkItems[0] === 0;
 
   const regex = /^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})/;
 
@@ -59,8 +50,8 @@ const SignUp = ({ setLogIn }) => {
     })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("TOKEN", data.accessToken);
-        if (localStorage.getItem("TOKEN") == "undefined") {
+        data.accessToken && localStorage.setItem("TOKEN", data.accessToken);
+        if (!localStorage.getItem("TOKEN")) {
           return setSignUpWarning(
             <p className="inputWarning">다시 입력해주세요.</p>
           );
@@ -133,33 +124,7 @@ const SignUp = ({ setLogIn }) => {
             <p className="inputWarning">비밀번호가 일치하지 않습니다.</p>
           )}
         </form>
-        <fieldset>
-          <div>
-            <input type="checkbox" id="allAgree" name="allAgree" />
-            <label for="allAgree">전체 동의</label>
-          </div>
-          <div>
-            <input
-              onChange={handleInput}
-              type="checkbox"
-              id="privacy"
-              name="privacy"
-            />
-            <label for="privacy">개인 정보 동의 (필수)</label>
-            <button className="viewMore" />
-          </div>
-          <div>
-            <input
-              onChange={handleInput}
-              type="checkbox"
-              id="subscription"
-              name="subscription"
-            />
-            <label for="subscription">뉴스레터 구독 (선택)</label>
-            <button className="viewMore" />
-          </div>
-        </fieldset>
-
+        <CheckBox checkItems={checkItems} setCheckItems={setCheckItems} />
         <Button
           btnOn={!loginValid}
           action={signUp}
