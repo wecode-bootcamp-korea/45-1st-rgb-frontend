@@ -6,7 +6,13 @@ function FilterComponent({ shopContent, setShopContent }) {
   return (
     <div className="filterContent">
       <div className="priceAndButton">
-        <span className="all">전체보기</span>
+        <span
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          전체보기
+        </span>
         <button
           onClick={() => {
             setShow(!show);
@@ -44,7 +50,9 @@ function FilterComponent({ shopContent, setShopContent }) {
                 className="sortingButton"
                 onClick={() => {
                   let secondCopy = [...shopContent];
-                  secondCopy.sort((a, b) => (a.price < b.price ? -1 : 1));
+                  secondCopy.sort((a, b) =>
+                    Number(a.price) < Number(b.price) ? -1 : 1
+                  );
                   setShopContent(secondCopy);
                 }}
               >
