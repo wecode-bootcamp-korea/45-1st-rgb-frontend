@@ -9,7 +9,15 @@ export default function CartList({ handleClose, setShowCart }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
-  const [isButtonActive, setButtonActive] = useState(false);
+
+  const [showChangeButton, setShowChangeButton] = useState();
+  const handleMouseEnter = id => {
+    setShowChangeButton(id);
+  };
+  const handleMouseLeave = () => {
+    setShowChangeButton(false);
+  };
+
   useEffect(() => {
     fetch(`${API_ADDRESS}carts`, {
       method: "GET",
@@ -37,15 +45,16 @@ export default function CartList({ handleClose, setShowCart }) {
       body: JSON.stringify({ count: items[id].count }),
     })
       .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
+      .then(data => data)
+      .catch(error => error);
   };
 
   useEffect(() => {
     let total = 0;
-    items.forEach(item => {
-      total += item.price * item.count;
-    });
+    items.length &&
+      items.forEach(item => {
+        total += item.price * item.count;
+      });
     setTotalPrice(total);
   }, [items]);
 
@@ -63,7 +72,6 @@ export default function CartList({ handleClose, setShowCart }) {
     setItems(newItems);
   };
 
-  //  delete api
   const deleteItem = id => {
     fetch(`${API_ADDRESS}carts/${items[id].id}`, {
       method: "DELETE",
@@ -90,8 +98,8 @@ export default function CartList({ handleClose, setShowCart }) {
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {items.length === 0 ? (
-        <div className="cartList">장바구니에 담긴 상품이 없습니다.</div>
+      {items.length === 0 || !token ? ( // and
+        <div className="cartList">장바구니가 비었습니다.</div>
       ) : (
         <>
           <div className="cartCategoryBox">
@@ -101,43 +109,45 @@ export default function CartList({ handleClose, setShowCart }) {
             <div className="cartCategory">가격</div>
             <div className="cartCategory" />
           </div>
-          {items?.map((item, id) => (
-            <div
-              key={item.id}
-              className="cartItem"
-              onMouseEnter={setButtonActive(true)}
-              onMouseLeave={setButtonActive(false)}
-            >
-              <div className="itemName">{item.title}</div>
-              <div className="itemSize">
-                {item.products_size_left}/{item.products_size_right}
-              </div>
-              <div className="itemQuantity">
-                <button className="minus" onClick={() => decrement(id)}>
-                  -
-                </button>
-                {item.count}
-                <button className="plus" onClick={() => increment(id)}>
-                  +
-                </button>
-                <button className="check" onClick={() => handleCount(id)}>
-                  수량변경
-                </button>
-              </div>
+          {items.length &&
+            items.map((item, id) => (
+              <div key={item.id} className="cartItem">
+                <div className="itemName">{item.title}</div>
+                <div className="itemSize">
+                  {item.width}/{item.height}
+                </div>
+                <div
+                  className="itemQuantity"
+                  onMouseEnter={() => handleMouseEnter(id)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button className="minus" onClick={() => decrement(id)}>
+                    -
+                  </button>
+                  {item.count}
+                  <button className="plus" onClick={() => increment(id)}>
+                    +
+                  </button>
 
-              <div className="itemPrice">
-                {(item.price * item.count).toLocaleString()}원
+                  {showChangeButton === id && (
+                    <button className="check" onClick={() => handleCount(id)}>
+                      수량변경
+                    </button>
+                  )}
+                </div>
+                <div className="itemPrice">
+                  {(item.price * item.count).toLocaleString()} P
+                </div>
+                <div className="cartDelete">
+                  <button
+                    className="deleteButton"
+                    onClick={() => {
+                      deleteItem(id);
+                    }}
+                  />
+                </div>
               </div>
-              <div className="cartDelete">
-                <button
-                  className="deleteButton"
-                  onClick={() => {
-                    deleteItem(id);
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
           <div className="cartSumBox">
             <div className="cartSummary">
               <div className="bottomPadding">
@@ -146,7 +156,7 @@ export default function CartList({ handleClose, setShowCart }) {
                 </span>
                 <div className="totalPrice">
                   <span className="vat">소계(세금 포함)</span>
-                  <span className="sum">{totalPrice.toLocaleString()}원</span>
+                  <span className="sum">{totalPrice.toLocaleString()} P</span>
                 </div>
                 <div className="payBtn">
                   <Button
@@ -160,13 +170,13 @@ export default function CartList({ handleClose, setShowCart }) {
                     결제하기
                   </Button>
                 </div>
-                <button
-                  className="arrowUp"
-                  onClick={() => {
-                    handleClose();
-                  }}
-                />
               </div>
+              <button
+                className="arrowUp"
+                onClick={() => {
+                  handleClose();
+                }}
+              />
             </div>
           </div>
         </>
