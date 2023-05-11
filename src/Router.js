@@ -23,7 +23,7 @@ function Router() {
         <Route path="/order" element={<Order />} />
         <Route path="/invoice/:orderNumber" element={<Invoice />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
