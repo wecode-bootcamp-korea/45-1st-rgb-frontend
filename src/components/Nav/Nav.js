@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
 import Cart from "../Cart/Cart";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 import "./Nav.scss";
 
 const Nav = () => {
@@ -16,7 +16,6 @@ const Nav = () => {
   const toggleCart = () => {
     setShowCart(!showCart);
   };
-  console.log("랜더링");
   useEffect(() => {
     if (!token) return;
     fetch(`${API_ADDRESS_ORDERS}users`, {
@@ -26,8 +25,6 @@ const Nav = () => {
       .then(res => res.json())
       .then(data => {
         setUserData(data);
-        console.log("userData", userData);
-        console.log("myPoint", myPoint);
       });
 
     fetch(`${API_ADDRESS_ORDERS}carts`, {
@@ -37,26 +34,16 @@ const Nav = () => {
       .then(res => res.json())
       .then(data => {
         setMyCart(data);
-        console.log("cartCount", cartCount);
       });
-  }, []);
-
-  // useEffect(() => {
-  //   if (!token) return;
-  // }, []);
-
-  useEffect(() => {
-    if (token) return setLogIn("");
   }, [token]);
 
   const logOut = () => {
+    setMyCart([]);
     localStorage.removeItem("TOKEN");
     navigate("/");
   };
 
   const myPoint = Math.floor(user?.points);
-  const cartCount = myCart.length;
-
   return (
     <>
       <div className="nav">
@@ -99,7 +86,7 @@ const Nav = () => {
               <li>My Point : {!myPoint ? 0 : myPoint}P</li>
             )}
             <li onClick={toggleCart}>
-              Cart <span className="cartCountButton">{cartCount}</span>
+              Cart <span className="cartCountButton">{myCart.length}</span>
             </li>
           </div>
         </ul>
