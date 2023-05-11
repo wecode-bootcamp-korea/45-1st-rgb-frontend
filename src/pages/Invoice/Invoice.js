@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import InvoiceUserData from "./InvoiceUserData";
 import InvoiceOrderData from "./InvoiceOrderData";
-import { useParams } from "react-router-dom";
 import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+
 import "./Invoice.scss";
+
 function Invoice() {
   const [invoiceData, setInvoiceData] = useState();
   const params = useParams();
