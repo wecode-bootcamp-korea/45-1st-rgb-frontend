@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import ArtWorks from "../ArtWorks/ArtWorks";
 import LeftFilter from "../LeftFilter/LeftFilter";
-import API_ADDRESS from "../../../../utils/API_ADDRESS";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 import "./ListBottom.scss";
 
 function ListBottom() {
@@ -13,7 +13,7 @@ function ListBottom() {
   const [page, setPage] = useState(false);
 
   useEffect(() => {
-    const url = `${API_ADDRESS}products/all?limit=${limit}&offset=${offset}&`;
+    const url = `${API_ADDRESS_ORDERS}products/all?limit=${limit}&offset=${offset}&`;
 
     fetch(url, {
       method: "GET",
