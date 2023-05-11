@@ -50,8 +50,8 @@ const SignUp = ({ setLogIn }) => {
     })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("TOKEN", data.accessToken);
-        if (localStorage.getItem("TOKEN") == "undefined") {
+        data.accessToken && localStorage.setItem("TOKEN", data.accessToken);
+        if (!localStorage.getItem("TOKEN")) {
           return setSignUpWarning(
             <p className="inputWarning">다시 입력해주세요.</p>
           );

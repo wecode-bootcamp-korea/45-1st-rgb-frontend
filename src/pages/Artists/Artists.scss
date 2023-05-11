@@ -1,2 +1,41 @@
 @import "../../styles/variables";
 @import "../../styles/mixin";
+
+.wrap {
+  display: flex;
+  position: relative;
+  height: 100vh;
+}
+
+.leftSide {
+  display: flex;
+  width: 58%;
+  height: 100vh;
+  background-image: url("https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%204.jpeg");
+}
+
+.rightSide {
+  display: flex;
+  position: relative;
+  width: 42%;
+  //height: 100vh;
+  background-color: $main-white;
+
+  .artistName {
+    display: flex;
+    position: absolute;
+    margin-top: 120px;
+    margin-left: 197 jpx;
+    color: $main-black;
+    font-size: 54px;
+  }
+
+  .underLine {
+    display: flex;
+    position: absolute;
+    width: 442px;
+    height: 1px;
+    margin-top: 180px;
+    border: 0.3px solid $main-black;
+  }
+}
