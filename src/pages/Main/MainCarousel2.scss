@@ -34,14 +34,14 @@
   display: flex;
   position: absolute;
   width: 300px;
-  margin-top: 108px;
+  margin-top: 105px;
   margin-right: 900px;
-  border: 0.5px solid $main-black;
+  border: 0.3px solid $main-black;
 }
 
 .buttonPre2 {
   position: absolute;
-  top: 11.5%;
+  top: 12%;
   width: 63px;
   height: 63px;
   margin-left: -260px;
@@ -51,7 +51,7 @@
 
 .buttonNext2 {
   position: absolute;
-  top: 11.5%;
+  top: 12%;
   width: 63px;
   height: 63px;
   margin-right: -260px;
@@ -92,6 +92,7 @@
   display: flex;
   position: absolute;
   top: 680px;
+
   align-items: center;
   width: 1200px;
 }
