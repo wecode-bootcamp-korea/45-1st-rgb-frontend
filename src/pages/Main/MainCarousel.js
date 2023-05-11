@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import CarouselItem from "./CarouselItem";
 import "./MainCarousel.scss";
-import API_ADDRESS2 from "../../utils/API_ADDRESS";
+import API_ADDRESS_PRODUCTS from "../../utils/API_ADDRESS";
 
 export default function MainCarousel() {
   const [items, setItems] = useState([]);
@@ -9,7 +9,7 @@ export default function MainCarousel() {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    fetch(`${API_ADDRESS2}products/all`, {
+    fetch(`${API_ADDRESS_PRODUCTS}products/all`, {
       method: "GET",
       headers: { "Content-Type": "application/json;charset=utf-8" },
     })

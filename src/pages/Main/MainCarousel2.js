@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./MainCarousel2.scss";
 import SecondCarousel from "./SecondCarousel";
-import API_ADDRESS2 from "../../utils/API_ADDRESS";
+import API_ADDRESS_PRODUCTS from "../../utils/API_ADDRESS";
 
 const TOTAL_SLIDES = 6;
 
@@ -12,7 +12,7 @@ export default function MainCarousel2() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch(`${API_ADDRESS2}products/all`);
+      const data = await fetch(`${API_ADDRESS_PRODUCTS}products/all`);
       const json = await data.json();
       setCarouselItem(json);
     };
