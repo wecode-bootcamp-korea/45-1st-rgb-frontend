@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
 import Cart from "../Cart/Cart";
-import API_ADDRESS from "../../utils/API_ADDRESS";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 import "./Nav.scss";
 
 const Nav = () => {
@@ -18,7 +18,7 @@ const Nav = () => {
   };
   useEffect(() => {
     if (!token) return;
-    fetch(`${API_ADDRESS}users`, {
+    fetch(`${API_ADDRESS_ORDERS}users`, {
       method: "GET",
       headers: { Authorization: token },
     })
@@ -30,7 +30,7 @@ const Nav = () => {
 
   useEffect(() => {
     if (!token) return;
-    fetch(`${API_ADDRESS}carts`, {
+    fetch(`${API_ADDRESS_ORDERS}carts`, {
       method: "GET",
       headers: { Authorization: token },
     })

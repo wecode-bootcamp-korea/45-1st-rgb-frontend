@@ -4,6 +4,7 @@ import Location from "./Components/Location/Location";
 import ImageBox from "./Components/ImageBox/ImageBox";
 import DetailInformation from "./Components/DetailInformation/DetailInformation";
 import ProductDescription from "./ProductDescription";
+import API_ADDRESS from "../../utils/API_ADDRESS";
 import "./ProductDetail.scss";
 
 function ProductDetail() {
@@ -24,7 +25,7 @@ function ProductDetail() {
   };
 
   useEffect(() => {
-    const url = `http://10.58.52.169:9001/products/${productId}`;
+    const url = `${API_ADDRESS}products/${productId}`;
 
     fetch(url, {
       method: "GET",
@@ -47,7 +48,7 @@ function ProductDetail() {
           <Location />
           <div className="detailBox">
             <div className="leftImage">
-              <ImageBox details={details} />
+              <ImageBox details={details} inOut={inOut} />
             </div>
             <div className="detailInfo">
               <DetailInformation
