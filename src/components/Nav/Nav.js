@@ -69,7 +69,7 @@ const Nav = () => {
               onClick={() => {
                 setLogIn("");
                 setShowCart(false);
-                navigate("/artists");
+                navigate("/artist");
               }}
             >
               Artists
