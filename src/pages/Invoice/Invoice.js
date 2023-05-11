@@ -9,10 +9,15 @@ function Invoice() {
   const [invoiceData, setInvoiceData] = useState();
   const params = useParams();
   const orderId = params.orderNumber;
+  const navigate = useNavigate();
+  const token = localStorage.getItem("TOKEN");
+  const [products, setProducts] = useState([]);
+  const [user, setUser] = useState({});
+  const [uuid, setUuid] = useState("");
+  const [totalPrice, setTotalPrice] = useState("");
 
   useEffect(() => {
     fetch(`${API_ADDRESS_ORDERS}orders/${orderId}`, {
-      method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: token,
@@ -20,15 +25,26 @@ function Invoice() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        console.log("data in invoice", data);
         return setInvoiceData(data);
       });
   }, []);
 
-  const navigate = useNavigate();
-  const token = localStorage.getItem("TOKEN");
-  // const [userData, setUserData] = useState([]);
-  // const [orderData, setOrderData] = useState([]);
+  console.log("invoiceData ", invoiceData?.products[0]);
+  console.log("invoiceData ", invoiceData?.user.first_name);
+
+  useEffect(() => {
+    setProducts(invoiceData?.products);
+    setUser(invoiceData?.user);
+    setUuid(invoiceData?.uuid);
+    setTotalPrice(invoiceData?.total_price);
+
+    console.log("products in effect ", products);
+    console.log("user in effect ", user);
+  }, [products, user, uuid, totalPrice]);
+
+  console.log("products ", invoiceData?.products);
+  console.log("userfv ", user);
 
   // useEffect(() => {
   //   if (!token) return;
@@ -59,8 +75,12 @@ function Invoice() {
       <div className="invoiceBox">
         <button className="closeIcon" onClick={() => navigate("/")} />
         <h2 className="invoiceTitle">결제가 완료되었습니다.</h2>
-        <InvoiceUserData invoiceData={invoiceData} />
-        <InvoiceOrderData invoiceData={invoiceData} />
+        <InvoiceUserData user={user} uuid={uuid} totalPrice={totalPrice} />
+        <InvoiceOrderData
+          user={user}
+          products={products}
+          totalPrice={totalPrice}
+        />
       </div>
     </div>
   );

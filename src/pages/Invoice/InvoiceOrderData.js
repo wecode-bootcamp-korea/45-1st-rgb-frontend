@@ -1,27 +1,21 @@
 import React from "react";
 import "./InvoiceOrderData.scss";
 
-function InvoiceOrderData({ invoiceData }) {
-  const { total_price, products } = invoiceData;
-  const { quantity, product_id } = products;
+function InvoiceOrderData({ products, totalPrice }) {
+  console.log("products", products[0]);
   return (
     <div className="invoiceOrderData">
       <p className="invoiceOrderDataSubTitle">주문 정보</p>
       <img className="invoiceProductImage" />
       <table className="invoiceOrderDataTable">
         <tr>
-          <td>
-            {quantity > 1
-              ? `${product_id}외 
-            ${quantity - 1}`
-              : { quantity }}
-          </td>
-          <td>{quantity}수량</td>
-          <td>{total_price}가격</td>
+          <td>{products[0]?.product_id}</td>
+          <td>{products[0]?.quantity}개</td>
+          <td>{totalPrice - Math.floor(totalPrice / 11)} point</td>
         </tr>
         <tr>
           <td>세금</td>
-          <td>{total_price}*0.1</td>
+          <td>{Math.floor(totalPrice / 11)} point</td>
         </tr>
         <tr>
           <td>배송비</td>
@@ -29,7 +23,7 @@ function InvoiceOrderData({ invoiceData }) {
         </tr>
         <tr>
           <td>합계</td>
-          <td>{total_price}</td>
+          <td>{totalPrice} point</td>
         </tr>
       </table>
     </div>
