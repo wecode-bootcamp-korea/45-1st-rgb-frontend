@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckInput from "../CheckBox/CheckInput";
 import "./Payment.scss";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
   const [checkInputs, setCheckInputs] = useState([]);
@@ -18,31 +19,22 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
     setIsDelivery(true);
   };
 
-  const orderedProductsArr = cartProductList.map(cartItem => {
-    return {
-      productId: String(cartItem.id),
-      quantity: cartItem.cartSum,
-    };
-  });
-
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("TOKEN");
 
   const postOrderData = () => {
-    fetch("http://10.58.52.141:3000/orders/place-order", {
+    fetch(`${API_ADDRESS_ORDERS}orders`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
         Authorization: token,
       },
-      body: JSON.stringify({
-        products: orderedProductsArr,
-      }),
     })
       .then(response => {
         return response.json();
       })
       .then(data => {
-        if (data.message === "success") {
+        if (data.message === "Order placed successfully") {
+          navigate(`/invoice/${data.orderNumber}`);
           alert("결제 완료되었습니다");
         } else {
           alert("다시 시도해주세요");
@@ -50,22 +42,9 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
       });
   };
 
-  const postUserData = () => {
-    fetch("http://10.58.52.141:3000/getUserData", {
-      method: "POST",
-      headers: { "Content-Type": "application/json; charset=utf-8" },
-      body: JSON.stringify({ userData }),
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => console.log("통신 성공! ", data));
-  };
-
   const handlePayButton = e => {
     e.preventDefault();
     postOrderData();
-    postUserData();
     navigate("/invoice");
   };
 
@@ -85,14 +64,18 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
         </div>
         <div>
           <label className="pointLabel" htmlFor="totalPoint">
-            보유 <input type="text" id="totalPoint" readOnly />
+            <div>
+              <span>보유</span> <input type="text" id="totalPoint" readOnly />
+            </div>
             <span className="pointUnit">{totalPoints}&nbsp;P</span>
           </label>
         </div>
 
         <div>
           <label className="pointLabel" htmlFor="pricePoint">
-            사용 <input type="text" id="pricePoint" readOnly />
+            <div>
+              <span>사용</span> <input type="text" id="pricePoint" readOnly />
+            </div>
             <span className="pointUnit">{totalPriceInComma}&nbsp;P</span>
           </label>
         </div>

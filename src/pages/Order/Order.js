@@ -5,6 +5,7 @@ import Payment from "./components/Payment/Payment";
 import Delivery from "./components/Delivery/Delivery";
 import "./Order.scss";
 import Cart from "../../components/Cart/Cart";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
@@ -24,26 +25,27 @@ function Order() {
 
   let totalPrice = getSum(cartProductList);
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
-    fetch("http://10.58.52.150:3000/carts", {
+    fetch(`${API_ADDRESS_ORDERS}carts`, {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4MzY3OTI0NX0.tp76AbP1vvMOgTPPWRJE2IrOkOyjUGcDvSt69gKg-N4",
-        // Authorization: token,
+        Authorization: token,
       },
     })
-      .then(res => res.json())
-      .then(data => setCartProductList(data));
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        return setCartProductList(data);
+      });
 
-    fetch("http://10.58.52.169:9001/users", {
+    fetch(`${API_ADDRESS_ORDERS}users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY4MzY4MTc3MX0.xpC9Sh5wdkx_nIIW5Xvzdzryl3gTofk3jb0Xx1U8BfE",
+        Authorization: token,
       },
     })
       .then(response => response.json())

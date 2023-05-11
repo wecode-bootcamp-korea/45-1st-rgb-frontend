@@ -21,7 +21,7 @@ function Router() {
         <Route path="/productDetail/:id" element={<ProductDetail />} />
         <Route path="/productList/all" element={<ProductList />} />
         <Route path="/order" element={<Order />} />
-        <Route path="/invoice" element={<Invoice />} />
+        <Route path="/invoice/:orderNumber" element={<Invoice />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkBox" element={<CheckBox />} />
       </Routes>

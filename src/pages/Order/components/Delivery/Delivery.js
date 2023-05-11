@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Delivery.scss";
+import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
   const [isInputOpen, setIsInputOpen] = useState(false);
@@ -32,17 +33,16 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
       e.preventDefault();
     }
   };
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
     if (!isDefaultAddressChecked) return;
 
-    fetch("http://10.58.52.169:9001/users", {
+    fetch(`${API_ADDRESS_ORDERS}users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json; charset=utf-8",
-        Authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY4MzY4MTc3MX0.xpC9Sh5wdkx_nIIW5Xvzdzryl3gTofk3jb0Xx1U8BfE",
+        Authorization: token,
       },
       body: JSON.stringify({
         cellphone: userData?.cellphone,

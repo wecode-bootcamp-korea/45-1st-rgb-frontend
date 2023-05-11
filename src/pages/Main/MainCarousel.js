@@ -25,6 +25,7 @@ export default function MainCarousel() {
       document.querySelector(".buttonNext").style.display = "block";
     }
   }, [currentIndex, items]);
+
   const handleNext = () => {
     setCurrentIndex(prevIndex =>
       prevIndex === items.length - 1 ? 0 : prevIndex + 1
