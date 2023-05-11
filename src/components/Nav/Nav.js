@@ -16,6 +16,7 @@ const Nav = () => {
   const toggleCart = () => {
     setShowCart(!showCart);
   };
+  console.log("랜더링");
   useEffect(() => {
     if (!token) return;
     fetch(`${API_ADDRESS_ORDERS}users`, {
@@ -25,6 +26,7 @@ const Nav = () => {
       .then(res => res.json())
       .then(data => {
         setUserData(data);
+        console.log("myPoint", myPoint);
       });
   }, []);
 
@@ -37,6 +39,7 @@ const Nav = () => {
       .then(res => res.json())
       .then(data => {
         setMyCart(data);
+        console.log("cartCount", cartCount);
       });
   }, []);
 
@@ -51,6 +54,7 @@ const Nav = () => {
 
   const myPoint = Math.floor(user?.points);
   const cartCount = myCart.length;
+
   return (
     <>
       <div className="nav">
