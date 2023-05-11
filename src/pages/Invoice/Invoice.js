@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import InvoiceUserData from "./InvoiceUserData";
 import InvoiceOrderData from "./InvoiceOrderData";
 import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { Outlet } from "react-router-dom";
+import LoadingPage from "../LoadingPage/LoadingPage";
 
 import "./Invoice.scss";
 
@@ -26,7 +28,7 @@ function Invoice() {
       });
   }, []);
 
-  if (!invoiceData?.id) return null;
+  if (!invoiceData?.id) return <LoadingPage />;
 
   return (
     <div className="invoice">
@@ -36,6 +38,7 @@ function Invoice() {
         <InvoiceUserData invoiceData={invoiceData} />
         <InvoiceOrderData invoiceData={invoiceData} />
       </div>
+      <Outlet />
     </div>
   );
 }
