@@ -61,7 +61,7 @@ const Nav = () => {
               onClick={() => {
                 setLogIn("");
                 setShowCart(false);
-                navigate("/artists");
+                navigate("/artist");
               }}
             >
               Artists
@@ -85,6 +85,7 @@ const Nav = () => {
             ) : (
               <li>My Point : {!myPoint ? 0 : myPoint}P</li>
             )}
+
             <li onClick={toggleCart}>
               Cart <span className="cartCountButton">{myCart.length}</span>
             </li>
