@@ -52,7 +52,7 @@ function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
       setTotalQuantity(false);
       setSoldOut(true);
     }
-  }, [totalQuantity, details.quantity, setSoldOut]);
+  }, [totalQuantity, details.quantity]);
 
   const postCart = () => {
     const url = `${API_ADDRESS_ORDERS}carts`;
