@@ -3,8 +3,8 @@
     "id": 12,
     "count": "5",
     "title": "Dreamy Landscape",
-    "width": 500,
-    "height": 250,
+    "product_size_left": 500,
+    "product_size_right": 250,
     "quantity": 3,
     "price": "75000.00"
   },

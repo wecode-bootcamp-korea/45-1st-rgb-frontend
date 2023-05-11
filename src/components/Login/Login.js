@@ -26,11 +26,10 @@ const Login = ({ setLogIn, goToSignUp }) => {
     })
       .then(res => res.json())
       .then(data => {
-        localStorage.setItem("TOKEN", data.accessToken);
-
+        data.accessToken && localStorage.setItem("TOKEN", data.accessToken);
         if (!localStorage.getItem("TOKEN")) {
           setLoginWarning("회원정보가 일치하지 않습니다.");
-        } else {
+        } else if (localStorage.getItem("TOKEN")) {
           setLogIn("");
         }
       });

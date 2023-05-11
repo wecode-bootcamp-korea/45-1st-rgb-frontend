@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Delivery.scss";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
   const [isInputOpen, setIsInputOpen] = useState(false);

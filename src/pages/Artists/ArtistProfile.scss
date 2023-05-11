@@ -1,0 +1,47 @@
+@import "../../styles/variables";
+
+.artistProfile {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  height: 0;
+  margin-left: -380px;
+  padding-top: 61.8%;
+
+  .artistProfileColumn {
+    margin-top: -360px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+
+    p {
+      margin: 9px;
+    }
+  }
+
+  .artistProfileColumnTwo {
+    margin-top: 10px;
+    margin-left: -16px;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+
+    p {
+      margin: 9px;
+    }
+  }
+
+  .artistProfileColumnTh {
+    margin-top: 30px;
+    margin-left: 11px;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+
+    p {
+      margin: 9px;
+    }
+  }
+}

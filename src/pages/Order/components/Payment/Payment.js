@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckInput from "../CheckBox/CheckInput";
 import "./Payment.scss";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
   const [checkInputs, setCheckInputs] = useState([]);
