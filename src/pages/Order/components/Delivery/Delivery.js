@@ -5,6 +5,7 @@ import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
   const [isInputOpen, setIsInputOpen] = useState(false);
   const [isDefaultAddressChecked, setIsDefaultAddressChecked] = useState(false);
+  const [isAddressCalled, setIsAddressCalled] = useState(false);
 
   const handlePrevArrowBtn = () => {
     setIsCart(true);
@@ -66,6 +67,10 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
     setIsDefaultAddressChecked(!isDefaultAddressChecked);
   };
 
+  const setDefaultAddress = () => {
+    setIsAddressCalled(!isAddressCalled);
+  };
+
   return (
     <div className="delivery">
       <img
@@ -119,7 +124,7 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
               onChange={handleInputs}
               readOnly={isDefaultAddressChecked}
             />
-            {isDefaultAddressChecked ? (
+            {isAddressCalled ? (
               <span className="userPhoneNumber">{userData?.cellphone}</span>
             ) : (
               ""
@@ -140,7 +145,7 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
                 onChange={handleInputs}
                 readOnly={isDefaultAddressChecked}
               />
-              {isDefaultAddressChecked ? (
+              {isAddressCalled ? (
                 <span className="userAddress">{userData?.address}</span>
               ) : (
                 ""
@@ -161,7 +166,7 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
                 onChange={handleInputs}
                 readOnly={isDefaultAddressChecked}
               />
-              {isDefaultAddressChecked ? (
+              {isAddressCalled ? (
                 <span className="userPostalcode">{userData?.postalcode}</span>
               ) : (
                 ""
@@ -180,6 +185,16 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
                 이 주소를 기본 배송지로 저장합니다
               </label>
             </div>
+            <div className="labelWrapper">
+              <label className="setDefault">
+                <input
+                  type="checkbox"
+                  id="setDefault"
+                  onChange={setDefaultAddress}
+                />
+                기본 배송지를 불러옵니다
+              </label>
+            </div>
             <div className="requestInputWrapper">
               <label for="requestInput">
                 <input id="requestInput" type="checkbox" />
@@ -194,6 +209,7 @@ function Delivery({ userData, setUserData, setIsDelivery, setIsCart }) {
               {isInputOpen && (
                 <input
                   type="text"
+                  placeholder="배송 요청 사항"
                   className="requestInput"
                   onKeyDown={preventEnterKey}
                 />

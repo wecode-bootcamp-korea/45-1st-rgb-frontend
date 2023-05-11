@@ -17,7 +17,7 @@ function CheckoutProduct({ cartItem }) {
           <span>{count}개</span>
         </div>
         <div className="bottomRow">
-          <span>₩{productPrice}</span>
+          <span>{productPrice}P</span>
         </div>
       </div>
     </div>
