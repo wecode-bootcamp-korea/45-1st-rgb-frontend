@@ -1,3 +1,4 @@
+@import "../../../../styles/variables";
 .detailInformation {
   position: relative;
   margin-right: 20%;
@@ -68,6 +69,11 @@
     }
     .price {
       padding-bottom: 30px;
+    }
+
+    .soldOutText {
+      color: $point-red;
+      font-weight: bold;
     }
 
     .countButton {

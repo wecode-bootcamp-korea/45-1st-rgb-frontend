@@ -113,7 +113,7 @@ function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
               </button>
             </div>
           ) : (
-            "Sold Out"
+            <div className="soldOutText">Sold Out</div>
           )}
         </div>
       </div>

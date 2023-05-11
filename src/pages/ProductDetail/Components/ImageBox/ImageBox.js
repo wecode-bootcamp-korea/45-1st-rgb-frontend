@@ -11,13 +11,8 @@ function ImageBox({ details, inOut }) {
   useEffect(() => {
     if (slideRef.current) {
       slideRef.current.style.transition = "transform 0.5s ease-in";
-      // slideRef.current.style = ``;
       slideRef.current.style.transform = `translateX(-${currentSlide * 500}px)`;
     }
-    //  else if (!inOut && slideRef.current) {
-    //   slideRef.current.style.transition = "transform 0.5s ease-in";
-    //   slideRef.current.style.transform = `translateX(-${currentSlide * 500}px)`;
-    // }
   }, [inOut, currentSlide]);
 
   const prevButton = () => {

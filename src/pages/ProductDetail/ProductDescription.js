@@ -16,13 +16,6 @@ const ProductDescription = ({ inOut, details }) => {
     <div
       className={`${inOut ? "productDescription" : "productDescription out"}`}
     >
-      <button
-      // onClick={() => {
-      //   setInOut(!inOut);
-
-      //   console.log("inOut : ", inOut);
-      // }}
-      />
       <div className="descriptionBox" key={id}>
         <h2>{title}</h2>
         <p className="artistName">{artist_name}</p>
