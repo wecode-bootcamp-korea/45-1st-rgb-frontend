@@ -93,6 +93,7 @@ const Nav = () => {
             ) : (
               <li>My Point : {myPoint}P</li>
             )}
+
             <li onClick={toggleCart}>
               Cart <span className="cartCountButton">{cartCount}</span>
             </li>
