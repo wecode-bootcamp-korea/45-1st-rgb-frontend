@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
-import API_ADDRESS from "../../utils/API_ADDRESS";
+import API_ADDRESS_CARTS from "../../utils/API_ADDRESS";
 
 export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
@@ -20,7 +20,7 @@ export default function CartList({ handleClose, setShowCart }) {
   };
 
   useEffect(() => {
-    fetch(`${API_ADDRESS}carts`, {
+    fetch(`${API_ADDRESS_CARTS}carts`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -35,7 +35,7 @@ export default function CartList({ handleClose, setShowCart }) {
   }, []);
 
   const handleCount = id => {
-    fetch(`${API_ADDRESS}carts/${items[id].id}`, {
+    fetch(`${API_ADDRESS_CARTS}carts/${items[id].id}`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
@@ -72,7 +72,7 @@ export default function CartList({ handleClose, setShowCart }) {
   };
 
   const deleteItem = id => {
-    fetch(`${API_ADDRESS}carts/${items[id].id}`, {
+    fetch(`${API_ADDRESS_CARTS}carts/${items[id].id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",

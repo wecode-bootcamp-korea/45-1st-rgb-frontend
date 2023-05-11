@@ -12,7 +12,7 @@ export default function SecondCarousel({ item, pointer }) {
         className="goodsImg"
         src={image_urls}
         alt="artist"
-        onClick={() => navigate("/artist")}
+        onClick={() => navigate("/productDetail/:id")}
         style={{ cursor: pointer }}
       />
       <div className="textBox">

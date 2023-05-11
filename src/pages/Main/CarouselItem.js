@@ -9,7 +9,7 @@ export default function CarouselItem({ item }) {
   return (
     <li className="carouselItem">
       <img
-        onClick={() => navigate("/artist")}
+        onClick={() => navigate("/productList/all")}
         className="artistImg"
         src={image_urls}
         alt="artist"
