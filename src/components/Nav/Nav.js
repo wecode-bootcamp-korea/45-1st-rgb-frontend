@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
 import Cart from "../Cart/Cart";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 import "./Nav.scss";
 
 const Nav = () => {
