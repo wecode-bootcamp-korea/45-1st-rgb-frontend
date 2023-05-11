@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 import "./DetailInformation.scss";
 
