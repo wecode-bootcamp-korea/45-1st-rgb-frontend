@@ -22,7 +22,7 @@
     display: flex;
     position: relative;
     justify-content: center;
-    width: 1200px;
+    width: 1400px;
     height: 100vh;
     margin: 0 auto;
     margin-top: 200px;
@@ -33,25 +33,25 @@
 .line {
   display: flex;
   position: absolute;
-  width: 300px;
-  margin-top: 105px;
-  margin-right: 900px;
+  width: 240px;
+  margin-top: 97px;
+
+  margin-right: 960px;
   border: 0.3px solid $main-black;
 }
 
 .buttonPre2 {
   position: absolute;
-  top: 12%;
+  top: 14%;
   width: 63px;
   height: 63px;
   margin-left: -260px;
-
   background-image: url("../../assets/button-pre.png");
 }
 
 .buttonNext2 {
   position: absolute;
-  top: 12%;
+  top: 14%;
   width: 63px;
   height: 63px;
   margin-right: -260px;
@@ -70,8 +70,8 @@
 
     .goodsImg {
       display: block;
-      width: 300px;
-      height: 300px;
+      width: 400px;
+      height: 400px;
     }
 
     .textBox {
@@ -91,23 +91,21 @@
 .indicatorBar2 {
   display: flex;
   position: absolute;
-  top: 680px;
-
+  top: 650px;
   align-items: center;
-  width: 1200px;
+  width: 1400px;
 }
 
 .indicator2 {
-  width: 240px;
+  width: 260px;
   height: 2px;
-  transition: margin ease-in 0.5s;
+  transition: margin ease-in 0.3s;
   background-color: #e0e0e0;
 }
 
 .indicator2.active2 {
   left: 50%;
   width: 16.8%;
-  //transition: scaleX(5);
-  transition: transform 0.5s ease-in;
+  transition: scaleX(5);
   background-color: $main-black;
 }

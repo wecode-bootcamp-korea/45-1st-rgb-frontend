@@ -41,9 +41,9 @@ export default function MainCarousel() {
 
   useEffect(() => {
     if (carouselRef.current) {
-      carouselRef.current.style.transition = "all 0.5s ease-in";
+      carouselRef.current.style.transition = "all 0.3s ease-in";
       carouselRef.current.style.transform = `translateX(-${
-        currentIndex * 60
+        currentIndex * 59.5
       }%)`;
     }
   }, [currentIndex, carouselRef]);

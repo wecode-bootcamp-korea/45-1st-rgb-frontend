@@ -3,7 +3,7 @@ import "./MainCarousel2.scss";
 import SecondCarousel from "./SecondCarousel";
 import { API_ADDRESS } from "../../utils/API_ADDRESS";
 
-const TOTAL_SLIDES = 6;
+const TOTAL_SLIDES = 7;
 
 export default function MainCarousel2() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -21,8 +21,8 @@ export default function MainCarousel2() {
 
   useEffect(() => {
     if (slideRef.current) {
-      slideRef.current.style.transition = "transform 0.5s ease-in";
-      slideRef.current.style.transform = `translateX(-${currentSlide * 33.3}%)`;
+      slideRef.current.style.transition = "transform 0.3s ease-in";
+      slideRef.current.style.transform = `translateX(-${currentSlide * 51.5}%)`;
     }
   }, [currentSlide]);
 
@@ -41,15 +41,6 @@ export default function MainCarousel2() {
       setCurrentSlide(prev => prev - 1);
     }
   };
-
-  useEffect(() => {
-    const lastSlide = carouselItem.length - 0;
-    if (currentSlide === lastSlide) {
-      document.querySelector(".buttonNext2").style.display = "none";
-    } else {
-      document.querySelector(".buttonNext2").style.display = "block";
-    }
-  }, [currentSlide, carouselItem]);
 
   return (
     <div className="goodsContainer">

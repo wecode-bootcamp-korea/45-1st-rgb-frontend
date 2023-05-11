@@ -94,11 +94,11 @@ export default function CartList({ handleClose, setShowCart }) {
 
     return () => clearTimeout(timer);
   }, [items]);
-
+  console.log(items);
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {items.length === 0 || !token ? ( // and
+      {items.length === 0 || !token ? (
         <div className="cartList">장바구니가 비었습니다.</div>
       ) : (
         <>

@@ -9,7 +9,7 @@
 
 .leftSide {
   display: flex;
-  width: 58%;
+  width: 64%;
   height: 100vh;
   background-image: url("https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%204.jpeg");
 }
@@ -17,7 +17,7 @@
 .rightSide {
   display: flex;
   position: relative;
-  width: 42%;
+  width: 30%;
   margin-top: 130px;
   margin-left: 197px;
   color: $main-black;
@@ -25,15 +25,16 @@
 }
 
 .artistName {
-  margin-top: 10px;
-  margin-left: -4px;
+  margin-top: -27px;
+  margin-left: 20px;
 }
 
 .underLine {
   display: flex;
   position: absolute;
-  width: 442px;
+  width: 460px;
   height: 1px;
-  margin-top: 50px;
+  margin-top: 13px;
+  margin-left: -198px;
   border: 0.3px solid $main-black;
 }

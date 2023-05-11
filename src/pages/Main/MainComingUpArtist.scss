@@ -14,8 +14,8 @@
   justify-content: flex-end;
 
   .nextArtistImg {
-    width: 800px;
-    height: 480px;
+    width: 1000px;
+    height: 580px;
     margin-top: 100px;
     background-image: url("https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%208.jpeg ");
   }
@@ -24,11 +24,13 @@
     position: absolute;
     left: 180px;
     width: 480px;
-    margin-top: 200px;
+    margin-top: 250px;
   }
   .comingUpText {
-    margin-bottom: 40px;
-    font-size: 21px;
+    width: 260px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid $main-black;
+    font-size: 24px;
   }
   .firstText {
     margin-bottom: 80px;
@@ -36,10 +38,11 @@
   }
   .secondText {
     margin-top: 10px;
+    font-size: 36px;
   }
 
   .artistName {
-    margin-top: 10px;
-    font-size: 21px;
+    margin-left: 3px;
+    font-size: 24px;
   }
 }
