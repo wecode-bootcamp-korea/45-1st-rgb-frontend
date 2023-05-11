@@ -21,7 +21,6 @@ function Invoice() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log("data in invoice", data);
         return setInvoiceData(data);
       });
   }, []);

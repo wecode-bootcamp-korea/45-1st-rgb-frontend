@@ -57,9 +57,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
         productsId: id,
         quantity: count,
       }),
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
+    }).then(res => res.json());
     alert("카트에 성공적으로 담겼습니다");
   };
 

@@ -34,7 +34,6 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
       })
       .then(data => {
         if (data.message === "Order placed successfully") {
-          console.log("data in payment", data);
           navigate(`/invoice/${data.orderNumber}`);
           alert("결제 완료되었습니다");
         } else {
