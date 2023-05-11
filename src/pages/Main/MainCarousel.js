@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import CarouselItem from "./CarouselItem";
-import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 import "./MainCarousel.scss";
 import { API_ADDRESS } from "../../utils/API_ADDRESS";
 
