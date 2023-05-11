@@ -26,12 +26,10 @@ const Nav = () => {
       .then(res => res.json())
       .then(data => {
         setUserData(data);
+        console.log("userData", userData);
         console.log("myPoint", myPoint);
       });
-  }, []);
 
-  useEffect(() => {
-    if (!token) return;
     fetch(`${API_ADDRESS_ORDERS}carts`, {
       method: "GET",
       headers: { Authorization: token },
@@ -42,6 +40,10 @@ const Nav = () => {
         console.log("cartCount", cartCount);
       });
   }, []);
+
+  // useEffect(() => {
+  //   if (!token) return;
+  // }, []);
 
   useEffect(() => {
     if (token) return setLogIn("");
@@ -94,7 +96,7 @@ const Nav = () => {
                 My Point
               </li>
             ) : (
-              <li>My Point : {myPoint}P</li>
+              <li>My Point : {!myPoint ? 0 : myPoint}P</li>
             )}
             <li onClick={toggleCart}>
               Cart <span className="cartCountButton">{cartCount}</span>
