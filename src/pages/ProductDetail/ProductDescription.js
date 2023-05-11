@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProductDescription.scss";
 
-const ProductDescription = ({ inOut, noMore, details }) => {
+const ProductDescription = ({ inOut, details }) => {
   const {
     id,
     title,
@@ -16,7 +16,13 @@ const ProductDescription = ({ inOut, noMore, details }) => {
     <div
       className={`${inOut ? "productDescription" : "productDescription out"}`}
     >
-      <button onClick={noMore} />
+      <button
+      // onClick={() => {
+      //   setInOut(!inOut);
+
+      //   console.log("inOut : ", inOut);
+      // }}
+      />
       <div className="descriptionBox" key={id}>
         <h2>{title}</h2>
         <p className="artistName">{artist_name}</p>

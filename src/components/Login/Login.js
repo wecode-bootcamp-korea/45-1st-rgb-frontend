@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 import "./Login.scss";
 
 const Login = ({ setLogIn, goToSignUp }) => {

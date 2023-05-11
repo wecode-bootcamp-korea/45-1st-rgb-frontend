@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Invoice.scss";
 import { useParams } from "react-router-dom";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 
 function Invoice() {
   const [invoiceData, setInvoiceData] = useState();

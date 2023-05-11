@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
-import API_ADDRESS from "../../../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 import "./DetailInformation.scss";
 
-function DetailInformation({ details, showMore, setLogIn }) {
+function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
   const {
     quantity,
     id,
@@ -50,11 +50,12 @@ function DetailInformation({ details, showMore, setLogIn }) {
   useEffect(() => {
     if (details.quantity <= 0) {
       setTotalQuantity(false);
+      setSoldOut(true);
     }
-  }, [totalQuantity, details.quantity]);
+  }, [totalQuantity, details.quantity, setSoldOut]);
 
   const postCart = () => {
-    const url = `${API_ADDRESS}carts`;
+    const url = `${API_ADDRESS_ORDERS}carts`;
 
     fetch(url, {
       method: "POST",
@@ -85,7 +86,11 @@ function DetailInformation({ details, showMore, setLogIn }) {
       <div className="infoMiddle">
         <span className="description">{`${description}`}</span>
         <span>
-          <button onClick={showMore}>
+          <button
+            onClick={() => {
+              setInOut(!inOut);
+            }}
+          >
             <img alt="plusButton" src="/images/productDetail/plusButton.png" />
           </button>
         </span>
