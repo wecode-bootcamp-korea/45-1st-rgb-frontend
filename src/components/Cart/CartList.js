@@ -51,9 +51,10 @@ export default function CartList({ handleClose, setShowCart }) {
 
   useEffect(() => {
     let total = 0;
-    items.forEach(item => {
-      total += item.price * item.count;
-    });
+    items.length &&
+      items.forEach(item => {
+        total += item.price * item.count;
+      });
     setTotalPrice(total);
   }, [items]);
 
@@ -93,11 +94,11 @@ export default function CartList({ handleClose, setShowCart }) {
 
     return () => clearTimeout(timer);
   }, [items]);
-
+  console.log(items);
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {items.length === 0 ? (
+      {items.length === 0 || !token ? (
         <div className="cartList">장바구니가 비었습니다.</div>
       ) : (
         <>
@@ -108,44 +109,45 @@ export default function CartList({ handleClose, setShowCart }) {
             <div className="cartCategory">가격</div>
             <div className="cartCategory" />
           </div>
-          {items?.map((item, id) => (
-            <div key={item.id} className="cartItem">
-              <div className="itemName">{item.title}</div>
-              <div className="itemSize">
-                {item.width}/{item.height}
-              </div>
-              <div
-                className="itemQuantity"
-                onMouseEnter={() => handleMouseEnter(id)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button className="minus" onClick={() => decrement(id)}>
-                  -
-                </button>
-                {item.count}
-                <button className="plus" onClick={() => increment(id)}>
-                  +
-                </button>
-
-                {showChangeButton === id && (
-                  <button className="check" onClick={() => handleCount(id)}>
-                    수량변경
+          {items.length &&
+            items.map((item, id) => (
+              <div key={item.id} className="cartItem">
+                <div className="itemName">{item.title}</div>
+                <div className="itemSize">
+                  {item.width}/{item.height}
+                </div>
+                <div
+                  className="itemQuantity"
+                  onMouseEnter={() => handleMouseEnter(id)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button className="minus" onClick={() => decrement(id)}>
+                    -
                   </button>
-                )}
+                  {item.count}
+                  <button className="plus" onClick={() => increment(id)}>
+                    +
+                  </button>
+
+                  {showChangeButton === id && (
+                    <button className="check" onClick={() => handleCount(id)}>
+                      수량변경
+                    </button>
+                  )}
+                </div>
+                <div className="itemPrice">
+                  {(item.price * item.count).toLocaleString()} P
+                </div>
+                <div className="cartDelete">
+                  <button
+                    className="deleteButton"
+                    onClick={() => {
+                      deleteItem(id);
+                    }}
+                  />
+                </div>
               </div>
-              <div className="itemPrice">
-                {(item.price * item.count).toLocaleString()} P
-              </div>
-              <div className="cartDelete">
-                <button
-                  className="deleteButton"
-                  onClick={() => {
-                    deleteItem(id);
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
           <div className="cartSumBox">
             <div className="cartSummary">
               <div className="bottomPadding">
