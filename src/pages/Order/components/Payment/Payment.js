@@ -9,7 +9,7 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
 
   const activatedPaymentButtonCondition = checkInputs.length === 3;
 
-  const totalPriceInComma = Number(totalPrice / 1000).toLocaleString();
+  const totalPriceInComma = Number(totalPrice).toLocaleString();
 
   const navigate = useNavigate();
 
@@ -36,8 +36,12 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
         if (data.message === "Order placed successfully") {
           navigate(`/invoice/${data.orderNumber}`);
           alert("결제 완료되었습니다");
+        } else if (
+          data.message === "Not enough points to purchase all cart items"
+        ) {
+          alert("포인트가 부족합니다.");
         } else {
-          alert("다시 시도해주세요");
+          alert("다시 시도해주세요.");
         }
       });
   };
