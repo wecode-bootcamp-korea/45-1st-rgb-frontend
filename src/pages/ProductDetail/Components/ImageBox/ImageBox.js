@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ImageBox.scss";
 
-function ImageBox({ details }) {
+function ImageBox({ details, inOut }) {
   const { image_urls } = details;
   const TOTAL_SLIDE = 2;
 
@@ -9,11 +9,14 @@ function ImageBox({ details }) {
   const slideRef = useRef(null);
 
   useEffect(() => {
-    if (slideRef.current) {
+    if (inOut && slideRef.current) {
+      slideRef.current.style.transition = "transform 0.5s ease-in";
+      slideRef.current.style = ``;
+    } else if (!inOut && slideRef.current) {
       slideRef.current.style.transition = "transform 0.5s ease-in";
       slideRef.current.style.transform = `translateX(-${currentSlide * 500}px)`;
     }
-  }, [currentSlide]);
+  }, [inOut, currentSlide]);
 
   const prevButton = () => {
     if (currentSlide === 0) {
