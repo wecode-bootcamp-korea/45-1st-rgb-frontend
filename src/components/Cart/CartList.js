@@ -112,7 +112,7 @@ export default function CartList({ handleClose, setShowCart }) {
             <div key={item.id} className="cartItem">
               <div className="itemName">{item.title}</div>
               <div className="itemSize">
-                {item.products_size_left}/{item.products_size_right}
+                {item.width}/{item.height}
               </div>
               <div
                 className="itemQuantity"
