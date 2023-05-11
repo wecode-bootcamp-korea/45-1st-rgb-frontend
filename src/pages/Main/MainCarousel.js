@@ -9,7 +9,9 @@ export default function MainCarousel() {
   const carouselRef = useRef(null);
 
   useEffect(() => {
+
     fetch(`${API_ADDRESS}products/all`, {
+
       method: "GET",
       headers: { "Content-Type": "application/json;charset=utf-8" },
     })
