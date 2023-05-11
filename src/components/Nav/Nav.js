@@ -51,7 +51,6 @@ const Nav = () => {
 
   const myPoint = Math.floor(user?.points);
   const cartCount = myCart.length;
-  console.log("myPoint", myPoint);
 
   return (
     <>
