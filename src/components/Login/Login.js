@@ -28,7 +28,7 @@ const Login = ({ setLogIn, goToSignUp }) => {
       .then(data => {
         localStorage.setItem("TOKEN", data.accessToken);
 
-        if (!localStorage.getItem("TOKEN") == "undefined") {
+        if (localStorage.getItem("TOKEN") == "undefined") {
           setLoginWarning("회원정보가 일치하지 않습니다.");
         } else if (localStorage.getItem("TOKEN")) {
           setLogIn("");
