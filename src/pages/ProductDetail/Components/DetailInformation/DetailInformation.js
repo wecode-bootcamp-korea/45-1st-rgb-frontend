@@ -21,6 +21,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
   const [count, setCount] = useState(1);
   const total = count * price;
   const [button1, setButton1] = useState(false);
+  const [totalQuantity, setTotalQuantity] = useState(true);
   const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
@@ -45,6 +46,12 @@ function DetailInformation({ details, showMore, setLogIn }) {
       setCount(count - 0);
     }
   };
+
+  useEffect(() => {
+    if (details.quantity <= 0) {
+      setTotalQuantity(false);
+    }
+  }, [totalQuantity, details.quantity]);
 
   const postCart = () => {
     const url = `${API_ADDRESS}carts`;
@@ -90,15 +97,19 @@ function DetailInformation({ details, showMore, setLogIn }) {
         </div>
         <div className="quantity">
           <span className="bold">수량</span>
-          <div className="countButton">
-            <button className="minusButton" onClick={minusCount}>
-              -
-            </button>
-            {count}/{details.quantity}
-            <button className="plusButton" onClick={plusCount}>
-              +
-            </button>
-          </div>
+          {totalQuantity ? (
+            <div className="countButton">
+              <button className="minusButton" onClick={minusCount}>
+                -
+              </button>
+              {count}/{details.quantity}
+              <button className="plusButton" onClick={plusCount}>
+                +
+              </button>
+            </div>
+          ) : (
+            "Sold Out"
+          )}
         </div>
       </div>
       <div className="buyingButtons">

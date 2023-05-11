@@ -13,7 +13,7 @@ function ListBottom() {
   const [page, setPage] = useState(false);
 
   useEffect(() => {
-    const url = `${API_ADDRESS}products/all?limit=${limit}&offset=${offset}&`;
+    const url = `${API_ADDRESS}products/all?limit=${limit}&offset=${offset}`;
 
     fetch(url, {
       method: "GET",
