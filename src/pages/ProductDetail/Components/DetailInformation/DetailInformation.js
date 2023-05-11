@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
-import API_ADDRESS from "../../../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 import "./DetailInformation.scss";
-
 function DetailInformation({ details, showMore, setLogIn }) {
   const {
     quantity,
@@ -22,7 +20,6 @@ function DetailInformation({ details, showMore, setLogIn }) {
   const total = count * price;
   const [button1, setButton1] = useState(false);
   const token = localStorage.getItem("TOKEN");
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (button1) {
@@ -48,7 +45,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
   };
 
   const postCart = () => {
-    const url = `${API_ADDRESS}carts`;
+    const url = `${API_ADDRESS_ORDERS}carts`;
 
     fetch(url, {
       method: "POST",

@@ -2,6 +2,7 @@
 @import "../../styles/mixin";
 
 .carouselItem {
+  cursor: pointer;
   .artistImg {
     display: block;
     width: 300px;

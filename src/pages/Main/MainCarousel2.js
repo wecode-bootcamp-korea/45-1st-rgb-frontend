@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./MainCarousel2.scss";
 import SecondCarousel from "./SecondCarousel";
+import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 
-const TOTAL_SLIDES = 7;
+const TOTAL_SLIDES = 6;
 
 export default function MainCarousel2() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,7 +12,7 @@ export default function MainCarousel2() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch("./data/productImage.json");
+      const data = await fetch(`${API_ADDRESS_ORDERS}products/all`);
       const json = await data.json();
       setCarouselItem(json);
     };
@@ -21,12 +22,12 @@ export default function MainCarousel2() {
   useEffect(() => {
     if (slideRef.current) {
       slideRef.current.style.transition = "transform 0.5s ease-in";
-      slideRef.current.style.transform = `translateX(-${currentSlide * 41}%)`;
+      slideRef.current.style.transform = `translateX(-${currentSlide * 33.3}%)`;
     }
   }, [currentSlide]);
 
   const nextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES) {
+    if (currentSlide > TOTAL_SLIDES) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(prev => prev + 1);
@@ -41,6 +42,15 @@ export default function MainCarousel2() {
     }
   };
 
+  useEffect(() => {
+    const lastSlide = carouselItem.length - 0;
+    if (currentSlide === lastSlide) {
+      document.querySelector(".buttonNext2").style.display = "none";
+    } else {
+      document.querySelector(".buttonNext2").style.display = "block";
+    }
+  }, [currentSlide, carouselItem]);
+
   return (
     <div className="goodsContainer">
       <div className="goodsTitle">탁월한 셀렉션</div>
@@ -51,9 +61,9 @@ export default function MainCarousel2() {
             <SecondCarousel key={id} item={item} />
           ))}
         </ul>
+        <button className="buttonPre2" onClick={prevSlide} />
+        <button className="buttonNext2" onClick={nextSlide} />
       </div>
-      <button className="buttonPre2" onClick={prevSlide} />
-      <button className="buttonNext2" onClick={nextSlide} />
       <div className="indicatorBar2">
         {carouselItem.map((item, index) => (
           <div

@@ -1,17 +1,10 @@
 import React from "react";
 import "./InvoiceUserData.scss";
 
-function InvoiceUserData({ userData }) {
-  const {
-    first_name,
-    last_name,
-    email,
-    address,
-    postcode,
-    uuid,
-    total_price,
-    points,
-  } = userData;
+function InvoiceUserData({ invoiceData }) {
+  console.log(invoiceData);
+  const { user, uuid, total_price } = invoiceData;
+  const { first_name, last_name, email, address, postcode, points } = user;
   return (
     <div className="invoiceUserData">
       <div className="invoiceUserDataTopBox">

@@ -1,8 +1,8 @@
 import React from "react";
 import "./InvoiceOrderData.scss";
 
-function InvoiceOrderData({ orderData }) {
-  const { total_price, products } = orderData;
+function InvoiceOrderData({ invoiceData }) {
+  const { total_price, products } = invoiceData;
   const { quantity, product_id } = products;
   return (
     <div className="invoiceOrderData">
