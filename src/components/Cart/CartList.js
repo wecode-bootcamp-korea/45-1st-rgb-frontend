@@ -2,14 +2,22 @@ import { useState, useEffect } from "react";
 import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
-import API_ADDRESS from "../../utils/API_ADDRESS";
+import { API_ADDRESS } from "../../utils/API_ADDRESS";
 
 export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
-  const [isButtonActive, setButtonActive] = useState(false);
+
+  const [showChangeButton, setShowChangeButton] = useState();
+  const handleMouseEnter = id => {
+    setShowChangeButton(id);
+  };
+  const handleMouseLeave = () => {
+    setShowChangeButton(false);
+  };
+
   useEffect(() => {
     fetch(`${API_ADDRESS}carts`, {
       method: "GET",
@@ -37,8 +45,8 @@ export default function CartList({ handleClose, setShowCart }) {
       body: JSON.stringify({ count: items[id].count }),
     })
       .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.log(error));
+      .then(data => data)
+      .catch(error => error);
   };
 
   useEffect(() => {
@@ -63,7 +71,6 @@ export default function CartList({ handleClose, setShowCart }) {
     setItems(newItems);
   };
 
-  //  delete api
   const deleteItem = id => {
     fetch(`${API_ADDRESS}carts/${items[id].id}`, {
       method: "DELETE",
@@ -91,7 +98,7 @@ export default function CartList({ handleClose, setShowCart }) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {items.length === 0 ? (
-        <div className="cartList">장바구니에 담긴 상품이 없습니다.</div>
+        <div className="cartList">장바구니가 비었습니다.</div>
       ) : (
         <>
           <div className="cartCategoryBox">
@@ -102,17 +109,16 @@ export default function CartList({ handleClose, setShowCart }) {
             <div className="cartCategory" />
           </div>
           {items?.map((item, id) => (
-            <div
-              key={item.id}
-              className="cartItem"
-              onMouseEnter={setButtonActive(true)}
-              onMouseLeave={setButtonActive(false)}
-            >
+            <div key={item.id} className="cartItem">
               <div className="itemName">{item.title}</div>
               <div className="itemSize">
-                {item.products_size_left}/{item.products_size_right}
+                {item.width}/{item.height}
               </div>
-              <div className="itemQuantity">
+              <div
+                className="itemQuantity"
+                onMouseEnter={() => handleMouseEnter(id)}
+                onMouseLeave={handleMouseLeave}
+              >
                 <button className="minus" onClick={() => decrement(id)}>
                   -
                 </button>
@@ -120,13 +126,15 @@ export default function CartList({ handleClose, setShowCart }) {
                 <button className="plus" onClick={() => increment(id)}>
                   +
                 </button>
-                <button className="check" onClick={() => handleCount(id)}>
-                  수량변경
-                </button>
-              </div>
 
+                {showChangeButton === id && (
+                  <button className="check" onClick={() => handleCount(id)}>
+                    수량변경
+                  </button>
+                )}
+              </div>
               <div className="itemPrice">
-                {(item.price * item.count).toLocaleString()}원
+                {(item.price * item.count).toLocaleString()} P
               </div>
               <div className="cartDelete">
                 <button
@@ -146,7 +154,7 @@ export default function CartList({ handleClose, setShowCart }) {
                 </span>
                 <div className="totalPrice">
                   <span className="vat">소계(세금 포함)</span>
-                  <span className="sum">{totalPrice.toLocaleString()}원</span>
+                  <span className="sum">{totalPrice.toLocaleString()} P</span>
                 </div>
                 <div className="payBtn">
                   <Button
@@ -160,13 +168,13 @@ export default function CartList({ handleClose, setShowCart }) {
                     결제하기
                   </Button>
                 </div>
-                <button
-                  className="arrowUp"
-                  onClick={() => {
-                    handleClose();
-                  }}
-                />
               </div>
+              <button
+                className="arrowUp"
+                onClick={() => {
+                  handleClose();
+                }}
+              />
             </div>
           </div>
         </>

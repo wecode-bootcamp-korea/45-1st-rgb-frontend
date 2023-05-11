@@ -5,7 +5,7 @@ import Payment from "./components/Payment/Payment";
 import Delivery from "./components/Delivery/Delivery";
 import "./Order.scss";
 import Cart from "../../components/Cart/Cart";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
