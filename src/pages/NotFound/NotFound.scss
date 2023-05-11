@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.notFound {
+  @include flex(flex, column, center, center);
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-color: $main-grey;
+
+  h2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $main-grey;
+    font-size: 80px;
+    font-weight: bold;
+    text-shadow: blanchedalmond 5px 5px 4px;
+  }
+
+  img {
+    display: block;
+    height: inherit;
+  }
+}

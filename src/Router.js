@@ -9,6 +9,7 @@ import ProductList from "./pages/ProductList/ProductList";
 import Order from "./pages/Order/Order";
 import Invoice from "./pages/Invoice/Invoice";
 import Cart from "./components/Cart/Cart";
+import NotFound from "./pages/NotFound/NotFound";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/order" element={<Order />} />
         <Route path="/invoice/:orderNumber" element={<Invoice />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
