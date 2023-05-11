@@ -10,6 +10,15 @@ export default function CartList({ handleClose, setShowCart }) {
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
 
+  //id 값을 넘겨준다.
+  const [showChangeButton, setShowChangeButton] = useState();
+  const handleMouseEnter = id => {
+    setShowChangeButton(id);
+  };
+  const handleMouseLeave = () => {
+    setShowChangeButton(false);
+  };
+
   useEffect(() => {
     fetch(`${API_ADDRESS}carts`, {
       method: "GET",
@@ -62,7 +71,6 @@ export default function CartList({ handleClose, setShowCart }) {
     setItems(newItems);
   };
 
-  //  delete api
   const deleteItem = id => {
     fetch(`${API_ADDRESS}carts/${items[id].id}`, {
       method: "DELETE",
@@ -90,7 +98,7 @@ export default function CartList({ handleClose, setShowCart }) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {items.length === 0 ? (
-        <div className="cartList">장바구니에 담긴 상품이 없습니다.</div>
+        <div className="cartList">장바구니가 비었습니다.</div>
       ) : (
         <>
           <div className="cartCategoryBox">
@@ -106,7 +114,11 @@ export default function CartList({ handleClose, setShowCart }) {
               <div className="itemSize">
                 {item.products_size_left}/{item.products_size_right}
               </div>
-              <div className="itemQuantity">
+              <div
+                className="itemQuantity"
+                onMouseEnter={() => handleMouseEnter(id)}
+                onMouseLeave={handleMouseLeave}
+              >
                 <button className="minus" onClick={() => decrement(id)}>
                   -
                 </button>
@@ -114,9 +126,12 @@ export default function CartList({ handleClose, setShowCart }) {
                 <button className="plus" onClick={() => increment(id)}>
                   +
                 </button>
-                <button className="check" onClick={() => handleCount(id)}>
-                  수량변경
-                </button>
+
+                {showChangeButton === id && (
+                  <button className="check" onClick={() => handleCount(id)}>
+                    수량변경
+                  </button>
+                )}
               </div>
 
               <div className="itemPrice">
@@ -154,13 +169,13 @@ export default function CartList({ handleClose, setShowCart }) {
                     결제하기
                   </Button>
                 </div>
-                <button
-                  className="arrowUp"
-                  onClick={() => {
-                    handleClose();
-                  }}
-                />
               </div>
+              <button
+                className="arrowUp"
+                onClick={() => {
+                  handleClose();
+                }}
+              />
             </div>
           </div>
         </>

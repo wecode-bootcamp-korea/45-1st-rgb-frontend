@@ -75,6 +75,7 @@
   }
 
   .check {
+    //display: none;
     margin-left: 20px;
     color: $main-ivory;
     font-size: 14px;
@@ -101,7 +102,7 @@
 
 .cartList {
   display: flex;
-  left: 100px;
+  justify-content: end;
   color: $main-ivory;
   font-size: 16px;
 }
@@ -138,7 +139,7 @@
 
     .sum {
       color: $main-ivory;
-      font-size: 25px;
+      font-size: 28px;
       font-weight: 400;
     }
   }
@@ -151,9 +152,11 @@
     font-weight: 400;
     cursor: pointer;
   }
+
   .arrowUp {
     @include icon(30px, 20px, 10px);
-    position: relative;
+    position: absolute;
+    top: 650px;
     margin-left: 46%;
     background-image: url(../../assets/arrow.png);
     background-repeat: no-repeat;
