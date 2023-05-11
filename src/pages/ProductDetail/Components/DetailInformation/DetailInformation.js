@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
-import API_ADDRESS from "../../../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
 
 import "./DetailInformation.scss";
 
@@ -47,7 +47,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
   };
 
   const postCart = () => {
-    const url = `${API_ADDRESS}carts`;
+    const url = `${API_ADDRESS_ORDERS}carts`;
 
     fetch(url, {
       method: "POST",
