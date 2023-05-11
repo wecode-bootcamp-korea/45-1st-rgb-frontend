@@ -28,7 +28,7 @@ function Invoice() {
       });
   }, []);
 
-  if (!invoiceData?.id) return <LoadingPage />;
+  if (!invoiceData) return <LoadingPage />;
 
   return (
     <div className="invoice">
