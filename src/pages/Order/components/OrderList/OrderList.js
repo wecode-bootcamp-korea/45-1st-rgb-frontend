@@ -11,7 +11,7 @@ function OrderList({ cartProductList, totalPrice }) {
         <div className="orderItemWrapper">
           <ul className="orderItem">
             <li>소계(세금 포함)</li>
-            <li>₩{totalPriceComma}</li>
+            <li>{totalPriceComma}P</li>
           </ul>
           <ul className="orderItem">
             <li>배송비</li>
@@ -23,7 +23,7 @@ function OrderList({ cartProductList, totalPrice }) {
           </ul>
           <ul className="orderItem">
             <li>합계</li>
-            <li>₩{totalPriceComma}</li>
+            <li>{totalPriceComma}P</li>
           </ul>
         </div>
         <div className="checkoutProductsBox">

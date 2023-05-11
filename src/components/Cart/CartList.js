@@ -3,13 +3,11 @@ import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { API_ADDRESS } from "../../utils/API_ADDRESS";
-
 export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
-
   const [showChangeButton, setShowChangeButton] = useState();
   const handleMouseEnter = id => {
     setShowChangeButton(id);
@@ -17,7 +15,6 @@ export default function CartList({ handleClose, setShowCart }) {
   const handleMouseLeave = () => {
     setShowChangeButton(false);
   };
-
   useEffect(() => {
     fetch(`${API_ADDRESS}carts`, {
       method: "GET",
@@ -32,7 +29,6 @@ export default function CartList({ handleClose, setShowCart }) {
         return setItems(data);
       });
   }, []);
-
   const handleCount = id => {
     const url = `${API_ADDRESS}carts/${items[id].id}`;
     fetch(url, {
@@ -48,7 +44,6 @@ export default function CartList({ handleClose, setShowCart }) {
       .then(data => data)
       .catch(error => error);
   };
-
   useEffect(() => {
     let total = 0;
     items.length &&
@@ -57,7 +52,6 @@ export default function CartList({ handleClose, setShowCart }) {
       });
     setTotalPrice(total);
   }, [items]);
-
   const decrement = id => {
     const newItems = [...items];
     if (newItems[id].count > 1) {
@@ -65,13 +59,11 @@ export default function CartList({ handleClose, setShowCart }) {
       setItems(newItems);
     }
   };
-
   const increment = id => {
     const newItems = [...items];
     newItems[id].count++;
     setItems(newItems);
   };
-
   const deleteItem = id => {
     fetch(`${API_ADDRESS}carts/${items[id].id}`, {
       method: "DELETE",
@@ -81,20 +73,16 @@ export default function CartList({ handleClose, setShowCart }) {
         Authorization: token,
       },
     });
-
     const newItems = items.filter((_, i) => i !== id);
     setItems(newItems);
   };
-
   useEffect(() => {
     if (items.length) return;
     const timer = setTimeout(() => {
       handleClose();
     }, 2000);
-
     return () => clearTimeout(timer);
   }, [items]);
-  console.log(items);
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
@@ -128,7 +116,6 @@ export default function CartList({ handleClose, setShowCart }) {
                   <button className="plus" onClick={() => increment(id)}>
                     +
                   </button>
-
                   {showChangeButton === id && (
                     <button className="check" onClick={() => handleCount(id)}>
                       수량변경
