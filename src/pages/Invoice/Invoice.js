@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-import "./Invoice.scss";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import InvoiceUserData from "./InvoiceUserData";
+import InvoiceOrderData from "./InvoiceOrderData";
 import { useParams } from "react-router-dom";
-import API_ADDRESS, { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
-
+import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import "./Invoice.scss";
 function Invoice() {
   const [invoiceData, setInvoiceData] = useState();
   const params = useParams();
   const orderId = params.orderNumber;
-
+  const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
@@ -18,10 +20,23 @@ function Invoice() {
       },
     })
       .then(res => res.json())
-      .then(data => setInvoiceData(data));
+      .then(data => {
+        return setInvoiceData(data);
+      });
   }, []);
 
-  return <div className="invoice">Invoice Page</div>;
+  if (!invoiceData?.id) return null;
+
+  return (
+    <div className="invoice">
+      <div className="invoiceBox">
+        <button className="closeIcon" onClick={() => navigate("/")} />
+        <h2 className="invoiceTitle">결제가 완료되었습니다.</h2>
+        <InvoiceUserData invoiceData={invoiceData} />
+        <InvoiceOrderData invoiceData={invoiceData} />
+      </div>
+    </div>
+  );
 }
 
 export default Invoice;

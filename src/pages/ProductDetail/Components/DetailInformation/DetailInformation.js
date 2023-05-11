@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
 import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
-
 import "./DetailInformation.scss";
-
 function DetailInformation({ details, showMore, setLogIn }) {
   const {
     quantity,
@@ -59,9 +57,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
         productsId: id,
         quantity: count,
       }),
-    })
-      .then(res => res.json())
-      .then(data => console.log(data));
+    }).then(res => res.json());
     alert("카트에 성공적으로 담겼습니다");
   };
 

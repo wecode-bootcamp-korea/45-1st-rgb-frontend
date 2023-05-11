@@ -1,0 +1,40 @@
+@import "../../styles/mixin";
+@import "../../styles/variables";
+
+.invoiceUserData {
+  @include flex(flex, column, flex-start, _);
+  padding-bottom: 30px;
+}
+
+.invoiceUserDataTopBox {
+  width: 500px;
+  @include flex(flex, row, flex-start, space-between);
+}
+
+.invoiceUserDataBox {
+  margin: 20px;
+
+  & > p {
+    margin: 0 0 10px 10px;
+  }
+
+  .invoiceUserDataSubTitle {
+    margin: 0 0 25px 0;
+    font-size: 17px;
+  }
+
+  .invoiceShippingCharge {
+    margin-top: 25px;
+  }
+
+  & > li {
+    @include flex(flex, row, flex-start, space-between);
+    width: 450px;
+    margin: 0 0 15px 10px;
+    font-size: 14px;
+  }
+}
+
+.boldText {
+  font-weight: bold;
+}
