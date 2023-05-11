@@ -64,14 +64,18 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
         </div>
         <div>
           <label className="pointLabel" htmlFor="totalPoint">
-            보유 <input type="text" id="totalPoint" readOnly />
+            <div>
+              <span>보유</span> <input type="text" id="totalPoint" readOnly />
+            </div>
             <span className="pointUnit">{totalPoints}&nbsp;P</span>
           </label>
         </div>
 
         <div>
           <label className="pointLabel" htmlFor="pricePoint">
-            사용 <input type="text" id="pricePoint" readOnly />
+            <div>
+              <span>사용</span> <input type="text" id="pricePoint" readOnly />
+            </div>
             <span className="pointUnit">{totalPriceInComma}&nbsp;P</span>
           </label>
         </div>
