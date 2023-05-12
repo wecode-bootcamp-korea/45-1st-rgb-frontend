@@ -2,24 +2,15 @@
 @import "../../styles/mixin";
 
 .loadingPage {
-  position: relative;
+  @include flex(flex, row, _, center);
   width: 100%;
-  height: 100%;
+  height: 90vh;
   background-color: $main-grey;
-
-  h2 {
-    position: absolute;
-    top: 30%;
-    left: 15%;
-    font-size: 100px;
-    font-weight: 700;
-    text-shadow: blanchedalmond 5px 5px 4px;
-  }
 
   img {
     display: block;
-    width: 100%;
+    // width: 100%;
     height: 100%;
-    background-repeat: space;
+    background-repeat: no-repeat;
   }
 }

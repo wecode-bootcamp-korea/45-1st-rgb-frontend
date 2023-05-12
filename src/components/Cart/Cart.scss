@@ -101,6 +101,7 @@
 
 .cartList {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: end;
   padding-right: 140px;

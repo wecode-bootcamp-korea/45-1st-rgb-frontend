@@ -35,7 +35,7 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
       .then(data => {
         if (data.message === "Order placed successfully") {
           navigate(`/invoice/${data.orderNumber}`);
-          alert("결제 완료되었습니다");
+          // alert("결제 완료되었습니다");
         } else if (
           data.message === "Not enough points to purchase all cart items"
         ) {
