@@ -33,13 +33,16 @@ const Nav = () => {
       .then(data => {
         setMyCart(data);
       });
-  }, [token]);
+  }, [token, myCart]);
+
   const logOut = () => {
     setMyCart([]);
     localStorage.removeItem("TOKEN");
     navigate("/");
   };
+
   const myPoint = Math.floor(user?.points);
+
   return (
     <>
       <div className="nav">
