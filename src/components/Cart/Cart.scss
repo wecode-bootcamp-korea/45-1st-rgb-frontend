@@ -107,58 +107,58 @@
   padding-right: 140px;
   color: $main-ivory;
   font-size: 16px;
-  .cartSumBox {
-    display: flex;
-    padding: 24px;
+}
+.cartSumBox {
+  display: flex;
+  padding: 24px;
+}
+
+.cartSummary {
+  right: 30px;
+  bottom: 30px;
+  width: 100%;
+  margin-top: 20px;
+  color: $main-ivory;
+  font-size: 14px;
+
+  .cartFree {
+    color: $main-white;
+    font-size: 16px;
+    font-weight: 400;
   }
 
-  .cartSummary {
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-    width: 100%;
-    margin-top: 20px;
-    font-size: 14px;
+  .totalPrice {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    padding-top: 20px;
 
-    .cartFree {
-      color: $main-white;
-      font-size: 16px;
+    .vat {
+      color: $main-ivory;
+      font-size: 18px;
+      font-weight: 200;
+    }
+
+    .sum {
+      color: $main-ivory;
+      font-size: 25px;
       font-weight: 400;
     }
+  }
 
-    .totalPrice {
-      display: flex;
-      justify-content: space-between;
-      height: 100px;
-      padding-top: 20px;
-
-      .vat {
-        color: $main-ivory;
-        font-size: 18px;
-        font-weight: 200;
-      }
-
-      .sum {
-        color: $main-ivory;
-        font-size: 25px;
-        font-weight: 400;
-      }
-    }
-
-    .payBtn {
-      display: flex;
-      justify-content: end;
-      margin-top: 10px;
-      font-size: 16px;
-      font-weight: 400;
-      cursor: pointer;
-    }
-    .arrowUp {
-      @include icon(30px, 20px, 10px);
-      position: relative;
-      margin-left: 46%;
-      background-image: url(../../assets/arrow.png);
-      background-repeat: no-repeat;
-    }
+  .payBtn {
+    display: flex;
+    justify-content: end;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .arrowUp {
+    @include icon(30px, 20px, 10px);
+    position: relative;
+    margin-left: 46%;
+    background-image: url(../../assets/arrow.png);
+    background-repeat: no-repeat;
   }
 }
