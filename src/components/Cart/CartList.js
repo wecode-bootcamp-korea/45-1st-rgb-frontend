@@ -3,8 +3,7 @@ import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
-
-export default function CartList({ handleClose, setShowCart, showCart }) {
+export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();

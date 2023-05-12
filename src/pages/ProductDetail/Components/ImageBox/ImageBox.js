@@ -9,10 +9,7 @@ function ImageBox({ details, inOut }) {
   const slideRef = useRef(null);
 
   useEffect(() => {
-    if (inOut && slideRef.current) {
-      slideRef.current.style.transition = "transform 0.5s ease-in";
-      slideRef.current.style = ``;
-    } else if (!inOut && slideRef.current) {
+    if (slideRef.current) {
       slideRef.current.style.transition = "transform 0.5s ease-in";
       slideRef.current.style.transform = `translateX(-${currentSlide * 500}px)`;
     }

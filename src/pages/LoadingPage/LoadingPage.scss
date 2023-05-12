@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+@import "../../styles/mixin";
+
+.loadingPage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $main-grey;
+
+  h2 {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    font-size: 100px;
+    font-weight: 700;
+    text-shadow: blanchedalmond 5px 5px 4px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: space;
+  }
+}

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
 import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
+
 import "./DetailInformation.scss";
-function DetailInformation({ details, showMore, setLogIn }) {
+
+function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
   const {
     quantity,
     id,
@@ -19,6 +21,7 @@ function DetailInformation({ details, showMore, setLogIn }) {
   const [count, setCount] = useState(1);
   const total = count * price;
   const [button1, setButton1] = useState(false);
+  const [totalQuantity, setTotalQuantity] = useState(true);
   const token = localStorage.getItem("TOKEN");
 
   useEffect(() => {
@@ -43,6 +46,13 @@ function DetailInformation({ details, showMore, setLogIn }) {
       setCount(count - 0);
     }
   };
+
+  useEffect(() => {
+    if (details.quantity <= 0) {
+      setTotalQuantity(false);
+      setSoldOut(true);
+    }
+  }, [totalQuantity, details.quantity]);
 
   const postCart = () => {
     const url = `${API_ADDRESS_ORDERS}carts`;
@@ -74,7 +84,11 @@ function DetailInformation({ details, showMore, setLogIn }) {
       <div className="infoMiddle">
         <span className="description">{`${description}`}</span>
         <span>
-          <button onClick={showMore}>
+          <button
+            onClick={() => {
+              setInOut(!inOut);
+            }}
+          >
             <img alt="plusButton" src="/images/productDetail/plusButton.png" />
           </button>
         </span>
@@ -86,15 +100,19 @@ function DetailInformation({ details, showMore, setLogIn }) {
         </div>
         <div className="quantity">
           <span className="bold">수량</span>
-          <div className="countButton">
-            <button className="minusButton" onClick={minusCount}>
-              -
-            </button>
-            {count}/{details.quantity}
-            <button className="plusButton" onClick={plusCount}>
-              +
-            </button>
-          </div>
+          {totalQuantity ? (
+            <div className="countButton">
+              <button className="minusButton" onClick={minusCount}>
+                -
+              </button>
+              {count}/{details.quantity}
+              <button className="plusButton" onClick={plusCount}>
+                +
+              </button>
+            </div>
+          ) : (
+            <div className="soldOutText">Sold Out</div>
+          )}
         </div>
       </div>
       <div className="buyingButtons">
