@@ -4,7 +4,6 @@ import User from "../../pages/User/User";
 import Cart from "../Cart/Cart";
 import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 import "./Nav.scss";
-
 const Nav = () => {
   const navigate = useNavigate();
   const [myCart, setMyCart] = useState([]);
@@ -26,7 +25,6 @@ const Nav = () => {
       .then(data => {
         setUserData(data);
       });
-
     fetch(`${API_ADDRESS_ORDERS}carts`, {
       method: "GET",
       headers: { Authorization: token },
@@ -36,13 +34,11 @@ const Nav = () => {
         setMyCart(data);
       });
   }, [token]);
-
   const logOut = () => {
     setMyCart([]);
     localStorage.removeItem("TOKEN");
     navigate("/");
   };
-
   const myPoint = Math.floor(user?.points);
   return (
     <>
@@ -85,7 +81,6 @@ const Nav = () => {
             ) : (
               <li>My Point : {!myPoint ? 0 : myPoint}P</li>
             )}
-
             <li onClick={toggleCart}>
               Cart <span className="cartCountButton">{myCart.length}</span>
             </li>

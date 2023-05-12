@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
-import { API_ADDRESS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -16,7 +16,7 @@ export default function CartList({ handleClose, setShowCart }) {
     setShowChangeButton(false);
   };
   useEffect(() => {
-    fetch(`${API_ADDRESS}carts`, {
+    fetch(`${API_ADDRESS_ORDERS}carts`, {
       method: "GET",
       headers: {
         Authorization: token,
@@ -30,7 +30,7 @@ export default function CartList({ handleClose, setShowCart }) {
       });
   }, []);
   const handleCount = id => {
-    const url = `${API_ADDRESS}carts/${items[id].id}`;
+    const url = `${API_ADDRESS_ORDERS}carts/${items[id].id}`;
     fetch(url, {
       method: "PATCH",
       headers: {
@@ -65,7 +65,7 @@ export default function CartList({ handleClose, setShowCart }) {
     setItems(newItems);
   };
   const deleteItem = id => {
-    fetch(`${API_ADDRESS}carts/${items[id].id}`, {
+    fetch(`${API_ADDRESS_ORDERS}carts/${items[id].id}`, {
       method: "DELETE",
       headers: {
         Accept: "application/json",
