@@ -10,10 +10,12 @@ import Order from "./pages/Order/Order";
 import Invoice from "./pages/Invoice/Invoice";
 import Cart from "./components/Cart/Cart";
 import NotFound from "./pages/NotFound/NotFound";
+import ScrollToTop from "./components/Scroll";
 
 function Router() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />

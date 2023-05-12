@@ -17,9 +17,23 @@
 
     .leftImage {
       display: flex;
-      align-items: flex-start;
+      position: relative;
+      align-items: center;
       justify-content: center;
-      width: 60%;
+      width: 60vw;
+      .soldOut {
+        display: flex;
+        position: absolute;
+        z-index: 2;
+        align-items: center;
+        justify-content: center;
+        width: 475px;
+        height: 500px;
+        opacity: 70%;
+        background-color: $main-grey;
+        color: white;
+        font-size: 37px;
+      }
     }
 
     .detailInfo {
