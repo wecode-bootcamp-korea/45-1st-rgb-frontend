@@ -88,9 +88,7 @@ export default function CartList({ handleClose, setShowCart }) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {items.length === 0 || !token ? (
-        <div className={`cartList ${showCart ? "show" : ""}`}>
-          카트가 비어있습니다.
-        </div>
+        <div className="cartList">카트가 비어있습니다.</div>
       ) : (
         <>
           <div className="cartCategoryBox">
