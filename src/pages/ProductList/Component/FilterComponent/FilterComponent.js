@@ -70,7 +70,7 @@ function FilterComponent({ shopContent, setShopContent }) {
                   setShopContent(copy);
                 }}
               >
-                가나다순
+                ABC순
               </button>
             </p>
           </div>

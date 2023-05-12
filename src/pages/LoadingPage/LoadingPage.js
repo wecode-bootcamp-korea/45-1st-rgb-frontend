@@ -4,8 +4,7 @@ import "./LoadingPage.scss";
 const LoadingPage = () => {
   return (
     <div className="loadingPage">
-      <h2>Loading~</h2>
-      <img src="" alt="로딩화면" />
+      <img src="/images/loadingPage/loadingPage.png"></img>
     </div>
   );
 };
