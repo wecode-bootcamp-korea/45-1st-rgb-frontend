@@ -8,8 +8,6 @@ const Artists = () => {
       <div className="wrap">
         <div className="leftSide" />
         <div className="rightSide">
-          <div className="artistName">HAE CHAN</div>
-          <div className="underLine" />
           <ArtistProfile />
         </div>
       </div>

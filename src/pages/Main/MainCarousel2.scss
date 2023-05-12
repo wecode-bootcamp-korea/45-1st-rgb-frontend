@@ -33,11 +33,10 @@
 .line {
   display: flex;
   position: absolute;
+  top: 21px;
   width: 240px;
-  margin-top: 97px;
-
   margin-right: 960px;
-  border: 0.3px solid $main-black;
+  border: 0.1px solid $main-black;
 }
 
 .buttonPre2 {

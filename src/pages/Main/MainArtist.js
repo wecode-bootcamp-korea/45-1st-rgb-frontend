@@ -1,6 +1,7 @@
 import React from "react";
 import "./MainArtist.scss";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button/Button";
 
 export default function MainArtist() {
   const navigate = useNavigate();
@@ -10,14 +11,17 @@ export default function MainArtist() {
         <div className="boxImg" />
         <div className="introText">
           <p className="firstText">Meet our international artists</p>
-          <p className="secondText">5월의 아티스트, Kris Gebhardt</p>
+          <p className="secondText">5월의 아티스트, HAE</p>
           <button className="textMore">
-            <p
-              className="moreButton"
-              onClick={() => navigate("productDetail/:id")}
+            <Button
+              action={() => {
+                navigate("productDetail/all");
+              }}
+              buttonSize="mediumButton"
+              buttonColor="dark"
             >
               작품 더보기
-            </p>
+            </Button>
           </button>
         </div>
       </div>

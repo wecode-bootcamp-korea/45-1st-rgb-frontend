@@ -31,6 +31,7 @@
     height: 300px;
     margin: 0 auto;
     padding: 0;
+    cursor: pointer;
 
     .goodsImg {
       display: block;
@@ -38,12 +39,20 @@
       height: 300px;
       margin-right: 410px;
       margin-left: -300px;
-      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.02);
+      }
     }
     .textBox {
       margin-top: 15px;
       margin-left: 110px;
       text-align: center;
+
+      .textBox:hover {
+        text-decoration: underline;
+      }
 
       .textBoxSize {
         margin-top: 8px;

@@ -1,17 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./CarouselItem.scss";
-// import { useSearchParams } from "react-router-dom";
 
 export default function CarouselItem({ item }) {
-  const { title, products_size_left, products_size_right, image_urls } = item;
+  const { title, products_size_left, products_size_right, image_urls, id } =
+    item;
   const navigate = useNavigate();
-  // const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <li className="carouselItem">
       <img
-        onClick={() => navigate("/productList/all")}
+        onClick={() => navigate(`productDetail/${id}`)}
         className="artistImg"
         src={image_urls}
         alt="artist"

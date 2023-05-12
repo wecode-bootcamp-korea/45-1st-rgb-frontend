@@ -6,6 +6,7 @@ import MainComingUpArtist from "./MainComingUpArtist";
 import MainCarasol2 from "./MainCarousel2";
 import MainCarasol from "./MainCarousel";
 import Button from "../../components/Button/Button";
+import Video from "./Video";
 
 function Main() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function Main() {
     <div className="main">
       <div className="wrapper">
         <div className="mainContainer">
-          <div className="content" />
+          <Video />
           <div className="titleContent">
             <span className="boxText">Artist of May</span>
           </div>
