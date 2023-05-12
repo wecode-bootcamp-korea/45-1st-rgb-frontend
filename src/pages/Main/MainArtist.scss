@@ -13,17 +13,18 @@
     height: 100vh;
 
     .boxImg {
-      width: 800px;
-      height: 480px;
+      width: 1000px;
+      height: 580px;
       background-image: url("https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%2011.jpg");
     }
 
     .introText {
       position: absolute;
       right: 60px;
-      margin-top: 120px;
-      margin-right: 118px;
+      margin-top: 150px;
+      margin-right: 120px;
     }
+
     .firstText {
       margin-bottom: 40px;
       font-size: 24px;
@@ -34,7 +35,8 @@
     }
 
     .textMore {
-      margin-top: 40px;
+      width: 120px;
+      margin-top: 48px;
       font-size: 24px;
     }
   }

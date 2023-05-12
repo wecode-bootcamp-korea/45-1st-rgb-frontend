@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import "./CarouselItem.scss";
 
 export default function CarouselItem({ item }) {
-  const { title, products_size_left, products_size_right, image_urls } = item;
+  const { title, products_size_left, products_size_right, image_urls, id } =
+    item;
   const navigate = useNavigate();
 
   return (
     <li className="carouselItem">
       <img
-        onClick={() => navigate("/artist")}
+        onClick={() => navigate(`productDetail/${id}`)}
         className="artistImg"
         src={image_urls}
         alt="artist"

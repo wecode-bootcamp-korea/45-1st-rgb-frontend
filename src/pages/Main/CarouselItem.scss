@@ -3,22 +3,27 @@
 
 .carouselItem {
   cursor: pointer;
+
   .artistImg {
     display: block;
     width: 300px;
     height: 340px;
     margin-right: 70px;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 
   .textBox {
-    margin-top: 15px;
+    margin-top: 18px;
     margin-right: 82px;
     text-align: center;
 
     .textBoxSize {
       margin-top: 8px;
       text-align: center;
-      text-decoration: none;
     }
   }
 }

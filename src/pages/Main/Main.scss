@@ -19,7 +19,6 @@
   .content {
     width: 100%;
     height: 100%;
-    opacity: 0.8;
     background-image: url("https://raw.githubusercontent.com/haechan02/rgb_demo_arts/d753962f9aa85bc1508500c92eba6b434ca489db/assets/arts/arts%209.jpeg");
     background-repeat: space;
     background-size: 100%;
@@ -33,16 +32,16 @@
 
   .boxButton {
     position: absolute;
-    top: 367px;
-    left: 243px;
+    top: 450px;
+    left: 420px;
   }
 
   .boxText {
     position: absolute;
-    top: 280px;
-    left: 252px;
+    top: 360px;
+    left: 410px;
     color: $main-ivory;
-    font-size: 52px;
-    font-weight: 400;
+    font-size: 58px;
+    font-weight: 500;
   }
 }

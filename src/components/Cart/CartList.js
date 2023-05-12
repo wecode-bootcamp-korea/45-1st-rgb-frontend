@@ -80,14 +80,15 @@ export default function CartList({ handleClose, setShowCart }) {
     if (items.length) return;
     const timer = setTimeout(() => {
       handleClose();
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
-  }, [items]);
+  }, [handleClose, items]);
+
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {items.length === 0 || !token ? (
-        <div className="cartList">장바구니가 비었습니다.</div>
+        <div className="cartList">카트가 비어있습니다.</div>
       ) : (
         <>
           <div className="cartCategoryBox">

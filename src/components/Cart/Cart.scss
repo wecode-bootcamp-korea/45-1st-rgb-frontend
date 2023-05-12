@@ -101,61 +101,63 @@
 
 .cartList {
   display: flex;
-  left: 100px;
+  flex-direction: row;
+  justify-content: end;
+  padding-right: 140px;
   color: $main-ivory;
   font-size: 16px;
-}
 
-.cartSumBox {
-  display: flex;
-  padding: 24px;
-}
-
-.cartSummary {
-  right: 30px;
-  bottom: 30px;
-  width: 100%;
-  margin-top: 20px;
-  font-size: 14px;
-
-  .cartFree {
-    color: $main-white;
-    font-size: 16px;
-    font-weight: 400;
+  .cartSumBox {
+    display: flex;
+    padding: 24px;
   }
 
-  .totalPrice {
-    display: flex;
-    justify-content: space-between;
-    height: 100px;
-    padding-top: 20px;
+  .cartSummary {
+    right: 30px;
+    bottom: 30px;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
 
-    .vat {
-      color: $main-ivory;
-      font-size: 18px;
-      font-weight: 200;
-    }
-
-    .sum {
-      color: $main-ivory;
-      font-size: 25px;
+    .cartFree {
+      color: $main-white;
+      font-size: 16px;
       font-weight: 400;
     }
-  }
 
-  .payBtn {
-    display: flex;
-    justify-content: end;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: 400;
-    cursor: pointer;
-  }
-  .arrowUp {
-    @include icon(30px, 20px, 10px);
-    position: relative;
-    margin-left: 46%;
-    background-image: url(../../assets/arrow.png);
-    background-repeat: no-repeat;
+    .totalPrice {
+      display: flex;
+      justify-content: space-between;
+      height: 100px;
+      padding-top: 20px;
+
+      .vat {
+        color: $main-ivory;
+        font-size: 18px;
+        font-weight: 200;
+      }
+
+      .sum {
+        color: $main-ivory;
+        font-size: 25px;
+        font-weight: 400;
+      }
+    }
+
+    .payBtn {
+      display: flex;
+      justify-content: end;
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .arrowUp {
+      @include icon(30px, 20px, 10px);
+      position: relative;
+      margin-left: 46%;
+      background-image: url(../../assets/arrow.png);
+      background-repeat: no-repeat;
+    }
   }
 }
