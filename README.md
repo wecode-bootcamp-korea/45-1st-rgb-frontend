@@ -49,6 +49,9 @@ Teammates: 탁호진(B), 이원준(F), 문유현(F), 김수정(F), 이경진(F)<
 - 매일 오전 stand-up meeting에서 trello 툴로 작업 진행상황 및 해결 방안 공유 <br>
 - 기획 초반 노션으로 기획의도, 전체적인 컨벤션 정리 <br>
 - 피그마 툴로 레이아웃을 미리 기획/구상 하여 프로젝트 진행 <br>
+- figma
+
+
 
 <br>
 
@@ -76,7 +79,7 @@ Uploading Untitled-2.mp4…
 - 전면에 영상을 배치하여 사이트를 처음 방문하는 사용자의 관심도를 높임 <br>
 - 2개의 Art / Goods Carousel UI 으로 다양한 콘텐츠를 한눈에 볼 수 있게 구현 <br>
 => 사이트 내부를 적극적으로 홍보할 수 있도록 기획/구현 <br>
-
+- Carousel 밑으 indicator를 배치하여 사용자에게 현재 위치를 알 수 있게 구현 <br>
 
 
 ## Login/Sign Up
