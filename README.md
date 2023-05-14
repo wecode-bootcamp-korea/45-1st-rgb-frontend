@@ -40,8 +40,8 @@ Teammates: 탁호진(B), 이원준(F), 문유현(F), 김수정(F), 이경진(F)<
 <img src="https://img.shields.io/badge/trello-008FC7?style=for-the-badge&logo=trello&logoColor=white">
 <img src="https://img.shields.io/badge/figma-FF61F6?style=for-the-badge&logo=figma&logoColor=white">
 <img src="https://img.shields.io/badge/notion-181717?style=for-the-badge&logo=notion&logoColor=white">
-<img src="https://img.shields.io/badge/slack-181717?style=for-the-badge&logo=slack&logoColor=white">
-<img src="https://img.shields.io/badge/postman-181717?style=for-the-badge&logo=postman&logoColor=white">
+<img src="https://img.shields.io/badge/slack-4A154B?style=for-the-badge&logo=slack&logoColor=white">
+<img src="https://img.shields.io/badge/postman-FF4500?style=for-the-badge&logo=postman&logoColor=white">
 
 </div>
 
@@ -52,12 +52,26 @@ Teammates: 탁호진(B), 이원준(F), 문유현(F), 김수정(F), 이경진(F)<
 
 <br>
 
-rgb . 에서 작품 구매 Flow
+## rgb . 에서의 작품 구매 Flow
+<br>
 
 > 메인 둘러보기 -> 상품리스트/ 상세페이지 둘러보기 -> 원하는 상품 선택 -> 장바구니 담기 버튼 누름과 동시에 로그인 창 뜸 ->
 비회원의 경우 회원가입 하기 -> 원하는 상품 담기 -> 주문/결제하기 -> 인보이스 내역 확인하기
+<br>
 
-## 메인 화면
+## Demo
+<br>
+
+
+
+
+Uploading Untitled-2.mp4…
+
+
+
+
+
+## Main
 #### 메인 화면에 생동감 있는 영상 표현과 심플한 작품 이미지 위주의 레이아웃 <br>
 전면에 영상을 배치하여 사이트를 처음 방문하는 사용자의 관심도를 높이고 <br>
 2개의 Art / Goods Carousel UI 으로 다양한 콘텐츠를 한눈에 볼 수 있게 구현 <br>
@@ -65,7 +79,7 @@ rgb . 에서 작품 구매 Flow
 
 
 
-## 로그인/회원가입
+## Login/Sign Up
 #### 정보 기입 최소화와 모달 형식으로 사용자의 편의성을 높인 로그인/회원가입 <br>
 유효성 검사 조건 불충족 경우, 실시간으로 입력창 하단에 안내 메세지 출력 <br>
 필수 입력 사항 미 입력시 가입하기 버튼 비활성화 <br>
@@ -74,7 +88,7 @@ rgb . 에서 작품 구매 Flow
 회원이 아닐 경우 회원가입으로 이어질 수 있는 모달 형식 플로우 구현 <br>
 
 
-## 상품리스트/ 상세페이지
+## Product List/Detail
 #### 판매중인 상품들을 필터 적용하여 사용자의 접근성을 높인 상품리스트/페이지 <br>
 카테고라이징으로 전체보기, 가격순, abc 순으로 sorting 기능 구현 <br>
 상품 디테일 페이지 안의 이미지 수도 캐러셀 구현 <br>
@@ -83,7 +97,7 @@ rgb . 에서 작품 구매 Flow
 재고 수량 sold out 시 수량 선택 버튼 블락 처리 <br>
 
 
-## 장바구니
+## Cart
 #### 드롭다운 형식으로 사이트 내 탐색을 간소화해 사용자의 경험을 개선한 장바구니
 장바구니 수량 추가/ 총 가격 실시간 카운트 / 상품 리스트 삭제 기능 <br>
 상품 수에 따른 레이아웃 동적 조정 구현 <br>
@@ -92,7 +106,7 @@ rgb . 에서 작품 구매 Flow
 조건부 렌더링으로 담긴 상품이 0일 때, 빈 장바구니 페이지 렌더링 구현 <br>
 
 
-## 주문/결제 페이지
+## Order/Payment
 #### 기본 배송지 저장 및 이력 불러오기, 결제 API transaction으로 사용자의 편의를 제고한 주문/결제
 배송기사님께 요청사항 옵션 표현 기능 <br>
 유효성 검사 및 필수 약관 전체 동의 완료 시, 버튼 활성화 기능 <br>
@@ -101,7 +115,7 @@ rgb . 에서 작품 구매 Flow
 현재 보유 포인트와 사용 포인트 확인 가능 <br>
 전체 동의하기 선택 체크박스 구현 <br>
 
-## 인보이스
+## Invoice
 #### 백화점을 다녀온것 같은 산뜻함 느낌을 주는 인보이스 디자인
 데이터를 받아와 주문자 정보와 주문 내역 확인 가능하게 기능 구현
 보유 포인트와 사용 포인트 내역 확인 가능
@@ -114,7 +128,6 @@ rgb . 에서 작품 구매 Flow
 로그인과 로그아웃 버튼의 스타일 반전으로 사용자가 보다 직관적으로 현재 상태 알 수 있게 구현 <br>
 페이지 이동 없이 로그인 버튼을 누르면 로그인 창에서 회원가입까지 바로 가능하게 구현 <br>
 푸터 - 클릭한 탭에 언더라인을 피드백과 탭에 따른 다른 정보 표시 기능 구현 <br>
-
 
 
 ## 💎 CSS
