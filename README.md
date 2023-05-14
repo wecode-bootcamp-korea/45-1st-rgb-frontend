@@ -46,7 +46,7 @@ Teammates: 탁호진(B), 이원준(F), 문유현(F), 김수정(F), 이경진(F)<
 </div>
 
 <br>
-- 매일 오전 standing-up meeting에서 trello 툴로 작업 진행상황 및 해결 방안 공유 <br>
+- 매일 오전 stand-up meeting에서 trello 툴로 작업 진행상황 및 해결 방안 공유 <br>
 - 기획 초반 노션으로 기획의도, 전체적인 컨벤션 정리 <br>
 - 피그마 툴로 레이아웃을 미리 기획/구상 하여 프로젝트 진행 <br>
 
