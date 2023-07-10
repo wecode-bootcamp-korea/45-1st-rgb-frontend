@@ -64,7 +64,7 @@ export default function CartList({
     let total = 0;
     cartItems.length &&
       cartItems.forEach(item => {
-        total += cartItems.price * cartItems.count;
+        total += item.price * item.count;
       });
     setTotalPrice(total);
   }, [cartItems]);
@@ -94,14 +94,13 @@ export default function CartList({
             <div className="cartCategory">가격</div>
             <div className="cartCategory" />
           </div>
-          {cartItems.map((item, index) => (
-            <div key={index} className="cartItem">
+          {cartItems.map((item, id) => (
+            <div key={id} className="cartItem">
               <div className="itemName">{item.title}</div>
               <div className="itemSize">
                 {item.width}/{item.height}
               </div>
-              <div className="itemQuantity">{item.count}</div>
-              {/* <div
+              <div
                 className="itemQuantity"
                 onMouseEnter={() => handleMouseEnter(id)}
                 onMouseLeave={handleMouseLeave}
@@ -118,7 +117,7 @@ export default function CartList({
                     수량변경
                   </button>
                 )}
-              </div> */}
+              </div>
               <div className="itemPrice">
                 {(item.price * item.count).toLocaleString()} P
               </div>
@@ -126,7 +125,7 @@ export default function CartList({
                 <button
                   className="deleteButton"
                   onClick={() => {
-                    deleteItem(index);
+                    deleteItem(id);
                   }}
                 />
               </div>

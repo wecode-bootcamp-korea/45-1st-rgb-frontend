@@ -24,6 +24,7 @@ const Nav = () => {
     console.log("user", user);
     if (user) {
       setUserData(user);
+      setMyPoint(Math.floor(user.points));
     }
   };
 
@@ -46,7 +47,6 @@ const Nav = () => {
   useEffect(() => {
     getUserData();
     getCartsData();
-    setMyPoint(Math.floor(userData.points));
   }, []);
 
   useEffect(() => {
