@@ -15,6 +15,7 @@ function Invoice() {
 
   const getOrderData = async () => {
     const response = await fetchApi(`orders/${orderId}`);
+    console.log("response", response);
     setInvoiceData(response);
   };
 

@@ -9,12 +9,7 @@ export async function fetchApi(endpoint, init) {
       ...init?.headers,
     },
   });
-
   const result = await response.json();
-
-  if (!response.ok) {
-    throw (result.statusCode, result.message);
-  }
 
   return result;
 }

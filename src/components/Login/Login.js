@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../Button/Button";
-import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS } from "../../utils/API_ADDRESS";
 import "./Login.scss";
 
 const Login = ({ setLogIn, goToSignUp }) => {
@@ -12,11 +12,10 @@ const Login = ({ setLogIn, goToSignUp }) => {
 
   const { email, password } = inputValues;
   const [loginWarning, setLoginWarning] = useState("");
-  // const token = localStorage.getItem("TOKEN");
   const loginValid = email.includes("@") && password.length >= 5;
 
   const loginOn = () => {
-    fetch(`${API_ADDRESS_ORDERS}users/logIn`, {
+    fetch(`${API_ADDRESS}users/logIn`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({

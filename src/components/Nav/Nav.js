@@ -4,6 +4,8 @@ import User from "../../pages/User/User";
 import Cart from "../Cart/Cart";
 import { fetchApi } from "../../utils/fetchApi";
 import "./Nav.scss";
+import { useRecoilValue } from "recoil";
+import { countState } from "../../recoil/atom";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -13,11 +15,16 @@ const Nav = () => {
   const [myPoint, setMyPoint] = useState();
   const [logIn, setLogIn] = useState("");
   const [showCart, setShowCart] = useState(false);
+  const nextCount = useRecoilValue(countState);
 
   const getUserData = async () => {
     if (!token) return;
     const response = await fetchApi(`users`);
-    setUserData(response.user);
+    const { user } = response;
+    console.log("user", user);
+    if (user) {
+      setUserData(user);
+    }
   };
 
   const getCartsData = async () => {
@@ -39,8 +46,13 @@ const Nav = () => {
   useEffect(() => {
     getUserData();
     getCartsData();
-    setMyPoint(Math.floor(userData?.points));
+    setMyPoint(Math.floor(userData.points));
   }, []);
+
+  useEffect(() => {
+    getUserData();
+    getCartsData();
+  }, [nextCount]);
 
   return (
     <>
@@ -81,7 +93,7 @@ const Nav = () => {
                 My Point
               </li>
             ) : (
-              <li>My Point : {!myPoint ? 0 : myPoint}P</li>
+              <li>My Point : {myPoint | 0}P</li>
             )}
             <li onClick={toggleCart}>
               Cart <span className="cartCountButton">{myCart.length}</span>

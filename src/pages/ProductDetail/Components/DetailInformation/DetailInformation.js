@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
-import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
-
+import { fetchApi } from "../../../../utils/fetchApi";
 import "./DetailInformation.scss";
+import { countState } from "../../../../recoil/atom";
+import { useRecoilState } from "recoil";
 
 function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
   const {
@@ -19,20 +20,21 @@ function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
   } = details;
 
   const [count, setCount] = useState(1);
+  const [cartCount, setCartCount] = useRecoilState(countState);
   const total = count * price;
-  const [button1, setButton1] = useState(false);
   const [totalQuantity, setTotalQuantity] = useState(true);
   const token = localStorage.getItem("TOKEN");
 
-  useEffect(() => {
-    if (button1) {
-      token ? postCart() : setLogIn(<User setLogIn={setLogIn} />);
-    }
-  }, [button1]);
-
   const cartButton = () => {
-    setButton1(!button1);
+    if (token) {
+      postCart();
+      setCartCount(!cartCount);
+      console.log("cartCount", cartCount);
+    } else {
+      setLogIn(<User setLogIn={setLogIn} />);
+    }
   };
+
   const plusCount = () => {
     setCount(count + 1);
     if (count === quantity) {
@@ -54,22 +56,16 @@ function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
     }
   }, [totalQuantity, details.quantity]);
 
-  const postCart = () => {
-    const url = `${API_ADDRESS_ORDERS}carts`;
-
-    fetch(url, {
+  async function postCart() {
+    await fetchApi(`carts`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-        Authorization: token,
-      },
       body: JSON.stringify({
         productsId: id,
         quantity: count,
       }),
-    }).then(res => res.json());
+    });
     alert("카트에 성공적으로 담겼습니다");
-  };
+  }
 
   return (
     <div className="detailInformation">

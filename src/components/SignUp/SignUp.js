@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 import SignUpModal from "./SignUpModal";
-import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS } from "../../utils/API_ADDRESS";
 import CheckBox from "../CheckBox/CheckBox";
 import "./SignUp.scss";
 
@@ -37,7 +37,7 @@ const SignUp = ({ setLogIn }) => {
   };
 
   const signUp = () => {
-    fetch(`${API_ADDRESS_ORDERS}users/signUp`, {
+    fetch(`${API_ADDRESS}users/signUp`, {
       method: "POST",
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify({

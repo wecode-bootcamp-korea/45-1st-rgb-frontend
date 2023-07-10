@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckInput from "../CheckBox/CheckInput";
 import "./Payment.scss";
-import { API_ADDRESS_ORDERS } from "../../../../utils/API_ADDRESS";
+import { API_ADDRESS } from "../../../../utils/API_ADDRESS";
+import { fetchApi } from "../../../../utils/fetchApi";
 
 function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
   const [checkInputs, setCheckInputs] = useState([]);
@@ -19,32 +20,21 @@ function Payment({ userData, totalPrice, setIsDelivery, cartProductList }) {
     setIsDelivery(true);
   };
 
-  const token = localStorage.getItem("TOKEN");
-
-  const postOrderData = () => {
-    fetch(`${API_ADDRESS_ORDERS}orders`, {
+  async function postOrderData() {
+    const response = await fetchApi(`orders`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Authorization: token,
-      },
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        if (data.message === "Order placed successfully") {
-          navigate(`/invoice/${data.orderNumber}`);
-          // alert("결제 완료되었습니다");
-        } else if (
-          data.message === "Not enough points to purchase all cart items"
-        ) {
-          alert("포인트가 부족합니다.");
-        } else {
-          alert("다시 시도해주세요.");
-        }
-      });
-  };
+    });
+    if (response.message === "Order placed successfully") {
+      alert("결제 완료되었습니다");
+      navigate(`/invoice/${response.orderNumber}`);
+    } else if (
+      response.message === "Not enough points to purchase all cart items"
+    ) {
+      alert("포인트가 부족합니다.");
+    } else {
+      alert("다시 시도해주세요.");
+    }
+  }
 
   const handlePayButton = e => {
     e.preventDefault();

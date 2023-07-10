@@ -5,7 +5,8 @@ import Payment from "./components/Payment/Payment";
 import Delivery from "./components/Delivery/Delivery";
 import "./Order.scss";
 import Cart from "../../components/Cart/Cart";
-import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { API_ADDRESS } from "../../utils/API_ADDRESS";
+import { fetchApi } from "../../utils/fetchApi";
 
 function Order() {
   const [cartProductList, setCartProductList] = useState([]);
@@ -25,31 +26,46 @@ function Order() {
 
   let totalPrice = getSum(cartProductList);
 
-  const token = localStorage.getItem("TOKEN");
+  async function getCartsData() {
+    const response = await fetchApi(`carts`, {
+      method: "GET",
+    });
+    setCartProductList(response);
+  }
+
+  async function getUserData() {
+    const response = await fetchApi(`users`, {
+      method: "GET",
+    });
+    setUserData(response.user);
+  }
 
   useEffect(() => {
-    fetch(`${API_ADDRESS_ORDERS}carts`, {
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Authorization: token,
-      },
-    })
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        return setCartProductList(data);
-      });
+    // fetch(`${API_ADDRESS}carts`, {
+    //   headers: {
+    //     "Content-Type": "application/json; charset=utf-8",
+    //     Authorization: token,
+    //   },
+    // })
+    //   .then(res => {
+    //     return res.json();
+    //   })
+    //   .then(data => {
+    //     console.log("order", data);
+    //     setCartProductList(data);
+    //   });
 
-    fetch(`${API_ADDRESS_ORDERS}users`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        Authorization: token,
-      },
-    })
-      .then(response => response.json())
-      .then(data => setUserData(data.user));
+    // fetch(`${API_ADDRESS}users`, {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json; charset=utf-8",
+    //     Authorization: token,
+    //   },
+    // })
+    //   .then(response => response.json())
+    //   .then(data => setUserData(data.user));
+    getCartsData();
+    getUserData();
   }, []);
 
   const [isDelivery, setIsDelivery] = useState(true);

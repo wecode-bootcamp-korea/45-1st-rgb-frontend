@@ -12,25 +12,34 @@ import Cart from "./components/Cart/Cart";
 import NotFound from "./pages/NotFound/NotFound";
 import ScrollToTop from "./components/Scroll";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 
 function Router() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/artist" element={<Artists />} />
-        <Route path="/productDetail/:id" element={<ProductDetail />} />
-        <Route path="/productList/all" element={<ProductList />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="/invoice/*" element={<LoadingPage />} />
-        <Route path="/invoice/:orderNumber" element={<Invoice />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <RecoilRoot>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/artist" element={<Artists />} />
+          <Route path="/productDetail/:id" element={<ProductDetail />} />
+          <Route path="/productList/all" element={<ProductList />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/invoice/*" element={<LoadingPage />} />
+          <Route path="/invoice/:orderNumber" element={<Invoice />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 
