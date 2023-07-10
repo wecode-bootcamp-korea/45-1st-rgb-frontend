@@ -2,38 +2,29 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
 import Cart from "../Cart/Cart";
-import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
+import { fetchApi } from "../../utils/fetchApi";
 import "./Nav.scss";
+
 const Nav = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("TOKEN");
   const [myCart, setMyCart] = useState([]);
   const [userData, setUserData] = useState([]);
+  const [myPoint, setMyPoint] = useState();
   const [logIn, setLogIn] = useState("");
-  const token = localStorage.getItem("TOKEN");
-  const { user } = userData;
   const [showCart, setShowCart] = useState(false);
-  const toggleCart = () => {
-    setShowCart(!showCart);
-  };
-  useEffect(() => {
+
+  const getUserData = async () => {
     if (!token) return;
-    fetch(`${API_ADDRESS_ORDERS}users`, {
-      method: "GET",
-      headers: { Authorization: token },
-    })
-      .then(res => res.json())
-      .then(data => {
-        setUserData(data);
-      });
-    fetch(`${API_ADDRESS_ORDERS}carts`, {
-      method: "GET",
-      headers: { Authorization: token },
-    })
-      .then(res => res.json())
-      .then(data => {
-        setMyCart(data);
-      });
-  }, [token, myCart]);
+    const response = await fetchApi(`users`);
+    setUserData(response.user);
+  };
+
+  const getCartsData = async () => {
+    if (!token) return;
+    const response = await fetchApi(`carts`);
+    setMyCart(response);
+  };
 
   const logOut = () => {
     setMyCart([]);
@@ -41,7 +32,15 @@ const Nav = () => {
     navigate("/");
   };
 
-  const myPoint = Math.floor(user?.points);
+  const toggleCart = () => {
+    setShowCart(!showCart);
+  };
+
+  useEffect(() => {
+    getUserData();
+    getCartsData();
+    setMyPoint(Math.floor(userData?.points));
+  }, []);
 
   return (
     <>
