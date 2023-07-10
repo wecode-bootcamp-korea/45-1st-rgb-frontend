@@ -21,7 +21,6 @@ const Nav = () => {
     if (!token) return;
     const response = await fetchApi(`users`);
     const { user } = response;
-    console.log("user", user);
     if (user) {
       setUserData(user);
       setMyPoint(Math.floor(user.points));

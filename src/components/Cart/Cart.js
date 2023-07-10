@@ -12,7 +12,6 @@ function Cart({ showCart, setShowCart, cartItems }) {
   const getCartsData = async () => {
     const response = await fetchApi(`carts`);
     setItems(response);
-    console.log("response", response);
   };
 
   return (

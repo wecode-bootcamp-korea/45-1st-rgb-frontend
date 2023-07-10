@@ -29,7 +29,6 @@ function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
     if (token) {
       postCart();
       setCartCount(!cartCount);
-      console.log("cartCount", cartCount);
     } else {
       setLogIn(<User setLogIn={setLogIn} />);
     }

@@ -2,14 +2,14 @@ import React from "react";
 import "./CheckoutProduct.scss";
 
 function CheckoutProduct({ cartItem }) {
-  const { image, price, title, count } = cartItem;
+  const { images, price, title, count } = cartItem;
 
   const productPrice = (parseInt(price) * parseInt(count)).toLocaleString();
 
   return (
     <div className="checkoutProduct">
       <div className="thumbnailWrap">
-        <img alt="product thumbnail" src={image} />
+        <img alt="product thumbnail" src={images[0]} />
       </div>
       <div className="checkoutProductRight">
         <div className="topRow">

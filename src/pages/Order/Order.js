@@ -15,7 +15,9 @@ function Order() {
     address: "",
     postalCode: "",
   });
-
+  const [isDelivery, setIsDelivery] = useState(true);
+  const [isCart, setIsCart] = useState(false);
+  
   const getSum = cartProductList => {
     let sum = 0;
     cartProductList.forEach(cartProduct => {
@@ -41,35 +43,9 @@ function Order() {
   }
 
   useEffect(() => {
-    // fetch(`${API_ADDRESS}carts`, {
-    //   headers: {
-    //     "Content-Type": "application/json; charset=utf-8",
-    //     Authorization: token,
-    //   },
-    // })
-    //   .then(res => {
-    //     return res.json();
-    //   })
-    //   .then(data => {
-    //     console.log("order", data);
-    //     setCartProductList(data);
-    //   });
-
-    // fetch(`${API_ADDRESS}users`, {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json; charset=utf-8",
-    //     Authorization: token,
-    //   },
-    // })
-    //   .then(response => response.json())
-    //   .then(data => setUserData(data.user));
     getCartsData();
     getUserData();
   }, []);
-
-  const [isDelivery, setIsDelivery] = useState(true);
-  const [isCart, setIsCart] = useState(false);
 
   return (
     <div className="order">

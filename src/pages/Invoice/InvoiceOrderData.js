@@ -3,7 +3,6 @@ import "./InvoiceOrderData.scss";
 
 function InvoiceOrderData({ invoiceData }) {
   const { products, total_price } = invoiceData;
-  console.log("products", products);
   let totalQuantity = 0;
   products.map(data => {
     return (totalQuantity += data.quantity);
