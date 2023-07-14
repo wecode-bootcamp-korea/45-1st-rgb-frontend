@@ -5,24 +5,22 @@ import Cart from "../Cart/Cart";
 import { fetchApi } from "../../utils/fetchApi";
 import "./Nav.scss";
 import { useRecoilValue } from "recoil";
-import { countState } from "../../recoil/atom";
+import { navDataUpdateState } from "../../recoil/atom";
 
 const Nav = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");
   const [myCart, setMyCart] = useState([]);
-  const [userData, setUserData] = useState([]);
   const [myPoint, setMyPoint] = useState();
   const [logIn, setLogIn] = useState("");
   const [showCart, setShowCart] = useState(false);
-  const nextCount = useRecoilValue(countState);
+  const navDataUpdate = useRecoilValue(navDataUpdateState);
 
   const getUserData = async () => {
     if (!token) return;
     const response = await fetchApi(`users`);
     const { user } = response;
     if (user) {
-      setUserData(user);
       setMyPoint(Math.floor(user.points));
     }
   };
@@ -46,12 +44,7 @@ const Nav = () => {
   useEffect(() => {
     getUserData();
     getCartsData();
-  }, []);
-
-  useEffect(() => {
-    getUserData();
-    getCartsData();
-  }, [nextCount]);
+  }, [navDataUpdate]);
 
   return (
     <>

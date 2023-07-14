@@ -3,7 +3,7 @@ import "./Cart.scss";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { fetchApi } from "../../utils/fetchApi";
-import { countState } from "../../recoil/atom";
+import { navDataUpdateState } from "../../recoil/atom";
 import { useRecoilState } from "recoil";
 
 export default function CartList({
@@ -13,7 +13,7 @@ export default function CartList({
   getCartsData,
   setItems,
 }) {
-  const [cartCount, setCartCount] = useRecoilState(countState);
+  const [cartCount, setCartCount] = useRecoilState(navDataUpdateState);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
   const token = localStorage.getItem("TOKEN");

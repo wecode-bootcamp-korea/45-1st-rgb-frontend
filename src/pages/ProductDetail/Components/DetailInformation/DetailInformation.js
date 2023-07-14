@@ -3,7 +3,7 @@ import Button from "../../../../components/Button/Button";
 import User from "../../../User/User";
 import { fetchApi } from "../../../../utils/fetchApi";
 import "./DetailInformation.scss";
-import { countState } from "../../../../recoil/atom";
+import { navDataUpdateState } from "../../../../recoil/atom";
 import { useRecoilState } from "recoil";
 
 function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
@@ -20,7 +20,7 @@ function DetailInformation({ details, setLogIn, setSoldOut, inOut, setInOut }) {
   } = details;
 
   const [count, setCount] = useState(1);
-  const [cartCount, setCartCount] = useRecoilState(countState);
+  const [cartCount, setCartCount] = useRecoilState(navDataUpdateState );
   const total = count * price;
   const [totalQuantity, setTotalQuantity] = useState(true);
   const token = localStorage.getItem("TOKEN");

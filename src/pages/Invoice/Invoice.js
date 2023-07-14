@@ -5,7 +5,7 @@ import InvoiceOrderData from "./InvoiceOrderData";
 import LoadingPage from "../LoadingPage/LoadingPage";
 import { fetchApi } from "../../utils/fetchApi";
 import { useRecoilState } from "recoil";
-import { countState } from "../../recoil/atom";
+import { navDataUpdateState } from "../../recoil/atom";
 import "./Invoice.scss";
 
 function Invoice() {
@@ -13,7 +13,7 @@ function Invoice() {
   const navigate = useNavigate();
   const orderId = params.orderNumber;
   const [invoiceData, setInvoiceData] = useState();
-  const [cartCount, setCartCount] = useRecoilState(countState);
+  const [cartCount, setCartCount] = useRecoilState(navDataUpdateState);
 
   const getOrderData = async () => {
     const response = await fetchApi(`orders/${orderId}`);
