@@ -13,26 +13,55 @@
 
 .invoiceOrderDataTable {
   width: 450px;
+  height: auto;
   margin-top: 20px;
 
-  & > tr {
+  & > div {
     @include flex(flex, row, center, space-between);
     height: 50px;
     padding: 10px;
     font-size: 14px;
   }
 
-  & > tr:first-child {
+  & > div:first-child {
     border-top: 3px solid $main-black;
     border-bottom: 1px solid $main-black;
   }
 
-  & > tr:nth-child(2) {
+  & > div:nth-child(2) {
     border-bottom: 1px solid $main-black;
   }
 
-  & > tr:last-child {
+  & > div:last-child {
     border-top: 3px solid $main-black;
+  }
+  
+  .orderDetailList > p {
+    margin-bottom: 7px;
+  }
+
+  .orderDetailList > span {
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .orderedDetailList{
+    @include flex(flex, column, flex-start, space-between);
+    width: auto;
+    height: auto;
+
+    & > div {
+    @include flex(flex, row, center, space-between);
+    width: 100%;
+      
+      & > span {
+        margin-bottom: 5px;
+      }
+
+      & > span:first-child{
+        width: 35%;
+      }
+    }
   }
 }
 
