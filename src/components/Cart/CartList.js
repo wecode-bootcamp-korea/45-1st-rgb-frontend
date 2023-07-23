@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 
-export default function CartList({ handleClose, setShowCart }) {
+const CartList = ({ handleClose, setShowCart }) => {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
@@ -65,8 +65,12 @@ export default function CartList({ handleClose, setShowCart }) {
 
   const increment = id => {
     const newItems = [...items];
-    newItems[id].count++;
-    setItems(newItems);
+    const item = newItems[id];
+
+    if (item.count < item.maxQuantity) {
+      item.count++;
+      setItems(newItems);
+    }
   };
 
   const deleteItem = id => {
@@ -178,4 +182,6 @@ export default function CartList({ handleClose, setShowCart }) {
       )}
     </>
   );
-}
+};
+
+export default CartList;
