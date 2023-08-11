@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { API_ADDRESS_ORDERS } from "../../utils/API_ADDRESS";
 
-const CartList = ({ handleClose, setShowCart }) => {
+export default function CartList({ handleClose, setShowCart }) {
   const [items, setItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const CartList = ({ handleClose, setShowCart }) => {
     })
       .then(res => res.json())
       .then(data => setItems(data));
-  }, []);
+  }, [token]);
 
   const handleCount = id => {
     const url = `${API_ADDRESS_ORDERS}carts/${items[id].id}`;
@@ -65,11 +65,12 @@ const CartList = ({ handleClose, setShowCart }) => {
 
   const increment = id => {
     const newItems = [...items];
-    const item = newItems[id];
 
-    if (item.count < item.maxQuantity) {
-      item.count++;
+    if (newItems[id].count < items[id].inventory) {
+      newItems[id].count++;
       setItems(newItems);
+    } else {
+      alert(`최대 수량은 ${items[id].inventory}개입니다.`);
     }
   };
 
@@ -94,7 +95,6 @@ const CartList = ({ handleClose, setShowCart }) => {
       return () => clearTimeout(timer);
     }
   }, [items, setShowCart]);
-
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
@@ -182,6 +182,4 @@ const CartList = ({ handleClose, setShowCart }) => {
       )}
     </>
   );
-};
-
-export default CartList;
+}
