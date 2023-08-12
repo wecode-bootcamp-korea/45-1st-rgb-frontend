@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import User from "../../pages/User/User";
@@ -12,9 +13,18 @@ const Nav = () => {
   const token = localStorage.getItem("TOKEN");
   const { user } = userData;
   const [showCart, setShowCart] = useState(false);
+
   const toggleCart = () => {
-    setShowCart(!showCart);
+    if (myCart.length === 0) {
+      setShowCart(true);
+      setTimeout(() => {
+        setShowCart(false);
+      }, 3000);
+    } else {
+      setShowCart(prevShowCart => !prevShowCart);
+    }
   };
+
   useEffect(() => {
     if (!token) return;
     fetch(`${API_ADDRESS_ORDERS}users`, {
